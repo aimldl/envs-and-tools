@@ -1,0 +1,10 @@
+#!/bin/bash
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+
+TEXT="Slide 3. Before we get started, let’s do a quick recap on AWS DeepRacer. Slide 4 for 1 minute. Developers told us they love the hands-on learning approach used in DeepLens. In 2018 Amazon SageMaker added support for Reinforcement Learning. We asked the question “How can we put Reinforcement Learning in the hands of all developers literally?” And so the idea of AWS DeepRacer was born. Slide 5 for 2 minutes. Before you tell customers they can order/pre-order the car, check if available in your region! Otherwise don’t call it out. At reinvent 2018 we launched AWS DeepRacer. AWS DeepRacer is a 1/18th scale robotic car which gives you an exciting and fun way to get started with reinforcement learning by applying it to autonomous racing. You can order/pre-order your AWS DeepRacer from Amazon today. AWS DeepRacer has a virtual racing simulator that allows you to train, evaluate, and iterate on your RL models in a racing environment, quickly and easily. And if you get really good, and want to showcase your machine learning skills in a competitive environment, there is the AWS DeepRacer league. You can compete in a global championship - racing your DeepRacer model- for a chance to win several prizes and advance to the AWS DeepRacer Championship Cup. Throughout 2019 there will be in person events at selected Aws Summits and a series of virtual competitions hosted in the virtual simulator, giving all developers the ability to compete."
+FILE_NAME="rl4bona-1.mp3"
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

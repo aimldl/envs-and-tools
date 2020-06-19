@@ -1,0 +1,10 @@
+#!/bin/bash
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+
+TEXT="Slide 22 for 4 mins. What are hyper parameters? These are parameters that feed into the reinforcement learning algorithm. They control various aspects of the algorithm, such as how quickly it should learn, how often we should train the network. What is the network again, the network is the “model” that when we give it an image or state as input, will return the action that should maximize the cumulative rewards from all future states. Weights are the “coefficients” in our neural network that help determine where we “look” in each picture to select the action that will maximize our expected cumulative rewards. Some PPO Parameters are. Learning rate. Controls how big the updates are to your network weights. If your learning rate is big the model will train fast but may not converge. Batch. When we update the network we don’t typically use all the experience at once. We carve up experience into batch sizes, and use each batch in turn to update the weights. Thus the network is updated one batch at a time. Epochs. Also we don’t always update our weights only once during each training run. 1 epoch means we update network only once, that is run through all batches once. 2 epochs means we run through all batches twice, so will train through all batches, and then retrain through all batches. Discount factor. This specifies how much future rewards contribute to the expected reward. The larger the discount factor the farther out the rewards that the model will consider, and slow down training.  With a discount of 0.9 the vehicle includes rewards from an order of 10 future steps. With a discount of 0.999 the vehicle considers rewards from an order of 1000 future steps. We recommend 0.99, 0.999, 0.9999. Espisodes between training. Specifies how much experience to obtain before training the model."
+FILE_NAME="rl4bona-9.mp3"
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

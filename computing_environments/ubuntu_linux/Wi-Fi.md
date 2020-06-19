@@ -1,0 +1,51 @@
+
+##### aimldl/computing_environments/ubuntu_linux/Wi-Fi.md
+
+
+### How to Get the MAC Address on Ubuntu (18.04)
+* Google search: "ubuntu how to get mac address"
+* You can access the address file for each device on the /sys virtual filesystem. The MAC address should be in /sys/class/net/<device-name>/address. For details, refer to [Output only MAC address on Ubuntu](https://askubuntu.com/questions/628383/output-only-mac-address-on-ubuntu).
+
+For all devices, 
+```bash
+$ cat /sys/class/net/*/address
+34:17:eb:5d:88:7c
+00:00:00:00:00:00
+64:5a:04:69:50:45
+$
+```
+For enp1s0, 
+```bash
+$ cat /sys/class/net/enp1s0/address
+34:17:eb:5d:88:7c
+```
+
+####
+Alternatively,
+```bash
+$ ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 02:42:72:c0:fc:76  txqueuelen 0  (Ethernet)
+           ...
+enp6s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 14:b3:1f:22:ef:e3  txqueuelen 1000  (Ethernet)
+           ...
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 482  bytes 32896 (32.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 482  bytes 32896 (32.8 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlp5s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 9c:b6:d0:ea:33:89  txqueuelen 1000  (Ethernet)
+          ...
+```
+## How to "Connect to Hidden Network"
+A hidden network is not visible. So the network name must be typed in manually. To access a hidden network, the MAC address is to be registered to the Wi-Fi router. To type in the network name manually, open:
+<img src='images/Settings_Wi-Fi_Connect_to_Hidden_Network-1.png'>
+
+For example, a Wi-Fi network can be set up as follows.
+<img src='images/Settings_Wi-Fi_Connect_to_Hidden_Network-2.png'>

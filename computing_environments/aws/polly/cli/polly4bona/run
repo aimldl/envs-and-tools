@@ -1,0 +1,10 @@
+#!/bin/bash
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+
+TEXT=""
+FILE_NAME="rl4bona-.mp3"
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

@@ -1,0 +1,118 @@
+#!/bin/bash
+# pcm2wav   Convert .pcm files to .wav files
+#
+# Usage:
+#   Step 1. Move this file to DIRECTORY where all the target .pcm files are located
+#           For example, directory /home/user/my_pcm_files has all the .pcm files.
+#             $ cd /home/user/my_pcm_files
+#   Step 2. Run pcm2wav and directory 'wav' will be created.
+#             $ .pcm2wav
+#   Step 3. All the converted .wav files are stored in directory 'wav'
+#             $ cd wav
+#             $ ls
+#
+# The key command converting a pcm file (input) to a wave file (output) is:
+# 
+#   $ ffmpeg -f s16le -ar 16k -ac 1 -i 001.pcm 001.wav
+#
+# -f  force format          PCM signed 16-bit little-endian
+# -ar audio rate            16kbps is the sampling rate.
+# -ac audio channels        1 (mono)
+# -i  input file
+#
+# The above command is applied to all .pcm files in a directory specified by the user.
+# For more options about ffmpeg, type in:
+#
+#   $ ffmpeg -h
+# 
+# Audio options:
+# -aframes number     set the number of audio frames to output
+# -aq quality         set audio quality (codec-specific)
+# -ar rate            set audio sampling rate (in Hz)
+# -ac channels        set number of audio channels
+# -an                 disable audio
+# -acodec codec       force audio codec ('copy' to copy stream)
+# -vol volume         change audio volume (256=normal)
+# -af filter_graph    set audio filters
+#
+# $ ffmpeg -formats |grep PCM
+# DE alaw            PCM A-law
+# DE f32be           PCM 32-bit floating-point big-endian
+# DE f32le           PCM 32-bit floating-point little-endian
+# DE f64be           PCM 64-bit floating-point big-endian
+# DE f64le           PCM 64-bit floating-point little-endian
+# DE mulaw           PCM mu-law
+# DE s16be           PCM signed 16-bit big-endian
+# DE s16le           PCM signed 16-bit little-endian
+# DE s24be           PCM signed 24-bit big-endian
+# DE s24le           PCM signed 24-bit little-endian
+# DE s32be           PCM signed 32-bit big-endian
+# DE s32le           PCM signed 32-bit little-endian
+# DE s8              PCM signed 8-bit
+# DE u16be           PCM unsigned 16-bit big-endian
+# DE u16le           PCM unsigned 16-bit little-endian
+# DE u24be           PCM unsigned 24-bit big-endian
+# DE u24le           PCM unsigned 24-bit little-endian
+# DE u32be           PCM unsigned 32-bit big-endian
+# DE u32le           PCM unsigned 32-bit little-endian
+# DE u8              PCM unsigned 8-bit
+#
+# * References
+#   WAVE PCM soundfile format
+#     http://soundfile.sapp.org/doc/WaveFormat/
+#   Can ffmpeg convert audio from raw PCM to WAV?
+#     https://stackoverflow.com/questions/11986279/can-ffmpeg-convert-audio-from-raw-pcm-to-wav
+#   "Part 3: Convert PCM to WAV w￣ith FFmpeg" from
+#   "6 Easiest Way for Converting PCM to WAV With Ease"
+#     https://www.anymp4.com/audio-converter/convert-pcm-to-wav.html
+#
+# Last updated: 2019-06-11 (Tue)
+# First written: 2018-05-25 (Fri)
+# Written by Tae-Hyung "T" Kim, Ph.D.
+#
+# Related blog
+#   pcm2wav: Linux, Shell Scripting, Python을 써서 .pcm을 .wav로 파일 포맷 변환 (In Korean)
+#   https://blog.naver.com/aimldl/221559323232
+
+# Change directory_with_pcm_files to your sub-directory name where all the pcm files exist
+# and uncomment #
+# cd directory_with_pcm_files
+
+# Speficy the output directory below.
+DIRECTORY="wav"
+
+# If the directory doesn't exist, make one.
+if [ ! -d $DIRECTORY ]; then
+  echo "Doesn't exist"
+  mkdir $DIRECTORY
+fi
+
+# Find all .pcm files in and convert them to the .wav format.
+for input_file in `find . -name "*.pcm"`
+do
+  # Change the file extension from .pcm to .wav.
+  output_file=`echo $input_file | sed 's/\//-/g' | sed 's/\.-//g' | sed 's/\.pcm/\.wav/g'`
+  # echo $input_file " " $output_file
+  # The format is set to s16le, 16k, and mono channel.
+  # Change these options as you need.
+
+  #CMD="ffmpeg -v quiet -f s16le -ar 16k -ac 1 -i $input_file ./wavefiles/$output_file"
+  CMD="ffmpeg -v quiet -f s16le -ar 16k -ac 1 -i $input_file ./$DIRECTORY/$output_file"
+  echo $CMD
+  eval $CMD
+done
+
+# Below is unused lines.
+
+#find . -name "*.pcm" -exec ffmpeg -f s16le -ar 16k -ac 1 -i {} {}.wav \;
+#find . -name "*.pcm.wav" -exec echo {} \; > wav_file.list
+#sed 's/\//-/g' wav_file.list|  sed 's/\.-//g'
+
+#for file in `cat wav_file.list`;
+#do
+#   echo $file
+
+#   echo $file | sed 's/\//-/g'|  sed 's/\.-//g'
+#done
+
+#ffmpeg -f s16le -ar 16k -ac 1 -i {} {}.wav \;

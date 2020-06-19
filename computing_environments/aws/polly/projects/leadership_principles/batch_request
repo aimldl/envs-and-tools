@@ -1,0 +1,20 @@
+#!/bin/bash
+#  batch_request
+#
+#  * Draft: 2020-05-11 (Mon)
+#
+#   This is a wrapper around request_polly_3men_3women
+
+
+TEXT=${1:-"Input a text to read out loud."}
+FILE_NAME=${2:-"output_filename.mp3"}
+FORMAT="mp3"
+
+TEXT_LIST="Leaders operate at all levels, stay connected to the details, audit frequently, and are skeptical when metrics and anecdote differ. No task is beneath them."
+
+
+for 
+
+  request_polly_3men_3women $TEXT $FILE_NAME $FORMAT
+
+
