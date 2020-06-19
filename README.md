@@ -2,7 +2,7 @@
 
 # Technical Skills
 
-## Purpose
+## Purpose of https://github.com/aimldl
 
 https://github.com/aimldl is created to collect and organize a small fraction of skills & knowledge in my career journey from 2018-ish. The repositories under https://github.com/aimldl is reorganized with purpose to develop and organize necessary skills, knowledge, and whatsoever for a (senior) data scientist.
 
@@ -28,28 +28,5 @@ Web articles used to collect the keywords are below. The hierarchy under https:/
 * [Becoming a Level 3.0 Data Scientist](https://towardsdatascience.com/becoming-a-level-3-0-data-scientist-52641ff73cb3)
 
 
-# Skills
-include
-* Data
 
 
-- - Analysis
-  - Cleansing
-  - Visualization
-
-Math
-
-Linear_algebra
-
-Data_wrangling
-Data_Visualization
-AI
-ML
-DL
-
-Cloud_computing
-
-Agile
-Github
-
-Data_presentation
