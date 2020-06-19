@@ -1,0 +1,27 @@
+#!/bin/bash
+# run
+
+CMD="g++ -o input_arguments get_opt.cc input_args_parser.cc main_input_arguments.cc"
+echo $CMD
+eval $CMD
+
+CMD="./input_arguments -v"
+echo $CMD
+eval $CMD
+# Expected output
+#[Program Name] 0.1
+
+CMD="./input_arguments -h"
+echo $CMD
+eval $CMD
+
+# Expected output
+#[Program Name] 0.1
+# Usage
+#   program_name [config_file] 
+#   config_file is located in directory config
+# Example
+#   program_name default.cfg
+# Options
+#   -h   help
+#   -v   version

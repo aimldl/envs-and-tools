@@ -1,0 +1,27 @@
+#!/bin/bash
+# Apr.15, 2008 (Wed)
+# Written by Tae-Hyung D.Kim, tk424 at mst dot edu
+
+echo "cluster results for 9x9 endgames">proc_output.out;
+echo -e "b\tr\tttl_no_clusters">>proc_output.out;
+for file in `ls *.aof`; do
+#   echo $file;
+   head $file | awk '{ 
+      if ( $0 ~/Total number of categories:/)
+      {
+         no_categories=$5;
+      }
+      else if ( $0 ~ /Learning parameter:/) 
+      {
+         b=$3;
+      } else if ( $0 ~ /Vigilance parameter: /)
+      {
+         r=$3;
+      }
+   } END {
+      outputfile="proc_output.out";
+      printf("%1.3f\t%1.3f\t%d\n",b, r, no_categories)>>outputfile;
+   }'
+done
+
+cat proc_output.out;

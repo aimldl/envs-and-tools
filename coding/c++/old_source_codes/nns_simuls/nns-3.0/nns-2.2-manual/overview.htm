@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<title>1.</title>
+<meta name="generator" content="Namo WebEditor">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<h1>1. Overview</h1>
+<p>1.1. <a href="#1_1">Purpose and the program name<br>
+</a> 1.2. <a href="#1_2">Tested platforms</a><br>
+ 1.3. <a href="#1_3">Manual revision 1.0</a><br>
+ 1.4. <a href="#1_4">nns version 1.0</a><br>
+ 1.5. <a href="#1_5">Directory structure</a></p>
+<h2><a name="1_1">1.1. Purpose and the program name</a></h2>
+<p>nns is a Neural Networks Simulator that targets to simulate CSRN (Cellular Simultaneous Recurrent Network). <br>The executables located in directory source_code/build or source_code/build_full are&nbsp;nns-1.0.exe or nns-1.0-full.exe.<br>
+ Directory build is a build optimized for execution and build_full is used for debugging purposes.<br>
+ An extension .exe is added for the debugging directory build_full because a debugging tool &quot;Eclipse&quot; does not recognize an executable &nbsp;without the extension.<br>
+By maintaining both directories separately, both of them can be compiled simultaneously.</p>
+<h2><a name="1_2">1.2. Tested platforms</a></h2>
+<p>This program is developped on Ubuntu Linux 8.4 hosted in VMWare Player running on Windows Vista.<br>
+And the system's default GNU C++ compiler, g++, is used.</p>
+<p>nns-1.0 is tested on&nbsp;Ubuntu Linux 8.4 and Redhat Linux.</p>
+<h2><a name="1_3">1.3. Manual revision 1.0</a></h2>
+<p><b>Manual revision history</b><br>
+Revision 1.0. &nbsp;&nbsp;&nbsp;&nbsp;Aug. 07, 2009 (Fri) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;README in the text format is convereted to the manual in the HTML format.<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As the size of README grows, it is more convenient to manage it in the HTML format.<br></p>
+<h2><a name="1_4">1.4. nns version 1.0</a></h2>
+<p>Version 1.4 is a C++ program with several supporting utility programs.</p>
+<p><b>Version update history</b><br>
+Version 1.0 &nbsp;&nbsp;&nbsp;Aug. 15, 2009 (Sat) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The first release.<br>
+Version 0.3 &nbsp;&nbsp;&nbsp;Aug 11, 2009 (Tue) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A group of Bash scripts are completed. and directory all-in-one package is created.<br>
+Version 0.2 &nbsp;&nbsp;&nbsp;May 13, 2009 (Wed) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The directory structure has been changed.<br>
+Version 0.1 &nbsp;&nbsp;&nbsp;2008 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Matlab code is rewritten in C++ for a string count problem in Go.<br>
+Version 0.0 &nbsp;&nbsp;&nbsp;2008 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Matlab program is written for a string count problem in Go. This is<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is nominally counted as version 1.0.</p>
+<h2><a name="1_5">1.5. Directory structure</a></h2>
+<p>/<br>&nbsp;&nbsp;&nbsp; bin<br>&nbsp;&nbsp;&nbsp; config_files<br>&nbsp;&nbsp;&nbsp; eclipse_project<br>&nbsp;&nbsp;&nbsp; gnuplot_config_files<br>&nbsp;&nbsp;&nbsp; .metadata<br>&nbsp;&nbsp;&nbsp; outputs<br>&nbsp;&nbsp;&nbsp; results<br>&nbsp;&nbsp;&nbsp; sgf_files<br>&nbsp;&nbsp;&nbsp; source_codes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; build<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; build_full<br>&nbsp;<br><b>Project&nbsp;directory</b><br> This directory&nbsp;contains sub-directories and the following files.<br>README, TODO, install, nns<br>
+<br> <b>bin</b><br>All the executables are stored in this directory. When nns-1.0.exe or nns-1.0-full.exe is <br>compiled, it is automatically copied to this directory.</p>
+<p>&nbsp;&nbsp;<b>nns-1.0.exe<br>
+ &nbsp;&nbsp;nns-1.0-full.exe<br>
+ &nbsp;&nbsp;nns_postprocess</b> <br>
+ &nbsp;&nbsp;<b>sgfc </b>is a program developped by Arno Hollosi which checks the SGF syntax. .<br>&nbsp;&nbsp;<b>sgf2gpf</b> &nbsp;is an utility script to convert a &quot;single&quot; SGF file to a corresponding <br>
+&nbsp;&nbsp; &nbsp;GSP file. SGF stands for Smart Game Format and GSP is Go Stone Positions.<br>&nbsp; &nbsp;&nbsp;GSP is a format that only stone positions are extracted from a SGF file.<br>&nbsp;&nbsp; &nbsp;This is necessary to to load game data in SGF. Note sgf2gpf is based on <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;sgf2nif.<br><br><b>source_codes</b><br>Directory source_codes contains the C++ source codes (*.cpp, *.hpp)<br>
+and Makefile.in. </p>
+<p><b>source_codes/build &amp; source_codes/build_full</b><br>
+Directory build and build_full contain Makefile. When the<br>
+source codes are compiled, the executables nns-1.0.exe and&nbsp;nns-1.0-full.exe are <br>
+created in build and build_full, respectively. After successful compilation, the compiled executables are copied to directory bin..</p>
+<p>Note an extension .exe is added to use a debugging tool &quot;Eclipse&quot; because <br>
+an executable without the extension is not recognized by a debugging tool Eclipse.<br>Directory build is a build optimized for execution and the other directory build_full is a build directory for debugging purposes.<br><br><b>config_files</b><br> A configuration file specifies the configurations to run a simulation by nns-1.0.exe/<br>
+nns-1.0-full.exe. For example, </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ ./nns-1.0.exe default.cfg</p>
+<p>Directory config_files is a repository to store config files. By default, nns-1.0.exe<br>
+checks directory config_files to locate a config file unless a directory is specified.<br>
+In other words, to read a config file in the current directory, use a prefix &quot;./&quot;.<br>
+For example, <br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ ./nns-1.0.exe ./currentDirectory.cfg</p>
+<p>Another reason why a configuration file is stored in a separate directory is because of Eclipse. Say a configuration file is stored in a directory where an executable for Eclipse is located. Then one may accidentally&nbsp;delete the config file by deleting the Eclipse directory. This accident can be a catastorphy or , at least, a waste of time to recover the exact config file.<br><br><b>gnuplot_config_files</b><br>This directory is a repository of configuration files for gnuplot, a plotting tool used by nns-1.0.exe/nns-1.0-full.exe.<br>
+ The extension of the gnuplot config file is &quot;.gpc&quot;. Note this file is different from the nns's configuration file or .cfg file.<br>Whether or not to launch a gnuplot is set in a .cfg file.<br> </p>
+<p><b>outputs</b><br>This directory is a repository of all kinds of simulation outputs. For example, the output files from the simulator &amp; gnuplot are stored here.<br>
+The simulator output is specifically said to be a trace file (*.trc).<br>
+If nns-1.0.exe/nns-1.0-full.exe is executed, the output file is stored in outputs. On the other hand, a subdirectory named the date is created and<br>
+the output files are stored under the subdirectory when nns is executed to launch multiple runs of nns-1.0.exe/nns-1.0-full.exe.</p>
+<p><b>results</b><br> This directory stores the &quot;final&quot; results. The purpose is just to separate meaningful &quot;final&quot; results from intermediate<br>data stored in directory outputs.<br></p>
+<p><b>eclipse_project</b><br>This is a directory created by Eclipse when this program is imported to Eclipse. <br>
+The program is developped without the use of Eclipse. An editor gedit with Makefile is sufficient.<br>
+However, it is convenient to go through the source codes with a debugger Eclipse or an IDE to use gdb.<br>
+</p>
+<p><b>.metadata</b><br>&quot;.metadata&quot; is a hidden directory created automatically by Eclipse when the Project directory is set as Eclipse's workspace.<br>
+ The Eclipse workspace is switched to the project directory. To switch workspace in Eclipse, select &quot;Switch Workspace&quot; in<br>
+Eclipse's file menu.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; File (menu) -&gt; Switch Workspace<br><br><b>sgf_files</b><br>This directory is a repository of SGF (Smart Game Format) files. This directory may be obsolete because it is taken from the old program.<br></p>
+<p><b>m_files</b><br>This directory is a repository of Matlab files taken from the old program. The territory estimator or the Neural Networks part is written in Matlab.<br>
+Note that this directory may be obsolete.</p>
+<p><a href="index.htm">Back to Table of Contents</a> <a href="how_to_install_nns.htm">next</a></p>
+<hr>
+<p>Copyright &copy; 2009 Tae-Hyung &quot;T&quot; Kim.</p>
+</body>
+
+</html>

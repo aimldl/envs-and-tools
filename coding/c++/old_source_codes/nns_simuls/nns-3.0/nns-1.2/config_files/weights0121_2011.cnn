@@ -1,0 +1,8 @@
+void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: 0	(0,0)	[1,0] 0	(0,0)	[1,1] 0	(0,0)	[1,2] 0	(0,0)	[1,3] 0	(0,0)	[1,4] 0	(0,0)	[1,5] 0	(0,0)	[1,6] 0	(0,0)	[2,0] 
+0	(0,1)	[1,0] 0	(0,1)	[1,1] 0	(0,1)	[1,2] 0	(0,1)	[1,3] 0	(0,1)	[1,4] 0	(0,1)	[1,5] 0	(0,1)	[1,6] 0	(0,1)	[2,0] 
+0	(1,0)	[1,0] 0	(1,0)	[1,1] 0	(1,0)	[1,2] 0	(1,0)	[1,3] 0	(1,0)	[1,4] 0	(1,0)	[1,5] 0	(1,0)	[1,6] 0	(1,0)	[2,0] 
+0	(1,1)	[1,0] 0	(1,1)	[1,1] 0	(1,1)	[1,2] 0	(1,1)	[1,3] 0	(1,1)	[1,4] 0	(1,1)	[1,5] 0	(1,1)	[1,6] 0	(1,1)	[2,0] 

@@ -1,0 +1,53 @@
+#ifndef  __CONFIGREINLEARNING_HPP_
+#define  __CONFIGREINLEARNING_HPP_
+
+#include  <string>
+#include  <iostream>
+#include  <fstream>
+
+#include  "Myiostream.hpp"
+
+using namespace  std;
+
+//==============================================================================
+//                              Type Definitions
+//==============================================================================
+
+//==============================================================================
+//                              Class Declaration
+//==============================================================================
+
+class     ConfigReinLearning : public Myiostream
+{
+public:
+	      ConfigReinLearning();
+	     ~ConfigReinLearning();
+
+  bool    process( const char* name, ifstream& inputObj, int& validNameFlag,
+	               int& validValueFlag, int& alreadyFoundFlag );
+  string  get_inputConfig_() const;
+  string  get_targetConfig_() const;
+
+private:
+  void    validate_dataRepresentation_();
+  void    validate_dataRepresentationOffset_();
+  void    validate_dataType_();
+
+  string  2dGridWorldSize_;
+
+  bool    inputConfig_found_;
+  bool    targetConfig_found_;
+  bool    dataRepresentation_found_;
+  bool    dataRepresentationOffset_found_;
+  bool    dataType_found_;
+
+  bool    isGotoBookmark_;
+};
+
+//==============================================================================
+//                                  Comments
+//==============================================================================
+
+
+#endif /* CONFIGREINLEARNING_HPP_ */
+

@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<title>3.</title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<h1>2. How to install the simulator</h1>
+<p>2.1. <a href="#2_1">How to install/uninstall nns</a><br>
+2.2. <a href="#2_2">The installation process</a><br>
+2.3. <a href="#2_3">The compilation process</a><br>
+2.4. <a href="#2_4">The uninstallation process<br>
+</a>2.5. <a href="#2_5">Makefile</a></p>
+<h2><a name="2_1">2.1. How&nbsp;to install/uninstall nns</a></h2>
+
+<P STYLE="margin-bottom: 0in">To install nns, type in<BR>
+</P>
+<P STYLE="margin-bottom: 0in">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ ./install</P>
+<P STYLE="margin-bottom: 0in">To uninstall, type in
+</P>
+<P STYLE="margin-bottom: 0in">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ ./install -u</P>
+
+<P STYLE="margin-bottom: 0in">&quot;install&quot; installs/uninstalls
+nns-1.0. It compiles both optimized and debugging mode of the program.</P>
+<P STYLE="margin-bottom: 0in">Usage: install [option]<br>
+Shell options:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h   help<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-u   uninstall<br>
+Type 'install -h' for help.</P>
+<h2 STYLE="margin-bottom: 0in"><a name="2_2">2.2. The installation process</a></h2>
+<P STYLE="margin-bottom: 0in">There are three main
+steps to install nns.</P>
+<p>Step 1. Set the PATH information for nns. Several parts of the program, e.g.
+nns.exe, nns, etc, are written assuming the PATH to the project
+directory and directory bin is set.
+</p>
+<p>Step 2. Compile the source codes. In essence, &quot;make&quot; in
+directory build or build_full. &quot;install&quot; runs commands
+in &quot;nns&quot; is written to &quot;make&quot;, e.g. &quot;nns -c
+ob&quot;. In other words, the following
+commands are equivalent.<BR>
+</p>
+<P STYLE="margin-bottom: 0in">       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~/nns-1.0/source_codes/build$
+make<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~/nns-1.0$ nns -c ob<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~/nns-1.0$ ./install</P>
+<p>Step 3. Double-check if the executables
+are compiled properly.</p>
+<h2 STYLE="margin-bottom: 0in"><a name="2_3">2.3. The compilation process</a></h2>
+<p>nns-1.0 can be manually compiled. The manual compilation process also explains the second step in the installation process.</p>
+<p>Step 1. Change directory to a build directory in the project&nbsp;directory.</p>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;$ cd source_codes/build&nbsp;<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ cd source_codes/build_full</p>
+<p>Step 2. &quot;Make&quot; the program.<br></p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ make<br></p>
+<p>Note Makefile in directory buildor build_full refers to Makefile.in in the project&nbsp;directory.<br></p>
+<h2 STYLE="margin-bottom: 0in"><a name="2_4">2.4. The uninstallation process</a></h2>
+<p>The uninstallation process is reciprocal to installation.<br>
+</p>
+<p>Step 1. &quot;make clean&quot;, &quot;nns -c oc&quot;, and &quot;./install -u&quot; are equivalent.</p>
+<p>Step 2. Double-check if the executables are removed properly.</p>
+<h2 STYLE="margin-bottom: 0in"><a name="2_5">2.5. </a>Makefile</h2>
+
+<P STYLE="margin-bottom: 0in">Makefile.in should be in the same
+directory where the source codes are stored, i.e. directory source_codes.<br>
+To compile the source codes, run `make` in
+directory either build or build_full.<br>
+These two sub-directories contain Makefile that includes&nbsp;Makefile.in with different compilation options.<br>
+The latter inserts the debugging information.<br>
+</P>
+<P STYLE="margin-bottom: 0in">Refer to the following directory
+structure.</P>
+<P STYLE="margin-bottom: 0in">	\source_codes &nbsp;&nbsp;&nbsp;Make.in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\build &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Makefile<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\build_full &nbsp;&nbsp;&nbsp;Makefile<br>
+ </P>
+<P STYLE="margin-bottom: 0in">The advantage of maintaining&nbsp;two separate
+directories and &quot;Makefile&quot;s&nbsp;two-fold.<br>
+First, it is possible to compile in the two
+directories simultaneously because the compiled
+results are stored in the two separate directories.<br>
+More importantly, the programmer can make a single change in Makefile.in to take effect of changing two &quot;Makefile&quot;s.</P>
+<P STYLE="margin-bottom: 0in"><b>Note for Eclipse-CDT users</b></P>
+<P STYLE="margin-bottom: 0in">  In order to import &amp; build these
+source codes, create a new standard Make C++
+project, i.e. &quot;File-&gt;New-&gt;Standard Make C++ Project&quot;.<br>
+Somehow, &quot;build all&quot;
+doesn't work for me. In other words, &quot;Project-&gt;Build
+All&quot; or &quot;Ctrl+B&quot; doesn't work. <br>
+So, add a new Make Target by
+selecting &quot;Build Make Target&quot; after right-clicking a
+Makefile in directory build_full or build. And
+then hit the &quot;Build&quot; button.<br>
+You should see messages on &quot;the
+Console View&quot;.</P>
+<p><a href="index.htm">Back to Table of Contents</a> <a href="running_the_program.htm">next</a></p>
+<hr>
+<p>Copyright © 2009 Tae-Hyung &quot;T&quot; Kim.</p>
+</body>
+
+</html>

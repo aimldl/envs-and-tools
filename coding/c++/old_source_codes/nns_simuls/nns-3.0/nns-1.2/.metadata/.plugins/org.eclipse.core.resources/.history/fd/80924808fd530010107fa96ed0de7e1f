@@ -1,0 +1,26 @@
+#ifndef CONFIGREINLEARNING_HPP_
+#define CONFIGREINLEARNING_HPP_
+
+
+//==============================================================================
+//                              Class Declaration
+//==============================================================================
+
+class     Config : public Myiostream
+{
+public:
+
+
+class ConfigReinLearning {
+public:
+	ConfigReinLearning();
+	virtual ~ConfigReinLearning();
+};
+
+//==============================================================================
+//                                  Comments
+//==============================================================================
+
+
+#endif /* CONFIGREINLEARNING_HPP_ */
+

@@ -1,0 +1,22 @@
+/*
+ * ConfigReinLearning.hpp
+ *
+ *  Created on: Mar 21, 2011
+ *      Author: tk424
+ */
+
+#ifndef CONFIGREINLEARNING_HPP_
+#define CONFIGREINLEARNING_HPP_
+
+
+//==============================================================================
+//                              Class Declaration
+//==============================================================================
+
+class ConfigReinLearning {
+public:
+	ConfigReinLearning();
+	virtual ~ConfigReinLearning();
+};
+
+#endif /* CONFIGREINLEARNING_HPP_ */

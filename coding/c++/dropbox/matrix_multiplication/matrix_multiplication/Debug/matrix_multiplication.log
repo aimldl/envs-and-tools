@@ -1,0 +1,7 @@
+﻿  matrix_multiplication.cpp
+c:\users\phil4\source\repos\matrix_multiplication\matrix_multiplication\matrix_multiplication.cpp(15): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\phil4\source\repos\matrix_multiplication\matrix_multiplication\matrix_multiplication.cpp(17): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\phil4\source\repos\matrix_multiplication\matrix_multiplication\matrix_multiplication.cpp(38): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\phil4\source\repos\matrix_multiplication\matrix_multiplication\matrix_multiplication.cpp(42): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\phil4\source\repos\matrix_multiplication\matrix_multiplication\matrix_multiplication.cpp(44): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  matrix_multiplication.vcxproj -> C:\Users\phil4\source\repos\matrix_multiplication\Debug\matrix_multiplication.exe

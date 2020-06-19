@@ -1,0 +1,6 @@
+
+**** Build of configuration Default for project source_codes ****
+
+make all 
+g++ -ggdb -o nns-1.2.exe Main.cpp ShellCommands.cpp Myiostream.cpp CommandLineArguments.cpp Config.cpp GetOpt.cpp MyStringUtilFunctions.cpp ConfigGnuPlot.cpp ConfigPso.cpp ConfigNeuralNetworks.cpp ConfigDirStruct.cpp ConfigSimulations.cpp ConfigData.cpp ConfigCnn.cpp ApiGnuplot.cpp ApiPostprocess.cpp SimObject.cpp BadukData.cpp TrainingAlgorithms.cpp Pso.cpp PsoParticle.cpp Neuron.cpp NeuralNetworks.cpp Cnn.cpp Cell.cpp NumberConversion.cpp RandomVariables.cpp Error.cpp ConfigReinLearning.cpp GridWorld.cpp ReinforcementLearning.cpp Location.cpp CliffWalkingProblem.cpp Sarsa.cpp RLGoEngine.cpp GoBoard.cpp
+cp nns-1.2.exe ../bin

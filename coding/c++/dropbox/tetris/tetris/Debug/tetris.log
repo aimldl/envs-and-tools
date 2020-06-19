@@ -1,0 +1,4 @@
+﻿  tetris.cpp
+c:\users\phil4\source\repos\tetris\tetris\tetris.cpp(102): warning C4101: 'Y' :참조되지 않은 지역 변수입니다.
+c:\users\phil4\source\repos\tetris\tetris\tetris.cpp(101): warning C4101: 'X' :참조되지 않은 지역 변수입니다.
+  tetris.vcxproj -> C:\Users\phil4\source\repos\tetris\Debug\tetris.exe

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INPUT_ARGS=$1;
+# Go to the directory where main_csrn is located.
+echo "   cd ..;"
+cd ..;
+
+RUN_CMD="./main_csrn -m 2 ${INPUT_ARGS}";
+echo "   ${RUN_CMD}";
+eval ${RUN_CMD};
+
+# Exit this program.
+exit 0;

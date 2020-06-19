@@ -1,0 +1,17 @@
+/*
+ * ConfigReinLearning.cpp
+ *
+ *  Created on: Mar 21, 2011
+ *      Author: tk424
+ */
+
+#include "ConfigReinLearning.hpp"
+
+ConfigReinLearning::ConfigReinLearning() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ConfigReinLearning::~ConfigReinLearning() {
+	// TODO Auto-generated destructor stub
+}

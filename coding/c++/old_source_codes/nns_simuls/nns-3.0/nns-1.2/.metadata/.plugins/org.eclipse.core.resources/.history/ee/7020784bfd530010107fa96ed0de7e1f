@@ -1,0 +1,9 @@
+#include  "ConfigReinLearning.hpp"
+
+ConfigReinLearning::ConfigReinLearning()
+{
+}
+
+ConfigReinLearning::~ConfigReinLearning()
+{
+}

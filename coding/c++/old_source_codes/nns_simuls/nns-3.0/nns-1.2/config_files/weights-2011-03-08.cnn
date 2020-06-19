@@ -1,0 +1,56 @@
+void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: 	[ layer, neuron ] = [2, 1]: 	[ layer, neuron ] = [2, 2]: 	[ layer, neuron ] = [3, 0]: void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: 	[ layer, neuron ] = [2, 1]: 	[ layer, neuron ] = [2, 2]: 	[ layer, neuron ] = [3, 0]: void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: 	[ layer, neuron ] = [2, 1]: 	[ layer, neuron ] = [2, 2]: 	[ layer, neuron ] = [3, 0]: void NeuralNetworks::randomize_weights_()
+	[ layer, neuron ] = [1, 0]: 	[ layer, neuron ] = [1, 1]: 	[ layer, neuron ] = [1, 2]: 	[ layer, neuron ] = [1, 3]: 	[ layer, neuron ] = [1, 4]: 	[ layer, neuron ] = [1, 5]: 	[ layer, neuron ] = [1, 6]: 	[ layer, neuron ] = [2, 0]: 	[ layer, neuron ] = [2, 1]: 	[ layer, neuron ] = [2, 2]: 	[ layer, neuron ] = [3, 0]: void NeuralNetworks::saveInitialWeights( int x, int y )
+0	(0,0)	[1,0]   neuronIndex=0: 0.200045 0.908211 0.208478 
+0	(0,0)	[1,1]   neuronIndex=1: 0.76516 0.476787 0.0902049 
+0	(0,0)	[1,2]   neuronIndex=2: 0.216109 0.995966 0.115771 
+0	(0,0)	[1,3]   neuronIndex=3: 0.819312 0.636675 0.230548 
+0	(0,0)	[1,4]   neuronIndex=4: 0.91541 0.0420951 0.889096 
+0	(0,0)	[1,5]   neuronIndex=5: 0.771794 0.9141 0.553741 
+0	(0,0)	[1,6]   neuronIndex=6: 0.883148 0.725116 0.0553128 
+0	(0,0)	[2,0]   neuronIndex=7: 0.626416 0.830867 0.715799 0.00653336 0.297176 0.838304 0.231965 0.0628603 
+0	(0,0)	[2,1]   neuronIndex=8: 0.581878 0.406987 0.262905 0.490089 0.615465 0.0280651 0.966876 0.70567 
+0	(0,0)	[2,2]   neuronIndex=9: 0.244175 0.962842 0.821441 0.0634865 0.599517 0.0519894 0.978896 0.641612 
+0	(0,0)	[3,0]   neuronIndex=10: 0.941085 0.750691 0.555712 0.494826 
+
+void NeuralNetworks::saveInitialWeights( int x, int y )
+0	(0,1)	[1,0]   neuronIndex=0: 0.392732 0.648772 0.750445 
+0	(0,1)	[1,1]   neuronIndex=1: 0.922491 0.653957 0.750794 
+0	(0,1)	[1,2]   neuronIndex=2: 0.0629428 0.157444 0.713738 
+0	(0,1)	[1,3]   neuronIndex=3: 0.042478 0.296758 0.522114 
+0	(0,1)	[1,4]   neuronIndex=4: 0.667706 0.954044 0.888358 
+0	(0,1)	[1,5]   neuronIndex=5: 0.68629 0.108557 0.513726 
+0	(0,1)	[1,6]   neuronIndex=6: 0.843693 0.320393 0.0580079 
+0	(0,1)	[2,0]   neuronIndex=7: 0.182719 0.374876 0.360177 0.229423 0.681546 0.550984 0.290149 0.109238 
+0	(0,1)	[2,1]   neuronIndex=8: 0.611918 0.503936 0.50197 0.26069 0.25438 0.424461 0.914647 0.00517497 
+0	(0,1)	[2,2]   neuronIndex=9: 0.487404 0.072091 0.718913 0.529882 0.368849 0.241028 0.197588 0.322892 
+0	(0,1)	[3,0]   neuronIndex=10: 0.129386 0.883878 0.431449 0.643112 
+
+void NeuralNetworks::saveInitialWeights( int x, int y )
+0	(1,0)	[1,0]   neuronIndex=0: 0.132719 0.812901 0.813461 
+0	(1,0)	[1,1]   neuronIndex=1: 0.689166 0.0338863 0.552187 
+0	(1,0)	[1,2]   neuronIndex=2: 0.465451 0.639799 0.930179 
+0	(1,0)	[1,3]   neuronIndex=3: 0.466655 0.931695 0.295773 
+0	(1,0)	[1,4]   neuronIndex=4: 0.707605 0.329902 0.569972 
+0	(1,0)	[1,5]   neuronIndex=5: 0.688643 0.843155 0.142787 
+0	(1,0)	[1,6]   neuronIndex=6: 0.83705 0.926144 0.67314 
+0	(1,0)	[2,0]   neuronIndex=7: 0.84724 0.46507 0.557631 0.540417 0.137265 0.708847 0.400927 0.121201 
+0	(1,0)	[2,1]   neuronIndex=8: 0.181343 0.851091 0.25392 0.994244 0.664552 0.943086 0.0281308 0.216739 
+0	(1,0)	[2,2]   neuronIndex=9: 0.408536 0.667929 0.146918 0.875191 0.599624 0.442691 0.582797 0.929526 
+0	(1,0)	[3,0]   neuronIndex=10: 0.0126631 0.27144 0.772681 0.15545 
+
+void NeuralNetworks::saveInitialWeights( int x, int y )
+0	(1,1)	[1,0]   neuronIndex=0: 0.55322 0.524218 0.565629 
+0	(1,1)	[1,1]   neuronIndex=1: 0.129406 0.324203 0.548904 
+0	(1,1)	[1,2]   neuronIndex=2: 0.0202105 0.0576474 0.254658 
+0	(1,1)	[1,3]   neuronIndex=3: 0.689242 0.872903 0.0529483 
+0	(1,1)	[1,4]   neuronIndex=4: 0.188423 0.715123 0.279068 
+0	(1,1)	[1,5]   neuronIndex=5: 0.406273 0.526744 0.294992 
+0	(1,1)	[1,6]   neuronIndex=6: 0.707209 0.801645 0.282543 
+0	(1,1)	[2,0]   neuronIndex=7: 0.151062 0.484877 0.491671 0.207274 0.113364 0.544 0.598432 0.48488 
+0	(1,1)	[2,1]   neuronIndex=8: 0.244029 0.437642 0.0380992 0.768246 0.00327103 0.167506 0.0924494 0.552175 
+0	(1,1)	[2,2]   neuronIndex=9: 0.187716 0.150097 0.806833 0.876958 0.0229993 0.859781 0.0653817 0.738123 
+0	(1,1)	[3,0]   neuronIndex=10: 0.138849 0.471655 0.264867 0.433841 
+

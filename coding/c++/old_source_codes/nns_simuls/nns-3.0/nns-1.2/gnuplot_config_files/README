@@ -1,0 +1,45 @@
+README for gnuplot
+
+Last modified: Jul. 31, 2009 (Fri)
+First written: Dec. 4, 2008 (Thu)
+
+Written by Tae-Hyung "T" Kim
+
+
+Gnuplot is a popular data visualization tool in Unix/Linux.
+A file extension .gpc stands for Gnu Plot Configuration.
+
+# Loading a GPC file in Gnuplot command prompt.
+A GPC file is a text file with configuration information.
+In order to run the config file, run 'gnuplot' and then load the script.
+For example,
+
+$ gnuplot
+	G N U P L O T
+	Version 4.2 patchlevel 2 
+	last modified 31 Aug 2007
+	System: Linux 2.6.24-21-generic
+
+	Copyright (C) 1986 - 1993, 1998, 2004, 2007
+	Thomas Williams, Colin Kelley and many others
+
+	Type `help` to access the on-line reference manual.
+	The gnuplot FAQ is available from http://www.gnuplot.info/faq/
+
+	Send bug reports and suggestions to 
+<http://sourceforge.net/projects/gnuplot>
+
+
+Terminal type set to 'wxt'
+
+gnuplot> load 'test_plot_sin.p'
+gnuplot> 
+
+
+# Installting Gnuplot
+To install gnuplot on Ubuntu Linux, type in the following command.
+
+  $ sudo apt-get install -y gnuplot
+
+I assume you have administrative rights and Internet connection.
+If this command does not work, refer to some Internet resources.

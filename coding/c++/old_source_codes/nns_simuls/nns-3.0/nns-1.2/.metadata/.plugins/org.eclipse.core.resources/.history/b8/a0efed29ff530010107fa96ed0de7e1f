@@ -1,0 +1,80 @@
+#include  "ConfigReinLearning.hpp"
+
+//==============================================================================
+//                        Static Public functions
+//==============================================================================
+//==============================================================================
+//                            Public functions
+//==============================================================================
+
+
+ConfigReinLearning::ConfigReinLearning()
+  :
+ isGotoBookmark_( false ),
+ twoDGridWorldSize_( "none" ),           twoDGridWorldSize_found_( false )
+{
+}
+
+ConfigReinLearning::~ConfigReinLearning()
+{
+}
+
+bool
+ConfigReinLearning::process
+(
+  const char* name,
+  ifstream&   inputObj,
+  int&        validNameFlag,
+  int&        validValueFlag,
+  int&        alreadyFoundFlag
+)
+{
+  isGotoBookmark_ = false;
+
+  //==========================================================================
+  if ( !strcmpNoCase( name, "rl_2d_grid_world_size" ) )
+  {
+	string tmpString;
+
+    validNameFlag = 1;
+    if ( twoDGridWorldSize_found_ == true )
+    {
+      alreadyFoundFlag = 1;
+      isGotoBookmark_ = true;
+      goto bookmark;
+    }
+    if ( inputObj >> tmpString || inputObj.eof() )
+    {
+      tout << "  Set '" << name << "' to '" << tmpString << "'" << endl;
+      validValueFlag = 1;
+      twoDGridWorldSize_found_ = true;
+    }
+    isGotoBookmark_ = true;
+    goto bookmark;
+  }
+
+  //==========================================================================
+
+bookmark:
+
+return isGotoBookmark_;
+}
+
+int
+ConfigReinLearning::get_twoDGridWorldSizeX_() const
+{
+  return twoDGridWorldSize_[0];
+}
+
+int
+ConfigReinLearning::get_twoDGridWorldSizeY_() const
+{
+  return twoDGridWorldSize_[1];
+}
+
+//==============================================================================
+//                            Protected functions
+//==============================================================================
+//==============================================================================
+//                            Private functions
+//==============================================================================

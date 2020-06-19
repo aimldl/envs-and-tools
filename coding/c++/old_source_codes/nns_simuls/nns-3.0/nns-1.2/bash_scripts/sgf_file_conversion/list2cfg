@@ -1,0 +1,13 @@
+#!/bin/bash
+# list2cfg         lists files into a cfg file.
+#
+# Last updated:  Oct.15, 2008 (Wed)
+# First written: Oct.15, 2008 (Wed)
+# Version: 1.1
+# Written by Tae-Hyung D. Kim, tk424@mst.edu
+
+FILE_OUTPUT=9x9.cfg
+
+for filename in `ls`;do
+   echo $filename >> ${FILE_OUTPUT};
+done

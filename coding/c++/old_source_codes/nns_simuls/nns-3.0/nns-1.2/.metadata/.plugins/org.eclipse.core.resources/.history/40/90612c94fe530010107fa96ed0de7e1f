@@ -1,0 +1,73 @@
+#include  "ConfigReinLearning.hpp"
+
+//==============================================================================
+//                        Static Public functions
+//==============================================================================
+//==============================================================================
+//                            Public functions
+//==============================================================================
+
+
+ConfigReinLearning::ConfigReinLearning()
+  :
+ isGotoBookmark_( false ),
+ inputConfig_( "none" ),           inputConfig_found_( false ),
+{
+}
+
+ConfigReinLearning::~ConfigReinLearning()
+{
+}
+
+bool
+ConfigReinLearning::process
+(
+  const char* name,
+  ifstream&   inputObj,
+  int&        validNameFlag,
+  int&        validValueFlag,
+  int&        alreadyFoundFlag
+)
+{
+  isGotoBookmark_ = false;
+  //==========================================================================
+  if ( !strcmpNoCase( name, "data_input_config" ) )
+  {
+    validNameFlag = 1;
+    if ( inputConfig_found_ == true )
+    {
+      alreadyFoundFlag = 1;
+      isGotoBookmark_ = true;
+      goto bookmark;
+    }
+    if ( inputObj >> inputConfig_ || inputObj.eof() )
+    {
+      tout << "  Set '" << name << "' to '" << inputConfig_ << "'" << endl;
+      validValueFlag = 1;
+      inputConfig_found_ = true;
+    }
+    isGotoBookmark_ = true;
+    goto bookmark;
+  }
+
+  //==========================================================================
+
+bookmark:
+
+return isGotoBookmark_;
+}
+
+string
+ConfigReinLearning::get_inputConfig_() const
+{
+  return inputConfig_;
+}
+
+
+//==============================================================================
+//                            Protected functions
+//==============================================================================
+
+//==============================================================================
+//                            Private functions
+//==============================================================================
