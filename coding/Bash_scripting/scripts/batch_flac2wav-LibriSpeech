@@ -1,0 +1,131 @@
+#!/bin/bash
+#  batch_flac2wav-LibriSpeech
+#
+#    LibriSpeech ASR Corpus is available at http://www.openslr.org/12/
+#
+#    * Rev.1:2020-01-08 (Wed)
+#    * Draft:2020-01-07 (Tue)
+#
+#  Important:
+#    1. Check the commands first by commenting out the "eval $cmd" parts.
+#       flac2wav{} {
+#             ...
+#           #eval $cmd
+#         done
+#       }
+#    2. Make sure to uncomment "eval $cmd" in order to run the script in actuality.
+#       flac2wav{} {
+#             ...
+#           eval $cmd
+#         done
+#       }
+#
+#  Usage Examples:
+#    (pytorch) ubuntu@ec2-seoul-gpu:~/wav2vec/src$ chmod +x batch_flac2wav-LibriSpeech
+#    (pytorch) ubuntu@ec2-seoul-gpu:~/wav2vec/src$ ./batch_flac2wav-LibriSpeech
+#      or use the nohup command to run it background.
+#    (pytorch) ubuntu@ec2-seoul-gpu:~/wav2vec/src$ nohup ./batch_flac2wav-LibriSpeech &
+#    [1] 420
+#    (pytorch) ubuntu@ec2-seoul-gpu:~/wav2vec/src$ nohup: ignoring input and appending output to 'nohup.out'
+#
+#  To Check the Progress, you may use the tail or wc command.
+#      $ ls train/ | tail
+#    Or you may count the number of converted files with the wc command.
+#      $ ls train/ | wc -l
+
+flac2wav() {
+  # Usage:
+  #   flac2wav input_directory [output_directory]
+  # The default output_directory is "wav".
+  #
+  # Examples:
+  #   1. Without output_directory
+  #     flac2wav /home/ubuntu/wav2vec/dataset/LibriSpeech/train-clean-100/103/1240
+  #   2. With output_directory
+  #     flac2wav /home/ubuntu/wav2vec/dataset/LibriSpeech/train-clean-100/103/1240 /home/ubuntu/wav2vec/dataset/LibriSpeech-wav/train
+
+  DIR_INPUT=${1}
+  DIR_OUTPUT=${2:-"wav"}
+  cmd="cd ${DIR_INPUT}"
+  echo $cmd
+  eval $cmd
+  #echo "DIR_OUTPUT=$DIR_OUTPUT"
+
+  # If no output directory is specified, create a sub-directory "wav" to save the converted file.
+  if [ ${DIR_OUTPUT} == "wav" ];then
+    cmd="mkdir -p wav"  # -p: wav is not created if exists.
+    echo $cmd
+    eval $cmd
+  fi
+
+  list_files=`ls *.flac`
+  for file_name in $list_files; do
+    #echo $file_name
+    cmd="ffmpeg -i $file_name ${DIR_OUTPUT}/$(basename ${file_name/.flac}).wav"
+    #echo $cmd
+    eval $cmd
+  done
+}
+
+batch_flac2wav() {
+  # Usage:
+  #   batch_flac2wav sub-task_directory [task]
+  # If task is not specified, it's empty.
+  #
+  # Examples:
+  #   1. Without task
+  #     batch_flac2wav train-clean-100
+  #   2. With $TASK
+  #     batch_flac2wav train-clean-100 train
+
+  DIR_DATASET="~/wav2vec/dataset"
+  DIR_SUBTASK=${1}  # e.g. train-clean-100
+  DIRECTORY="${DIR_DATASET}/LibriSpeech/${DIR_SUBTASK}"
+  TASK=${2}  # e.g. train
+  if [ ! -z $TASK ];then  # if not empty
+    DIR_TASK="${DIR_DATASET}/LibriSpeech-wav/${TASK}"
+  fi
+
+  #echo ${DIRECTORY}
+
+  #list_subdirs=`ls -lad ${DIR_PROJECT}/train-clean-100/*/* | awk '{ print($9); }'`
+  #  fails with the following error.
+  #  ls: cannot access '~/wav2vec/dataset/LibriSpeech/train-clean-100/*/*': No such file or directory
+  CMD="ls -lad ${DIRECTORY}/*/*"
+  list_subdirs=`eval $CMD | awk '{ print($9); }'`
+  #echo $list_subdirs
+
+  for subdir in $list_subdirs; do
+    #echo $subdir
+    flac2wav $subdir $DIR_TASK  # DIR_TASK may or may not be empty.
+  done
+}
+
+# Create a directory to store all the converted files
+DIR_WAV="~/wav2vec/dataset/LibriSpeech-wav"
+CMD="mkdir -p ${DIR_WAV}"
+eval $CMD
+CMD="cd ${DIR_WAV}"
+eval $CMD
+
+# Iterate through the tasks
+list_tasks='train test dev'
+for task in $list_tasks; do
+  CMD="mkdir -p $DIR_WAV/$task"
+  eval $CMD
+  echo "task=$task"
+  if [ $task=="train" ];then
+    list_subtasks='train-clean-100 train-clean-360 train-other-500'
+  elif [ $task=="train" ];then
+    list_subtasks='test-clean test-other'
+  elif [ $task=="train" ];then
+    list_subtasks='dev-clean dev-other'
+  elif [ $task=="all" ];then
+    list_subtasks='train-clean-100 train-clean-360 train-other-500 test-clean test-other dev-clean dev-other'
+  fi
+
+  for subtask_dir in $list_subtasks; do
+    echo "  Sub_task=$subtask_dir"
+    batch_flac2wav $subtask_dir $task
+  done
+done

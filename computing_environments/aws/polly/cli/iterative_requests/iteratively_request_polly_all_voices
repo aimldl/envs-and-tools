@@ -1,0 +1,51 @@
+#!/bin/bash
+# iteratively_request_polly_all_voices
+#   requests Amazon Polly to read many texts out loud by all voices
+#
+# * Rev.2: 2019-12-04 (Wed)
+# * Rev.1: 2019-11-28 (Thu)
+# * Draft: 2018-12-18 (Tue)
+# Written by Tae-Hyung "T" Kim, Ph.D.
+#
+# Usage:
+#   $ ./iteratively_request_polly_all_voices input_file.txt
+# How it works:
+#   Basically, this script calls "request_polly_all_voices" iteratively.
+#   input_file.txt includes multiple lines of text.
+#   Each line ends with '\n' and has a text for "request_polly_all_voices".
+#   "request_polly_all_voices" requires a file name as an input argument because:
+#   The usage of "request_polly_all_voices" is:
+#     $ ./request_polly_simple "Input a text to read out loud"  output_filename.mp3
+#       or to specify the format to pcm
+#     $ ./request_polly_simple "Input a text to read out loud"  output_filename.pcm pcm
+#
+#   The file name is automatically created by replacing a whitespace to an underscore "_".
+
+# Command line arguments
+FILE_NAME=${1:-"filtered_document_list-0.999.txt"}
+
+
+# src: Linux/UNIX: Bash Read a File Line By Line
+#      https://www.cyberciti.biz/faq/unix-howto-read-line-by-line-from-file/
+# src: How to remove carriage return and newline from a variable in shell script
+#      https://stackoverflow.com/questions/15520339/how-to-remove-carriage-return-and-newline-from-a-variable-in-shell-script
+# src: The easiest way to replace white spaces with (underscores) _ in bash [closed]
+#      https://stackoverflow.com/questions/1706431/the-easiest-way-to-replace-white-spaces-with-underscores-in-bash
+
+while IFS= read -r LINE
+do
+  #text=$(echo "$LINE" | tr -d '\n')  # To remove the ending newline
+  #echo "'${LINE}'"
+  TEXT=${LINE}
+  #echo "'${TEXT}'"
+
+  # Replace all whitespaces to underscores.
+  FILE_NAME_TEXT=`echo ${TEXT} | sed -e 's/ /_/g'`".pcm"
+  #echo "${FILE_NAME_TEXT}"
+
+  # Run request_polly_simple for each TEXT.
+  CMD="./request_polly_all_voices '${TEXT}' ${FILE_NAME_TEXT} pcm"
+  echo $CMD
+  #eval $CMD
+
+done < "${FILE_NAME}"

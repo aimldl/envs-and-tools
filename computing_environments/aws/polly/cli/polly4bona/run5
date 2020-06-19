@@ -1,0 +1,10 @@
+#!/bin/bash
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+
+TEXT="Slide 13 for 4 minutes. Let’s look at an example of policy optimization – vanilla policy gradient. This is a method where we parameterized our policy function, the parameters are simply the weights in a neural network, and the neural network represents our policy function. All this policy function does is take an image as input and outputs an action. Thus mapping state to action. We then optimize that policy to get the best action from each state. Our goal is to get the maximum cumulative reward. We train our model we update the weights by trying to maximize the cumulative future reward, and in doing so we give higher probability to the action that leads to the higher cumulative future reward. DeepRacer uses a form of Policy Optimization, called Proximal Policy Optimization. Slide 14 for 4 minutes. On this slide we provide a high level overview of the whole training process when using PPO. On the left we have our simulator using the latest policy (model) to get new experience. The experience is fed into an experience replay buffer which feeds our Proximal Policy Optimization algorithm. While PPO is a policy optimization method that uses an actor critic method to learn. Actor Updates Policy using Clipped updates. We clip updates top prevent the policy from being updated too much, a common issue with policy optimization methods. Typically we keep the ratio of new and old policy in [0.8, 1.2]. Critic tells actor how good the action taken was and how the actor should adjust its network. Once the policy is updated the new policy is sent to get more experience."
+FILE_NAME="rl4bona-5.mp3"
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

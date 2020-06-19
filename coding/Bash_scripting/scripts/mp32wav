@@ -1,0 +1,42 @@
+#!/bin/bash
+# mp32wav
+#   ffmpeg converts all .mp3 files (in the current directory) to .wav files
+#
+# Reference:
+#   Bash script to convert all *flac to *.mp3 with FFmpeg?
+#     https://unix.stackexchange.com/questions/114908/bash-script-to-convert-all-flac-to-mp3-with-ffmpeg
+#   How to use FFMpeg to do Simple Audio Conversion
+#     https://www.howtoforge.com/tutorial/ffmpeg-audio-conversion/
+# Usage
+#   $ ./mp32wav please-
+# Detailed Usage
+#   $ ls
+#   mp32wav  please-  would_you_like-
+#   $ ls
+#   $ ./mp32wav please-
+#   $
+#   $ ls please-/*.wav
+#   please-/please_say_hello.wav
+#   ...
+#   please-/please_say_hi.wav
+#   $
+
+#DIR_INPUT='please-'
+#DIR_OUTPUT=$DIR_INPUT
+
+DIR_INPUT=$1
+cd ${DIR_INPUT}
+
+# Convert all .mp3 files to .wav
+for file_name in *.mp3; do
+  cmd="ffmpeg -i $file_name $(basename ${file_name/.mp3}).wav"
+  echo $cmd
+  eval $cmd
+done
+
+#cd ${DIR_INPUT}
+#for file_name in *.mp3; do
+#  cmd="ffmpeg -i $file_name ${DIR_OUTPUT}/$(basename ${file_name/.mp3}).wav"
+#  echo $cmd
+#  eval $cmd
+#done

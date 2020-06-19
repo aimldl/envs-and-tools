@@ -1,0 +1,31 @@
+#!/bin/bash
+# batch_git_pull
+#   This script runs git pull in all sub-directories for all the repositories in https://github.com/aimldl.
+#
+#   Rev.8: 2020-06-19 (Fri)
+#   Rev.7: 2020-05-28 (Thu)
+#   Rev.6: 2020-03-01 (Sun)
+#   Rev.5: 2020-02-25 (Tue)
+#   Rev.4: 2020-02-06 (Thu) 
+#   Rev.3: 2020-01-26 (Sun)
+#   Rev.2: 2019-12-27 (Fri)
+#   Rev.1: 2019-11-19 (Tue)
+#   Draft: 2019-11-11 (Mon)
+
+dir_root=${PWD}
+repos="technical_skills non_technical_skills knowledge_in aimldl.github.io"
+#repos="ml_dl aimldl.github.io python3 documents aws computing_environments"
+#repos="sql matlab cpp bindsnet career private"
+
+for repo in ${repos};
+do
+  # cd to the repo's directory
+  CMD="cd ${dir_root}/${repo}"
+  echo $CMD
+  eval $CMD
+  
+  # pull from the specified repo
+  CMD="git pull"
+  echo $CMD
+  eval $CMD
+done

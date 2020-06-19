@@ -1,0 +1,24 @@
+#!/bin/bash
+# request_polly_simple
+#   creates a single file to read a text out loud.
+#
+# * Rev.1: 2019-11-28 (Thu)
+# * Draft: 2018-12-18 (Tue)
+# Written by Tae-Hyung "T" Kim, Ph.D.
+#
+# Usage:
+#   $ ./request_polly_simple "Input a text to read out loud"  output_filename.mp3
+
+#TEXT='Input a text to read out loud.'
+#FILE_NAME='output_filename.mp3'
+# Command line arguments
+TEXT="$1"
+FILE_NAME="$2"
+
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

@@ -1,0 +1,15 @@
+#!/bin/bash
+# request_polly-i_love_you
+# * Rev.1: 2019-11-28 (Thu)
+# * Draft: 2018-12-18 (Tue)
+# Written by Tae-Hyung "T" Kim, Ph.D.
+
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+TEXT='Hey, Bona. I love you.'
+FILE_NAME='iloveyou.mp3'
+
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

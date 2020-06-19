@@ -1,0 +1,5 @@
+#!/bin/bash
+# space2underscore
+
+TEXT=$1
+echo "${TEXT}" | sed 's/ /_/g'

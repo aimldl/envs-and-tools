@@ -1,0 +1,10 @@
+#!/bin/bash
+OPTION_FORMAT='mp3'
+OPTION_VOICE='Joey'
+OPTIONS="--output-format ${OPTION_FORMAT} --voice-id ${OPTION_VOICE}"
+
+TEXT="Slide 15 for 2 minutes. RL agent gets training data by itself in simulated environment. RL algorithm. Behavioral Cloning – expert driver controls car and logs images from car and steering input. Supervised learning. We will take about how to bridge the simulation to real domain transfer challenge later. Slide 16 for 0.5 minutes. The previous section should have taken 29 minutes. You have 91 minutes left or 1hr and 31 minutes. For the remainder of this talk we will be focusing on the virtual simulator and what you should expect when building your reinforcement learning models. Slide 17 for 3 min. Just a quick warm up lap before the race starts. AWS DeepRacer uses Amazon SageMaker to train the RL models, AWS RoboMaker to provide the simulation environment, Amazon S3 to store models, Amazon CloudWatch to store logs, and Amazon Kinesis Video Stream to display the video in the console. The service is built on top of other AWS services. When you start training a model in AWS DeepRacer the following happens. AWS DeepRacer starts an Amazon SageMaker container, and an AWS RoboMaker container in your service account and links the two. It then passes the right parameters to start the training. The experience (state, action, new state, reward) tuples are generated in AWS RoboMaker and after a specified amount of experience is obtained it is sent back to Amazon SageMaker to train the model. The new model is then sent back to AWS RoboMaker to get more experience, and so the process continues. The outputs (models, video, and metrics) are stored in other AWS services in your account. By logging into each of these services you will see the data created from your DeepRacer training jobs. "
+FILE_NAME="rl4bona-6.mp3"
+CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${FILE_NAME}"
+echo $CMD
+eval $CMD

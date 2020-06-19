@@ -1,0 +1,124 @@
+
+# TODO:
+#  This is a code snippet from nns_simuls/nns-1.2/postproc_nns.
+#  Make it an example.
+
+
+################################################################################
+#                                Procedures                                    #
+################################################################################
+# This is part is solely for option -o
+showShortUsage() {
+echo "Usage: ${COMMAND_NAME} file_to_process [option]
+  This script should ALWAYS be run in the project directory.
+Shell options:
+  -o   options
+Examples:
+  ./${COMMAND_NAME} -o 0
+Values before/after the options are set:
+  -o   OPT_OPTION=-1;   OPT_OPTION=n; n is an integer taken from the input argument.
+Type \`${COMMAND_NAME} -h\` for more help.";
+}
+
+showUsage()
+{
+echo "
+${COMMAND_NAME} is designed to postprocess trace files created by running
+nns-1.2.exe or nns.bash, which executes nns-1.2 in the bash script.
+
+nns (Neural Networks Simulator) is written to simulate CSRN (Cellular
+Simultaneous Recurrent Network), a variant of neural networks in
+cellular structure.
+
+Currently, the CSRN is trained with PSO (Particle Swarm Optimization).
+The training data is a Go board or the board representation in computer Go.
+
+Input: a single output file in the Neural Networks Simulator Format (*.out)
+Output: postprocessed files
+Usage: ${COMMAND_NAME} [target_output_directory] [option]
+
+A chunk of lines in all 'error.prf's in all the sub-directories of a target output
+directory or 'target_output_directory' are collected and stored in a single file.
+In each sub-directory, there exists a trace file for the error profile or 'error.prf'.
+A command extracts several lines on the first and last lines from 'error.prf'.
+
+Example:
+  $ ./${COMMAND_NAME}
+  $ ./${COMMAND_NAME} -o 2
+  $ ./${COMMAND_NAME} -d ~/2008-2010.nns/nns-1.2/outputs/temp/2011-03-10_2x2_white
+  $ ./${COMMAND_NAME} -d ~/2008-2010.nns/nns-1.2/outputs/temp/2011-03-10_2x2_white -o 2
+
+The first example is the default command.
+  By default, the target output directory is a directory under directory 'outputs'
+  named with the date when the simulation is run.
+
+The second example is the default command with option 2.
+  The target output directory is identical to the first example. The option is user-
+  specific. The user can write a code and add it to the part for option 2.
+
+The third example is another frequently used command.
+  This command provides more flexibility to the user because one can specify the target
+  output directory. This command is especially useful when the user changed a directory
+  name or when a target output directory is moved/archived into a directory other than
+  directory 'outputs'.
+
+The fours example is identical to the third example except the option is specified.
+
+Shell options:
+   -h   help. Type \`${COMMAND_NAME} -h\` for help.
+   -d   target output directory.
+   -e   email when the job is done.
+        Command 'mail' should be properly configured in advance to use this feature.
+        Talk to your system administrator to configure 'mail'. EMAIL_RECIPIENTS is hardcoded.
+        Change variable EMAIL_RECIPIENTS in this file if neccessary.
+   -o   options
+   -s   silent mode
+   -v   version information
+
+Values before/after the options are set:
+   -e   OPT_EMAIL=0;           OPT_EMAIL=1;
+   -o   OPT_OPTION=-1;         OPT_OPTION=n; n is an integer taken from the input argument.
+   -s   OPT_SILENTMODE=0;      OPT_SILENTMODE=1;
+
+Examples:
+   ${COMMAND_NAME} example.out
+
+Bug report: Please report bugs at mrtonnet [at] gmail [dot] com.";
+}
+
+show_version_info()
+{
+   echo "  ${COMMAND_NAME} version ${VERSION}, ${VER_RELEASED}. ";
+}
+
+################################################################################
+#                          Command line arguments                              #
+################################################################################
+MIN_NUM_OF_ARGS=0;
+if [ $# -lt ${MIN_NUM_OF_ARGS} ];then
+   showUsage;
+   exit 1;
+fi
+
+################################################################################
+#                           Command line options                               #
+################################################################################
+COMMAND_LINE_OPTS=":d:heo:sv";
+
+while getopts ${COMMAND_LINE_OPTS} Option; do
+   case ${Option} in
+      d ) DIR_TARGETOUTPUT=${OPTARG}; ;;
+      h ) showUsage; exit 1; ;;
+      e ) OPT_EMAIL=1;
+          echo -e "\033[36mWhen the job's done, an email will be sent to ${EMAIL_RECIPIENTS}.\033[0m";
+          ;;
+      o ) OPT_OPTION=${OPTARG}; ;;
+      s ) OPT_SILENTMODE=1; ;;
+      v ) show_version_info; exit 1; ;;
+      * ) echo "Unknown command line option."; # -${Option}.";
+      	  echo "Type \`${COMMAND_NAME} -h\` for help.";
+      	  exit 1;
+      	;;
+   esac
+done
+shift $((${OPTIND} -1))

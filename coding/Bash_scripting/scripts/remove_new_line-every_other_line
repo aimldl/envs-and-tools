@@ -1,0 +1,7 @@
+#!/bin/bash
+# remove_new_line-every_other_line
+# * Rev.1: 2019-12-16 (Mon)
+# * Draft: 2019-06-27
+
+# TODO: Change the file names
+sed -e n\;d < every_two_lines.txt > every_lines.txt

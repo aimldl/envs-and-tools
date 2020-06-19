@@ -1,0 +1,31 @@
+#!/bin/bash
+# batch_git_push
+#   This script runs git push in all sub-directories for all the repositories in https://github.com/aimldl.
+#
+#   Rev.3: 2019-12-27 (Fri)
+#   Rev.2: 2019-11-19 (Tue)
+#   Rev.1: 2019-11-15 (Fri)
+#   Draft: 2019-11-11 (Mon)
+#
+# Syntax
+#   $ batch_git_push "Pass this message to git commit -m"
+#     saves the input argument to MSG. Don't forget to use parenthesis.
+#
+#   $ batch_git_push
+#     adds the default message specified in MSG.
+
+dir_root=${PWD}
+repos="aws cpp python3 sql computing_environments documents matlab bindsnet career private"
+#repos="aws cpp sql computing_environments documents matlab bindsnet private"
+#MSG="Add new stuff by batch_git_push"
+MSG=${1:-"Add new stuff by batch_git_push"}
+for repo in ${repos};
+do
+  CMD="cd ${dir_root}/${repo}"
+  echo $CMD
+  eval $CMD
+
+  CMD="git add . && git commit -m '${MSG}' && git push"
+  echo $CMD
+  eval $CMD
+done

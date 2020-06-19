@@ -1,0 +1,39 @@
+#!/bin/bash
+# request_polly_3men_3women
+#   requests Amazon Polly to read a text out loud by all voices
+#
+# * Rev.2: 2020-05-11 (Mon)  Based on request_polly_all_voices
+# * Rev.1: 2019-11-28 (Thu)
+# * Draft: 2018-12-18 (Tue)
+# Written by Tae-Hyung "T" Kim, Ph.D.
+#
+# Usage:
+#   $ ./request_polly_simple "Input a text to read out loud"  output_filename.mp3
+#     or to specify the format to pcm
+#   $ ./request_polly_simple "Input a text to read out loud"  output_filename.pcm pcm
+
+# Command line arguments
+TEXT=${1:-"Input a text to read out loud."}
+FILE_NAME=${2:-"output_filename.mp3"}
+FORMAT=${3:-"mp3"}
+
+BASE_NAME=$(basename ${FILE_NAME/.mp3})
+#echo $BASE_NAME
+
+# All voices for English in the order of:
+# English (British) (en-GB)
+# English (US) (en-US)
+# English (Australian) (en-AU)
+# English (Welsh) (en-GB-WLS)
+# English (Indian) (en-IN)
+# Source: https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
+#VOICES="Amy Emma Brian Ivy Joanna Kendra Kimberly Salli Joey Justin Matthew Nicole Russell Geraint Aditi Raveena"
+VOICES="Amy Emma Brian Joey Matthew Nicole"  # Three men & women (except child)
+for VOICE in ${VOICES}; do
+  NEW_FILE_NAME=${BASE_NAME}-${VOICE}.${FORMAT}
+
+  OPTIONS="--output-format ${FORMAT} --voice-id ${VOICE}"
+  CMD="aws polly synthesize-speech ${OPTIONS} --text '${TEXT}' ${NEW_FILE_NAME}"
+  echo $CMD
+  eval $CMD
+done

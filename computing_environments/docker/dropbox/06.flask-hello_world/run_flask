@@ -1,0 +1,39 @@
+#!/bin/bash
+#   run_flask
+#
+#   Last updated: 2018-06-13 (Wed)
+#   First written: 2018-06-13 (Wed)
+#
+#   Written by Tae-Hyung "T" Kim, Ph.D
+#
+# The following command will run the image in the Bash terminal.
+# 
+# $ docker images
+# REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+# flask-template            latest              088664a9e440        19 hours ago        951MB
+# mrtonnet/flask-template   latest              088664a9e440        19 hours ago        951MB
+# ...
+# $ docker run -it 088664a9e440 /bin/bash
+# root@da3d9e9bb08d:/#
+#
+# This script does it automatically.
+# $ chmod +x run_flask
+# $ ./run_flask
+# root@f4bd14941471:/# exit
+# exit
+# $
+
+OPTION=$1
+
+IMAGE_ID=`docker images | grep "mrtonnet\/flask-template" | awk '{ print $3;}'`
+
+if [ $OPTION = "bash" ]; then
+  docker run -it $IMAGE_ID /bin/bash
+elif [ $OPTION = "flask" ]; then
+#  docker run -d -p 5000:5000 $IMAGE_ID /bin/bash
+  docker run -d -p 5000:5000 $IMAGE_ID /bin/bash/python docker_hello_world.py
+else
+  echo "Not ready yet"
+fi
+
+
