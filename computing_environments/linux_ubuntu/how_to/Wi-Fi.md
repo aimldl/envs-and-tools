@@ -1,27 +1,20 @@
+* Rev.1: 2020-06-22 (Mon)
+* Draft: 2020-
 
-##### aimldl/computing_environments/ubuntu_linux/Wi-Fi.md
+# How to Get the MAC Address on Ubuntu (18.04)
 
+## Summary
 
-### How to Get the MAC Address on Ubuntu (18.04)
+* If the `ifconfig` command is available, use it to get the MAC address.
+* If not, `/sys/class/net/<device-name>/address` contains the MAC address of a device `device-name`. 
+
+## Web Search
+
 * Google search: "ubuntu how to get mac address"
 * You can access the address file for each device on the /sys virtual filesystem. The MAC address should be in /sys/class/net/<device-name>/address. For details, refer to [Output only MAC address on Ubuntu](https://askubuntu.com/questions/628383/output-only-mac-address-on-ubuntu).
 
-For all devices, 
-```bash
-$ cat /sys/class/net/*/address
-34:17:eb:5d:88:7c
-00:00:00:00:00:00
-64:5a:04:69:50:45
-$
-```
-For enp1s0, 
-```bash
-$ cat /sys/class/net/enp1s0/address
-34:17:eb:5d:88:7c
-```
+## Use the `ifconfig` command
 
-####
-Alternatively,
 ```bash
 $ ifconfig
 docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
@@ -43,8 +36,30 @@ wlp5s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         ether 9c:b6:d0:ea:33:89  txqueuelen 1000  (Ethernet)
           ...
 ```
+## Use the `cat` command
+
+Using the `cat` command gets you the MAC address directly from `/sys/class/net/<device-name>/address`.  There was an occasion when `ifconfig` was not installed because it was right after Ubuntu Linux 18.04 was installed and the Internet was not available yet. To get the Internet access, I had to connect a hidden WiFi network. To register my computer to the hidden WiFi network, the MAC address was required. 
+
+### For all devices
+
+```bash
+$ cat /sys/class/net/*/address
+34:17:eb:5d:88:7c
+00:00:00:00:00:00
+64:5a:04:69:50:45
+$
+```
+
+### When `device-name` is `enp1s0`
+
+```bash
+$ cat /sys/class/net/enp1s0/address
+34:17:eb:5d:88:7c
+```
+
 ## How to "Connect to Hidden Network"
-A hidden network is not visible. So the network name must be typed in manually. To access a hidden network, the MAC address is to be registered to the Wi-Fi router. To type in the network name manually, open:
+
+A hidden network is not visible. So the network name must be typed in manually. To access a hidden network with **MAC Authentication**, the MAC address must be registered to the Wi-Fi router. To type in the network name manually, open:
 <img src='images/Settings_Wi-Fi_Connect_to_Hidden_Network-1.png'>
 
 For example, a Wi-Fi network can be set up as follows.
