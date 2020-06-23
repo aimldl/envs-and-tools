@@ -49,6 +49,13 @@ Scroll down to find `Korean`, check the box for Korean, and click the `Apply` bu
 
 The `Applying changes` window pops up and installation begins.
 
+
+After the installation is complete, make sure Korean is added in the 'Language Support' window.
+
+TODO
+<img src="images/">
+
+
 Alternatively, you may run the following commands, but not enough to set up everything.
 ```bash
 $ sudo apt install -y language-pack-ko
@@ -86,8 +93,6 @@ If
 
 https://github.com/aimldl/technical_skills/tree/master/computing_environments/linux_ubuntu/how_to/images
 
-
-<img src="images/">
 <img src="images/">
 
 
