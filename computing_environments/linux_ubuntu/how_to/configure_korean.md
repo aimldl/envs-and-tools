@@ -140,23 +140,35 @@ Select `Korean (Hangul)` and the `Add` button is highlighted in green. Click the
 
 <img src="images/ubuntu_18_04-settings-region_and_language-korean_hangul_is_added.png">
 
-## 
-
-<img src="images/">
-
-
-<img src="images/">
-
 ## 6. Verify and use the Korean input system
+### How to switch the input languages
+Press the `Super+Space` key (`Ctrl+Space` in some cases). To see the instructions, open the `Input Source Options` window. Go to `Settings > Region & Language` and click the `Options` button in the `Input Sources` section.
 
+<img src="images/ubuntu_18_04-settings-region_and_language-input_sources-options.png">
 
-On the top right corner, the `en` icon is shown.
+### How to check the current input language
+On the top right corner, the current input language is shown as an icon.
+### When `English(US)` is the input language
+`en` icon is shown.
+<img src="images/ubuntu_18_04-gui-language_input_source.png">
 
-Switch the language to Korean by pressing the `Super+Space` key. `en` is changed to `EN`.
+Click the `en` icon and you can check the full information on the input language.
+<img src="images/ubuntu_18_04-gui-language_input_source-english_us.png">
 
+### When `Korean(Hangul)` is the input language
+`EN` icon is shown, but `Korean(Hangul)` is selected.
 
-Press the `한/영` key in the keyboard to switch to `Korean`.
+<img src="images/ubuntu_18_04-gui-language_input_source-korean_hangul.png">
 
+This is weird, but it will make sense with a little bit explanation. The Korean input system supports both English and Korean. An additional key `한/영` exists on every keyboard made in Korea. This key helps switching the two languages quickly. So it's a two-step process. 
+
+Step 1. Switch to the `Korean` mode by pressing the `Super+Space` key.
+
+Step 2. Press the `한/영` key to switch the input language between `English` and `Korean`.
+
+I don't like this. The Ubuntu developers should fix this problem. 
+
+The way I walk around this problem is that I keep my input language to the `Korean` mode all the time and use the `한/영` key to switch between `English` and `Korean`. 
 
 
 ## Troubleshoot
