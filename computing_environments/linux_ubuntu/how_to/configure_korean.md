@@ -42,7 +42,7 @@ In `Settings > Region & Language` presented above, click `Manage Installed Langu
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
 Click the `Install/Remove Languages...` button and the `Installed languages` are shown.
-<img src="images/ubuntu_18_04-language_support-installed_languages.png">
+<img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-initial_window.png">
 
 Scroll down to find `Korean`, check the box for Korean, and click the `Apply` button.
 <img src="images/ubuntu_18_04-language_support-installed_languages-korean.png">
