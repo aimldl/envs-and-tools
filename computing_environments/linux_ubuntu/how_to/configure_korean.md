@@ -128,11 +128,11 @@ First, open the `Settings > Region & Language` window. Notice the `Input Sources
 
 <img src="images/ubuntu_18_04-settings-region_and_language-cropped_the_bottom_part.png">
 
-Click the `+` button in the `Input Sources` section and the `Add an input source` windows pops up.
+Click the `+` button in the `Input Sources` section and the `Add an Input Source` windows pops up.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source.png">
 
-Click `Korean` and the list of supported input sources are shown.
+Click `Korean` in the list and the list of supported input sources are shown.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source-korean-list_of_supported_input_sources.png">
 
@@ -147,7 +147,8 @@ Select `Korean (Hangul)` and the `Add` button is highlighted in green. Click the
 
 <img src="images/">
 
-## Verify 
+## 6. Verify and use the Korean input system
+
 
 On the top right corner, the `en` icon is shown.
 
