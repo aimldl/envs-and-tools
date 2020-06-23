@@ -73,7 +73,7 @@ In the previous step, the language packs are installed. When the installation is
 ## 4. Verify if the language packs are installed.
 Make sure Korean is added in the 'Language Support' window.
 
-<img src="images/">
+<img src="images/ubuntu_18_04-language_support-language-korean.png">
 
 
 
