@@ -33,7 +33,9 @@ And the search results are shown like below.
 
 #### Step 3. Click `Region & Language` next to `Settings`
 And the `Region & Language` window is launched.
+
 <img src="images/ubuntu_18_04-settings-region_and_language.png">
+
 
 In `Settings > Region & Language`, click `Manage Installed Languages` to launch the `Language Support` window.
 
