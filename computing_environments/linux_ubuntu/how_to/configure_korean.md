@@ -150,9 +150,11 @@ Press the `Super+Space` key (`Ctrl+Space` in some cases). To see the instruction
 On the top right corner, the current input language is shown as an icon.
 ### When `English(US)` is the input language
 `en` icon is shown.
+
 <img src="images/ubuntu_18_04-gui-language_input_source.png">
 
 Click the `en` icon and you can check the full information on the input language.
+
 <img src="images/ubuntu_18_04-gui-language_input_source-english_us.png">
 
 ### When `Korean(Hangul)` is the input language
@@ -170,6 +172,27 @@ I don't like this. The Ubuntu developers should fix this problem.
 
 The way I walk around this problem is that I keep my input language to the `Korean` mode all the time and use the `한/영` key to switch between `English` and `Korean`. 
 
+### Opening the `IBusHangul Setup`
+To set up `IBus Hangul`, click the language icon and the drop-down menu for the input language is shown.
+
+<img src="images/ubuntu_18_04-gui-korean_dropdown_menu.png">
+
+Click `Setup` to open the `IBusHangul Setup` window.
+
+<img src="images/ubuntu_18_04-ibushangul_setup.png">
+
+You can play around with this.
+
+### Turning on the Hangul Mode
+In the drop-down menu, it is possible to turn on the hangule mode.
+
+<img src="images/ubuntu_18_04-gui-language_input_source-hangul_mode-on.png">
+
+The problem is this mode is reset when I switched back to English by pressing the `Super+Space` buttons.
+
+<img src="images/ubuntu_18_04-gui-korean_dropdown_menu.png">
+
+[TODO: Fix this. I have to leave it as it is for now.]
 
 ## Troubleshoot
 만약 설치를 끝내고 난 후에도 목록에 한국어가 없다면 Install/Remove Languages에서 설치된 Korean을 지우고 동일한 방법으로 설치하시면 됩니다.
