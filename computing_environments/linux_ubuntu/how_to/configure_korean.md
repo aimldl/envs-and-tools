@@ -36,10 +36,9 @@ And the `Region & Language` window is launched.
 
 <img src="images/ubuntu_18_04-settings-region_and_language.png">
 
-
-In `Settings > Region & Language`, click `Manage Installed Languages` to launch the `Language Support` window.
-
 ## 2. Install language packs
+In `Settings > Region & Language` presented above, click `Manage Installed Languages` to launch the `Language Support` window below.
+
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
 Click the `Install/Remove Languages...` button and the `Installed languages` are shown.
