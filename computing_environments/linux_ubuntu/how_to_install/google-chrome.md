@@ -1,5 +1,5 @@
 * Rev.1: 2020-06-23 (Tue)
-* Draft: 2019-03-02 ()
+* Draft: 2019-03-02 (Sat)
 # How to Install Google Chrome on Ubuntu 18.04
 ## Purpose
 The following command used to work:
