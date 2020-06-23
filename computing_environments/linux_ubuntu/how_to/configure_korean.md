@@ -64,15 +64,6 @@ A pop-up window `The language support is not installed completely` may open when
 #### Step 2. Set `Keyboard input method system` to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
-
-https://tobelinuxer.tistory.com/15
-
-https://greedywyatt.tistory.com/105
-
-https://gabii.tistory.com/entry/Ubuntu-1804-LTS-%ED%95%9C%EA%B8%80-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95
-
-https://github.com/aimldl/technical_skills/tree/master/computing_environments/linux_ubuntu/how_to/images
-
 #### Step 3. Open a terminal and launch the `IBus Preferences` window.
 Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
@@ -88,7 +79,7 @@ $ ibus-setup
 
 #### Step 4. 
 
-
+https://github.com/aimldl/technical_skills/tree/master/computing_environments/linux_ubuntu/how_to/images
 
 
 <img src="images/">
@@ -111,3 +102,4 @@ If no search result is shown, the language packs are not installed properly. Go 
 ## References
 * [[Ubuntu] Ubuntu 18.04 LTS 한글 설치 및 설정](https://gabii.tistory.com/entry/Ubuntu-1804-LTS-%ED%95%9C%EA%B8%80-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95)
 * [[UBUNTU] 18.04에서 한글 입력 및 한영키 사용](https://tobelinuxer.tistory.com/15)
+* [[Ubuntu 18.04] 한글 입력 추가 및 한영키 사용 설정](https://greedywyatt.tistory.com/105)
