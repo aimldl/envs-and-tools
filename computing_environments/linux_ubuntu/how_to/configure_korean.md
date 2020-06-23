@@ -37,7 +37,7 @@ And the `Region & Language` window is launched.
 <img src="images/ubuntu_18_04-settings-region_and_language.png">
 
 ## 2. Install language packs
-In `Settings > Region & Language` presented above, click `Manage Installed Languages` to launch the `Language Support` window below.
+In `Settings > Region & Language` presented above, click `Manage Installed Languages` to launch the `Language Support` window shown below.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
@@ -49,23 +49,15 @@ Scroll down to find `Korean`, check the box for Korean, and click the `Apply` bu
 
 The `Applying changes` window pops up and installation begins.
 
-
-
-If a pop-up window `The language support is not installed completely` may open, click `install` and install the language support completely.
-
-<img src="images/ubuntu_18_04-language_support-the_language_support_is_not_installed_completely.png">
-
-
-
-
-<img src="images/">
-<img src="images/">
-
-The following commands are still valid, but not enough to set up everything.
+Alternatively, you may run the following commands, but not enough to set up everything.
 ```bash
 $ sudo apt install -y language-pack-ko
 $ sudo apt install -y korean*
 ```
+
+A pop-up window `The language support is not installed completely` may open when the `Language Support` window is open again. If so, click `install` and install the language support completely.
+
+<img src="images/ubuntu_18_04-language_support-the_language_support_is_not_installed_completely.png">
 
 ## 3. Configure IBus
 #### Step 1. Set `Keyboard input method system` to `IBus`
@@ -85,6 +77,12 @@ $ ibus-setup
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add.png">
 
 #### Step 4. 
+
+
+
+
+<img src="images/">
+<img src="images/">
 
 
 
