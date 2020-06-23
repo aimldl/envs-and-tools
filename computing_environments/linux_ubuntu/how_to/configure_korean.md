@@ -60,17 +60,25 @@ A pop-up window `The language support is not installed completely` may open when
 <img src="images/ubuntu_18_04-language_support-the_language_support_is_not_installed_completely.png">
 
 ## 3. Configure IBus
-#### Step 1. Set `Keyboard input method system` to `IBus`
+#### Step 1. Log out & log back in or reboot the system
+#### Step 2. Set `Keyboard input method system` to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
-#### Step 2. Open a terminal and launch the `IBus Preferences` window.
+
+https://tobelinuxer.tistory.com/15
+
+https://greedywyatt.tistory.com/105
+
+https://gabii.tistory.com/entry/Ubuntu-1804-LTS-%ED%95%9C%EA%B8%80-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95
+
+#### Step 3. Open a terminal and launch the `IBus Preferences` window.
 Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
 $ ibus-setup
 ```
 <img src="images/ubuntu-configure_korean-ibus_preferences-launch_window.png">
 
-#### Step 3. Click the `Input Method` tab and the `Add` button
+#### Step 4. Click the `Input Method` tab and the `Add` button
 <img src="images/ubuntu_18_04-ibus_preferences-input_method.png">
 
 `IBus Preferences > Input Method -> Add` launches the `Select an input method` window.
