@@ -19,9 +19,18 @@ Click the dropdown menu, `Settings` and then `Region & Language`
 ### Option 2: Search and launch the `Region & Language` menu
 Click `Show Applications`, search for `Region & Language` and click 
 
-<img src="images/">
-<img src="images/">
-<img src="images/">
+#### Step 1. Click the `Show Applications` menu on the bottom left corner.
+<img src="images/ubuntu_18_04-show_applications_button.png">
+
+And the following menu is open.
+<img src="images/ubuntu_18_04-show_applications-menu.png">
+
+#### Step 2. Search for `Region & Language` in the search box
+<img src="images/ubuntu_18_04-show_applications-search_box-region.png">
+
+And the search results are shown like below.
+<img src="images/ubuntu_18_04-show_applications-search_box-region-result.png">
+
 <img src="images/">
 
 
@@ -31,6 +40,12 @@ Click `Show Applications`, search for `Region & Language` and click
 $ sudo apt install -y language-pack-ko
 $ sudo apt install -y korean*
 ```
+
+<img src="images/">
+<img src="images/">
+<img src="images/">
+
+
 ## Configure ibus
 Launch the `IBus Preferences` window. Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
