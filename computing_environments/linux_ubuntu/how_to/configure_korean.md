@@ -75,21 +75,22 @@ Make sure Korean is added in the 'Language Support' window.
 
 <img src="images/ubuntu_18_04-language_support-language-korean.png">
 
+Note there will be a problem in the next step where IBus is configured if the language pack is not installed properly. There will be no search result with `Korean` in the next step while Korean needs to be selected.
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
+## 5. Configure IBus
 
-## 3. Configure IBus
-
-#### Step 2. Set `Keyboard input method system` to `IBus`
+#### Step 1. Set `Keyboard input method system` to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
-#### Step 3. Open a terminal and launch the `IBus Preferences` window.
+#### Step 2. Open a terminal and launch the `IBus Preferences` window.
 Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
 $ ibus-setup
 ```
 <img src="images/ubuntu-configure_korean-ibus_preferences-launch_window.png">
 
-#### Step 4. Click the `Input Method` tab and the `Add` button
+#### Step 3. Click the `Input Method` tab and the `Add` button
 <img src="images/ubuntu_18_04-ibus_preferences-input_method.png">
 
 `IBus Preferences > Input Method -> Add` launches the `Select an input method` window.
@@ -110,8 +111,6 @@ https://github.com/aimldl/technical_skills/tree/master/computing_environments/li
 
 <img src="images/">
 
-If no search result is shown, the language packs are not installed properly. Go back to the previous step and fix the problem first.
-<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
 <img src="images/">
 <img src="images/">
