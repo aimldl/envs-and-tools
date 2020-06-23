@@ -77,6 +77,11 @@ $ ibus-setup
 `IBus Preferences > Input Method -> Add` launches the `Select an input method` window.
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add.png">
 
+Click the vertical dots `...` and a search box shows up. Enter 'Korean' to search for Korean.
+
+If 
+
+
 #### Step 4. 
 
 https://github.com/aimldl/technical_skills/tree/master/computing_environments/linux_ubuntu/how_to/images
