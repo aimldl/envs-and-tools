@@ -31,8 +31,9 @@ And the following menu is open.
 And the search results are shown like below.
 <img src="images/ubuntu_18_04-show_applications-search_box-region-result.png">
 
-<img src="images/">
-
+#### Step 3. Click `Region & Language` next to `Settings`
+And the `Region & Language` window is launched.
+<img src="images/ubuntu_18_04-settings-region_and_language.png">
 
 
 ## Install
