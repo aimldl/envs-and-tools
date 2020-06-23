@@ -28,7 +28,7 @@ $ sudo apt install nomacs -y
 ```bash
 $ nomacs
 ```
-<img src="images/linux-nomacs-laungh_window.png">
+<img src="images/linux-nomacs-launch_window.png">
 
 ## Snapshot
 This is a snapshot of Nomacs after opening multiple image files. The option is `Panels > Thumbnail Preview (Shift+T)`. I was able to feel the productivity boost compared to the basic image viewer.
