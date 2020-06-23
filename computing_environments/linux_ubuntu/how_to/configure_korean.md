@@ -37,6 +37,7 @@ And the `Region & Language` window is launched.
 <img src="images/ubuntu_18_04-settings-region_and_language.png">
 
 ## 2. Install language packs
+### 2.1. Install the language packs with GUI
 In `Settings > Region & Language` presented above, click `Manage Installed Languages` to launch the `Language Support` window shown below.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
@@ -47,16 +48,10 @@ Click the `Install/Remove Languages...` button and the `Installed languages` are
 Scroll down to find `Korean`, check the box for Korean, and click the `Apply` button.
 <img src="images/ubuntu_18_04-language_support-installed_languages-korean.png">
 
-The `Applying changes` window pops up and installation begins.
+The `Applying changes` window pops up and installation begins. Wait until the installation is complete.
 
-
-After the installation is complete, make sure Korean is added in the 'Language Support' window.
-
-TODO
-<img src="images/">
-
-
-Alternatively, you may run the following commands, but not enough to set up everything.
+### 2.2. Install the language packs with CLI (Command Line Interface)
+Alternatively, you may run the following commands in the terminal.
 ```bash
 $ sudo apt install -y language-pack-ko
 $ sudo apt install -y korean*
@@ -66,8 +61,24 @@ A pop-up window `The language support is not installed completely` may open when
 
 <img src="images/ubuntu_18_04-language_support-the_language_support_is_not_installed_completely.png">
 
+[TODO: I think these commands are not enough to set up everything. But I keep it here at any rate for the future chance to revise this article.]
+
+## 3. Reboot the system
+In the previous step, the language packs are installed. When the installation is complete, reboot the system.
+
+* Do reboot the system.
+* Do not `Log out & log back in`. 
+  * I've seen web articles to `log out & log back in` which didn't work and wasted another 30 minutes or so.
+
+## 4. Verify if the language packs are installed.
+Make sure Korean is added in the 'Language Support' window.
+
+<img src="images/">
+
+
+
 ## 3. Configure IBus
-#### Step 1. Log out & log back in or reboot the system
+
 #### Step 2. Set `Keyboard input method system` to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
