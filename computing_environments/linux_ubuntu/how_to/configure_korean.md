@@ -71,6 +71,8 @@ https://greedywyatt.tistory.com/105
 
 https://gabii.tistory.com/entry/Ubuntu-1804-LTS-%ED%95%9C%EA%B8%80-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95
 
+https://github.com/aimldl/technical_skills/tree/master/computing_environments/linux_ubuntu/how_to/images
+
 #### Step 3. Open a terminal and launch the `IBus Preferences` window.
 Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
