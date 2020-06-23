@@ -3,16 +3,29 @@
 # How to Configure Korean on Ubuntu (18.04)
 ## Open the `Settings > Region & Language` menu
 There are two ways to open the menu.
-### 
-Click the down arrow on the top right corner. Click the settings icon on the left bottom of the window.
+
+### Option 1: Click and move to the `Region & Language` menu
+Click the dropdown menu, `Settings` and then `Region & Language`
+
+#### Step 1. Click the down arrow on the top right corner.
 <img src="images/ubuntu_18_04-top_right_corner-menu.png">
 
-When the `Settings` window is open, click `Region & Language` on the left menu.
+#### Step 2. Click the `Settings` icon on the left bottom of the window.
+
+#### Step 3. Click `Region & Language` on the left menu (when the `Settings` window is open)
 
 <img src="images/ubuntu_18_04-settings-region_and_language.png">
 
+### Option 2: Search and launch the `Region & Language` menu
+Click `Show Applications`, search for `Region & Language` and click 
+
 <img src="images/">
 <img src="images/">
+<img src="images/">
+<img src="images/">
+
+
+
 ## Install
 ```bash
 $ sudo apt install -y language-pack-ko
