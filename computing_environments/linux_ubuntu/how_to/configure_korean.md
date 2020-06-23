@@ -123,10 +123,35 @@ And `Korean-Hangul` is added as the input method.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-korean-hangul.png">
 
-#### Step 6. 
+#### Step 6. Add `Korean (Hangul)` to the `Input Sources` list
+
 <img src="images/">
+
+Click `Korean`
+
 <img src="images/">
+
+Select `Korean (Hangul)` and the `Add` button is highlighted in green.
+
 <img src="images/">
+
+Click the `Add` button.
+
+<img src="images/">
+
+`Korean (Hangul)` is added in the `Input Sources` list.
+
+<img src="images/">
+
+## Verify 
+
+On the top right corner, the `en` icon is shown.
+
+Switch the language to Korean by pressing the `Super+Space` key. `en` is changed to `EN`.
+
+
+Press the `한/영` key in the keyboard to switch to `Korean`.
+
 
 
 ## Troubleshoot
