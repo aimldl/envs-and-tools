@@ -98,18 +98,23 @@ $ ibus-setup
 
 #### Step 5. Select 'Korean' and add `Hangul`
 Click the vertical dots `...` and a search box shows up.
+
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box.png">
 
 Enter 'Korean' to the search box.
+
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean.png">
 
 Click `Korean` and `Hangul` is shown.
+
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean-hangul.png">
 
 Select `Hangul` and click the `Add` button.
+
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean-hangul-highlighted.png">
 
 And `Korean-Hangul` is added as the input method.
+
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-korean-hangul.png">
 
 #### Step 6. 
