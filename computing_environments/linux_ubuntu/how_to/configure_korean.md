@@ -77,7 +77,7 @@ Note there will be a problem in the next step where IBus is configured if the la
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
-## 5. Configure IBus
+## 5. Configure IBus to add `Korean (Hangul)` as a `Input Source`
 
 #### Step 1. Set `Keyboard input method system` in the bottom to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
@@ -124,22 +124,26 @@ And `Korean-Hangul` is added as the input method.
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-korean-hangul.png">
 
 #### Step 6. Add `Korean (Hangul)` to the `Input Sources` list
+First, open the `Settings > Region & Language` window. Notice the `Input Sources` has `English(US)` only.
+
+<img src="images/ubuntu_18_04-settings-region_and_language-cropped_the_bottom_part.png">
+
+Click the `+` button in the `Input Sources` section and the `Add an input source` windows pops up.
+
+<img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source.png">
+
+Click `Korean` and the list of supported input sources are shown.
+
+<img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source-korean-list_of_supported_input_sources.png">
+
+Select `Korean (Hangul)` and the `Add` button is highlighted in green. Click the `Add` button and `Korean (Hangul)` is added to the `Input Sources` list.
+
+<img src="images/ubuntu_18_04-settings-region_and_language-korean_hangul_is_added.png">
+
+## 
 
 <img src="images/">
 
-Click `Korean`
-
-<img src="images/">
-
-Select `Korean (Hangul)` and the `Add` button is highlighted in green.
-
-<img src="images/">
-
-Click the `Add` button.
-
-<img src="images/">
-
-`Korean (Hangul)` is added in the `Input Sources` list.
 
 <img src="images/">
 
