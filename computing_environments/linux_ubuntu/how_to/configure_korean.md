@@ -6,3 +6,9 @@
 $ sudo apt install -y language-pack-ko
 $ sudo apt install -y korean*
 ```
+## Configure ibus
+Launch the `IBus Preferences` window. Note this window cannot be launched from the `Settings > Region & Language` menu.
+```bash
+$ ibus-setup
+```
+<img src="images/ubuntu-configure_korean-ibus_preferences-launch_window.png">
