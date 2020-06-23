@@ -26,8 +26,6 @@ And the following menu is open.
 <img src="images/ubuntu_18_04-show_applications-menu.png">
 
 #### Step 2. Search for `Region & Language` in the search box
-<img src="images/ubuntu_18_04-show_applications-search_box-region.png">
-
 And the search results are shown like below.
 <img src="images/ubuntu_18_04-show_applications-search_box-region-result.png">
 
