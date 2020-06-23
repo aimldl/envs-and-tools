@@ -10,7 +10,7 @@ Click the dropdown menu, `Settings` and then `Region & Language`
 #### Step 1. Click the down arrow on the top right corner.
 <img src="images/ubuntu_18_04-top_right_corner-menu.png">
 
-#### Step 2. Click the `Settings` icon on the left bottom of the window.
+#### Step 2. Click the `Settings` icon on the left bottom of the dropdown menu.
 <img src="images/ubuntu_18_04-drop_down_menu-icons-settings.png">
 
 #### Step 3. Click `Region & Language` on the left menu (when the `Settings` window is open)
