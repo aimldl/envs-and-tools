@@ -80,7 +80,7 @@ Note there will be a problem in the next step where IBus is configured if the la
 
 ## 5. Configure IBus
 
-#### Step 1. Set `Keyboard input method system` to `IBus`
+#### Step 1. Set `Keyboard input method system` in the bottom to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
 #### Step 2. Open a terminal and launch the `IBus Preferences` window.
@@ -90,28 +90,31 @@ $ ibus-setup
 ```
 <img src="images/ubuntu-configure_korean-ibus_preferences-launch_window.png">
 
-#### Step 3. Click the `Input Method` tab and the `Add` button
+#### Step 3. Click the `Input Method` tab
 <img src="images/ubuntu_18_04-ibus_preferences-input_method.png">
 
+#### Step 4. Click the `Add` button
 `IBus Preferences > Input Method -> Add` launches the `Select an input method` window.
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add.png">
 
-Click the vertical dots `...` and a search box shows up. Enter 'Korean' to search for Korean.
+#### Step 5. Select 'Korean' and add `Hangul`
+Click the vertical dots `...` and a search box shows up.
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box.png">
 
-If 
+Enter 'Korean' to the search box.
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean.png">
 
+Click `Korean` and `Hangul` is shown.
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean-hangul.png">
 
-#### Step 4. 
+Select `Hangul` and click the `Add` button.
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean-hangul-highlighted.png">
 
-https://github.com/aimldl/technical_skills/tree/master/computing_environments/linux_ubuntu/how_to/images
+And `Korean-Hangul` is added as the input method.
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-korean-hangul.png">
 
+#### Step 6. 
 <img src="images/">
-
-
-
-<img src="images/">
-
-
 <img src="images/">
 <img src="images/">
 
