@@ -49,12 +49,15 @@ a pop-up window `The language support is not installed completely` may open. If 
 
 ## 3. Configure IBus
 #### Step 1. Set `Keyboard input method system` to `IBus`
+<img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
+
 #### Step 2. Open a terminal and launch the `IBus Preferences` window.
 Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
 $ ibus-setup
 ```
 <img src="images/ubuntu-configure_korean-ibus_preferences-launch_window.png">
+
 #### Step 3. Click the `Input Method` tab and the `Add` button
 <img src="images/ubuntu_18_04-ibus_preferences-input_method.png">
 
@@ -67,6 +70,7 @@ $ ibus-setup
 
 <img src="images/">
 
+If no search result is shown, the language packs are not installed properly. Go back to the previous step and fix the problem first.
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
 <img src="images/">
