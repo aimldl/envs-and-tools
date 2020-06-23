@@ -101,9 +101,15 @@ Click the vertical dots `...` and a search box shows up.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box.png">
 
-Enter 'Korean' to the search box.
+Enter 'Korean' to the search box and the matching search result shows up. 
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean.png">
+
+The above figure shows the case when there exists `Korean` in the search result. If no result is shown, 
+
+<img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
+
+something was wrong with the previous step when the language packs are installed. Go back to the previous step and fix the problem(s) first.
 
 Click `Korean` and `Hangul` is shown.
 
