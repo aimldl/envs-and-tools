@@ -74,6 +74,7 @@ Make sure Korean is added in the 'Language Support' window.
 <img src="images/ubuntu_18_04-language_support-language-korean.png">
 
 Note there will be a problem in the next step where IBus is configured if the language pack is not installed properly. There will be no search result with `Korean` in the next step while Korean needs to be selected.
+
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
 ## 5. Configure IBus
