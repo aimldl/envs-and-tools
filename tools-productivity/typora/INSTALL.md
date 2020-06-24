@@ -1,7 +1,7 @@
-#####  aimldl/computing_environments/typora/INSTALL.md
 * Rev.2: 2020-0328 (Sat)
 * Rev.1: 2020-0324 (Tue)
 * Draft: 2020-0120 (Mon)
+
 # INSTALL
 ## Install Typora on Windows
 Download the installation file at https://typora.io/#windows. For Windows 10 (64bit), click (x64).
