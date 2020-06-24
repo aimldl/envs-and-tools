@@ -22,4 +22,5 @@ When a window pops up, select the desired directory and click the `OK` button on
 In this example, I've selected `~/github` directory, but you can choose whatever directory you want.
 
 The change is shown below.
+
 <img src="images/typora-preferences-general-on_launch-open_custom_folder-github_displayed.png">
