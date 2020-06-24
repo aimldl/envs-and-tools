@@ -28,7 +28,7 @@
 #   $ cd ..
 
 dir_root=${PWD}
-repos="documents technical_skills aimldl.github.io non_technical_skills topics_in"
+repos="aimldl.github.io topics_in non_technical_skills technical_skills"
 #repos="ml_dl aimldl.github.io python3 documents aws computing_environments"
 #repos="sql matlab cpp bindsnet career private"
 

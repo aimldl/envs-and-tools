@@ -18,7 +18,7 @@
 #     $ Username for 'https://github.com': user_id
 #     $ Password for 'https://user_id@github.com': 
 
-repos="documents technical_skills aimldl.github.io non_technical_skills topics_in"
+repos="aimldl.github.io topics_in non_technical_skills technical_skills"
 #repos="VOX JOURNAL documents python3 aws computing_environments"
 #repos="sql matlab cpp bindsnet career private"
 for repo in ${repos};
