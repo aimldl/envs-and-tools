@@ -1,4 +1,5 @@
-* Rev.1: 2020-06-24 (Wed)
+* Rev.2: 2020-06-24 (Wed)
+* Rev.1: 2020-06-22 (Mon)
 * Draft: 2020-
 
 # How to Get the MAC Address on Ubuntu (18.04)
