@@ -3,13 +3,26 @@
 
 # How to Install Oracle JDK on Ubuntu Linux 18.04
 
-## Executive Summary
+## Summary
 
-This document is a summary o
+Remove OpenJDK and install Official JDK
 
-## References
+Step 1. Remove OpenJDK first
 
-* [remove-openjdk-and-install-oracle-jdk on ubuntu](https://flicsdb.com/remove-openjdk-and-install-oracle-jdk-on-ubuntu/) August 4, 2019 by [zshaik](https://flicsdb.com/author/zshaik/). 
+```bash
+$ sudo apt-get purge openjdk*
+```
+
+Step 2. Add the repository for Official JDK and update
+
+```bash
+$ sudo add-apt-repository ppa:linuxuprising/java
+$ sudo apt-get update
+```
+
+Step 3. Install Official JDK
+
+  $ sudo apt-get install -y oracle-java12-installer
 
 ## Purpose
 
@@ -28,29 +41,13 @@ Java HotSpot(TM) 64-Bit Server VM (build 12.0.2+10, mixed mode, sharing)
 $
 ```
 
-### Remove the existing openjdk
+### Remove the existing OpenJDK
 
 ```bash
-$ sudo apt-get purge openjdk-\*
-  ...
-  libde265-0 libheif1 libllvm8 liblua5.1-0 libluajit-5.1-2 libluajit-5.1-common
-  libnvidia-container-tools libnvidia-container1 nvidia-container-runtime nvidia-container-toolkit
-  pandoc-data
-Use 'sudo apt autoremove' to remove them.
-0개 업그레이드, 0개 새로 설치, 0개 제거 및 3개 업그레이드 안 함.
+$ sudo apt-get purge openjdk*
+#  or
+#$ sudo apt-get purge openjdk-\*
 $ sudo apt autoremove
-  ...
-Continue [Y/n] y
-  ...
-$ sudo apt autoremove
-  ...
-libde265-0 libheif1 libllvm8 liblua5.1-0 libluajit-5.1-2 libluajit-5.1-common
-  libnvidia-container-tools libnvidia-container1 nvidia-container-runtime nvidia-container-toolkit
-  pandoc-data
-  ...
-Continue? [Y/n] y
-  ...
-Processing triggers for libc-bin (2.27-3ubuntu1) ...
 $
 ```
 
@@ -62,32 +59,34 @@ For other related commands, refer to [How to remove openjdk-8-jdk from Ubuntu 16
 
 This tutorial includes commands resulting in errors; so I had to fix them.
 
-### Step 1: Update Ubuntu
-
-Again, you should always update your system first before you do anything else. Run the following commands:
-
-$ apt-get update && apt-get upgrade
-
-And install the required package if you don’t have it already installed:
-
-apt-get install software-properties-common
-
-### Step 2: Add the Java repository
+### Step 1: Add the Java repository
 
 The first thing you need to do is add a 3-rd party repository to get the Oracle JDK. We’ll use the one from Linux Uprising, but you can use any other repository:
 
+```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
 $ sudo apt-get update
+```
 
-### Step 3: Install Java 11 or Java 13
+### Step 2: Install Official JDK
 
-So to install the JDK 11th (stable), latest version, run the following command:
+To install JDK 11,
 
-apt-get install oracle-java11-installer
+```bash
+$ sudo apt-get install -y oracle-java11-installer
+```
 
-Or, to install the JDK 13th (production) version, run the following command:
+To install JDK 12,
 
-apt-get install oracle-java13-installer
+```bash
+$ sudo apt-get install -y oracle-java12-installer
+```
+
+To install JDK 13,
+
+```bash
+$ sudo apt-get install oracle-java13-installer
+```
 
 And that’s it. You can now move on to step 4 and [configure your Java](about:blank#set-up).
 
@@ -158,3 +157,9 @@ Google search: how to install java in ubuntu 18.04 docker container
 
 * The following link looks useful to install java inside a Docker container.
   * [Docker: install Java8 automatically on ubuntu/debian](https://newfivefour.com/docker-java8-auto-install.html)
+
+## References
+
+* [remove-openjdk-and-install-oracle-jdk on ubuntu](https://flicsdb.com/remove-openjdk-and-install-oracle-jdk-on-ubuntu/) August 4, 2019 by [zshaik](https://flicsdb.com/author/zshaik/). 
+* [How to Install Oracle Java 12 in Ubuntu 18.04 / 16.04](https://laptrinhx.com/how-to-install-oracle-java-12-in-ubuntu-18-04-16-04-2045321107/), 2019-03-25
+
