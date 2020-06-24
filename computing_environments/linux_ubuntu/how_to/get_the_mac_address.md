@@ -1,4 +1,4 @@
-* Rev.1: 2020-06-22 (Mon)
+* Rev.1: 2020-06-24 (Wed)
 * Draft: 2020-
 
 # How to Get the MAC Address on Ubuntu (18.04)
@@ -36,7 +36,7 @@ wlp5s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         ether 9c:b6:d0:ea:33:89  txqueuelen 1000  (Ethernet)
           ...
 ```
-## Use the `cat` command
+## Print `/sys/class/net/<device-name>/address` with the `cat` command 
 
 Using the `cat` command gets you the MAC address directly from `/sys/class/net/<device-name>/address`.  There was an occasion when `ifconfig` was not installed because it was right after Ubuntu Linux 18.04 was installed and the Internet was not available yet. To get the Internet access, I had to connect a hidden WiFi network. To register my computer to the hidden WiFi network, the MAC address was required. 
 
@@ -56,11 +56,3 @@ $
 $ cat /sys/class/net/enp1s0/address
 34:17:eb:5d:88:7c
 ```
-
-## How to "Connect to Hidden Network"
-
-A hidden network is not visible. So the network name must be typed in manually. To access a hidden network with **MAC Authentication**, the MAC address must be registered to the Wi-Fi router. To type in the network name manually, open:
-<img src='images/Settings_Wi-Fi_Connect_to_Hidden_Network-1.png'>
-
-For example, a Wi-Fi network can be set up as follows.
-<img src='images/Settings_Wi-Fi_Connect_to_Hidden_Network-2.png'>
