@@ -1,45 +1,23 @@
-* Rev.3: 2020-06-24 (Wed)
+* Rev.3: 2020-06-25 (Thu)
 * Rev.2: 2020-06-10 (Wed)
 * Rev.1: 2019-10-10 (Thu)
 * Draft: 2019-03-03 (Sun)
 
-# Install NVIDIA Graphics Driver on Ubuntu
+# Install NVIDIA Graphics Card Driver on Ubuntu Manually
 
 ## Summary
 
-Step 1. Download the NVIDIA Graphics Card Driver installation file.
-
-## Download the driver installation file
-
- `./NVIDIA-Linux-x86_64-440.82.run` is downloaded in the `Downloads` directory on Ubuntu 18.04. 
+1. Check the information on the graphics card.
 
 ```bash
-$ sudo add-apt-repository ppa:graphics-drivers/ppa
-$ sudo apt update
-$ sudo apt upgrade -y
+$ ubuntu-drivers devices
+  ...
+model    : GP104 [GeForce GTX 1080]
+  ...
+$
 ```
 
-Google search: nvidia graphics driver download
-
-https://www.nvidia.com/download/index.aspx?lang=en-us
-
-Select the right options for the graphics card. In this example, I need a driver for `GeForce GTC 1080Ti` on Linux.
-
-<img src="images/nvidia_driver_downloads-geforce_gtx_1080ti_linux_64bit.png">
-
-Click the `SEARCH` button.
-
-<img src="images/nvidia-drivers-linux_x64_amd64_em64t_display_driver.png">
-
-Click the DOWNLOAD button and the download confirmation page will show up.
-
-<img src="images/nvidia_home-download_drivers-download_confirmation.png">
-
-Click the DOWNLOAD button. When the pop-up window shows up, click the `Save File` button and the file download begins.
-
-<img src="images/nvidia_home-download_drivers-opening_nvidia-linux-x86_64-440_82_run.png">
-
-When the download is finished, check the downloaded file. The download directory differs from web browser to web browser.
+2. Download the right model of NVIDIA Graphics Card Driver installation file at the [download page](https://www.nvidia.com/download/index.aspx?lang=en-us ).   
 
 ```bash
 $ cd ~/Downloads/
@@ -48,19 +26,119 @@ NVIDIA-Linux-x86_64-440.82.run
 $
 ```
 
-## Check the current graphics driver
+​        In this example, `./NVIDIA-Linux-x86_64-440.82.run` is the downloaded file.
 
-Go to `Settings > Details > About` and check `Graphics`. In this example, `NV134` is set up for the graphics card.
+3. Install the graphics card driver
+   Step 1. Switch to TTY2 by entering `Ctrl+Alt+F2` and log in.
 
-<img src="images/ubuntu_18_04-settings-details-about.png">
+   ```bash
+   Ubuntu 18.04.02 LTS GPU-Dektop tty2
+   GPU-Desktop login: aimldl
+   Password:
+     ...
+   $
+   ```
+
+   Step 2. Exit X Windows system or the GUI.
+
+   ```bash
+   $ sudo service lightdm stop
+   [sudo] password for aimldl:
+   $
+   ```
+
+   Step 3. Install NVIDIA Graphics Driver.
+
+   ```bash
+   $ cd Downloads/
+   $ chmod +x ./NVIDIA-Linux-x86_64-440.82.run
+   $ sudo ./NVIDIA-Linux-x86_64-440.82.run
+   [sudo] password for aimldl:
+   ```
+
+4. Verify the installation
 
 ```bash
-
+$ nvidia-smi
+Wed Jun 10 15:00:17 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.82       Driver Version: 440.82       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:01:00.0  On |                  N/A |
+| 23%   34C    P8    13W / 250W |    174MiB / 11177MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:02:00.0 Off |                  N/A |
+| 23%   29C    P8     7W / 250W |      2MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+  ...
+$
 ```
 
-## Installation
+## 1. Check the information on the graphics card
 
-The official driver is manually installed below. For other options, refer to [How to install the NVIDIA drivers on Ubuntu 18.04 Bionic Beaver Linux](https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux).
+```bash
+$ ubuntu-drivers devices
+== /sys/devices/pci0000:00/0000:00:01.1/0000:02:00.0 ==
+modalias : pci:v000010DEd00001B80sv00001028sd00003366bc03sc00i00
+vendor   : NVIDIA Corporation
+model    : GP104 [GeForce GTX 1080]
+driver   : nvidia-driver-415 - third-party free
+driver   : nvidia-driver-390 - distro non-free
+driver   : nvidia-driver-435 - distro non-free
+driver   : nvidia-driver-440 - third-party free recommended
+driver   : nvidia-driver-410 - third-party free
+driver   : xserver-xorg-video-nouveau - distro free builtin
+
+$
+```
+
+The model of my graphics card is `GP104 [GeForce GTX 1080]`. I thought it is `1080Ti`, but it turned out it is `1080`. It was good to double-check because the memory may fade away.
+
+## 2. Download the driver installation file
+
+Go to the download page at https://www.nvidia.com/download/index.aspx?lang=en-us and download the driver installation file  `./NVIDIA-Linux-x86_64-440.82.run`. Other languages are supported at the download page. To search the page, you may use the following keywords.
+
+> Google search: nvidia graphics driver download
+
+### Download steps
+
+Select the right options for the graphics card. In this example, I need a driver for `GeForce GTC 1080Ti` on Linux.
+
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/nvidia_driver_downloads-geforce_gtx_1080ti_linux_64bit.png">
+
+Click the `SEARCH` button.
+
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/nvidia-drivers-linux_x64_amd64_em64t_display_driver.png">
+
+Click the DOWNLOAD button and the download confirmation page will show up.
+
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/nvidia_home-download_drivers-download_confirmation.png">
+
+Click the DOWNLOAD button. When the pop-up window shows up, click the `Save File` button and the file download begins.
+
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/nvidia_home-download_drivers-opening_nvidia-linux-x86_64-440_82_run.png">
+
+### Verify the download
+
+When the download is finished, check the downloaded file.  `./NVIDIA-Linux-x86_64-440.82.run` exists in the `Downloads` directory.  The download directory may differ from web browser to web browser.
+
+```bash
+$ cd ~/Downloads/
+$ ls
+NVIDIA-Linux-x86_64-440.82.run
+$
+```
+
+### Check the current graphics driver
+
+Go to `Settings > Details > About` and check `Graphics`. In this example, `NV134` is set up for the graphics card because Ubuntu sets up the default graphics card driver to make the system works. In the following process, the driver designated to the given NVIDIA graphics card will be installed to use the graphics card at its full capacity.
+
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/ubuntu_18_04-settings-details-about.png">
+
+## Install the graphics card driver
 
 ### Step 1. Switch to TTY2 by entering `Ctrl+Alt+F2` and log in.
 
@@ -72,6 +150,10 @@ Password:
 $
 ```
 
+**Warning:  The order matters. Do not skip this step.**
+
+If you run the next command with X Windows system on or on the GUI, the screen will turn black and everything will disappear. The only thing left on the screen will be a blinking cursor in the color of white. When I tried to switch to TTY2 by pressing the `Ctrl+Alt+F2` keys, it didn't work. The only way to escape this stage was to reboot the system either by `$ reboot` or pressing the power button. For details, refer to `Problem3` in the bottom of this page (Appendix).
+
 ### Step 2. Exit X Windows system or the GUI
 
 ```bash
@@ -80,13 +162,17 @@ $ sudo service lightdm stop
 $
 ```
 
-If you skip this step and proceed to the next step, the installation will fail at any rate. In other words, you do not exit X Windows sytem and try to install the driver. The following error message will be shown and you can not proceed.
+**Warning:  The order matters. Do not skip this step.**
 
-<img src="images/nvidia_accelerated_graphics_driver_for_linux-x86_64-the_distribution-provided_pre-install_script_failed.png">
+If you skip this step and proceed to the next step, the installation will fail at any rate. In other words, if you do not exit X Windows system and try to install the driver, it will fail anyways. The following error message will be shown and you can not proceed.
+
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/nvidia_accelerated_graphics_driver_for_linux-x86_64-the_distribution-provided_pre-install_script_failed.png">
+
+When `Continue installation` is selected, things get messy. [TODO: summary what what happens]
 
 When `Abort installation` is selected, the following message shows up.
 
-<img src="images/nvidia_accelerated_graphics_driver_for_linux-x86_64-the_distribution-provided_pre-install_script_failed-warning.png">
+<img src="/home/k8snode/github/technical_skills/computing_environments/gpgpu/how_to/images/nvidia_accelerated_graphics_driver_for_linux-x86_64-the_distribution-provided_pre-install_script_failed-warning.png">
 
 ### Step 3. Install NVIDIA Graphics Driver.
 
@@ -131,7 +217,7 @@ restart X?  Any pre-existing X configuration file will be backed up.
 
 Select `Yes`
 
-## Verification
+## Verify the installation
 
 Run `nvidia-smi` and see if the graphics card(s) is/are properly recognized.
 
@@ -166,9 +252,9 @@ Wed Jun 10 15:00:17 2020
 $
 ```
 
-There're two GPUs on my machine and they're up and running.
+In the above example, there are two GPUs on the machine which are up and running.
 
-## Solutions to Frequently Occurring Errors
+## Appendix: Solutions to Frequently Occurring Errors
 
 ### Problem 1: nvidia-installer must be run as root
 

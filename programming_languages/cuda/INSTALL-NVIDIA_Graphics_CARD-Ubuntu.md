@@ -157,7 +157,7 @@ Note the order to run each step is important. If `$ sudo service lightdm stop` i
 ### Problem 3: `$ sudo service lightdm stop` turns everything on the monitor black.
 The GUI or X Windows dissapears and everything turns black on the monitor. On the left top corner of the monitor, there is a prompt blinking periodically indicating the Ubuntu is up and running in the background.
 
-Don't panic. It's supposed to be this way if you run this command on the GUI. Only the GUI or X Windows system has been turned off. But the problem in this installation process is you haven't done it in a TTY terminal.
+Don't panic. It's supposed to be this way if you run this command on the GUI. Only the GUI or X Windows system has been turned off. But the problem in this installation process is you haven't done it in a TTY terminal.The installation instructions for the CUDA Toolkit on Linux.
 
 ### Solution 3: Switch to a TTY Terminal first and then run `$ sudo service lightdm stop`
 * Did you run `$ sudo service lightdm stop` in the "normal" Ubuntu with the GUI or X Windows, not in one of the TTY terminals?
