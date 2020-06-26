@@ -187,14 +187,52 @@ $ sudo apt-get -y install cuda
 
 ## Post-installation actions
 
+### Mandatory Actions
 
+Set up the environment.
 
+Step 1. Double-check the directory name
 
+```bash
+$ ls /usr/local/
+bin  cuda-11.0  etc  games  include  lib  man  sbin  share  src
+$
+```
 
-<img src="images/">
+Step 2. Open `.bashrc` with a text editor.
 
-<img src="images/">
+```bash
+$ nano .bashrc
+```
 
-<img src="images/">
+Step 3. Add the PATH variable at the end of `.bashrc$ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}`
 
+> export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
 
+```bash
+$ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
+$ echo $PATH
+/usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$
+```
+
+If the `runfile` installation method is chosen, add the `LD_LIBRARY_PATH`, too.
+
+> export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+Step 4. Update the `bash` terminal or reboot the system
+
+```bash
+$ bash
+$
+```
+
+or
+
+```bash
+$ reboot
+```
+
+## References
+
+* [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract)
