@@ -233,6 +233,17 @@ $
 
 Action: remove nvidia display driver on ubuntu 18.04
 
+[How to uninstall the NVIDIA drivers on Ubuntu 20.04 Focal Fossa Linux](https://linuxconfig.org/how-to-uninstall-the-nvidia-drivers-on-ubuntu-20-04-focal-fossa-linux)
+
+```bash
+# The following command will remove the proprietary Nvidia driver:
+$ sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}')
+$ sudo apt autoremove
+# Switch back to nouveau driver:
+$ sudo apt install xserver-xorg-video-nouveau
+$
+```
+
 
 
 ```bash

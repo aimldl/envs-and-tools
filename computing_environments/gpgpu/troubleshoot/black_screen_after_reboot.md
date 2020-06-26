@@ -2,7 +2,33 @@
 
 # Black Screen after Reboot
 
+## Problem
 
+
+
+## Hint
+
+I was able to see this is a commong problem.
+
+Google search
+
+* ubuntu 18.04 black screen after boot
+* ubuntu linux doesn't start after cuda toolkit installation
+* ubuntu linux doesn't start after cuda  installation
+
+[Can’t boot Ubuntu 14.04 LTS after CUDA 7 install](https://forums.developer.nvidia.com/t/cant-boot-ubuntu-14-04-lts-after-cuda-7-install/38192)
+
+[Ubuntu not starting post cuda installation](https://askubuntu.com/questions/668130/ubuntu-not-starting-post-cuda-installation)
+
+[Fixing Ubuntu Freezing at Boot Time](https://itsfoss.com/fix-ubuntu-freezing/)
+
+Google search
+
+* ubuntu 18.04 no grub black screen after boot
+
+[Ubuntu boots to black screen, cannot access Grub](https://forum.level1techs.com/t/ubuntu-boots-to-black-screen-cannot-access-grub/88627)
+
+## Solution
 
 First, press the `ESC` key to enter the GRUB menu.
 
