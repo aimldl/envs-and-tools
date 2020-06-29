@@ -1,3 +1,4 @@
+* Rev.2: 2020-06-29 (Mon)
 * Rev.1: 2020-06-23 (Tue)
 * Draft: 2019-10-10 (Tue)
 # How to Configure Korean on Ubuntu (18.04)
@@ -36,11 +37,19 @@ And the `Region & Language` window is launched.
 
 ## 2. Install language packs
 ### 2.1. Install the language packs with GUI
-In `Settings > Region & Language` presented above, click `Manage Installed Languages` to launch the `Language Support` window shown below.
+In `Settings > Region & Language` presented above, click `Manage Installed Languages` 
+
+<img src="images/ubuntu_18_04-settings-region_and_language-cropped.png">
+
+to launch the `Language Support` window shown below.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
-Click the `Install/Remove Languages...` button and the `Installed languages` are shown.
+A pop-up window `The language support is not installed completely` may open when the `Language Support` window is open for the first time. If so, click `install` and install the language support completely.
+
+<img src="images/ubuntu_18_04-language_support-the_language_support_is_not_installed_completely.png">
+
+Back to the `Language Support` window, click the `Install/Remove Languages...` button and the `Installed languages` are shown.
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-initial_window.png">
 
 Scroll down to find `Korean`, check the box for Korean, and click the `Apply` button.
@@ -55,13 +64,14 @@ $ sudo apt install -y language-pack-ko
 $ sudo apt install -y korean*
 ```
 
-A pop-up window `The language support is not installed completely` may open when the `Language Support` window is open again. If so, click `install` and install the language support completely.
+[TODO: I think these commands are not enough to set up everything. But I keep it here at any rate for the future chance to revise this article.]
+
+A pop-up window `The language support is not installed completely` may open when the `Language Support` window is open for the first time. If so, click `install` and install the language support completely.
 
 <img src="images/ubuntu_18_04-language_support-the_language_support_is_not_installed_completely.png">
 
-[TODO: I think these commands are not enough to set up everything. But I keep it here at any rate for the future chance to revise this article.]
-
 ## 3. Reboot the system
+
 In the previous step, the language packs are installed. When the installation is complete, reboot the system.
 
 * Do reboot the system.
@@ -69,7 +79,7 @@ In the previous step, the language packs are installed. When the installation is
   * I've seen web articles to `log out & log back in` which didn't work and wasted another 30 minutes or so.
 
 ## 4. Verify if the language packs are installed.
-Make sure Korean is added in the 'Language Support' window.
+After the reboot, go to `Settings > Region & Language` and click `Manage Installed Languages`. In the `Language Support` window, scroll down `Language for menus and windows` under the `Language` tab to make sure Korean is added in the 'Language Support' window.
 
 <img src="images/ubuntu_18_04-language_support-language-korean.png">
 
@@ -77,12 +87,12 @@ Note there will be a problem in the next step where IBus is configured if the la
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
-## 5. Configure IBus to add `Korean (Hangul)` as a `Input Source`
+## 5. Configure IBus to add `Korean (Hangul)` as an `Input Method`
 
 #### Step 1. Set `Keyboard input method system` in the bottom to `IBus`
 <img src="images/ubuntu_18_04-settings-region_and_language-manage_installed_languages-language_support.png">
 
-#### Step 2. Open a terminal and launch the `IBus Preferences` window.
+#### Step 2. Open a terminal with `Ctrl+Alt+t` and launch the `IBus Preferences` window.
 Note this window cannot be launched from the `Settings > Region & Language` menu.
 ```bash
 $ ibus-setup
@@ -96,12 +106,11 @@ $ ibus-setup
 `IBus Preferences > Input Method -> Add` launches the `Select an input method` window.
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add.png">
 
-#### Step 5. Select 'Korean' and add `Hangul`
-Click the vertical dots `...` and a search box shows up.
+#### Step 5. Click the vertical dots `...` and a search box shows up.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box.png">
 
-Enter 'Korean' to the search box and the matching search result shows up. 
+#### Step 6. Enter 'Korean' to the search box and the matching search result shows up. 
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean.png">
 
@@ -109,40 +118,67 @@ The above figure shows the case when there exists `Korean` in the search result.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-search-korean-no_search_result.png">
 
-something was wrong with the previous step when the language packs are installed. Go back to the previous step and fix the problem(s) first.
+Something was wrong with the previous step(s) when the language packs are installed. Go back to the previous step and fix the problem(s) first.
 
-Click `Korean` and `Hangul` is shown.
+Step Select 'Korean' and add `Hangul`
+
+#### Step 7. Click `Korean` and `Hangul` is shown.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean-hangul.png">
 
-Select `Hangul` and click the `Add` button.
+#### Step 8. Select `Hangul` and click the `Add` button.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-add-select_an_input_method-search_box-korean-hangul-highlighted.png">
 
-And `Korean-Hangul` is added as the input method.
+And `Korean-Hangul` is added to the input method.
 
 <img src="images/ubuntu_18_04-ibus_preferences-input_method-korean-hangul.png">
 
-#### Step 6. Add `Korean (Hangul)` to the `Input Sources` list
-First, open the `Settings > Region & Language` window. Notice the `Input Sources` has `English(US)` only.
+Click the `Close` button and the above window is closed.
+
+## 6. Add `Korean (Hangul)` to the `Input Source` list
+
+Notice the previous step adds `Korean (Hangul)` as an Input method to `IBus` and this step adds it as an `Input Source` to `Settings > Region & Language`.
+
+#### Step 1. Go back to `Settings > Region & Language`
+
+Notice the `Input Sources` has `English(US)` only.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-cropped_the_bottom_part.png">
 
-Click the `+` button in the `Input Sources` section and the `Add an Input Source` windows pops up.
+#### Step 2. Click the `+` button in the `Input Sources` section.
+
+And the `Add an Input Source` windows pops up.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source.png">
 
-Click `Korean` in the list and the list of supported input sources are shown.
+#### Step 3. Click the vertical dots `...` and a search box shows up.
+
+<img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source-search_box.png">
+
+#### Step 4. Enter `Korean` to the search box.
+
+<img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source-search_box-korean.png">
+
+#### Step 5. Click `Korean` in the list and the list of supported input sources are shown.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source-korean-list_of_supported_input_sources.png">
 
-Select `Korean (Hangul)` and the `Add` button is highlighted in green. Click the `Add` button and `Korean (Hangul)` is added to the `Input Sources` list.
+#### Step 6. Select `Korean (Hangul)` and the `Add` button is highlighted in green. 
+
+<img src="images/ubuntu_18_04-settings-region_and_language-add_an_input_source-search_box-korean-add_highlighted.png">
+
+#### Step 7. Click the `Add` button 
+
+And `Korean (Hangul)` is added to the `Input Sources` list.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-korean_hangul_is_added.png">
 
-## 6. Verify and use the Korean input system
+## 7. Verify and use the Korean input system
 ### How to switch the input languages
-Press the `Super+Space` key (`Ctrl+Space` in some cases). To see the instructions, open the `Input Source Options` window. Go to `Settings > Region & Language` and click the `Options` button in the `Input Sources` section.
+Press the `Super+Space` key (`Ctrl+Space` in some cases) to switch the language from English to Korean.
+
+To see the instructions, open the `Input Source Options` window. Go to `Settings > Region & Language` and click the `Options` button in the `Input Sources` section.
 
 <img src="images/ubuntu_18_04-settings-region_and_language-input_sources-options.png">
 
@@ -162,13 +198,17 @@ Click the `en` icon and you can check the full information on the input language
 
 <img src="images/ubuntu_18_04-gui-language_input_source-korean_hangul.png">
 
-This is weird, but it will make sense with a little bit explanation. The Korean input system supports both English and Korean. An additional key `한/영` exists on every keyboard made in Korea. This key helps switching the two languages quickly. So it's a two-step process. 
+This is weird, but it will make sense with a little bit explanation. The Korean input system supports both English and Korean. An additional key `한/영` exists on every keyboard made in Korea. This key helps switching the two languages quickly. To sum, it's a two-step process to switch the language from English to Korean. 
 
 Step 1. Switch to the `Korean` mode by pressing the `Super+Space` key.
 
 Step 2. Press the `한/영` key to switch the input language between `English` and `Korean`.
 
-I don't like this. The Ubuntu developers should fix this problem. 
+Step 3. Open a text editor and input some Korean characters.
+
+<img src="images/ubuntu_18_04-terminal-text_in_korean.png">
+
+[I don't like this. Ubuntu should fix this problem. ]
 
 The way I walk around this problem is that I keep my input language to the `Korean` mode all the time and use the `한/영` key to switch between `English` and `Korean`. 
 
