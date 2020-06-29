@@ -1,9 +1,18 @@
 #!/bin/bash
-#  install_basic_packages_ubuntu
-#    Run this script after installing Ubuntu Linux
+#  install_ubuntu_basic_packages
+#    Run this script after installing Ubuntu Linux and install the basic packages
 #
+#  * Rev.2: 2020-06-27 (Mon)
 #  * Rev.1: 2020-06-22 (Mon)
 #  * Draft: 2018-09-10 (Mon)
+#
+#  Usage:
+#    Open a text editor, copy & paste this script, and finally run this script.
+#    nano is my favorite text editor. You may use vi, vim, emacs, or any text editor.
+#    $ nano install_ubuntu_basic_packages
+#    $ chmod +x install_ubuntu_basic_packages 
+#    $ ./install_ubuntu 
+#    [sudo] password for k8snode:
 
 sudo apt update -y
 sudo apt-get upgrade -y
