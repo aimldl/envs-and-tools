@@ -194,53 +194,51 @@ $ sudo apt-get update
 $ sudo apt-get -y install cuda
 ```
 
+## Reboot the system
+
+```bash
+$ reboot
+```
+
 ## Post-installation actions
 
 ### Mandatory Actions
 
-Set up the environment.
-
 Step 1. Double-check the directory name
 
 ```bash
+$ ls /usr/local/ | grep "cuda-"
+cuda-11.0
+# or
 $ ls /usr/local/
 bin  cuda-11.0  etc  games  include  lib  man  sbin  share  src
 $
 ```
 
-Step 2. Open `.bashrc` with a text editor.
+Step 2. Add the PATH variable at the end of `.bashrc`
 
 ```bash
-$ nano .bashrc
+$ echo 'export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
+$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
 ```
 
-Step 3. Add the PATH variable at the end of `.bashrc$ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}`
-
-> export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
+Step 3. Reload the bash
 
 ```bash
-$ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
+$ source ~/.bashrc
+```
+
+Step 4. Check 
+
+```bash
+$ sudo ldconfig
+$ nvidia-smi
 $ echo $PATH
 /usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $
 ```
 
-If the `runfile` installation method is chosen, add the `LD_LIBRARY_PATH`, too.
-
-> export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-Step 4. Update the `bash` terminal or reboot the system
-
-```bash
-$ bash
-$
-```
-
-or
-
-```bash
-$ reboot
-```
+https://lepoeme20.github.io/archive/Set-up-ubuntu-for-deeplearning
 
 ## References
 
