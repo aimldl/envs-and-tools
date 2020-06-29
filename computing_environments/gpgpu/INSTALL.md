@@ -24,8 +24,6 @@ The automatic driver installation is recommended because it works fine on Ubuntu
 
 
 
-
-
 ## Install NVIDIA Collective Communication Library (NCCL)
 
 NCCL is necessary to run multi-GPU simulations.
@@ -33,3 +31,9 @@ NCCL is necessary to run multi-GPU simulations.
 References: [NVIDIA Collective Communication Library (NCCL) Installation Guide](https://docs.nvidia.com/deeplearning/nccl/install-guide/index.html)
 
 how to set up multi node multi gpu environment on ubuntu linux
+
+
+
+## Install cuBLAS
+
+[Basic Linear Algebra on NVIDIA GPUs](https://developer.nvidia.com/cublas)
