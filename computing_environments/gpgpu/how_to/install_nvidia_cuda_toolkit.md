@@ -98,7 +98,7 @@ The `Installer Type` can be any of the three options while my preference is `deb
 
 --------
 
-[Open-Source Software for the CUDA Toolkit](http://developer.download.nvidia.com/compute/cuda/opensource/11.0.1/): `cuda_gdb_src-all-all-11.0.172.tar.gz` is the only file in this link.
+[Open-Source Software for the CUDA Toolkit](http://developer.download.nvidia.com/compute/cuda/opensource/11.0.1/): `cuda_gdb_src-all-all-11.0.172.tar.gz` is the only file in this link.sudo rm -rf /usr/local/cuda*
 
 [Index of /compute/cuda/opensource](https://developer.download.nvidia.com/compute/cuda/opensource/): some more open source packages are available here.
 
@@ -152,6 +152,15 @@ $ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cu
 $ sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
 $ sudo apt-get update
 $ sudo apt-get -y install cuda
+```
+
+The above is the official commands and the following is a tweak to the official commands from [Setup ubuntu for deeplearning](https://lepoeme20.github.io/archive/Set-up-ubuntu-for-deeplearning). The main difference is the last command using several options to force overwrite.
+
+```bash
+$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+$ echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
+$ sudo apt-get update
+$ sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda-10-0 cuda-drivers
 ```
 
 ## Download and install CUDA with deb (local)
