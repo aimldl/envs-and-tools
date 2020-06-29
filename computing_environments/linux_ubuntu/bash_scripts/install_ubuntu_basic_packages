@@ -14,26 +14,36 @@
 #    $ ./install_ubuntu 
 #    [sudo] password for k8snode:
 
-sudo apt update -y
-sudo apt-get upgrade -y
-#sudo apt-get install -y software-properties-common
-#sudo apt install -y nano
-#sudo apt install -y wget
-#sudo apt install -y unzip
-#sudo apt install -y iproute2
-#sudo apt install -y strace
-#sudo apt install -y diffstat
-#sudo apt install -y build-essential
-#sudo apt install -y tcpdump
+#sudo apt update -y
+#sudo apt-get upgrade -y
+sudo apt update && sudo apt-get upgrade -y
 
+# Install the Linux Kernel Header
+#sudo apt-get install linux-headers-$(uname -r)
+# Is this necessary when Ubuntu is updated and upgraded?
+
+# Install Dependencies
+sudo apt install -y build-essential
+sudo apt install -y cmake
+sudo apt install -y git
+sudo apt-get install -y python-dev python3-dev python-pip python3-pip
+#sudo apt install -y zip
+#sudo apt install -y unzip
+
+# Install some convenient packages
 sudo apt install -y tree
 sudo apt install -y vim
 sudo apt install -y curl
 sudo apt install -y screen
 sudo apt install -y net-tools
 sudo apt install -y pkg-config
-sudo apt install -y cmake
-sudo apt install -y git
+#sudo apt-get install -y software-properties-common
+#sudo apt install -y nano
+#sudo apt install -y wget
+#sudo apt install -y iproute2
+#sudo apt install -y strace
+#sudo apt install -y diffstat
+#sudo apt install -y tcpdump
 
 # Google Chrome
 #   https://github.com/aimldl/technical_skills/blob/master/computing_environments/linux_ubuntu/how_to_install/google-chrome.md
