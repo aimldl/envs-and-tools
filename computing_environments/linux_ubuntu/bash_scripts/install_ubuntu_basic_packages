@@ -42,6 +42,13 @@ sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
 # Nomacs
 #   https://blog.naver.com/aimldl/221595457917
+#sudo add-apt-repository ppa:nomacs/stable -y
+# TODO
+# More info: https://launchpad.net/~nomacs/+archive/ubuntu/stable
+#Press [ENTER] to continue or Ctrl-c to cancel adding it.
+# Error: retrieving gpg key timed out.
+# Fix: Press [ENTER] automatically.
+
 sudo add-apt-repository ppa:nomacs/stable
 sudo apt update
 sudo apt install nomacs -y
