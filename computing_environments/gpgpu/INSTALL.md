@@ -37,3 +37,10 @@ how to set up multi node multi gpu environment on ubuntu linux
 ## Install cuBLAS
 
 [Basic Linear Algebra on NVIDIA GPUs](https://developer.nvidia.com/cublas)
+
+
+
+## Set up TensorFlow for GPU
+
+[TensorFlow > Install > GPU support](https://www.tensorflow.org/install/gpu)
+
