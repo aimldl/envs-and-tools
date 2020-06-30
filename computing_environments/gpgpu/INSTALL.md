@@ -12,9 +12,9 @@
 
 The automatic driver installation is recommended because it works fine on Ubuntu 18.04. 
 
-**Automatic Installation:** [Install NVIDIA Graphics Card Driver on Ubuntu Automatically](how_to/install_nvidia_graphics_card_driver_automatically.md)
+**Automatic Installation:** [Install NVIDIA Graphics Card Driver on Ubuntu Automatically](how_to_install/nvidia_graphics_card_driver_automatically.md)
 
-**Manual Installation:** [Install NVIDIA Graphics Card Driver on Ubuntu Manually](how_to/install_nvidia_graphics_card_driver_manually.md)
+**Manual Installation:** [Install NVIDIA Graphics Card Driver on Ubuntu Manually](how_to_install/nvidia_graphics_card_driver_manually.md)
 
 **References:** [How to install the NVIDIA drivers on Ubuntu 18.04 Bionic Beaver Linux](https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)
 

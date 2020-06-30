@@ -1,8 +1,6 @@
-##### aimldl/computing_environments/docker/README.md
-
-* Rev.2: 2020-0324 (Tue)
-* Rev.1: 2020-0311 (Wed)
-* Draft: 2019-1115 (Fri)
+* Rev.2: 2020-03-24 (Tue)
+* Rev.1: 2020-03-11 (Wed)
+* Draft: 2019-11-15 (Fri)
 
 # [Docker](https://www.docker.com/)
 
