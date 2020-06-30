@@ -1,0 +1,89 @@
+#!/bin/bash
+#  install_ubuntu_basic_packages
+#    Run this script after installing Ubuntu Linux and install the basic packages
+#
+#  * Rev.2: 2020-06-27 (Mon)
+#  * Rev.1: 2020-06-22 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+#  Usage:
+#    Open a text editor, copy & paste this script, and finally run this script.
+#    nano is my favorite text editor. You may use vi, vim, emacs, or any text editor.
+#    $ nano install_ubuntu_basic_packages
+#    $ chmod +x install_ubuntu_basic_packages 
+#    $ ./install_ubuntu 
+#    [sudo] password for k8snode:
+
+#sudo apt update -y
+#sudo apt-get upgrade -y
+sudo apt update && sudo apt-get upgrade -y
+
+# Install the Linux Kernel Header
+#sudo apt-get install linux-headers-$(uname -r)
+# Is this necessary when Ubuntu is updated and upgraded?
+
+# Install Dependencies
+sudo apt install -y build-essential
+sudo apt install -y cmake
+sudo apt install -y git
+sudo apt-get install -y python-dev python3-dev python-pip python3-pip
+#sudo apt install -y zip
+#sudo apt install -y unzip
+
+# Install some convenient packages
+sudo apt install -y tree
+sudo apt install -y vim
+sudo apt install -y curl
+sudo apt install -y screen
+sudo apt install -y net-tools
+sudo apt install -y pkg-config
+#sudo apt-get install -y software-properties-common
+#sudo apt install -y nano
+#sudo apt install -y wget
+#sudo apt install -y iproute2
+#sudo apt install -y strace
+#sudo apt install -y diffstat
+#sudo apt install -y tcpdump
+
+# Google Chrome
+#   https://github.com/aimldl/technical_skills/blob/master/computing_environments/linux_ubuntu/how_to_install/google-chrome.md
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+# Nomacs
+#   https://blog.naver.com/aimldl/221595457917
+#sudo add-apt-repository ppa:nomacs/stable -y
+# TODO
+# More info: https://launchpad.net/~nomacs/+archive/ubuntu/stable
+#Press [ENTER] to continue or Ctrl-c to cancel adding it.
+# Error: retrieving gpg key timed out.
+# Fix: Press [ENTER] automatically.
+
+sudo add-apt-repository ppa:nomacs/stable
+sudo apt update
+sudo apt install nomacs -y
+
+# Korean Language Packs
+sudo apt install -y language-pack-ko
+sudo apt install -y korean*
+
+# gnome-tweak-tool
+sudo add-apt-repository universe
+sudo apt install -y gnome-tweak-tool
+
+# typora
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+sudo apt-get install -y typora
+
+# gimp
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+sudo apt-get update
+sudo apt-get install -y gimp
+
+# audacity
+#sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+#sudo apt-get update
+sudo apt-get install -y audacity
+

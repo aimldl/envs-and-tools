@@ -6,26 +6,48 @@
 
 # Install NVIDIA CUDA Toolkit
 
-For the full detail of this document, refer to [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract). A more general guideline is available at [NVIDIA CUDA GETTING STARTED GUIDE FOR LINUX](http://developer.download.nvidia.com/compute/cuda/7_0/Prod/doc/CUDA_Getting_Started_Linux.pdf). [Verify CUDA Installation](https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html)
-
 ## Summary
 
-Step 1. Take the pre-installation actions
+Step 1. Update, upgrade the system and install dependencies
 
 ```bash
-$ lspci | grep -i nvidia
-$ uname -m && cat /etc/*release
-$ gcc --version
-$ uname -r
+$ sudo apt-get update && sudo apt-get upgrade -y
+$ sudo apt install -y build-essential
+$ sudo apt-get install -y python-dev python3-dev python-pip python3-pip
+#$ sudo apt-get install linux-headers-$(uname -r)
 ```
 
-Step 2. Go to the [CUDA download page](http://developer.nvidia.com/cuda-downloads) and 
+Step 2. Clean the existing NVIDIA driver.
 
-* http://developer.nvidia.com/cuda-downloads.
+```bash
+$ sudo apt-get purge nvidia*
+$ sudo apt-get autoremove
+$ sudo apt-get autoclean
+$ sudo rm -rf /usr/local/cuda*
+```
 
-Step 3. asdf
+Step 3. Install the latest NVIDIA CUDA
+
+cuda 11.0 is the latest version. You may change the version name in the following command. These commands are from ***Installation instructions: deb (network)*** below. 
+
+```bash
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+$ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+$ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+$ sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+$ sudo apt-get update
+$ sudo apt-get -y install cuda
+```
+
+Step 4. Reboot the system
+
+```bash
+$ reboot
+```
 
 
+
+For the full detail of this document, refer to [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract). A more general guideline is available at [NVIDIA CUDA GETTING STARTED GUIDE FOR LINUX](http://developer.download.nvidia.com/compute/cuda/7_0/Prod/doc/CUDA_Getting_Started_Linux.pdf). [Verify CUDA Installation](https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html)
 
 ## Pre-installation actions
 
@@ -98,7 +120,7 @@ The `Installer Type` can be any of the three options while my preference is `deb
 
 --------
 
-[Open-Source Software for the CUDA Toolkit](http://developer.download.nvidia.com/compute/cuda/opensource/11.0.1/): `cuda_gdb_src-all-all-11.0.172.tar.gz` is the only file in this link.
+[Open-Source Software for the CUDA Toolkit](http://developer.download.nvidia.com/compute/cuda/opensource/11.0.1/): `cuda_gdb_src-all-all-11.0.172.tar.gz` is the only file in this link.sudo rm -rf /usr/local/cuda*
 
 [Index of /compute/cuda/opensource](https://developer.download.nvidia.com/compute/cuda/opensource/): some more open source packages are available here.
 
@@ -108,11 +130,13 @@ The `Installer Type` can be any of the three options while my preference is `deb
 
 ### Download Installer for Linux Ubuntu 18.04 x86_64
 
-Recall three options exits for `Installer Type` in `CUDA Toolkit 11.0 RC Download > Select Target Platform`.
+Recall three options exits for `Installer Type` in `CUDA Toolkit 11.0 RC Download > Select Target Platform`. 
 
 * runfile (local)
 * deb (local): this is the option for this example.
 * deb (network)
+
+**Memo:** It took about 4 hours to download files for `deb (local)` while 1 and a half hours for `deb (network)`.  For me, `deb (local)` failed and I had to reinstall from the OS all over again. `deb (network)` worked fine and the summary is at the top of this document.
 
 The CUDA Toolkit will be downloaded and installed which contains
 
@@ -154,6 +178,15 @@ $ sudo apt-get update
 $ sudo apt-get -y install cuda
 ```
 
+The above is the official commands and the following is a tweak to the official commands from [Setup ubuntu for deeplearning](https://lepoeme20.github.io/archive/Set-up-ubuntu-for-deeplearning). The main difference is the last command using several options to force overwrite.
+
+```bash
+$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+$ echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
+$ sudo apt-get update
+$ sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda-10-0 cuda-drivers
+```
+
 ## Download and install CUDA with deb (local)
 
 `deb (local)` is the option for this example. The commands presented in the `Installation Instructions` are executed in this part.
@@ -185,54 +218,96 @@ $ sudo apt-get update
 $ sudo apt-get -y install cuda
 ```
 
-## Post-installation actions
-
-### Mandatory Actions
-
-Set up the environment.
-
-Step 1. Double-check the directory name
-
-```bash
-$ ls /usr/local/
-bin  cuda-11.0  etc  games  include  lib  man  sbin  share  src
-$
-```
-
-Step 2. Open `.bashrc` with a text editor.
-
-```bash
-$ nano .bashrc
-```
-
-Step 3. Add the PATH variable at the end of `.bashrc$ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}`
-
-> export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
-
-```bash
-$ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
-$ echo $PATH
-/usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-$
-```
-
-If the `runfile` installation method is chosen, add the `LD_LIBRARY_PATH`, too.
-
-> export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-Step 4. Update the `bash` terminal or reboot the system
-
-```bash
-$ bash
-$
-```
-
-or
+## Reboot the system
 
 ```bash
 $ reboot
 ```
 
+## Post-installation actions
+
+### Mandatory Actions
+
+Step 1. Double-check the directory name
+
+```bash
+$ ls /usr/local/ | grep "cuda-"
+cuda-11.0
+# or
+$ ls /usr/local/
+bin  cuda-11.0  etc  games  include  lib  man  sbin  share  src
+$
+```
+
+Step 2. Add the PATH variable at the end of `.bashrc`
+
+Either run
+
+```bash
+$ echo 'export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
+$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+```
+
+or add the following two variables to `.bashrc` with a text editor.
+
+```bash
+export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+```
+
+Step 3. Reload the bash
+
+```bash
+$ source ~/.bashrc
+```
+
+Step 4. Check 
+
+```bash
+$ sudo ldconfig
+$ nvidia-smi
+$ echo $PATH
+/usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$
+```
+
+## Next
+
+* [Install cuDNN](install_nvidia_cudnn.md)
+
 ## References
 
 * [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract)
+
+```bash
+$ nvidia-smi
+Mon Jun 29 13:46:18 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.36.06    Driver Version: 450.36.06    CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1080    On   | 00000000:01:00.0  On |                  N/A |
+| 28%   34C    P8     8W / 180W |    336MiB /  8118MiB |      2%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 1080    On   | 00000000:02:00.0 Off |                  N/A |
+| 27%   30C    P8     5W / 180W |      2MiB /  8119MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1146      G   /usr/lib/xorg/Xorg                171MiB |
+|    0   N/A  N/A      1259      G   /usr/bin/gnome-shell               88MiB |
+|    0   N/A  N/A      1755      G   /proc/self/exe                     34MiB |
+|    0   N/A  N/A      2150      G   ...AAAAAAAAA= --shared-files       36MiB |
++-----------------------------------------------------------------------------+
+$
+```
+
