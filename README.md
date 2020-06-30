@@ -4,7 +4,7 @@
 
 ## Purpose of https://github.com/aimldl
 
-https://github.com/aimldl is created to collect and organize a small fraction of skills & knowledge in my career journey from 2018-ish. The repositories under https://github.com/aimldl is reorganized with purpose to develop and organize necessary skills, knowledge, and whatsoever for a (senior) data scientist.
+https://github.com/aimldl is created to collect and organize a small fraction of skills & knowledge in my career journey from 2018-ish. The repositories under https://github.com/aimldl is reorganized with purpose to develop and organize necessary skills, knowledge, and whatsoever for a data scientist.
 
 Web articles used to collect the keywords are below. The hierarchy under https://github.com/aimldl are influenced by these keywords when the repository names and their sub-directoriy names are determined. 
 
