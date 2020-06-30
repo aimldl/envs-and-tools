@@ -96,3 +96,13 @@ In the file,
 1
 	
 git add 'conflicted file name'
+
+Change it to
+```
+* [003. 리눅스 운영체제 설치하기-Ubuntu Linux 설치](https://m.blog.naver.com/PostView.nhn?blogId=aimldl&logNo=221478627994&referrerCode=0&searchKeyword=linux)
+```
+and remove all the special characters, too.
+
+```bash
+$ git add computing_environments/linux_ubuntu/INSTALL.md 
+```
