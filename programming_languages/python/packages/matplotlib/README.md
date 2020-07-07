@@ -69,5 +69,6 @@ ax.legend(custom_lines, ['Cold', 'Medium', 'Hot'])
 ## 2.2. Documentation
 * [User's Guide](https://matplotlib.org/users/index.html)
 * [Documentation overview](https://matplotlib.org/contents.html). 
+* Github Repository: [matplotlib](https://github.com/matplotlib) / [cheatsheets](https://github.com/matplotlib/cheatsheets) 
 
 (EOF)
