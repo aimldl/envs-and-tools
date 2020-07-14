@@ -1,7 +1,7 @@
 #!/bin/bash
 # batch_git_clone
 #   This script git-clones all the repositories in https://github.com/aimldl
-#   Note "private" is a private repository which requires authentication.
+#   A private repository requires authentication.
 #
 #   Rev.8: 2020-07-14 (Tue)
 #   Rev.7: 2020-06-19 (Fri)
@@ -13,11 +13,9 @@
 #   Rev.1: 2019-11-19 (Tue)
 #   Draft: 2019-11-01 (Fri)
 #
-# batch_git_clone
-#   This script git-clones all the repositories in https://github.com/aimldl.
-#   A private repository requires authentication.
-#     $ Username for 'https://github.com': user_id
-#     $ Password for 'https://user_id@github.com': 
+# Usage
+#   $ chmod +x batch_git_clone
+#   $ ./batch_git_clone
 
 repos="aimldl.github.io topics_in non_technical_skills technical_skills private"
 #repos="VOX JOURNAL documents python3 aws computing_environments"
