@@ -3,6 +3,7 @@
 #   This script git-clones all the repositories in https://github.com/aimldl
 #   Note "private" is a private repository which requires authentication.
 #
+#   Rev.8: 2020-07-14 (Tue)
 #   Rev.7: 2020-06-19 (Fri)
 #   Rev.6: 2020-03-01 (Sun)
 #   Rev.5: 2020-02-25 (Tue)
@@ -18,7 +19,7 @@
 #     $ Username for 'https://github.com': user_id
 #     $ Password for 'https://user_id@github.com': 
 
-repos="aimldl.github.io topics_in non_technical_skills technical_skills"
+repos="aimldl.github.io topics_in non_technical_skills technical_skills private"
 #repos="VOX JOURNAL documents python3 aws computing_environments"
 #repos="sql matlab cpp bindsnet career private"
 for repo in ${repos};
