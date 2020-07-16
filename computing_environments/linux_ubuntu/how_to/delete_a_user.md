@@ -2,7 +2,7 @@
 # Delete a User on Ubuntu Linux
 Run 
 ```bash
-$ sudo deluser --remove-home <username>
+$ sudo deluser --remove-home USER
 ```
 to delete the user and the home directory.
 
@@ -10,10 +10,10 @@ To verify the sudoer's priviledge, run
 ```bash
 $ sudo visudo
 ```
-and delete the line starting with <username> if the line exists.
+and delete the line starting with USER if the line exists.
 ```bash
-root       ALL=(ALL:ALL) ALL
-<username> ALL=(ALL:ALL) ALL   # DELETE THIS LINE
+root    ALL=(ALL:ALL) ALL
+USER    ALL=(ALL:ALL) ALL
 ```
 ## deluser --help
 ```bash
@@ -50,6 +50,7 @@ $
 ```
 
 ## Example
+In this example, the current user is `aimldl`. The user I want to delete is `k8snode`.
 ```bash
 $ whoami
 aimldl
