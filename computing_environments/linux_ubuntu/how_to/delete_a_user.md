@@ -1,10 +1,14 @@
 * Draft: 2020-07-16 (Thu)
 # Delete a User on Ubuntu Linux
-Run 
+* To delete the user and the home directory, run:
 ```bash
 $ sudo deluser --remove-home USER
 ```
-to delete the user and the home directory.
+
+* To delete the user and all files including the home directory, run:
+```bash
+$ sudo deluser --remove-all-files USER
+```
 
 To verify the sudoer's priviledge, run
 ```bash
@@ -69,6 +73,13 @@ aimldl
 $ sudo visudo
 [sudo] password for aimldl: 
 visudo: /etc/sudoers.tmp unchanged
+$
+```
+
+## Troubleshoot
+```bash
+$ sudo adduser k8snode
+adduser: The user `k8snode' already exists.
 $
 ```
 ## References
