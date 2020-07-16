@@ -77,10 +77,16 @@ $
 ```
 
 ## Troubleshoot
+### Problem
 ```bash
 $ sudo adduser k8snode
 adduser: The user `k8snode' already exists.
 $
 ```
+### Hint
+```
+Google search: "deluser --remove-home" "adduser: The user"  "already exists"
+```
+
 ## References
 * [How to Add and Delete Users on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-ubuntu-16-04)
