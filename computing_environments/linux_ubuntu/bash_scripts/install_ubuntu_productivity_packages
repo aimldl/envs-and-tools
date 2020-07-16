@@ -18,31 +18,17 @@
 #    To edit this file, use a text editor.
 #      $ nano install_ubuntu_productivity_packages
 #    nano is my choice of text editor, but you may use other text editor such as vi, vim, or emacs.
-#
-#  TODO:
-#  Q: How to automatically press ENTER given the following message
-#    Press [ENTER] to continue or Ctrl-c to cancel adding it.
-#  Source: Auto confirm when running bash scripts?
-#          https://askubuntu.com/questions/250861/auto-confirm-when-running-bash-scripts
-#  If you're presented with a bunch of responses like:
-#    Press [ENTER] to continue or ctrl-c to cancel adding it
-#  You can do something like:
-#    yes '' | sudo add-apt-repository ppa:nginx/stable
 
 # typora
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
-# TODO: Press [ENTER] automatically.
-
-#sudo apt-get install -y typora
-yes '' | sudo apt-get install -y typora
+sudo apt-get install -y typora
 
 # gimp
-sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+sudo add-apt-repository -y ppa:otto-kesselgulasch/gimp
 sudo apt-get update
-#sudo apt-get install -y gimp
-yes '' | sudo apt-get install -y gimp
+sudo apt-get install -y gimp
 
 # audacity
 #sudo add-apt-repository ppa:ubuntuhandbook1/audacity
@@ -52,11 +38,9 @@ sudo apt-get install -y audacity
 # Nomacs
 #   https://blog.naver.com/aimldl/221595457917
 #   https://launchpad.net/~nomacs/+archive/ubuntu/stable
-sudo add-apt-repository ppa:nomacs/stable
+sudo add-apt-repository -y ppa:nomacs/stable
 sudo apt update
-# TODO: Press [ENTER] automatically.
-#sudo apt install nomacs -y
-yes '' | sudo apt install nomacs -y
+sudo apt install -y nomacs
 
 # Korean Language Packs
 #sudo apt install -y language-pack-ko
