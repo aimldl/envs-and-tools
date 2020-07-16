@@ -3,6 +3,7 @@
 #    Run this script after installing Ubuntu Linux and install the productivity packages
 #    For Ubuntu 18.04 LTS
 #
+#  * Rev.4: 2020-07-16 (Thu)
 #  * Rev.3: 2020-07-14 (Tue)
 #  * Rev.2: 2020-06-27 (Mon)
 #  * Rev.1: 2020-06-22 (Mon)
@@ -17,7 +18,16 @@
 #    To edit this file, use a text editor.
 #      $ nano install_ubuntu_productivity_packages
 #    nano is my choice of text editor, but you may use other text editor such as vi, vim, or emacs.
-
+#
+#  TODO:
+#  Q: How to automatically press ENTER given the following message
+#    Press [ENTER] to continue or Ctrl-c to cancel adding it.
+#  Source: Auto confirm when running bash scripts?
+#          https://askubuntu.com/questions/250861/auto-confirm-when-running-bash-scripts
+#  If you're presented with a bunch of responses like:
+#    Press [ENTER] to continue or ctrl-c to cancel adding it
+#  You can do something like:
+#    yes '' | sudo add-apt-repository ppa:nginx/stable
 
 # typora
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -25,12 +35,14 @@ sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
 # TODO: Press [ENTER] automatically.
 
-sudo apt-get install -y typora
+#sudo apt-get install -y typora
+yes '' | sudo apt-get install -y typora
 
 # gimp
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 sudo apt-get update
-sudo apt-get install -y gimp
+#sudo apt-get install -y gimp
+yes '' | sudo apt-get install -y gimp
 
 # audacity
 #sudo add-apt-repository ppa:ubuntuhandbook1/audacity
@@ -43,7 +55,8 @@ sudo apt-get install -y audacity
 sudo add-apt-repository ppa:nomacs/stable
 sudo apt update
 # TODO: Press [ENTER] automatically.
-sudo apt install nomacs -y
+#sudo apt install nomacs -y
+yes '' | sudo apt install nomacs -y
 
 # Korean Language Packs
 #sudo apt install -y language-pack-ko
