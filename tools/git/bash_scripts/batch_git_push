@@ -2,6 +2,7 @@
 # batch_git_push
 #   This script runs git push in all sub-directories for all the repositories in https://github.com/aimldl.
 #
+#   Rev.9: 2020-07-14 (Tue)
 #   Rev.8: 2020-06-19 (Fri)
 #   Rev.7: 2020-05-28 (Thu)
 #   Rev.6: 2020-03-01 (Sun)
@@ -28,7 +29,7 @@
 #   $ cd ..
 
 dir_root=${PWD}
-repos="aimldl.github.io topics_in non_technical_skills technical_skills"
+repos="aimldl.github.io topics_in non_technical_skills technical_skills private"
 #repos="ml_dl aimldl.github.io python3 documents aws computing_environments"
 #repos="sql matlab cpp bindsnet career private"
 
