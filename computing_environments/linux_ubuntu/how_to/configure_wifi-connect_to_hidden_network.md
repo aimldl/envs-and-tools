@@ -1,3 +1,4 @@
+* Rev.3: 2020-07-23 (Thu)
 * Rev.2: 2020-06-24 (Wed)
 * Rev.1: 2020-06-22 (Mon)
 * Draft: 2020-
@@ -9,7 +10,8 @@ A hidden network is not visible. So the network name must be typed in manually.
 ## Prerequisite
 1. The password to access the hidden network is necessary.
 2. If the hidden network requires **MAC Authentication**, the MAC address must be registered to the Wi-Fi router.
-
+  * Refer to [How to Get the MAC Address on Ubuntu (18.04)](get_the_mac_address.md).
+  * Refer to [TODO: How to Register the MAC Address to the Wi-Fi Router]
 Ask the owner/system admin of the hidden network about the details.
 
 ## Steps
