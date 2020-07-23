@@ -7,8 +7,6 @@
 ## Question:
 
 > Google search: ubuntu how to check the number of cores for cpu
->   or
-> Google search: ubuntu linux number of cpu cores
 >
 > [Check how many CPUs are there in Linux system](https://www.cyberciti.biz/faq/check-how-many-cpus-are-there-in-linux-system/)
 
