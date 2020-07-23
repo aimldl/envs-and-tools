@@ -14,7 +14,8 @@ A hidden network is not visible. So the network name must be typed in manually.
 ## Prerequisite
 1. The password to access the hidden network is necessary.
 2. If the hidden network requires **MAC Authentication**, the MAC address must be registered to the Wi-Fi router.
-  * Ask the owner/system admin of the hidden network about the details.
+  
+Ask the owner/system admin of the hidden network about the details.
 
 ## Steps
 Step 1. Go to `Settings`, select `Wi-Fi` and click the triple bar ≡ on the top right corner of the window.
