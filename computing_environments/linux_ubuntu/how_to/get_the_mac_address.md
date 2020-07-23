@@ -11,6 +11,12 @@
 * Option 2. Use the `ifconfig` command
   * If the `ifconfig` command is available, use it to get the MAC address.
   * `ifconfig` is not available right after installing Ubuntu Linux (18.04).
+```bash
+$ ifconfig
+Command 'ifconfig' not found, but can be installed with:
+sudo apt install net-tools
+$
+```
   * In general, the Internet is necessary to install `ifconfig`.
   * Say you intend to connect the Internet via a WiFi and the WiFi requires to register your MAC address as a part of authentication method. In this case, `ifconfig` can not be used. So use the first method.
 
