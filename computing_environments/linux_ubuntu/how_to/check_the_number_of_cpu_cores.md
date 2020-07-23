@@ -7,4 +7,4 @@
 >
 > [Check how many CPUs are there in Linux system](https://www.cyberciti.biz/faq/check-how-many-cpus-are-there-in-linux-system/)
 
-Refer to [linux_command/lscpu](../../linux_command/lscpu.md) that exactly same content is summarized.
+Refer to [linux_command/lscpu](../../linux_commands/lscpu.md) that exactly same content is summarized.
