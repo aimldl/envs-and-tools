@@ -7,6 +7,7 @@ It takes about 10~15 minutes.
 
 ## Steps
 ### Step 1. Open a web browser and enter "http://192.168.0.1/"
+
 <img src="images/iptime_a2008-setup_or_wizard.png">
 
 ### 
@@ -15,6 +16,7 @@ Click "Advanced Setup", "Wireless", and then "MAC Authentication"
 <img src="images/iptime_a2008-config_explorer-advanced_setup-wireless-mac_authentication.png">
 
 Register
+
 <img src="images/iptime_a2008-config_explorer-advanced_setup-wireless-mac_authentication-add_mac_address.png">
 
 ## See also:
