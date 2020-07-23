@@ -10,7 +10,8 @@
   * `/sys/class/net/<device-name>/address` contains the MAC address of a device `device-name`. 
 * Option 2. Use the `ifconfig` command
   * If the `ifconfig` command is available, use it to get the MAC address.
-  * `ifconfig` is not available right after installing Ubuntu Linux (18.04).
+
+`ifconfig` is not available right after installing Ubuntu Linux (18.04).
 ```bash
 $ ifconfig
 Command 'ifconfig' not found, but can be installed with:
