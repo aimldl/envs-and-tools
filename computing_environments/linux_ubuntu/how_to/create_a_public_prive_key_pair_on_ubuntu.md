@@ -304,4 +304,3 @@ $
 ```
 
 I refreshed the terminal and the command worked just fine.
-
