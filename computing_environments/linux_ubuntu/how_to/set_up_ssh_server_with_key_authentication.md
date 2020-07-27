@@ -42,5 +42,31 @@ $ service ssh
 $
 ```
 
+## Generate the key
+```bash
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/k8snode-01/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/k8snode-01/.ssh/id_rsa.
+Your public key has been saved in /home/k8snode-01/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:AWGwDURMwRmmeUUu/64qjvm34uMoF6oy7gYeWtgjPKg k8snode-01@k8snode-01-Alienware-Aurora-R7
+The key's randomart image is:
++---[RSA 2048]----+
+|   *X**.         |
+|   ++B .         |
+|  o + o .        |
+|   . o   .       |
+|oo    . S        |
+|=+=    .         |
+|=+oo    .        |
+|E*= .  .         |
+|%X==oo...        |
++----[SHA256]-----+
+$
+```
+
 ## References
 * [How to SSH Into a Kubernetes Pod From Outside the Cluster](https://medium.com/better-programming/how-to-ssh-into-a-kubernetes-pod-from-outside-the-cluster-354b4056c42b)
