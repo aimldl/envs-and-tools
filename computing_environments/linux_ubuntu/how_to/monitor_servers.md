@@ -1,8 +1,11 @@
 * Draft: 2020-07-30 (Thu)
-# Monitor Servers
+# How to Monitor Servers
 
 > Google search: ICMP 감시
 > * [[서버] 서버 감시 기능](https://m.blog.naver.com/PostView.nhn?blogId=pjt3591oo&logNo=220547504579&proxyReferer=https:%2F%2Fwww.google.com%2F)
+
+Load balancer BIG-IP provides "Health Monitor" functionality while Ace 4700 provides "Health Check" functionality.
+Q: What's the difference between "Health Monitor" and "Health Check".
 
 ## Server Monitoring
 * L3 Check
@@ -10,7 +13,7 @@
 * L7 Check
 
 ## Load Balancer
-A load balancer distributes load to servers. Som industry standard algorithms are:
+A load balancer distributes load to servers. Some industry standard algorithms are:
 * Round robin
 * Weighted round robin
 * Least connections
@@ -21,10 +24,6 @@ A load balancer distributes load to servers. Som industry standard algorithms ar
 Source: [F5 GLOSSARY > Load Balancer](https://www.f5.com/services/resources/glossary/load-balancer)
 
 As a side job, a load balancer minitors the status of servers. When an error occurs at a server, no session is assigned to the server. 
-
-* 모델별 제공 기능
-  * BIG-IP는 Health Monitor 기능 제공
-  * Ace 4700은 Health Check 기능 제공
   
 <img src="images/figure5-2_advanced_n_1_redundancy.png">
 Source: [Using F5 Big-IP as a Load Balancer for External Internet Connectivity](https://docs.solace.com/Solace-PubSub-Messaging-APIs/JavaScript-API/Web-Messaging-Concepts/Using-F5-Big-IP-as-a-Load.htm)
