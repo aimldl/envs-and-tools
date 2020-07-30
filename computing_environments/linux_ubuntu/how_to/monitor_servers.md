@@ -3,8 +3,9 @@
 
 > Google search: ICMP 감시
 > * [[서버] 서버 감시 기능](https://m.blog.naver.com/PostView.nhn?blogId=pjt3591oo&logNo=220547504579&proxyReferer=https:%2F%2Fwww.google.com%2F)
+> 
+>    Load balancer BIG-IP provides "Health Monitor" functionality while Ace 4700 provides "Health Check" functionality.
 
-Load balancer BIG-IP provides "Health Monitor" functionality while Ace 4700 provides "Health Check" functionality.
 Q: What's the difference between "Health Monitor" and "Health Check".
 
 ## Server Monitoring
@@ -32,12 +33,50 @@ Source: [Using F5 Big-IP as a Load Balancer for External Internet Connectivity](
 > Google search: fping
 > * [FPING](https://fping.org/fping.1.html)
 > * [Fping – A High Performance Ping Tool for Linux](https://www.tecmint.com/ping-multiple-linux-hosts-using-fping/)
+>
 >    fping is a small command line tool to send ICMP (Internet Control Message Protocol) echo request to network hosts, similar to ping, but much higher performing when pinging multiple hosts.
 
 > * [fping](https://fping.org/)
 
+### Install fping
+```bash
+$ sudo apt install fping
+```
+or
+```bash
+$ wget https://fping.org/dist/fping-4.0.tar.gz
+$ tar -xvf fping-4.0.tar.gz
+$ cd fping-4.0/
+$ ./configure
+$ make && make install
+```
+### Usage
+### Check the status of multiple IP addresses.
+The status is either alive or unreachable.
 
+```bash
+$ fping 12.345.67.890 234.567.89.01 34.567.890.12
+12.345.67.890 is alive
+234.567.89.01 is alive
+34.567.890.12 is unreachable
+$
+```
+### Read the list of target IPs from a file
+Say the above IP addresses are saved in `cluster_nodes.list`.
+```text
+12.345.67.890
+234.567.89.01
+34.567.890.12
+```
+Use `<` to read in the list of target IP addresses from the file.
 
+```bash
+$ fping < cluster_nodes.list
+12.345.67.890 is alive
+234.567.89.01 is alive
+34.567.890.12 is unreachable
+$
+```
 ## References
 * [[서버] 서버 감시 기능](https://m.blog.naver.com/PostView.nhn?blogId=pjt3591oo&logNo=220547504579&proxyReferer=https:%2F%2Fwww.google.com%2F)
 * [F5 GLOSSARY > Load Balancer](https://www.f5.com/services/resources/glossary/load-balancer)
