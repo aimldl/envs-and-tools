@@ -193,3 +193,16 @@ Remote-accessing a cluster is possible in Go and Python as Kubernetes officially
 * [Requesting redirects](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#requesting-redirects)
 
 
+## References
+* [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
+* [Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/)
+* [Directly accessing the REST API](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#directly-accessing-the-rest-api)
+* [Accessing Dashboard](https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/README.md)
+* kubectl
+  * [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
+  * [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+  * [kubectl proxy](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#proxy)
+  * [kubectl config](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config)
+  * [Using kubectl proxy](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#using-kubectl-proxy)
+  * [Without kubectl proxy](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#without-kubectl-proxy)
+
