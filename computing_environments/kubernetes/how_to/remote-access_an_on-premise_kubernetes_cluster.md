@@ -11,6 +11,7 @@ Remote-accessing to a Kubernetes cluster requires two pieces of information:
 
 Notice the `apiserver` is the front end for the Kubernetes control plane. For details, refer to [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/).
 
+<img src="https://d33wubrfki0l68.cloudfront.net/7016517375d10c702489167e704dcb99e570df85/7bb53/images/docs/components-of-kubernetes.png">
 
 ## Remote-accessing to a Kubernetes cluster on a public cloud
 * [GKS](https://cloud.google.com/kubernetes-engine) or [Amazon EKS](https://aws.amazon.com/eks/?nc1=h_ls) is relatively easy.
