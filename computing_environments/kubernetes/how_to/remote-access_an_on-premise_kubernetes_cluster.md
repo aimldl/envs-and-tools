@@ -6,8 +6,11 @@ I want to remote-access the cluster from a laptop. But how?
 
 ## Background Knowledge
 Remote-accessing to a Kubernetes cluster requires two pieces of information:
-* the location of the cluster
+* the location of the `apiserver`
 * the credential to access it.
+
+Notice the `apiserver` is the front end for the Kubernetes control plane. For details, refer to [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/).
+
 
 ## Remote-accessing to a Kubernetes cluster on a public cloud
 * [GKS](https://cloud.google.com/kubernetes-engine) or [Amazon EKS](https://aws.amazon.com/eks/?nc1=h_ls) is relatively easy.
@@ -39,26 +42,48 @@ returns the location and credentials that kubectl knows. For example,
     * [Without kubectl proxy](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#without-kubectl-proxy) is the alternative approach.
       * Access the REST API with an http client such as `curl`, `wget`, or a web browser.
 
-## The recommended approach: `kubectl proxy`
-* `kubectl proxy` uses the location and authentication information stored in `~/.kube/config` of the control plane.
-* To retrieve the location information, run either:
+## The recommended approach: `kubectl proxy --port 8080`
+`kubectl proxy` uses the location and authentication information stored in `~/.kube/config` of the control plane.
+
+First, run either:
 ```bash
-$ kubectl config view | grep server | sed -e 's/^[ ]*server:[ ]//'
+$ kubectl proxy --port=8080
 # or
-$ kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d
+$ kubectl proxy --port 8080
+```
+and the expected output is
+```bash
+Starting to serve on 127.0.0.1:8080
+```
+
+### Retrieve the location information
+#### With `kubectl proxy` and `curl`
+In another terminal, run:
+```bash
+$ curl http://localhost:8080/api/
 ```
 and the output looks something like:
 ```bash
-https://123.456.7.890:6443
-$
+{
+  "kind": "APIVersions",
+  "versions": [
+    "v1"
+  ],
+  "serverAddressByClientCIDRs": [
+    {
+      "clientCIDR": "0.0.0.0/0",
+      "serverAddress": "123.456.7.890:6443"
+    }
+  ]
+}
 ```
-`https://123.456.7.890` is the IP address and the port number is `6443`.
+Notice `serverAddress` includes the location information `123.456.7.890:6443`.
 
-To see the full message, run:
+## The alternative approach: `kubectl config view'
 ```bash
 $ kubectl config view
 ```
-and you'll get something like:
+shows the location and authentication information stored in `~/.kube/config`. For example,
 ```bash
 apiVersion: v1
 clusters:
@@ -81,14 +106,64 @@ users:
     client-key-data: REDACTED
 $
 ```
-The above two commands extract the location information in: "    server: https://123.456.7.890:6443". 
+
+#### Retrieve the `apiserver` location information from `kubectl config view`
+Run either:
+  ```bash
+  $ kubectl config view | grep server | sed -e 's/^[ ]*server:[ ]//'
+  # or
+  $ kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d
+  ```
+to extract the location information in: "    server: https://123.456.7.890:6443". And the output looks something like `https://123.456.7.890:6443`.
+  * `https://123.456.7.890` is the IP address
+  * `6443` is the port number.
+
+### Retrieve the credential
+To get the token, run either:
+```bash
+$ kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep ^token | sed -e 's/^token:[ ]*//'
+# or
+$ kubectl describe secret $(kubectl get secrets | grep ^default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d " "
+```
+Equivalently, break down the above commands into:
+```bash
+$ SECRET_NAME=$(kubectl -n kube-system get secret -n kube-system -o name | grep namespace)
+$ kubectl -n kube-system describe $SECRET_NAME | grep ^token | sed -e 's/^token:[ ]*//'
+# or 
+$ SECRET_NAME=$(kubectl get secrets | grep ^default | cut -f1 -d ' ')
+$ kubectl describe secret $SECRET_NAME | grep -E '^token' | cut -f2 -d':' | tr -d " "
+```
+
+#### Accessing the apiserver with token
+The following commands returns the equivalent the output described in "With `kubectl proxy` and `curl`". However the use of the `--insecure` flag leaves it subject to MITM attacks.
+```bash
+$ APISERVER=$(kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " ")
+$ SECRET_NAME=$(kubectl get secrets | grep ^default | cut -f1 -d ' ')
+$ TOKEN=$(kubectl describe secret $SECRET_NAME | grep -E '^token' | cut -f2 -d':' | tr -d " ")
+$ curl $APISERVER/api --header "Authorization: Bearer $TOKEN" --insecure
+```
+That is,
+```bash
+{
+  "kind": "APIVersions",
+  "versions": [
+    "v1"
+  ],
+  "serverAddressByClientCIDRs": [
+    {
+      "clientCIDR": "0.0.0.0/0",
+      "serverAddress": "123.456.7.890:6443"
+    }
+  ]
+}
+```
+
 
 ## The alternative approach: access the REST API with an http client
-providing the location and credentials directly to the HTTP client is also possible.
-In this case, you can  such as:
 * web browser
 * curl
 * wget
+can be used to provide the location and credentials directly to the HTTP client.
 
 Using kubectl proxy
 ```bash
