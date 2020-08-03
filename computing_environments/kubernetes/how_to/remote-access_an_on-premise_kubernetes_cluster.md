@@ -58,6 +58,17 @@ Starting to serve on 127.0.0.1:8080
 ```
 
 ### Retrieve the location information
+#### `kubectl cluster-info`
+```bash
+$ kubectl cluster-info
+Kubernetes master is running at https://123.456.7.890:6443
+KubeDNS is running at https://123.456.7.890:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$
+```
+For details, refer to [Accessing Dashboard](https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/README.md).
+
 #### With `kubectl proxy` and `curl`
 In another terminal, run:
 ```bash
