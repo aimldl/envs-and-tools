@@ -173,3 +173,12 @@ Starting to serve on 127.0.0.1:8080
 ```
 Running the above command handles locating the apiserver and authenticating. 
 With this command, you can explore the API with a browser, curl, or wget.
+
+## Miscellaneous
+Remote-accessing a cluster is possible in Go and Python as Kubernetes officially supports Go and Python client libraries. The following topics in [Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/) will not be covered in this document. Read the links if necessary.
+* [Programmatic access to the API](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#programmatic-access-to-the-api)
+* [Accessing the API from a Pod](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#accessing-the-api-from-a-pod)
+* [Accessing services running on the cluster](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#accessing-services-running-on-the-cluster)
+* [Requesting redirects](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#requesting-redirects)
+
+
