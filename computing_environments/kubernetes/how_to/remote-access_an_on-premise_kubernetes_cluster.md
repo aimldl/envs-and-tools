@@ -366,6 +366,42 @@ with the `--kubeconfig` option which specified the configuration file as the cop
 
 To summarize, the key is to copy `/etc/kubernetes/admin.conf` from the control plane to the laptop and use the `kubectl` command with the `--kubeconfig` option which specified the configuration file with the location and credential information. 
 
+## Going further
+
+In my laptop, `~/.kube/config` file contains the configuration information about other Kubernetes clusters on Amazon EKS. 
+
+```bash
+$ kubectl config view
+```
+
+shows the information about the clusters on Amazon EKS. To view `~/.kube/admin.conf`, use the `--kubeconfig` option.
+
+```bash
+$ kubectl --kubeconfig ~/.kube/admin.conf config view
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: a1B2c ... 0Z
+    server: https://123.456.7.890:6443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes
+kind: Config
+preferences: {}
+users:
+- name: kubernetes-admin
+  user:
+    client-certificate-data: REDACTED
+    client-key-data: REDACTED
+$
+```
+
+The only difference from the text file is the keys in the last two lines are replaced to `REDACTED`.
+
 ## References
 
 * [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
