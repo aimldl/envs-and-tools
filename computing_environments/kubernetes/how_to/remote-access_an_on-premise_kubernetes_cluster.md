@@ -402,6 +402,39 @@ $
 
 The only difference from the text file is the keys in the last two lines are replaced to `REDACTED`.
 
+## Accessing the Dashboard
+
+On the laptop, run
+
+```bash
+$ kubectl proxy --kubeconfig ~/.kube/admin.conf 
+Starting to serve on 127.0.0.1:8001
+```
+
+instead of
+
+```bash
+$ kubectl proxy
+```
+
+And open this page on a web browser
+
+```http
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+```
+
+I was able to access the Dashboard through proxy and the following page opens. 
+
+<img src="images/kubernetes-dashboard-web_browser-token.png">
+
+Enter token and click `Sign in`.
+
+Caution: `certificate-authority-data` in the `admin.conf` file opens the next page, but it is NOT the correct token because an empty Dashboard is open and the cluster can not be monitored.
+
+> There is nothing to display here
+>
+> No resources found.
+
 ## References
 
 * [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
