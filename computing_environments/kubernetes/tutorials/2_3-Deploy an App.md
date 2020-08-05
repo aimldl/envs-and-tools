@@ -2,9 +2,14 @@
 
 ## 2.3.1. [Using kubectl to Create a Deployment](https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/deploy-intro/)
 
+### Objectives
+
+- Learn about application Deployments.
+- Deploy your first app on Kubernetes with kubectl.
+
 ### Kubernetes Deployments
 
-You can deploy your containerized applications on top of a running Kubernetes cluster. To do so, you create a Kubernetes Deployment configuration. 
+Once you have a running Kubernetes cluster, you can deploy your containerized applications on top of a running Kubernetes cluster. To do so, you create a Kubernetes Deployment configuration. 
 
 The Deployment instructs Kubernetes how to create and update instances of your application. Once you've created a Deployment, the Kubernetes master schedules mentioned application instances onto individual Nodes in the cluster.
 
@@ -24,6 +29,7 @@ Now that you know what Deployments are, let's go to the online tutorial and depl
 
 ## Interactive Tutorial - Deploying an App
 
+```bash
 $ kubectl version --short
 Client Version: v1.17.3
 Server Version: v1.17.3
@@ -35,12 +41,22 @@ deployment.apps/kubernetes-bootcamp created
 $ kubectl get nodes
 NAME       STATUS   ROLES    AGE     VERSION
 minikube   Ready    master   3m39s   v1.17.3
-$ kubectl getdeployments
-Error: unknown command "getdeployments" for "kubectl"
-Run 'kubectl --help' for usage.
 $ kubectl get deployments
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 kubernetes-bootcamp   1/1     1            1           30s
+$
+```
+
+Open a second terminal window to run the proxy.
+
+```bash
+$ kubectl proxy
+Starting to serve on 127.0.0.1:8001
+```
+
+Move back to the first terminal window to run
+
+```bash
 $ curl http://localhost:8001/version
 {
   "major": "1",
@@ -52,7 +68,23 @@ $ curl http://localhost:8001/version
   "goVersion": "go1.13.6",
   "compiler": "gc",
   "platform": "linux/amd64"
-}$ export POD_NAME=$(kubectl get pods -o go-template --template{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
-$ echo Name of the Pod: $POD_NAME
-Name of the Pod: kubernetes-bootcamp-69fbc6f4cf-9ktd2
+}
 $
+```
+
+Note an error will occur without running `kubectl proxy`. Ensure to run `kubectl proxy`.
+
+```bash
+$ curl http://localhost:8001/version
+curl: (7) Failed to connect to localhost port 8001: Connection refused
+$
+```
+
+
+
+```bash
+$ kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
+kubernetes-bootcamp-6f6656d949-f84nf
+$
+```
+

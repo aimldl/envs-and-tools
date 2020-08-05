@@ -1,3 +1,6 @@
+* Rev.1: 2020-08-05 (Wed)
+* Draft: 2020-06-19 (Fri)
+
 # 2. Learn Kubernetes Basics
 
 ## 2.1. Kubernetes Basics
@@ -11,9 +14,7 @@ Using the interactive tutorials, you can learn to:
 - Update the containerized application with a new software version.
 - Debug the containerized application.
 
-The tutorials use Katacoda to run a virtual terminal in your web browser that runs Minikube, a small-scale local deployment of Kubernetes that can run anywhere. There's no need to install any software or configure anything; each interactive tutorial runs directly out of your web browser itself.
-
-
+The tutorials use **an actual Kubernetes cluster installed and configured on on-premise computers.** The official tutorial uses Katacoda to run a virtual terminal in your web browser that runs Minikube, a small-scale local deployment of Kubernetes that can run anywhere. There's no need to install any software or configure anything; each interactive tutorial runs directly out of your web browser itself.
 
 ## What can Kubernetes do for you?
 
@@ -56,3 +57,15 @@ With modern web services, users expect applications to be available 24/7, and de
 [![img](https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_06.svg?v=1469803628347)](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/)
 
 [6. Update your app](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/)
+
+##### [Create a Cluster](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/)
+
+##### [Deploy an App](https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/)
+
+##### [Explore Your App](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/)
+
+##### [Expose Your App Publicly](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/)
+
+##### [Scale Your App](https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/)
+
+##### [Update Your App](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/)
