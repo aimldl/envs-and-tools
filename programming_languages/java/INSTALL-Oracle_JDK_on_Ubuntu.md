@@ -91,6 +91,7 @@ To double-check,nothing is left in the machine.
 $ sudo dpkg --list | grep -i jdk
 $
 ```
+For details, refer to [How to uninstall Oracle JDK in Ubuntu 16.04 LTS [duplicate]](https://askubuntu.com/questions/850729/how-to-uninstall-oracle-jdk-in-ubuntu-16-04-lts). 
 
 ## Installation
 
