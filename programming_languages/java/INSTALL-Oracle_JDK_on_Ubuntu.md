@@ -95,6 +95,17 @@ For details, refer to [How to uninstall Oracle JDK in Ubuntu 16.04 LTS [duplicat
 
 ## Installation
 
+These commands work. For details, refer to [
+New Oracle Java 11 Installer For Ubuntu, Debian Or Linux Mint (Using Local Oracle Java .tar.gz) ](https://www.linuxuprising.com/2019/06/new-oracle-java-11-installer-for-ubuntu.html).
+```bash
+$ sudo add-apt-repository ppa:linuxuprising/java
+$ sudo apt update
+$ sudo apt install oracle-java11-installer-local
+```
+
+The command below fails to work.
+
+
 [How to (Easily) Install Java on Ubuntu](https://thishosting.rocks/install-java-ubuntu/#oracle-jdk) > How to install Java 11 or Java 13 using the Oracle JDK, 2019-12-18, ThisHosting.Rocks
 
 This tutorial includes commands resulting in errors; so I had to fix them.
