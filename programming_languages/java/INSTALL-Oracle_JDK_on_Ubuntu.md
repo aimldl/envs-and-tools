@@ -1,3 +1,4 @@
+* Rev.1: 2020-08-06 (Thu)
 * Rev.1: 2020-05-21 (Thu)
 * Draft: 2020-03-25 (Wed)
 
@@ -52,6 +53,44 @@ $
 ```
 
 For other related commands, refer to [How to remove openjdk-8-jdk from Ubuntu 16.04 (Xenial Xerus)](https://www.howtoinstall.co/en/ubuntu/xenial/openjdk-8-jdk?action=remove).
+
+### Remove the unwanted existing Oracle Java version
+Say my target jar file fails to run with the following error
+```bash
+$ java -jar h2o.jar 
+Only Java 8, 9, 10, 11, 12 and 13 are supported, system version is 14.0.2
+$
+```
+while my current java is version 14.
+```bash
+$ java --version
+java 14.0.2 2020-07-14
+Java(TM) SE Runtime Environment (build 14.0.2+12-46)
+Java HotSpot(TM) 64-Bit Server VM (build 14.0.2+12-46, mixed mode, sharing)
+$
+```
+Let's remove the unsupported version of 14.
+
+First, check the current version
+```bash
+$ sudo dpkg --list | grep -i jdk
+ii  oracle-java14-installer                    14.0.2-1~linuxuprising1                          amd64        Oracle Java(TM) Development Kit (JDK) 14
+ii  oracle-java14-set-default                  14.0.2-1~linuxuprising1                          amd64        Set Oracle JDK 14 as default Java
+$
+```
+and uninstall 
+```bash
+$ sudo apt-get purge oracle-java14-installer
+  ...
+$ sudo apt-get autoremove
+  ...
+$
+```
+To double-check,nothing is left in the machine.
+```bash
+$ sudo dpkg --list | grep -i jdk
+$
+```
 
 ## Installation
 
