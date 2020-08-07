@@ -92,6 +92,6 @@ $
 ## Step 3. Check the installation JDK version
 ```bash
 $ sudo dpkg --list | grep -i jdk
-ii  jdk-13.0.2                                 13.0.2-1                                         amd64        Java Platform Standard Edition Development Kit
+ii  jdk-13.0.2  13.0.2-1  amd64  Java Platform Standard Edition Development Kit
 $
 ```
