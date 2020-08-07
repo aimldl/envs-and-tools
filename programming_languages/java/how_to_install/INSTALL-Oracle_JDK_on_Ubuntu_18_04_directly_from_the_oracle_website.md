@@ -10,6 +10,13 @@ Download "Linux Debian Package" or [jdk-14_linux-x64_bin.deb](https://www.oracle
 
 <img src="images/java_se_development_kit13_0_2.png">
 
+<img src="images/accept_the_license_and_download_deb_file.png">
+
+<img src="images/oracle_account_login-korean.png">
+
+<img src="images/opening_jdk13_0_2_linux-x64_bin_deb.png">
+
+
 ```bash
 Click the right version, accept the license and download the file.
 $ wget https://download.oracle.com/otn-pub/java/jdk/14.0.1+7/664493ef4a6946b186ff29eb326336a2/jdk-14.0.1_linux-x64_bin.deb
