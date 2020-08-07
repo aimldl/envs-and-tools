@@ -107,7 +107,8 @@ $
 ```
 
 ## Step 4. Set the `JAVA_HOME` environment variable
-
+### Option 1. Set `JAVA_HOME` in the system-wide configuration file `/etc/environment`
+`/etc/environment` is applied for all users.
 ```bash
  $ sudo nano /etc/environment
 ```
@@ -124,13 +125,21 @@ Reload this file to apply the change to the current terminal.
 ```bash
 $ source /etc/environment
 ```
+### Option 2. Set `JAVA_HOME` for the current user
+Add `JAVA_HOME` in the `.bashrc` file which is loaded when the user logs in.
 
-Verify the environment variable 
+[TODO: write it up]
+
+## Step 5. Verify the environment variable 
 ```bash
 $ echo $JAVA_HOME
 /usr/lib/jvm/jdk-13.0.2
 $
 ```
+## Step 6. Verify the `java` command
+
 
 ## References
 * [How To Install Java with Apt on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04)
+* [How to Install Java on Ubuntu 18.04](https://linuxize.com/post/install-java-on-ubuntu-18-04/)
+
