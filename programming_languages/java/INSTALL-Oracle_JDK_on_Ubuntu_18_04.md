@@ -80,12 +80,33 @@ For other related commands, refer to [How to remove openjdk-8-jdk from Ubuntu 16
 
 ## Installation
 Before going further, ensure to remove the existing JRE/JDK because the version conflict is tricky to deal with. The installation options are two-fold:
-* Option 1: installation from a Java repository
-* Option 2: manual installation
+* Option 1: installation with apt
+* Option 2: installation from a Java repository
+* Option 3: manual installation
 
-Option 1 is easier, but the installation fails as the 3rd party repository stopped to support many Java versions.
+Option 1 & 2 are easier, but the installation fails as the 3rd party repository stopped to support many Java versions.
 
-### Option 1: installation from a Java repository
+### Option 1: installation with apt
+
+```bash
+$ sudo apt search oracle-java
+정렬중... 완료
+전체 텍스트 검색... 완료
+oracle-java11-installer-local/bionic,now 11.0.8-1~linuxuprising0 amd64 [설치됨]
+  Oracle Java(TM) Development Kit (JDK) 11
+
+oracle-java11-set-default-local/bionic 11.0.8-1~linuxuprising0 amd64
+  Set Oracle JDK 11 as default Java
+
+oracle-java14-installer/bionic 14.0.2-1~linuxuprising1 amd64
+  Oracle Java(TM) Development Kit (JDK) 14
+
+oracle-java14-set-default/bionic 14.0.2-1~linuxuprising1 amd64
+  Set Oracle JDK 14 as default Java
+$
+```
+
+### Option 2: installation from a Java repository
 This option used to work nicely and many tutorials on the web assumes to add the 3rd party Java repository.
 A repo `linuxuprising/java` used to work, but it does not work any more. This means many installation tutorials on web is no longer valid.
 
@@ -147,7 +168,7 @@ $
 ```
 Well, this command is executed right after the fresh Ubuntu installation. Something must be wrong with the repository.
 
-### Option 2: manual installation
+### Option 3: manual installation
 #### Step 1. Download Oracle JDK directly from Oracle website.
 Download "Linux Debian Package" from
 * [Java SE Development Kit 14 Downloads](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html)
