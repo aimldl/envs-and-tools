@@ -127,6 +127,8 @@ $ sudo add-apt-repository ppa:linuxuprising/java
 $ sudo apt update
 $ sudo apt install oracle-java11-installer-local
 ```
+Notice the last command is not `sudo apt install oracle-java11-installer` which is given in many Java installation tutorials.
+
 For details, refer to [New Oracle Java 11 Installer For Ubuntu, Debian Or Linux Mint (Using Local Oracle Java .tar.gz)](https://www.linuxuprising.com/2019/06/new-oracle-java-11-installer-for-ubuntu.html).
 
 As of 2020-08-07 (Fri), the installation command fails to work. 
