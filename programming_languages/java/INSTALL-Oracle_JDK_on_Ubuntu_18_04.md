@@ -106,6 +106,22 @@ $ sudo apt install oracle-java11-installer-local
 ```
 For details, refer to [New Oracle Java 11 Installer For Ubuntu, Debian Or Linux Mint (Using Local Oracle Java .tar.gz)](https://www.linuxuprising.com/2019/06/new-oracle-java-11-installer-for-ubuntu.html).
 
+As of 2020-08-07 (Fri), the installation command fails to work. 
+```bash
+$ sudo apt install oracle-java11-installer-local
+  ...
+E.g.:
+sudo mkdir -p /var/cache/oracle-jdk11-installer-local
+sudo cp jdk-11.0.4_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
+sha256sum mismatch jdk-11.0.8_linux-x64_bin.tar.gz
+Oracle JDK 11 is NOT installed.
+dpkg: error processing package oracle-java11-installer-local (--configure):
+ installed oracle-java11-installer-local package post-installation script subprocess returned error exit status 1
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+$
+```
+Well, this command is executed right after the fresh Ubuntu installation. Something must be wrong with the repository.
+
 #### Install Java 14
 ```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
