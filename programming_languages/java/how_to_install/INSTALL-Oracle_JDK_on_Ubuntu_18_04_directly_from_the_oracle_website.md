@@ -18,7 +18,7 @@ Check `I reviewed ...` and click `Download jdk-13.0.2 ...`.
 
 Sign into the account. Oracle Account Login is mandatory. To open an account, Oracle asks the company and job title, too.
 
-<img src="images/oracle_account_login.png">
+<img src="images/oracle_account_signin-english.png">
 
 A window pops up. Click `Save File` and then `OK`.
 
