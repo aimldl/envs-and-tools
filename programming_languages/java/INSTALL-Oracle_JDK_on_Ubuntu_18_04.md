@@ -51,7 +51,6 @@ sudo apt install default-jdk
 sudo apt install openjdk-11-jdk-headless
 sudo apt install ecj                    
 sudo apt install openjdk-8-jdk-headless 
-
 $
 ```
 
@@ -93,6 +92,8 @@ This repository is for Java 11 and 14 installer.
 ```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
  Oracle Java 11 (LTS) and 14 installer for Ubuntu (20.04, 19.10, 18.04, 16.04 and 14.04), Linux Mint and Debian.
+  ...
+ About Oracle Java 10, 12 and 13: These versions have reached the end of public updates, therefore they are longer available for download.
   ...
 $
 ```
