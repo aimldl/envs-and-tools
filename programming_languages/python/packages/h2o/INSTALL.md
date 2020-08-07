@@ -14,6 +14,24 @@ The Docker baseimage for Ubuntu does not include Java by default. Java must be i
 
 ## Download the H2O server and run it from the command line
 
+### `DOWNLOAD AND RUN` tab
+
+Get started with H2O in 3 easy steps
+
+1. Download H2O. This is a zip file that contains everything you need to get started.
+
+2. From your terminal, run:
+
+```bash
+cd ~/Downloads
+unzip h2o-3.30.0.7.zip
+cd h2o-3.30.0.7
+java -jar h2o.jar
+```
+
+3. Point your browser to http://localhost:54321 
+
+
 ### Step 1. Download H2O.
 
 ```bash
