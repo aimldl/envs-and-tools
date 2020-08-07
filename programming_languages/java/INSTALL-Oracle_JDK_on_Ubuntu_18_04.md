@@ -72,8 +72,17 @@ $ sudo apt autoremove
 For other related commands, refer to [How to remove openjdk-8-jdk from Ubuntu 16.04 (Xenial Xerus)](https://www.howtoinstall.co/en/ubuntu/xenial/openjdk-8-jdk?action=remove).
 
 ## Installation
-Before going further, ensure to remove the existing JRE/JDK because the version conflict is tricky to deal with. The installation steps are three-fold:
+Before going further, ensure to remove the existing JRE/JDK because the version conflict is tricky to deal with. The installation options are two-fold:
+* Option 1: installation from a Java repository
+* Option 2: manual installation
 
+Option 1 is easier, but the installation fails as the 3rd party repository stopped to support many Java versions.
+
+### Option 1: installation from a Java repository
+This option used to work nicely and many tutorials on the web assumes to add the 3rd party Java repository.
+A repo `linuxuprising/java` used to work, but it does not work any more. This means many installation tutorials on web is no longer valid.
+
+Anyways, there are three steps to install Java from a 3rd party repository.
 * Step 1: Add the Java repository
 * Step 2: Update apt
 * Step 3: Install Official JDK
@@ -85,10 +94,8 @@ In step 1, different versions have different Java repository. In step 3, the com
   
 * version 14: `oracle-java14-installer-local`
 
-Commands to install different versions are summarized below.
-
 ### ppa:linuxuprising/java
-This repository is for Java 11 and 14 installer.
+This 3rd party repository says to support Java 11 and 14 installer. But Java 11 fails. For details, refer to `Install Java 11`.
 ```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
  Oracle Java 11 (LTS) and 14 installer for Ubuntu (20.04, 19.10, 18.04, 16.04 and 14.04), Linux Mint and Debian.
@@ -97,6 +104,15 @@ $ sudo add-apt-repository ppa:linuxuprising/java
   ...
 $
 ```
+Even thought the above command fails, it is left here for the future reference.
+
+#### Install Java 14
+```bash
+$ sudo add-apt-repository ppa:linuxuprising/java
+$ sudo apt update
+$ sudo apt install oracle-java14-installer-local
+```
+For details, refer to [How To Install Oracle Java 14 (JDK 14) On Ubuntu, Debian Or Linux Mint From APT PPA Repository](https://www.linuxuprising.com/2020/03/how-to-install-oracle-java-14-jdk14-on.html).
 
 #### Install Java 11
 ```bash
@@ -122,57 +138,12 @@ $
 ```
 Well, this command is executed right after the fresh Ubuntu installation. Something must be wrong with the repository.
 
-#### Install Java 14
-```bash
-$ sudo add-apt-repository ppa:linuxuprising/java
-$ sudo apt update
-$ sudo apt install oracle-java14-installer-local
-```
-For details, refer to [How To Install Oracle Java 14 (JDK 14) On Ubuntu, Debian Or Linux Mint From APT PPA Repository](https://www.linuxuprising.com/2020/03/how-to-install-oracle-java-14-jdk14-on.html).
 
 
-#### Detailed description
-
-[How to (Easily) Install Java on Ubuntu](https://thishosting.rocks/install-java-ubuntu/#oracle-jdk) > How to install Java 11 or Java 13 using the Oracle JDK, 2019-12-18, ThisHosting.Rocks
-
-This tutorial includes commands resulting in errors; so I had to fix them.
-
-### Step 1 & 2: Add the Java repository and update apt
-
-The first thing you need to do is add a 3-rd party repository to get the Oracle JDK. We’ll use the one from Linux Uprising, but you can use any other repository:
-
-```bash
-$ sudo add-apt-repository ppa:linuxuprising/java
-$ sudo apt update
-```
-
-### Step 2: Install Official JDK
-
-To install JDK 11,
-
-```bash
-$ sudo apt install -y oracle-java11-installer
-```
-
-To install JDK 12,
-
-```bash
-$ sudo apt install -y oracle-java12-installer
-```
-
-To install JDK 13,
-
-```bash
-$ sudo apt install oracle-java13-installer
-```
-
-And that’s it. You can now move on to step 4 and [configure your Java](about:blank#set-up).
-
-### Download Oracle JDK
-
-Download it from 
-
+### Option 2: manual installation
+#### Step 1. Download Oracle JDK directly from Oracle website.
 * [Java SE Development Kit 14 Downloads](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html)
+* [Java SE Development Kit 13 Downloads](https://www.oracle.com/java/technologies/javase-jdk13-downloads.html)
 * [Java SE Development Kit 8 Downloads](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html) (An example of an older link)
 
 Download "Linux Debian Package" or [jdk-14_linux-x64_bin.deb](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html#license-lightbox). 
@@ -274,7 +245,6 @@ $ sudo dpkg --list | grep -i jdk
 $
 ```
 For details, refer to [How to uninstall Oracle JDK in Ubuntu 16.04 LTS [duplicate]](https://askubuntu.com/questions/850729/how-to-uninstall-oracle-jdk-in-ubuntu-16-04-lts). 
-
 
 
 ## References
