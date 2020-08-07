@@ -20,7 +20,7 @@ Command 'java' not found, but can be installed with:
 sudo apt install default-jre            
 sudo apt install openjdk-11-jre-headless
 sudo apt install openjdk-8-jre-headless
-
+Install Oracle JDK on Ubuntu 18.04 directly from the Oracle website
 $
 ```
 
@@ -31,6 +31,13 @@ $ java -version
 java version "12.0.2" 2019-07-16
 Java(TM) SE Runtime Environment (build 12.0.2+10)
 Java HotSpot(TM) 64-Bit Server VM (build 12.0.2+10, mixed mode, sharing)
+$
+```
+or
+```bash
+$ sudo dpkg --list | grep -i jdk
+ii  oracle-java14-installer                    14.0.2-1~linuxuprising1                          amd64        Oracle Java(TM) Development Kit (JDK) 14
+ii  oracle-java14-set-default                  14.0.2-1~linuxuprising1                          amd64        Set Oracle JDK 14 as default Java
 $
 ```
 
@@ -138,53 +145,17 @@ $
 ```
 Well, this command is executed right after the fresh Ubuntu installation. Something must be wrong with the repository.
 
-
-
 ### Option 2: manual installation
 #### Step 1. Download Oracle JDK directly from Oracle website.
+Download "Linux Debian Package" from
 * [Java SE Development Kit 14 Downloads](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html)
 * [Java SE Development Kit 13 Downloads](https://www.oracle.com/java/technologies/javase-jdk13-downloads.html)
+  ...
 * [Java SE Development Kit 8 Downloads](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html) (An example of an older link)
 
-Download "Linux Debian Package" or [jdk-14_linux-x64_bin.deb](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html#license-lightbox). 
-
-<img src="images/Java SE Development Kit 14.png">
-
-```bash
-Click the right version, accept the license and download the file.
-$ wget https://download.oracle.com/otn-pub/java/jdk/14.0.1+7/664493ef4a6946b186ff29eb326336a2/jdk-14.0.1_linux-x64_bin.deb
-$ ls
-anaconda3  bin  h2o-3.30.0.3  h2o-3.30.0.3.zip  hands-ons  history.log  jdk-14.0.1_linux-x64_bin.deb  projects
-$
-```
-
-TODO: Rewrite
-
-wget doesn't work any more. Download it from a web browser after accepting the license. 
-
-```bash
-(base) user@d24d8fc9d727:~$ ls -al
-  ...
--rw-r--r-- 1 user user      5307 Mar 20  2012 jdk-14.0.1_linux-x64_bin.deb
-(base) user@d24d8fc9d727:~$ sudo dpkg -i jdk-14.0.1_linux-x64_bin.deb
-dpkg: error processing archive jdk-14.0.1_linux-x64_bin.deb (--install):
- dpkg-deb --control subprocess returned error exit status 2
-Errors were encountered while processing:
- jdk-14.0.1_linux-x64_bin.deb
-$
-```
-
-When the same file is downloaded from a web browser, the file size is a lot bigger.
-
-```bash
-(base) user@d24d8fc9d727:~$ ls -al
-  ...
--rw-rw-r-- 1 user user 165593818 May 21 08:11 jdk-14.0.1_linux-x64_bin.deb
-
-```
 
 ### Install the .deb File
-
+[jdk-14_linux-x64_bin.deb](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html#license-lightbox). 
 ```bash
 $ sudo dpkg -i jdk-14_linux-x64_bin.deb 
   ...
@@ -195,6 +166,8 @@ Unpacking jdk-14 (14-1) ...
 Configuring jdk-14 (14-1) ...
 $
 ```
+
+## Archive
 
 2020-05-21 (Thu)
 
