@@ -27,6 +27,7 @@ $
 ```
 
 # Install Oracle JDK on Ubuntu 18.04 directly from the Oracle website
+
 ## Step 1. Download Oracle JDK directly from Oracle website.
 
 Download "Linux Debian Package" from [Java SE Development Kit 13 Downloads](https://www.oracle.com/java/technologies/javase-jdk13-downloads.html).
@@ -131,3 +132,5 @@ $ echo $JAVA_HOME
 $
 ```
 
+## References
+* [How To Install Java with Apt on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04)
