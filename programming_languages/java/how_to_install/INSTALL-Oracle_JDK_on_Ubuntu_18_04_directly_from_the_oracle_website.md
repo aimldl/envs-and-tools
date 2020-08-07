@@ -3,6 +3,29 @@
 * Rev.1: 2020-05-21 (Thu)
 * Draft: 2020-03-25 (Wed)
 
+# Install Oracle JDK on Ubuntu 18.04 
+
+```bash
+$ sudo apt install jdk-13.0.2
+[sudo] h2o의 암호: 
+패키지 목록을 읽는 중입니다... 완료
+의존성 트리를 만드는 중입니다       
+상태 정보를 읽는 중입니다... 완료
+주의, './jdk-13.0.2_linux-x64_bin.deb' 대신에 'jdk-13.0.2' 패키지를 선택합니다
+다음 새 패키지를 설치할 것입니다:
+  jdk-13.0.2
+0개 업그레이드, 1개 새로 설치, 0개 제거 및 3개 업그레이드 안 함.
+0 바이트/163 M바이트 아카이브를 받아야 합니다.
+이 작업 후 0 바이트의 디스크 공간을 더 사용하게 됩니다.
+받기:1 /home/h2o/jdk-13.0.2_linux-x64_bin.deb jdk-13.0.2 amd64 13.0.2-1 [163 MB]
+Selecting previously unselected package jdk-13.0.2.
+(데이터베이스 읽는중 ...현재 166096개의 파일과 디렉터리가 설치되어 있습니다.)
+Preparing to unpack .../jdk-13.0.2_linux-x64_bin.deb ...
+Unpacking jdk-13.0.2 (13.0.2-1) ...
+jdk-13.0.2 (13.0.2-1) 설정하는 중입니다 ...
+$
+```
+
 # Install Oracle JDK on Ubuntu 18.04 directly from the Oracle website
 ## Step 1. Download Oracle JDK directly from Oracle website.
 
@@ -70,6 +93,5 @@ $
 ```bash
 $ sudo dpkg --list | grep -i jdk
 ii  jdk-13.0.2                                 13.0.2-1                                         amd64        Java Platform Standard Edition Development Kit
-iF  oracle-java11-installer-local              11.0.8-1~linuxuprising0                          amd64        Oracle Java(TM) Development Kit (JDK) 11
 $
 ```
