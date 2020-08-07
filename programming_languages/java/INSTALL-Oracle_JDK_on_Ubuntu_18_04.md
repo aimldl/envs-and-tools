@@ -12,7 +12,6 @@
 As of 2020-08-07 (Fri), the standard installation of Ubuntu 18.04 does not install the default Java Runtime Environment or Open JRE which used to install by default.
 ### Check the existing Open JRE or JDK
 
-
 ```bash
 $ java
 
@@ -82,37 +81,52 @@ Before going further, ensure to remove the existing JRE/JDK because the version 
 
 In step 1, different versions have different Java repository. In step 3, the command varies with the different version. For example,
 * version 11: `oracle-java11-installer-local`
+
   ...
+  
 * version 14: `oracle-java14-installer-local`
 
-### Install the latest version
+Commands to install different versions are summarized below.
+
+### ppa:linuxuprising/java
+This repository is for Java 11 and 14 installer.
+```bash
+$ sudo add-apt-repository ppa:linuxuprising/java
+ Oracle Java 11 (LTS) and 14 installer for Ubuntu (20.04, 19.10, 18.04, 16.04 and 14.04), Linux Mint and Debian.
+  ...
+$
+```
+
+#### Install Java 11
 ```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
 $ sudo apt update
 $ sudo apt install oracle-java11-installer-local
 ```
-These commands work. For details, refer to [
-New Oracle Java 11 Installer For Ubuntu, Debian Or Linux Mint (Using Local Oracle Java .tar.gz) ](https://www.linuxuprising.com/2019/06/new-oracle-java-11-installer-for-ubuntu.html).
+For details, refer to [New Oracle Java 11 Installer For Ubuntu, Debian Or Linux Mint (Using Local Oracle Java .tar.gz)](https://www.linuxuprising.com/2019/06/new-oracle-java-11-installer-for-ubuntu.html).
 
-The command below fails to work.
-
-
+#### Install Java 14
+```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
- Oracle Java 11 (LTS) and 14 installer for Ubuntu (20.04, 19.10, 18.04, 16.04 and 14.04), Linux Mint and Debian.
+$ sudo apt update
+$ sudo apt install oracle-java14-installer-local
+```
+For details, refer to [How To Install Oracle Java 14 (JDK 14) On Ubuntu, Debian Or Linux Mint From APT PPA Repository](https://www.linuxuprising.com/2020/03/how-to-install-oracle-java-14-jdk14-on.html).
 
 
+#### Detailed description
 
 [How to (Easily) Install Java on Ubuntu](https://thishosting.rocks/install-java-ubuntu/#oracle-jdk) > How to install Java 11 or Java 13 using the Oracle JDK, 2019-12-18, ThisHosting.Rocks
 
 This tutorial includes commands resulting in errors; so I had to fix them.
 
-### Step 1: Add the Java repository
+### Step 1 & 2: Add the Java repository and update apt
 
 The first thing you need to do is add a 3-rd party repository to get the Oracle JDK. We’ll use the one from Linux Uprising, but you can use any other repository:
 
 ```bash
 $ sudo add-apt-repository ppa:linuxuprising/java
-$ sudo apt-get update
+$ sudo apt update
 ```
 
 ### Step 2: Install Official JDK
@@ -120,19 +134,19 @@ $ sudo apt-get update
 To install JDK 11,
 
 ```bash
-$ sudo apt-get install -y oracle-java11-installer
+$ sudo apt install -y oracle-java11-installer
 ```
 
 To install JDK 12,
 
 ```bash
-$ sudo apt-get install -y oracle-java12-installer
+$ sudo apt install -y oracle-java12-installer
 ```
 
 To install JDK 13,
 
 ```bash
-$ sudo apt-get install oracle-java13-installer
+$ sudo apt install oracle-java13-installer
 ```
 
 And that’s it. You can now move on to step 4 and [configure your Java](about:blank#set-up).
