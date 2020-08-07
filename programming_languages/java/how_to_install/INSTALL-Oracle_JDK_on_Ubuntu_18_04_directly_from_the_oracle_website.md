@@ -95,3 +95,39 @@ $ sudo dpkg --list | grep -i jdk
 ii  jdk-13.0.2  13.0.2-1  amd64  Java Platform Standard Edition Development Kit
 $
 ```
+
+```bash
+$ ls /usr/lib/jvm/jdk-13.0.2/bin
+jaotc      javac    jconsole   jfr     jjs    jps         jstat    rmic         unpack200
+jar        javadoc  jdb        jhsdb   jlink  jrunscript  jstatd   rmid
+jarsigner  javap    jdeprscan  jimage  jmap   jshell      keytool  rmiregistry
+java       jcmd     jdeps      jinfo   jmod   jstack      pack200  serialver
+$
+```
+
+## Step 4. Set the `JAVA_HOME` environment variable
+
+```bash
+ $ sudo nano /etc/environment
+```
+Given the `environment` file,
+```
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+```
+edit the file to add `JAVA_HOME`.
+```
+JAVA_HOME="/usr/lib/jvm/jdk-13.0.2"
+```
+
+Reload this file to apply the change to the current terminal.
+```bash
+$ source /etc/environment
+```
+
+Verify the environment variable 
+```bash
+$ echo $JAVA_HOME
+/usr/lib/jvm/jdk-13.0.2
+$
+```
+
