@@ -22,6 +22,10 @@ When everything is done, you can download the installation file.
 
 <img src="images/opening_jdk13_0_2_linux-x64_bin_deb.png">
 
+### License update
+
+<img src="images/important_oracle_jdk_license_update-2019-04-16.png">
+
 ### wget no longer works
 wget doesn't work any more. Download it from a web browser after accepting the license. 
 
