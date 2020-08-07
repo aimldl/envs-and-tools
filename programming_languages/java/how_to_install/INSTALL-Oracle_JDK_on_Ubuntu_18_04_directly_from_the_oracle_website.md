@@ -57,3 +57,11 @@ Unpacking jdk-13.0.2 (13.0.2-1) ...
 jdk-13.0.2 (13.0.2-1) 설정하는 중입니다 ...
 $
 ```
+
+## Step 3. Check the installation JDK version
+```bash
+$ sudo dpkg --list | grep -i jdk
+ii  jdk-13.0.2                                 13.0.2-1                                         amd64        Java Platform Standard Edition Development Kit
+iF  oracle-java11-installer-local              11.0.8-1~linuxuprising0                          amd64        Oracle Java(TM) Development Kit (JDK) 11
+$
+```
