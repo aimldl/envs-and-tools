@@ -15,9 +15,11 @@ Accept the license and download.
 <img src="images/accept_the_license_and_download_deb_file.png">
 
 Oracle Account Login is mandatory. To open an account, Oracle asks the company and job title, too.
+
 <img src="images/oracle_account_login-korean.png">
 
 When everything is done, you can download the installation file.
+
 <img src="images/opening_jdk13_0_2_linux-x64_bin_deb.png">
 
 ### wget no longer works
