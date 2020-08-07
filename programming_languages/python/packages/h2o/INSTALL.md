@@ -31,6 +31,38 @@ java -jar h2o.jar
 
 3. Point your browser to http://localhost:54321 
 
+### `INSTALL IN PYTHON` tab
+Use H2O directly from Python
+
+1. Prerequisite: Python 2.7.x, 3.5.x, or 3.6.x
+
+2. Install dependencies (prepending with `sudo` if needed):
+```bash
+pip install requests
+pip install tabulate
+pip install "colorama>=0.3.8"
+pip install future
+```
+
+At the command line, copy and paste these commands one line at a time:
+
+# The following command removes the H2O module for Python.
+```bash
+pip uninstall h2o
+```
+
+# Next, use pip to install this version of the H2O Python module.
+```bash
+pip install http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/7/Python/h2o-3.30.0.7-py2.py3-none-any.whl
+```
+
+Conda Installation
+
+Available at https://anaconda.org/h2oai/h2o/
+
+To install this package with conda run:
+
+conda install -c h2oai h2o
 
 ### Step 1. Download H2O.
 
@@ -54,7 +86,11 @@ Step 3. Point your browser to [http://localhost:54321](http://localhost:54321/)
 H2O can be installed in Python or R. 
 
 ### Step 1. Install Python dependencies
-
+Run
+```bash
+$ pip install requests tabulate "colorama>=0.3.8" future
+```
+or separately.
 ```bash
 $ pip install requests
 $ pip install tabulate
