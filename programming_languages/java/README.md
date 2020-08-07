@@ -2,18 +2,18 @@
 
 # Java
 
-There are three different editions for Java
+There are two Java packages
+* Java Runtime Environment (JRE)
+* Java Development Kit (JDK).
+
+three different editions for Java
 * Standard Edition (SE)
 * Enterprise Edition (EE)
 * Micro Edition (ME)
 
-two main implementations
+and two main implementations
 * OpenJDK
 * Oracle Java
-
-and two different Java packages
-* Java Runtime Environment (JRE)
-* Java Development Kit (JDK).
 
 Oracle Java has a few additional commercial features over OpenJDK.
 
