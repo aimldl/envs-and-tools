@@ -8,7 +8,7 @@
 
 Download "Linux Debian Package" or [jdk-14_linux-x64_bin.deb](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html#license-lightbox). 
 
-<img src="images/Java SE Development Kit 14.png">
+<img src="images/java_se_development_kit13_0_2.png">
 
 ```bash
 Click the right version, accept the license and download the file.
