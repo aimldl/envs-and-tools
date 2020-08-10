@@ -14,7 +14,7 @@ Several commands can be used
 
 ## When nobody is accessing with ssh,
 ```bash
-$ ss | grep -i ssh
+$ ss | grep ssh
 $
 ```
 
@@ -27,7 +27,7 @@ $
 
 ### When a user is remote-accessing the ssh server,
 ```bash
-$ ss | grep -i ssh
+$ ss | grep ssh
 tcp   ESTAB  0  0  192.168.0.109:ssh  123.456.7.890:52400   
 $
 ```
