@@ -68,7 +68,8 @@ java -jar h2o.jar
 
 ### Step 3. Install Python
 ```bash
-$ sudo apt install -y python-dev python3-dev python-pip python3-pip
+$ sudo apt install -y python3-dev python3-pip
+# $ sudo apt install -y python-dev python3-dev python-pip python3-pip
 ```
 
 ### Step 4. Install the relevant Python dependencies for H2O.ai
@@ -78,17 +79,21 @@ $ pip install requests tabulate "colorama>=0.3.8" future
 
 ### Step 5. Install H2O
 ```bash
+$ pip3 install http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/7/Python/h2o-3.30.0.7-py2.py3-none-any.whl
+```
+For Python versio 2, the command is:
+```bash
 $ pip install http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/7/Python/h2o-3.30.0.7-py2.py3-none-any.whl
 ```
 
 ## Verify the H2O installation
 ```bash
-$ python -c "import h2o; print(h2o.__version__)"
+$ python3 -c "import h2o; print(h2o.__version__)"
 3.30.0.7
 $
 
 ## Run the official demo
 
 ```bash
-$ python -c "import h2o; h2o.init(); h2o.demo('glm')"
+$ python3 -c "import h2o; h2o.init(); h2o.demo('glm')"
 ```
