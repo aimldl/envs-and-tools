@@ -1,3 +1,4 @@
+* Rev.1: 2020-08-11 (Tue)
 * Draft: 2020-08-03 (Mon)
 
 # How to Remote-Access an On-Premise Kubernetes Cluster
@@ -21,6 +22,12 @@ Open the file explorer and use mouse to move the file to a USB memory.
 Use the USB memory to move the file to your laptop. Any directory is fine, but I would save it to the `~/.kube` directory .
 
 Step 2. Specify this file as the configuration file.
+If the `config` file does not exist, change the file name `admin.conf` to `config`. Specifically,
+
+`~/.kube/admin.conf` to `~/.kube/config` to 
+
+-----------
+[TODO: Make a change below]
 
 For example,
 
