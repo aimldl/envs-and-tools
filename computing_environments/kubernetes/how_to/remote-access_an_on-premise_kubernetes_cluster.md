@@ -24,7 +24,23 @@ Use the USB memory to move the file to your laptop. Any directory is fine, but I
 Step 2. Specify this file as the configuration file.
 If the `config` file does not exist, change the file name `admin.conf` to `config`. Specifically,
 
-`~/.kube/admin.conf` to `~/.kube/config` to 
+`~/.kube/admin.conf` to `~/.kube/config`.
+
+```bash
+(base) aimldl@Home-Laptop:~/.kube$ ls
+admin.conf  cache  config  config.2020-04-17  config.2020-08-05  config.backup  http-cache
+(base) aimldl@Home-Laptop:~/.kube$ mv admin.conf config
+(base) aimldl@Home-Laptop:~/.kube$ ls
+cache  config  config.2020-04-17  config.2020-08-05  config.backup  http-cache
+```
+Verify if it works.
+```bash
+(base) aimldl@Home-Laptop:~/.kube$ kubectl get nodes
+NAME                            STATUS   ROLES    AGE    VERSION
+k8smaster-alienware-aurora-r7   Ready    master   132m   v1.18.6
+k8snode01-alienware-aurora-r7   Ready    <none>   27m    v1.18.6
+(base) aimldl@Home-Laptop:~/.kube$ 
+```
 
 -----------
 [TODO: Make a change below]
