@@ -18,7 +18,7 @@ sudo systemctl enable docker   # Start Docker on Boot
 
 printf("Log out and log back in so that your group membership is re-evaluated.
 Just closing the terminal and re-opening it doesn't work. 
-If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.\n")
+On a virtual machine, restart the virtual machine for changes to take effect.\n")
 ```
 # Install docker on Ubuntu
 
