@@ -1,3 +1,4 @@
+* Rev.1: 2020-08-11 (Tue)
 * Draft: 2020-08-07 (Fri)
 
 # How to Install H2O on Ubuntu 18.04
@@ -18,7 +19,7 @@ Install
 
 All the actions are summarized below.
 ```bash
-sudo apt-get install default-jre
+sudo apt-get install -y default-jre
 java --version
 
 # Download the installer file
