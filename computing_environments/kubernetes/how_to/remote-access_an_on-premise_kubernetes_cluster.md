@@ -7,7 +7,13 @@ A Kunernetes cluster on the on-premise computers was set up successfully. The cl
 
 Step 1. Copy a file `/etc/kubernetes/admin.conf` from a master to the laptop.
 
-Any directory is fine, but I would save it to the `~/.kube` directory .
+In the master computer, open a terminal and copy the file to the user home.
+```bash
+$ cp /etc/kubernetes/admin.conf ~
+```
+
+Open the file explorer and use mouse to move the file to a USB memory.
+Use the USB memory to move the file to your laptop. Any directory is fine, but I would save it to the `~/.kube` directory .
 
 Step 2. Specify this file as the configuration file.
 
