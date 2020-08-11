@@ -1,7 +1,17 @@
+* Rev.1: 2020-08-11 (Tue)
 * Draft: 2020-06-30 (Tue)
 
 # Create a New User on Ubuntu Linux
 
+## Summary
+```bash
+NEW_USER='k8smaster'
+sudo adduser $NEW_USER
+# Enter password twice
+sudo usermod -aG sudo $NEW_USER
+```
+
+## Example: create a new user `k8smaster`
 In this example, the new user account is `k8smaster`.
 
 Step 1. Run the `adduser` command followed by the new user account.
