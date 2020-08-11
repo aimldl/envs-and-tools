@@ -9,8 +9,13 @@ Step 1. Copy a file `/etc/kubernetes/admin.conf` from a master to the laptop.
 
 In the master computer, open a terminal and copy the file to the user home.
 ```bash
-$ cp /etc/kubernetes/admin.conf ~
+$ sudo cp /etc/kubernetes/admin.conf ~
 ```
+Change the owner of this file to `$USER`.
+```bash
+$ sudo chown $USER admin.conf
+```
+Without changing the ownership of the file, the previledge error will occur and the file cannot be copied to a USB memory.
 
 Open the file explorer and use mouse to move the file to a USB memory.
 Use the USB memory to move the file to your laptop. Any directory is fine, but I would save it to the `~/.kube` directory .
