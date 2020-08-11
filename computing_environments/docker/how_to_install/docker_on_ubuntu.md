@@ -1,5 +1,25 @@
 * Draft: 2020-03-24 (Tue)
 
+# Summary
+```bash
+# Install
+sudo apt-get update
+sudo apt-get remove docker docker-engine docker.io
+sudo apt install -y docker.io
+
+# verify
+docker --version
+sudo docker run hello-world
+
+# Configure
+sudo groupadd docker           # Create the `docker` group
+sudo usermod -aG docker $USER  # Add your user to the `docker` group
+sudo systemctl enable docker   # Start Docker on Boot
+
+printf("Log out and log back in so that your group membership is re-evaluated.
+Just closing the terminal and re-opening it doesn't work. 
+If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.\n")
+```
 # Install docker on Ubuntu
 
 Install docker for CPU and nvidia-docker for GPU. If the computer has an NVIDIA GPU card for a General Purpose GPU, do install nvidia-docker. Two types of Docker exist: Docker CE (Community Edition) and  Docker EE (Enterprise Edition). Docker CE is the free version.
