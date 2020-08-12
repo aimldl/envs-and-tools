@@ -88,3 +88,118 @@ Verifying transaction: done
 Executing transaction: done
 (base) user@fe51f813476b:~$ 
 ```
+
+## Step 4. Run the Docker container with an image with H2O
+
+TODO
+
+## Step 5. Run H2o Flow
+
+
+```bash
+(base) user@f07c7b8d5897:~$ java -jar ~/anaconda3/h2o_jar/h2o.jar
+```
+```bash
+(base) user@f07c7b8d5897:~/anaconda3$ cd h2o_jar/
+(base) user@f07c7b8d5897:~/anaconda3/h2o_jar$ ls
+h2o.jar
+(base) user@f07c7b8d5897:~/anaconda3/h2o_jar$ java -jar h2o.jar
+```
+
+h2o-localhost_54321.png
+
+## Appendix. The full output message to run H2O Flow
+
+```bash
+(base) user@f07c7b8d5897:~/anaconda3/h2o_jar$ java -jar h2o.jar
+08-12 02:10:48.813 172.17.0.2:54321      54     main      INFO: Found XGBoost backend with library: xgboost4j_gpu
+08-12 02:10:48.820 172.17.0.2:54321      54     main      INFO: XGBoost supported backends: [WITH_GPU, WITH_OMP]
+08-12 02:10:48.820 172.17.0.2:54321      54     main      INFO: ----- H2O started  -----
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Build git branch: (HEAD detached from jenkins-3.18.0.2)
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Build git hash: 2be3e89d3c3af3a5fe8d66bf19fcf2ac51453033
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Build git describe: jenkins-3.18.0.2-3-g2be3e89d3c
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Build project version: 3.18.0.2 (latest version: 3.30.1.1)
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Build age: 2 years, 5 months and 6 days
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Built by: 'root'
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Built on: '2018-03-05 19:37:43'
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: 
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: *** Your H2O version is too old! Please download the latest version 3.30.1.1 from http://h2o.ai/download/ ***
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: 
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Watchdog Build git branch: (unknown)
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Watchdog Build git hash: (unknown)
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Watchdog Build git describe: (unknown)
+08-12 02:10:48.821 172.17.0.2:54321      54     main      INFO: Watchdog Build project version: (unknown)[TODO
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: Watchdog Built by: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: Watchdog Built on: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: XGBoost Build git branch: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: XGBoost Build git hash: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: XGBoost Build git describe: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: XGBoost Build project version: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: XGBoost Built by: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: XGBoost Built on: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: KrbStandalone Build git branch: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: KrbStandalone Build git hash: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: KrbStandalone Build git describe: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: KrbStandalone Build project version: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: KrbStandalone Built by: (unknown)
+08-12 02:10:48.822 172.17.0.2:54321      54     main      INFO: KrbStandalone Built on: (unknown)
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Processed H2O arguments: []
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Java availableProcessors: 8
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Java heap totalMemory: 481.5 MB
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Java heap maxMemory: 6.96 GB
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Java version: Java 1.8.0_152-release (from JetBrains s.r.o)
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: JVM launch parameters: []
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: OS version: Linux 4.15.0-112-generic (amd64)
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Machine physical memory: 31.32 GB
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: X-h2o-cluster-id: 1597198247193
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: User name: 'user'
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: IPv6 stack selected: false
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Possible IP Address: eth0 (eth0), 172.17.0.2
+08-12 02:10:48.823 172.17.0.2:54321      54     main      INFO: Possible IP Address: lo (lo), 127.0.0.1
+08-12 02:10:48.824 172.17.0.2:54321      54     main      INFO: H2O node running in unencrypted mode.
+08-12 02:10:48.825 172.17.0.2:54321      54     main      INFO: Internal communication uses port: 54322
+08-12 02:10:48.825 172.17.0.2:54321      54     main      INFO: Listening for HTTP and REST traffic on http://172.17.0.2:54321/
+08-12 02:10:48.825 172.17.0.2:54321      54     main      INFO: H2O cloud name: 'user' on /172.17.0.2:54321, discovery address /225.54.235.203:57654
+08-12 02:10:48.825 172.17.0.2:54321      54     main      INFO: If you have trouble connecting, try SSH tunneling from your local machine (e.g., via port 55555):
+08-12 02:10:48.825 172.17.0.2:54321      54     main      INFO:   1. Open a terminal and run 'ssh -L 55555:localhost:54321 user@172.17.0.2'
+08-12 02:10:48.825 172.17.0.2:54321      54     main      INFO:   2. Point your browser to http://localhost:55555
+08-12 02:10:48.924 172.17.0.2:54321      54     main      INFO: Log dir: '/tmp/h2o-user/h2ologs'
+08-12 02:10:48.924 172.17.0.2:54321      54     main      INFO: Cur dir: '/home/user/anaconda3/h2o_jar'
+08-12 02:10:48.927 172.17.0.2:54321      54     main      INFO: HDFS subsystem successfully initialized
+08-12 02:10:48.929 172.17.0.2:54321      54     main      INFO: S3 subsystem successfully initialized
+08-12 02:10:48.929 172.17.0.2:54321      54     main      INFO: Flow dir: '/home/user/h2oflows'
+08-12 02:10:48.938 172.17.0.2:54321      54     main      INFO: Cloud of size 1 formed [/172.17.0.2:54321]
+08-12 02:10:48.943 172.17.0.2:54321      54     main      INFO: Registered parsers: [GUESS, ARFF, XLS, SVMLight, AVRO, PARQUET, CSV]
+08-12 02:10:48.943 172.17.0.2:54321      54     main      INFO: Watchdog extension initialized
+08-12 02:10:48.943 172.17.0.2:54321      54     main      INFO: XGBoost extension initialized
+08-12 02:10:48.943 172.17.0.2:54321      54     main      INFO: KrbStandalone extension initialized
+08-12 02:10:48.943 172.17.0.2:54321      54     main      INFO: Registered 3 core extensions in: 169ms
+08-12 02:10:48.943 172.17.0.2:54321      54     main      INFO: Registered H2O core extensions: [Watchdog, XGBoost, KrbStandalone]
+08-12 02:10:49.088 172.17.0.2:54321      54     main      INFO: Registered: 165 REST APIs in: 145ms
+08-12 02:10:49.088 172.17.0.2:54321      54     main      INFO: Registered REST API extensions: [XGBoost, Algos, AutoML, Core V3, Core V4]
+08-12 02:10:49.190 172.17.0.2:54321      54     main      INFO: Registered: 233 schemas in 102ms
+08-12 02:10:49.191 172.17.0.2:54321      54     main      INFO: H2O started in 1992ms
+08-12 02:10:49.191 172.17.0.2:54321      54     main      INFO: 
+08-12 02:10:49.191 172.17.0.2:54321      54     main      INFO: Open H2O Flow in your web browser: http://172.17.0.2:54321
+08-12 02:10:49.191 172.17.0.2:54321      54     main      INFO: 
+08-12 02:13:21.859 172.17.0.2:54321      54     #73041-15 INFO: GET /, parms: {}
+08-12 02:13:21.862 172.17.0.2:54321      54     #73041-15 INFO: GET /flow/index.html, parms: {}
+08-12 02:13:22.198 172.17.0.2:54321      54     #73041-14 INFO: GET /flow/fonts/fontawesome-webfont.woff, parms: {v=4.2.0}
+08-12 02:13:22.222 172.17.0.2:54321      54     #73041-14 INFO: GET /flow/index.html, parms: {}
+08-12 02:13:22.227 172.17.0.2:54321      54     #73041-14 INFO: GET /3/Metadata/endpoints, parms: {}
+08-12 02:13:22.230 172.17.0.2:54321      54     #73041-14 INFO: Locking cloud to new members, because hex.schemas.XGBoostV3
+08-12 02:13:22.416 172.17.0.2:54321      54     #73041-14 INFO: GET /3/NodePersistentStorage/notebook, parms: {}
+08-12 02:13:22.416 172.17.0.2:54321      54     #73041-18 INFO: GET /3/NodePersistentStorage/categories/environment/names/clips/exists, parms: {}
+08-12 02:13:22.418 172.17.0.2:54321      54     #73041-16 INFO: GET /flow/help/catalog.json, parms: {}
+08-12 02:13:22.420 172.17.0.2:54321      54     #73041-16 INFO: GET /3/About, parms: {}
+08-12 02:13:22.422 172.17.0.2:54321      54     #73041-17 INFO: GET /3/ModelBuilders, parms: {}
+08-12 02:14:06.723 172.17.0.2:54321      54     #73041-19 INFO: GET /flow/index.html, parms: {}
+08-12 02:14:07.172 172.17.0.2:54321      54     #73041-50 INFO: GET /flow/index.html, parms: {}
+08-12 02:14:07.177 172.17.0.2:54321      54     #73041-50 INFO: GET /3/Metadata/endpoints, parms: {}
+08-12 02:14:07.281 172.17.0.2:54321      54     #73041-50 INFO: GET /3/NodePersistentStorage/notebook, parms: {}
+08-12 02:14:07.283 172.17.0.2:54321      54     #73041-51 INFO: GET /3/NodePersistentStorage/categories/environment/names/clips/exists, parms: {}
+08-12 02:14:07.284 172.17.0.2:54321      54     #73041-50 INFO: GET /flow/help/catalog.json, parms: {}
+08-12 02:14:07.285 172.17.0.2:54321      54     #73041-51 INFO: GET /3/About, parms: {}
+08-12 02:14:07.287 172.17.0.2:54321      54     #73041-50 INFO: GET /3/ModelBuilders, parms: {}
+08-12 02:14:07.792 172.17.0.2:54321      54     #73041-50 INFO: GET /flow/fonts/fontawesome-webfont.woff, parms: {v=4.2.0}
+```
