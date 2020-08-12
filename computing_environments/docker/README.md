@@ -6,7 +6,7 @@
 
 ## What is Docker?
 
-**Docker** is a set of platform as a service (PaaS) products that uses OS-level virtualization to deliver software in packages called containers. To learn about what is Docker, refer to [Docker (software)](https://en.wikipedia.org/wiki/Docker_(software)), wikipedia. Several images that explain some high level concepts are presented below. Refer to the provided links for details.
+**Docker** is a set of platform as a service (PaaS) products that uses OS-level virtualization to deliver software in packages called containers. To learn about what is Docker, refer to [Docker (software)](https://en.wikipedia.org/wiki/Docker_(software)), wikipedia. Several images that explain some high level concepts are presented below. Refer to the provided links and [Docker Documentation](https://docs.docker.com/) for details.
 
 ### [Docker overview](https://docs.docker.com/engine/docker-overview/)
 
