@@ -25,7 +25,7 @@ $ conda install -c h2oai h2o=3.30.0.6
 
 ## Create a Docker image with H2O
 ## Prerequisite
-* Docker is prepared.
+* Docker is prepared. For details, refer to [Docker Documentation](https://docs.docker.com/).
 
 ## Step 1. Prepare a Docker image with Anaconda virtual environment. 
 The Docker image is available at `aimldl/baseimage_python3.7.6_conda_4.8.2_ubuntu18.04.4`.
