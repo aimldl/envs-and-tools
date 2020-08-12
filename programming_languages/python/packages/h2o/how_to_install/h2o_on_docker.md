@@ -3,8 +3,16 @@
 # How to Install H2O on Docker
 * The official installation guide does not cover this topic.
 * A trick is to install H2O on an Anaconda virtual environment because the official guide covers it.
-* [Downloading & Installing H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/downloading.html) > [Install on Anaconda Cloud](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/downloading.html#install-on-anaconda-cloud)
 
+## References
+* [Downloading & Installing H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/downloading.html) > [Install on Anaconda Cloud](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/downloading.html#install-on-anaconda-cloud)
+* [Using H2O with Docker](https://h2o-release.s3.amazonaws.com/h2o/rel-turing/1/docs-website/h2o-docs/docker.html), h2o.ai
+  * This article covers an older version (Ubuntu 14.04, Java 7 and so on).
+  * But the (older) [Dockerfile template](https://github.com/h2oai/h2o-3/blob/master/Dockerfile) and the general procesure is helpful.
+* [Launching H2O with Docker](https://www.h2o.ai/blog/h2o-docker/), 2015-01-09, h2o.ai
+* [Linux Docker Images](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/linux-docker-images.html), h2o.ai
+
+## Command to install H2O on the Conda virtual environment
 To install the latest H2O version, run:
 ```bash
 $ conda install -c h2oai h2o
