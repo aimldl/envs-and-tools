@@ -176,82 +176,70 @@ $
 
 Most current Linux distributions (RHEL, CentOS, Fedora, Ubuntu 16.04 and higher) use **systemd** to manage which services start when the system boots. For Ubuntu 14.10 and below, use upstart in [the document](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-nonroot-user).
 
-#### (Optional) To disable the Docker service
+### Let's double-check the configuration
+Say the previous configuration not to use `sudo` fails after the reboot. Let's check each step one by one to fix the problem.
 
-$ sudo systemctl disable docker
-
-#### (Optional) To start the Docker service
-
-$  sudo systemctl start docker
-
-#### (Optional) To check the status of docker
-
-Run "sudo systemctl status docker".
-
-##### When docker is active or "Active: active (running)". 
-
-The docker service is running.
-
+#### List all the groups
+For
 ```
-$ sudo systemctl status docker
-● docker.service - Docker Application Container Engine
-   Loaded: loaded (/lib/systemd/system/docker.service; disabled; vendor preset: enabled)
-   Active: active (running) since Tue 2020-03-24 14:18:10 KST; 1s ago
-     Docs: https://docs.docker.com
- Main PID: 9601 (dockerd)
-    Tasks: 13
-   CGroup: /system.slice/docker.service
-           └─9601 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-
- 3월 24 14:18:09 Home-Laptop dockerd[9601]: time="2020-03-24T14:18:09.680674624+09:00" level=warning
-   ...
-3월 24 14:18:10 Home-Laptop systemd[1]: Started Docker Application Container Engine.
+Step 1. Create the docker group
+$ sudo groupadd docker
 ```
-
-##### When docker is inactive or "Active: inactive (dead)"
-
-The docker service is not running.
-
-```
-$ sudo systemctl status docker
-● docker.service - Docker Application Container Engine
-   Loaded: loaded (/lib/systemd/system/docker.service; disabled; vendor preset: enabled)
-   Active: inactive (dead) since Tue 2020-03-24 14:17:38 KST; 6s ago
-     Docs: https://docs.docker.com
-  Process: 9324 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock (co
- Main PID: 9324 (code=exited, status=0/SUCCESS)
-
- 3월 24 14:17:25 Home-Laptop dockerd[9324]: time="2020-03-24T14:17:25.245291764+09:00" level=info ms
-  ...
- 3월 24 14:17:38 Home-Laptop systemd[1]: Stopped Docker Application Container Engine.
-```
-
-## Uninstall Docker
-
-This part is an excerpt from [How to completely uninstall docker](https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker).
-
-Step 1. Identify the installed packages
-
+run the `groups` command to list all the groups.
 ```bash
-$ dpkg -l | grep -i docker
-ii  docker.io                                  19.03.6-0ubuntu1~18.04.1                         amd64        Linux container runtime
+$ groups
+h2o_docker sudo docker
 $
 ```
+The `docker` group does exist. For details, refer to [How to List Groups in Linux](https://linuxize.com/post/how-to-list-groups-in-linux/).
 
-Step 2. Remove the installed packages.
-
-```bash
-$ sudo apt-get purge -y docker-engine docker docker.io docker-ce
-$sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+#### List the groups that the current user belongs to
+For
 ```
-
-Step 3. Remove the remnants. 
-
-The commands in step 2 will not remove images, containers, volumes, or user created configuration files on your host. If you wish to delete all images, containers, and volumes run the following commands:
-
-```bash
-$ sudo rm -rf /var/lib/docker /etc/docker
-$ sudo rm /etc/apparmor.d/docker
-$ sudo groupdel docker
-$ sudo rm -rf /var/run/docker.sock
+Step 2. Add your user to the `docker` group.
+$ sudo usermod -aG docker $USER
 ```
+run the `groups` command with the current user name
+```bash
+$ groups $USER
+h2o_docker : h2o_docker sudo docker
+$
+```
+The user name is `h2o_docker` and this user does belong to the group `docker`.
+
+#### Check the rest of configurations
+For the following two actions, 
+```
+Step 3. Log out and log back in so that your group membership is re-evaluated.
+
+Configure Docker to Start on Boot
+$ sudo systemctl enable docker
+```
+check the status of docker by running:
+```bash
+$ sudo systemctl status docker
+[sudo] h2o_docker의 암호: 
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2020-08-12 10:08:34 KST; 5min ago
+     Docs: https://docs.docker.com
+ Main PID: 2006 (dockerd)
+    Tasks: 18
+   CGroup: /system.slice/docker.service
+           └─2006 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+ 8월 12 10:08:33 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:33.842297158+09:00" le
+ 8월 12 10:08:33 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:33.842341908+09:00" le
+ 8월 12 10:08:33 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:33.842374838+09:00" le
+ 8월 12 10:08:33 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:33.842755445+09:00" le
+ 8월 12 10:08:34 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:34.473487034+09:00" le
+ 8월 12 10:08:34 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:34.709750212+09:00" le
+ 8월 12 10:08:34 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:34.801052395+09:00" le
+ 8월 12 10:08:34 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:34.801309762+09:00" le
+ 8월 12 10:08:34 h2o-Alienware-Aurora-R6 dockerd[2006]: time="2020-08-12T10:08:34.822477454+09:00" le
+ 8월 12 10:08:34 h2o-Alienware-Aurora-R6 systemd[1]: Started Docker Application Container Engine.
+```
+Docker is loaded and active. It's fine. Enter `q` to quit and get out of this.
+
+#### What's the problem then?
+I don't know.
