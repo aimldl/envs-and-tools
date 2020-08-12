@@ -1,3 +1,5 @@
+* Rev.2: 2020-08-12 (Wed)
+* Rev.1: 2020-08-11 (Tue)
 * Draft: 2020-03-24 (Tue)
 
 # Summary
@@ -20,6 +22,7 @@ printf("Log out and log back in so that your group membership is re-evaluated.
 Just closing the terminal and re-opening it doesn't work. 
 On a virtual machine, restart the virtual machine for changes to take effect.\n")
 ```
+
 # Install docker on Ubuntu
 
 Install docker for CPU and nvidia-docker for GPU. If the computer has an NVIDIA GPU card for a General Purpose GPU, do install nvidia-docker. Two types of Docker exist: Docker CE (Community Edition) and  Docker EE (Enterprise Edition). Docker CE is the free version.
