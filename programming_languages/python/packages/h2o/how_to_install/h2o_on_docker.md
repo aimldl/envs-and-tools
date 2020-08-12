@@ -89,24 +89,91 @@ Executing transaction: done
 (base) user@fe51f813476b:~$ 
 ```
 
-## Step 4. Run the Docker container with an image with H2O
+## Step 4. Verify the installation
+### Step 4.1. Run the Docker container with an image with H2O
+H2O must be executed in the Docker container environment. So run a container from the prepared Docker image.
 
-TODO
+```bash
+$ sudo docker run -it -p 54321:54321 <image_name>
+```
+Note `-p 54321:54321` mathces port 54321 inside the container to port 54321 outside the container while H2O Flow requires to use port 54321. 
 
-## Step 5. Run H2o Flow
+When the image name of the prepared Docker Image is `aimldl/baseimage_h2o3.18.0.2_openjdk8.0.152_python3.7.6_conda4.8.3_ubuntu18.04.5`, run:
 
+```bash
+$ sudo docker run -it -p 54321:54321 aimldl/baseimage_h2o3.18.0.2_openjdk8.0.152_python3.7.6_conda4.8.3_ubuntu18.04.5
+[sudo] h2o_docker의 암호: 
+2020-08-12 (Wed) 04:22 (32th week)
+Welcome to ubuntu18.04, conda 4.8.3, Python 3.7.6
+(base) user@660e69cd5772:~$
+```
+The prompt `(base) user@660e69cd5772:~$` indicates the terminal is INSIDE the Docker container.
+
+## Step 4.2. Run H2O Flow
+The previously installed H2O is at `~/anaconda3/h2o_jar/h2o.jar`. To start H2O Flow, run:
 
 ```bash
 (base) user@f07c7b8d5897:~$ java -jar ~/anaconda3/h2o_jar/h2o.jar
+08-12 02:10:48.813 172.17.0.2:54321      54     main      INFO: Found XGBoost backend with library: xgboost4j_gpu
+08-12 02:10:48.820 172.17.0.2:54321      54     main      INFO: XGBoost supported backends: [WITH_GPU, WITH_OMP]
+08-12 02:10:48.820 172.17.0.2:54321      54     main      INFO: ----- H2O started  -----
+  ...
 ```
+
+Alternatively, go to the directory where `h2o.jar` is located and run the `.jar` file.
+
 ```bash
-(base) user@f07c7b8d5897:~/anaconda3$ cd h2o_jar/
+(base) user@f07c7b8d5897:~$ cd anaconda3/h2o_jar/
 (base) user@f07c7b8d5897:~/anaconda3/h2o_jar$ ls
 h2o.jar
 (base) user@f07c7b8d5897:~/anaconda3/h2o_jar$ java -jar h2o.jar
 ```
 
-h2o-localhost_54321.png
+## Step 4.3. Enter the following address on a web browser.
+Outside the container environment, open a web browser. You may click an icon:
+
+<img src="images/ubuntu-mozilla_and_terminal_icons.png">
+
+In the web browser, enter:
+
+> http://localhost:54321
+
+and H2O Flow starts like this
+
+<img src="images/h2o-localhost_54321.png"> 
+
+Notice the URL is automatically changed to
+
+> http://localhost:54321/flow/index.html
+
+### Moving out of the container without killing it (in the terminal)
+To do Step 4.3, you may leave the terminal as it is and use a web browser.
+(On Ubuntu Linux, you may click the icon of the default web browser Mozilla.)
+
+<img src="images/ubuntu-mozilla_and_terminal_icons.png">
+
+Optionally, it is good to know how to mow out ot the container environment without killing it in the terminal.
+
+In the Docker container prompt, press `Ctrl+p+q`. That's it.
+```bash
+(base) user@f07c7b8d5897:~/anaconda3/h2o_jar$ 
+```
+Notice the prompt has moved out of the container.
+```bash
+ aimldl@Home-Laptop:~$
+ ```
+ To double-check the container is still up and running, use the `docker ps` command.
+ ```bash
+aimldl@Home-Laptop:~$ sudo docker ps
+CONTAINER ID  IMAGE                                                                             ...  PORTS                     NAMES
+660e69cd5772  aimldl/baseimage_h2o3.18.0.2_openjdk8.0.152_python3.7.6_conda4.8.3_ubuntu18.04.5  ...  0.0.0.0:54321->54321/tcp  heuristic_black
+$
+```
+Notice 
+* the image `aimldl/baseimage_h2o3.18.0.2_openjdk8.0.152_python3.7.6_conda4.8.3_ubuntu18.04.5` is running as a container.
+  * Name: heuristic_black
+  * ID: 660e69cd5772
+* the port `0.0.0.0:54321` is mapped to `54321/tcp`.
 
 ## Appendix. The full output message to run H2O Flow
 
