@@ -205,7 +205,7 @@ $ groups $USER
 h2o_docker : h2o_docker sudo docker
 $
 ```
-The user name is `h2o_docker` and this user does belong to the group `docker`.
+The user name is `h2o_docker` and this user does belong to the group `docker`. For details, refer to [How to Check the User Group(s) an Ubuntu User Belongs To](https://vitux.com/how-to-check-the-user-groups-an-ubuntu-user-belongs-to/).
 
 #### Check the rest of configurations
 For the following two actions, 
