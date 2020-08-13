@@ -1,0 +1,49 @@
+#apiVersion: extensions/v1beta1
+# error: unable to recognize "test_deployment-blue.yaml": no matches for kind "Deployment" in version "extensions/v1beta1"
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: webserver-blue
+
+# Configure pods to deploy
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        type: webserver
+        color: blue
+    spec:
+      containers:
+      - image: gcr.io/test_webserver/imageview:blue
+      name: webserver-container
+
+# To use ConfigMap and Secrets defined in other files
+#   * test_configmap.yaml
+#   * test_secrets.yaml
+# Environment variables
+#   * PROJECT_ID is project.id from test_configmap.yaml
+#   * SECRET_ID is apikey's id from test_secrets.yaml
+#   * SECRET_KEY is apikey's key from test_secrets.yaml
+
+    env:
+    - name: PROJECT_ID
+      valueFrom:
+        configMapKeyRef:
+          name: project.id
+          key: project.id
+    - name: SECRET_ID
+      valueFrom:
+        secretKeyRef:
+          name: apikey
+          key: id
+    - name: SECRET_KEY
+      valueFrom:
+        secretKeyRef:
+          name: apikey
+          key: key
+
+# Port number that container transmits
+    ports:
+    - containerPort: 80
+      name: http-server

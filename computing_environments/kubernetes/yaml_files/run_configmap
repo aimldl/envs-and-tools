@@ -1,0 +1,30 @@
+#!/bin/bash
+#  run_configmap
+#   * Draft: 2020-08-12 (Wed)
+
+run() {
+  COMMAND=$1
+  echo "$COMMAND ..."
+  eval $COMMAND
+}
+
+run 'kubectl create -f test_configmap.yaml'
+# configmap/projectid created
+
+run 'kubectl get configmaps'
+# NAME        DATA   AGE
+# projectid   1      18s
+
+run 'kubectl describe configmaps'
+# Name:         projectid
+# Namespace:    default
+# Labels:       <none>
+# Annotations:  <none>
+#
+# Data
+# ====
+# project.id:
+# ----
+# hello-docker
+# Events:  <none>
+

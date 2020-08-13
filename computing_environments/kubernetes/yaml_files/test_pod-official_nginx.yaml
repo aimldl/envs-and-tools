@@ -1,0 +1,26 @@
+# test_pod.yaml
+#  * Draft: 2020-08-13 (Thu)
+#
+# Introduction to YAML: Creating a Kubernetes deployment, Nick Chase, 2020-03-11
+#   https://www.mirantis.com/blog/introduction-to-yaml-creating-a-kubernetes-deployment/
+# Usage:
+#   $ kubectl create -f test_pod.yaml 
+#   pod/rss-site created
+#   $
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: official-nginx
+  labels:
+    app: web
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+    - name: official-nginx
+      image: _/nginx
+      ports:
+        - containerPort: 88
