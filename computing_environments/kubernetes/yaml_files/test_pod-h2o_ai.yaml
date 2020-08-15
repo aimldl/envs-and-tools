@@ -1,0 +1,26 @@
+# test_pod-h2o_ai.yaml
+#  * Draft: 2020-08-14 (Fri)
+#
+# Usage:
+#   $ kubectl create -f test_pod-h2o_ai.yaml
+#   pod/rss-site created
+#   $
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-h2o.ai
+  labels:
+    app: automl
+spec:
+  containers:
+    - name: h2o3-18-0-2
+      image: aimldl/baseimage_h2o3.18.0.2_openjdk8.0.152_python3.7.6_conda4.8.3_ubuntu18.04.5
+      ports:
+        - containerPort: 54321
+# The above lines will cause the CrashLoopBackOff error.
+# Uncomment the following two lines as a quick fix to the error.
+#      command: ["/bin/sh"]
+#      args: ["-c", "while true; do echo hello; sleep 10;done"]
+      command: ["/bin/sh"]
+      args: ["-c", "java -jar /home/user/anaconda3/h2o_jar/h2o.jar"]
