@@ -94,9 +94,7 @@ pod/official-nginx created
 $
 ```
 
-A pod is created without a problem because a Docker image exists.
-
-Checking the pod's status reveals a container is being created from the image (official nginx image).
+A pod is created without a problem because a Docker image exists in the Docker Hub, the public Docker image registry. Checking the pod's status reveals a container is being created from the image (official nginx image).
 
 ```bash
 $ kubectl get pods

@@ -1,0 +1,13 @@
+# Dockerfile-helloworld
+#   * Draft: 2020-08-18 (Tue)
+#
+# hello_world is a simple bash script
+# #!/bin/bash
+# echo "Hello, world!"
+
+FROM ubuntu:18.04
+
+COPY hello_world /usr/local/bin
+RUN chmod +x /usr/local/bin/hello_world
+
+CMD ["hello_world"]

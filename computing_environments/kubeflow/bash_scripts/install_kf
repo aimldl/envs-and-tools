@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Copyright (c) 2020 Tae Hyung Kim
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,7 +19,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# install kubeflow
+# install_kubeflow
+#   * Rev.6: 2020-08-19 (Wed)
 #   * Rev.5: 2020-04-24 (Fri)
 #   * Rev.4: 2020-04-22 (Wed)
 #   * Rev.3: 2020-04-20 (Mon)
@@ -37,10 +37,10 @@
 #
 #  Usage:
 #    To run,
-#      $ ./install
+#      $ ./install_kubeflow
 #
 #    To exit, hit Ctrl+C.
-#      $ ./install
+#      $ ./install_kubeflow
 #        ...
 #      Error: failed to create cluster "fabulous-monster-1587691134"
 #      wonderful-painting-1587560462 is created
@@ -72,7 +72,7 @@
 # grep: /home/bitnami/.kube/config: No such file or directory
 #  is created
 
-COMMAND_NAME=$0  # ./install
+COMMAND_NAME=$0  # ./install_kubeflow
 VERSION=0.1
 
 BASE_DIR_NAME='kubeflow'
@@ -89,7 +89,7 @@ K8S_VERSION="1.14"    # This version is tested and verified with Kubeflow.
 ################################################
 #  Procedures to Parse Command Line Arguments  #
 ################################################
-showUsage()
+show_usage()
 {
 echo "
 ${COMMAND_NAME} installs Kubeflow automatically.
@@ -138,7 +138,7 @@ show_version_info()
 # Command line arguments
 MIN_NUM_OF_ARGS=0;
 if [ $# -lt ${MIN_NUM_OF_ARGS} ];then
-   showUsage;
+   show_usage;
    exit 1;
 fi
 
@@ -147,7 +147,7 @@ COMMAND_LINE_OPTS="hvn:t:r:o:k:";
 
 while getopts ${COMMAND_LINE_OPTS} Option; do
    case ${Option} in
-      h ) showUsage; exit 1; ;;
+      h ) show_usage; exit 1; ;;
       v ) show_version_info; exit 1; ;;
       n ) NUM_NODES=${OPTARG}; ;;
       t ) NODE_TYPE=${OPTARG}; ;;

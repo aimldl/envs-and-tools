@@ -1,0 +1,47 @@
+#!/bin/bash
+#  install_ubuntu_productivity_packages
+#    Run this script after installing Ubuntu Linux and install the productivity packages
+#    For Ubuntu 18.04 LTS
+#
+#  * Rev.4: 2020-07-16 (Thu)
+#  * Rev.3: 2020-07-14 (Tue)
+#  * Rev.2: 2020-06-27 (Mon)
+#  * Rev.1: 2020-06-22 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+#  Usage:
+#    To run this script, 
+#      $ chmod +x install_ubuntu_productivity_packages 
+#      $ ./install_ubuntu_basic_packages 
+#      [sudo] password for k8smaster:
+#
+#    To edit this file, use a text editor.
+#      $ nano install_ubuntu_productivity_packages
+#    nano is my choice of text editor, but you may use other text editor such as vi, vim, or emacs.
+
+# typora
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+sudo apt-get install -y typora
+
+# gimp
+sudo add-apt-repository -y ppa:otto-kesselgulasch/gimp
+sudo apt-get update
+sudo apt-get install -y gimp
+
+# audacity
+#sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+#sudo apt-get update
+sudo apt-get install -y audacity
+
+# Nomacs
+#   https://blog.naver.com/aimldl/221595457917
+#   https://launchpad.net/~nomacs/+archive/ubuntu/stable
+sudo add-apt-repository -y ppa:nomacs/stable
+sudo apt update
+sudo apt install -y nomacs
+
+# Korean Language Packs
+#sudo apt install -y language-pack-ko
+#sudo apt install -y korean*
