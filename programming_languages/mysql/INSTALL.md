@@ -91,8 +91,33 @@ Success.
 All done! 
 $
 ```
+### Step 3. Check the MySQL version
+```bash
+$ sudo mysqladmin -p -u root version
+```
+shows the version and other information as follows:
+```bash
+$ sudo mysqladmin -p -u root version
+[sudo] password for aimldl: 
+Enter password: 
+mysqladmin  Ver 8.42 Distrib 5.7.31, for Linux on x86_64
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
-### Step 3. Verify if MySQL is Up & Running
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Server version		5.7.31-0ubuntu0.18.04.1
+Protocol version	10
+Connection		Localhost via UNIX socket
+UNIX socket		/var/run/mysqld/mysqld.sock
+Uptime:			8 min 18 sec
+
+Threads: 1  Questions: 2  Slow queries: 0  Opens: 105  Flush tables: 1  Open tables: 98  Queries per second avg: 0.004
+$
+```
+
+### Step 4. Verify if MySQL is Up & Running
 If these commands run without an error, the MySQL server is up & running.
 * `$ systemctl status mysql.service` or equivalently `$ service mysql status`
 * `$ sudo mysqladmin -p -u root version`
