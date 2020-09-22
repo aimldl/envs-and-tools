@@ -1,3 +1,4 @@
+* Rev.2: 2020-09-22 (Tue)
 * Rev.1: 2020-05-28 (Thu)
 * Draft: 2019-10-25 (Fri)
 # ERROR 1698 (28000): Access denied for user 'root'@'localhost'
@@ -63,6 +64,8 @@ Google searhc: ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 
 ### Solution: the real solution
 If MySQL 5.7 or higher is installed on Ubuntu, the root user's password configuration becomes a bit more triky.
+* Source: 깔끔한 파이썬 탄탄한 백엔드, pp.143-145 송은우 지음
+  * 6장. 데이터베이스 - MySQL 5.7 (혹은 그 이상의 버전) 설치 시 주의할 점
 
 #### Step 1. Log into the MySQL database with the `sudo` command.
 ```bash
