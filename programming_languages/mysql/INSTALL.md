@@ -94,8 +94,8 @@ $
 
 ### Step 3. Verify if MySQL is Up & Running
 If these commands run without an error, the MySQL server is up & running.
-`$ systemctl status mysql.service` or equivalently `$ service mysql status`
-`$ sudo mysqladmin -p -u root version`
+* `$ systemctl status mysql.service` or equivalently `$ service mysql status`
+* `$ sudo mysqladmin -p -u root version`
 
 After the installation, `mysql` runs automatically. If not, start `mysql` manually.
 ```bash
