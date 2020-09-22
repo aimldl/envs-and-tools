@@ -154,3 +154,46 @@ Uptime:			10 min 58 sec
 Threads: 1  Questions: 8  Slow queries: 0  Opens: 113  Flush tables: 1  Open tables: 106  Queries per second avg: 0.012
 $
 ```
+
+#### To start mysql manually
+When the status is `inactive (dead)` like below,
+```bash
+$ service mysql status
+● mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: inactive (dead) since Tue 2020-09-22 13:52:27 KST; 5s ago
+ Main PID: 29949 (code=exited, status=0/SUCCESS)
+
+Sep 22 13:30:21 Home-Laptop systemd[1]: Starting MySQL Community Server...
+Sep 22 13:30:21 Home-Laptop systemd[1]: Started MySQL Community Server.
+Sep 22 13:52:26 Home-Laptop systemd[1]: Stopping MySQL Community Server...
+Sep 22 13:52:27 Home-Laptop systemd[1]: Stopped MySQL Community Server.
+$
+```
+start mysql by running:
+```bash
+$ service mysql start
+```
+
+Then the status is changed to `active (running)`.
+```bash
+$ service mysql status
+● mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 2020-09-22 13:53:05 KST; 4min 46s ago
+  Process: 1671 ExecStart=/usr/sbin/mysqld --daemonize --pid-file=/run/mysqld/mysqld.pid (code=exite
+  Process: 1645 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS
+ Main PID: 1673 (mysqld)
+    Tasks: 27 (limit: 4915)
+   CGroup: /system.slice/mysql.service
+           └─1673 /usr/sbin/mysqld --daemonize --pid-file=/run/mysqld/mysqld.pid
+
+Sep 22 13:53:04 Home-Laptop systemd[1]: Starting MySQL Community Server...
+Sep 22 13:53:05 Home-Laptop systemd[1]: Started MySQL Community Server.
+$
+```
+
+#### To stop mysql manually, run:
+```bash
+$ service mysql stop
+```
