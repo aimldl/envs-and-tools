@@ -93,16 +93,54 @@ $
 ```
 
 ### Step 3. Verify if MySQL is Up & Running
-To check the status of the MySQL server, run:
+If these commands run without an error, the MySQL server is up & running.
+`$ systemctl status mysql.service`
+`$ sudo mysqladmin -p -u root version`
+
+#### To check the status of the MySQL server, run:
 ```bash
 $ systemctl status mysql.service
 ```
-The server should be loaded and active (running).
+##### An example
+The server should be loaded and active (running) like below.
 
-To print the version of the MySQL server, run:
+```bash
+$ systemctl status mysql.service
+● mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 2020-09-22 13:30:21 KST; 10min ago
+ Main PID: 29949 (mysqld)
+    Tasks: 28 (limit: 4915)
+   CGroup: /system.slice/mysql.service
+           └─29949 /usr/sbin/mysqld --daemonize --pid-file=/run/mysqld/mysqld.pid
+
+Sep 22 13:30:21 Home-Laptop systemd[1]: Starting MySQL Community Server...
+Sep 22 13:30:21 Home-Laptop systemd[1]: Started MySQL Community Server.
+$
+```
+
+#### To print the version of the MySQL server, run:
 ```bash
 $ sudo mysqladmin -p -u root version
 ```
+##### An example
 The version information will be displayed.
+```bash
+$ sudo mysqladmin -p -u root version
+Enter password: 
+mysqladmin  Ver 8.42 Distrib 5.7.31, for Linux on x86_64
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
-If these commands run without an error, the MySQL server is up & running.
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Server version		5.7.31-0ubuntu0.18.04.1
+Protocol version	10
+Connection		Localhost via UNIX socket
+UNIX socket		/var/run/mysqld/mysqld.sock
+Uptime:			10 min 58 sec
+
+Threads: 1  Questions: 8  Slow queries: 0  Opens: 113  Flush tables: 1  Open tables: 106  Queries per second avg: 0.012
+$
+```
