@@ -1,8 +1,8 @@
-## SQLAlchemy를 사용하여 API와 데이터베이스 연결하기
+* Draft: 2020-09-23 (Wed)
 
+# ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 
-
-
+* SQLAlchemy를 사용하여 API와 데이터베이스 연결하기
 
 `config.py`
 

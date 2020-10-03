@@ -121,11 +121,6 @@ b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzb21lIjoicGF5bG9hZCJ9.j4hydZvraNFUqUHp
 >>> 
 ```
 
+## 다음
 
-
-## 인증 엔드포인트 구현하기
-
-
-
-그 사람이 니 인생에 중요해? 니가 할 일을 찾는게 중요하지.
-
+* [인증 엔드포인트 구현하기](login_required_decorator.md)

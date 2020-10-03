@@ -2,6 +2,7 @@
 # batch_git_push
 #   This script runs git push in all sub-directories for all the repositories in https://github.com/aimldl.
 #
+# * Rev.13: 2020-10-03 (Sat)
 # * Rev.12: 2020-09-06 (Sun)
 # * Rev.11: 2020-08-23 (Sun)
 # * Rev.10: 2020-07-28 (Tue)
@@ -41,7 +42,7 @@ run() {
 
 dir_root=${PWD}
 MSG=${1:-"Add new stuff by batch_git_push"}
-repos="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow private"
+repos="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch private"
 for repo in ${repos}; do
   run "cd ${dir_root}/${repo}"
   run "git add . && git commit -m '${MSG}' && git push"
