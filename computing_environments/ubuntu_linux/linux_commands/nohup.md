@@ -1,9 +1,18 @@
-##### aimldl/computing_environments/linux_commands/nohup.md
+* Rev.2: 2020-10-06 (Tue)
 * Rev.1: 2020-01-15 (Wed)
 * Draft: 2019-12-27 (Fri)
 
 ## nohup
 Run another command, ignoring hangup signals. That is, nohuo means no hangup. Even when the terminal is closed or the session is disconnected, another command keeps running. For example, when you log out or exit the shell, another command keeps running in the background.
+
+[AWS EC2 Running background process](https://medium.com/@brunoeleodoro96/aws-ec2-running-background-process-be141feeb2fb)
+```
+Have you ever tried to run something in background inside an server instance on AWS EC2?
+Well, after you exit from the server the process dies, this means that the service that you providing will not run in background.
+[...]
+When you exit an ssh session, the Operational Systems sends an SIGHUP signal to all the process opened during the ssh session.
+So the “nohup” command prevent the process be closed by the SIGHUP signal.
+```
 
 ### Syntax
 Help or version information.
