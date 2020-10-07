@@ -1,6 +1,10 @@
-##### aimldl > aws > s3 > README.md
+* Rev.2: 2020-10-07 (Wed)
 * Rev.1: 2019-11-11 (Mon)
 * Draft: Some time ago
+# Amazon S3 (Simple Storage Service)
+## References
+* [Amazon S3](https://aws.amazon.com/s3/)
+
 ## CLI (Command Line Interface) Commands
 To get a help on the CLI commands for s3, run:
 ```bash
@@ -54,7 +58,7 @@ $ aws s3 sync s3://hula-dataset/english-* .
 (EOF)
 
 TODO: Qb: Verify and correct the errors in the following commands.
-
+``` bash
 (hula) aimldl@GPU-Desktop:~/aimldl/private/hula-HunkLabeling/input/wav_files/downloads$ aws s3 cp s3://hula-dataset/english-*.wav .
 fatal error: An error occurred (404) when calling the HeadObject operation: Key "english-*.wav" does not exist
 (hula) aimldl@GPU-Desktop:~/aimldl/private/hula-HunkLabeling/input/wav_files/downloads$ aws s3 cp s3://hula-dataset .
@@ -64,12 +68,13 @@ fatal error: An error occurred (404) when calling the HeadObject operation: Key 
 (hula) aimldl@GPU-Desktop:~/aimldl/private/hula-HunkLabeling/input/wav_files/downloads$ aws s3 cp s3://hula-dataset/* .
 fatal error: An error occurred (404) when calling the HeadObject operation: Key "*" does not exist
 (hula) aimldl@GPU-Desktop:~/aimldl/private/hula-HunkLabeling/input/wav_files/downloads$ 
-
+```
 [How to delete multiple files in S3 bucket with AWS CLI](https://stackoverflow.com/questions/41733318/how-to-delete-multiple-files-in-s3-bucket-with-aws-cli)
 ```
 USING UNIX WILDCARDS WITH AWS S3 (AWS CLI)
 
-Currently AWS CLI doesn’t provide support for UNIX wildcards in a command’s “path” argument. However, it is quite easy to replicate this functionality using the --exclude and --include parameters available on several aws s3 commands.
+Currently AWS CLI doesn’t provide support for UNIX wildcards in a command’s “path” argument. 
+However, it is quite easy to replicate this functionality using the --exclude and --include parameters available on several aws s3 commands.
 
 The wildcards available for use are:
 
