@@ -1,4 +1,4 @@
-##### aimldl > aws > s3 > cp.md
+
 
 # aws s3 cp
 
