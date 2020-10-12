@@ -1,12 +1,15 @@
+* Rev.2: 2020-10-12 (Mon)
 * Rev.1: 2020-06-23 (Tue)
 * Draft: 2019-03-02 (Sat)
+
 # How to Install Google Chrome on Ubuntu 18.04
 ## Purpose
 The following command used to work:
 ```bash
-$ sudo apt install -y chronium-browser
+$ sudo apt install -y google-chrome-stable
 ```
-I recently found the above command fails. 
+For details, refer to [2 Ways to Install Google Chrome on Ubuntu 18.04 LTS Bionic Beaver](https://www.linuxbabe.com/ubuntu/install-google-chrome-ubuntu-18-04-lts).
+
 ## How to install manually
 According to [How to Install Google Chrome Web Browser on Ubuntu 18.04](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/), run the following commands.
 ```bash
