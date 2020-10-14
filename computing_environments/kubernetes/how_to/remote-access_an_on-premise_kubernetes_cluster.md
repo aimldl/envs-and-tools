@@ -233,9 +233,11 @@ $
 ```
 
 #### Retrieve the `apiserver` location information from `kubectl config view`
-Run
+Run either
   ```bash
   $ kubectl config view | grep server | sed -e 's/^[ ]*server:[ ]//'
+  # or
+  $ kubectl config view | grep server | cut -d ' ' -f6
   ```
 and the output looks something like:
 ```bash
@@ -272,9 +274,10 @@ Rst ...
 uVW ...
 xYZ ...
 1AB ...
+$
 ```
 
-Equivalently, break down the above commands into:
+If the above commands are too long, break them down into the following commands:
 ```bash
 $ SECRET_NAME=$(kubectl -n kube-system get secret -n kube-system -o name | grep namespace)
 $ kubectl -n kube-system describe $SECRET_NAME | grep ^token | sed -e 's/^token:[ ]*//'
