@@ -242,15 +242,17 @@ and the output looks something like:
 https://123.456.7.890:6443
 $
 ```
+while
+  * `https://123.456.7.890` is the IP address
+  * `6443` is the port number.
+
 To explain the above command, the output result by `kubectl config view` is filtered with the keyword `server'.
 ```bash
 $ kubectl config view | grep server
     server: https://123.456.7.890:6443
 $
 ```
-Given the extracted location information in "    server: https://123.456.7.890:6443", `sed -e 's/^[ ]*server:[ ]//` deletes the leading spaces followed by `server: `. The remaining output looks something like `https://123.456.7.890:6443` while
-  * `https://123.456.7.890` is the IP address
-  * `6443` is the port number.
+Given the extracted location information in "    server: https://123.456.7.890:6443", `sed -e 's/^[ ]*server:[ ]//` deletes the leading spaces followed by `server: `. The remaining output looks something like `https://123.456.7.890:6443`.
 
 ### Retrieve the credential
 To get the token, run either:
