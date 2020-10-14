@@ -3,6 +3,7 @@
 #   This script git-clones all the repositories in https://github.com/aimldl
 #   A private repository requires authentication.
 #
+# * Rev.13: 2020-10-14 (Wed)
 # * Rev.12: 2020-10-03 (Sat)
 # * Rev.11: 2020-09-06 (Sun)
 # * Rev.10: 2020-08-23 (Sun)
@@ -27,7 +28,7 @@ run() {
   eval $COMMAND
 }
 
-repos="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch private"
+repos="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch kubeflow private"
 for repo in ${repos}; do
   run "git clone https://github.com/aimldl/${repo}.git"
 done
