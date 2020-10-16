@@ -22,6 +22,11 @@ $ google-chrome
 ```
 <img src="images/google_chrome-initial_launch_window.png">
 
+## How to uninstall Google Chrome
+'''bash
+$ sudo apt purge google-chrome-stable
+'''
+
 ## References
 * [How to Install Google Chrome Web Browser on Ubuntu 18.04](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/)
 * [005. Linux의 Terminal환경에 익숙해 지기](https://m.blog.naver.com/PostView.nhn?blogId=aimldl&logNo=221478762206&referrerCode=0&searchKeyword=chrome)
