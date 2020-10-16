@@ -5,6 +5,14 @@
 
 # INSTALL
 ## Install Typora on Ubuntu Linux (18.04)
+
+Download and run [install_typora](bash_scripts/install_typora).
+```bash
+$ chmod +x install_typora
+$ ./install_typora
+```
+Equivalently, run the following commands.
+
 ```bash
 # or use
 # sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
