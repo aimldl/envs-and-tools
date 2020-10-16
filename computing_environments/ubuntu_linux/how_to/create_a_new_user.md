@@ -44,7 +44,7 @@ $
 
 Now the user account and password is set.
 
-Step 3. Verify the new account in `/etc/passwd`
+Step 3. Verify the new account exists in `/etc/passwd`
 
 ```bash
 $ cat /etc/passwd | grep "^k8smaster"
