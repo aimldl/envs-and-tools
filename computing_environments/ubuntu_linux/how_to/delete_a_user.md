@@ -1,13 +1,17 @@
+* Rev.1: 2020-10-16 (Fri)
 * Draft: 2020-07-16 (Thu)
 # Delete a User on Ubuntu Linux
-* To delete the user and the home directory, run:
-```bash
-$ sudo deluser --remove-home USER
-```
+There are two nice options to delete a user.
+* Delete the user account and remove all files
+* Delete the user account and remove the home directory.
 
 * To delete the user and all files including the home directory, run:
 ```bash
 $ sudo deluser --remove-all-files USER
+```
+* To delete the user and the home directory, run:
+```bash
+$ sudo deluser --remove-home USER
 ```
 
 To verify the sudoer's priviledge, run
@@ -77,15 +81,34 @@ $
 ```
 
 ## Troubleshoot
-### Problem
+### Problem1
 ```bash
 $ sudo adduser k8snode
 adduser: The user `k8snode' already exists.
 $
 ```
-### Hint
+### Hint1
 ```
 Google search: "deluser --remove-home" "adduser: The user"  "already exists"
+```
+
+### Problem2
+```bash
+$ sudo deluser --remove-home h2o_docker/
+[sudo] h2o의 암호: 
+/usr/sbin/deluser: `h2o_docker/' 사용자가 없습니다.
+$
+```
+### Solution2
+The trailing `/` was the problem.
+```bash
+$ sudo deluser --remove-home h2o_docker
+백업/제거할 파일들을 찾는 중...
+파일 제거중 ...
+'h2o_docker' 사용자 제거 중...
+경고: 'h2o_docker'그룹이 회원목록에 더이상 없음.
+완료.
+$
 ```
 
 ## References
