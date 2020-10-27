@@ -1,4 +1,3 @@
-##### aimldl/computing_environments/anaconda/README.md
 * Rev.2: 2020-05-22 (Fri)
 * Rev.1: 2020-03-16 (Mon)
 * Draft: 2019-12-18 (Wed)
