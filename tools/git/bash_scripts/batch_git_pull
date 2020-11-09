@@ -32,7 +32,7 @@ run() {
 }
 
 dir_root=${PWD}
-repos="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch kubeflow projects"
+repos="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
 for repo in ${repos}; do
   run "cd ${dir_root}/${repo}"  # cd to the repo's directory
   run "git pull"                # pull from the specified repo

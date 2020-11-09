@@ -30,7 +30,7 @@ run() {
   eval $COMMAND
 }
 
-repos="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch kubeflow projects"
+repos="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
 for repo in ${repos}; do
   run "git clone https://github.com/aimldl/${repo}.git"
 done
