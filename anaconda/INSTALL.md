@@ -37,7 +37,7 @@ The same topic in Korean is available at:
   $ bash Anaconda3-2020.07-Linux-x86_64.sh
   ```
 
-  Follow the instructions to install Anaconda.
+  Follow the instructions to install Anaconda.~/github/projects/text_summarization_in_korean/project-extraction_of_korean_news
 
   ```bash
   $ bash Anaconda3-2020.07-Linux-x86_64.sh
