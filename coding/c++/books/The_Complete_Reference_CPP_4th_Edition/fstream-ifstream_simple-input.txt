@@ -1,6 +1,0 @@
-This is the very first line.
-The second line
-The third line
-and
-so
-on

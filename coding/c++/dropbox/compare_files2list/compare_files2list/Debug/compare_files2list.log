@@ -1,4 +1,0 @@
-﻿  compare_files2list.cpp
-c:\users\phil4\source\repos\compare_files2list\compare_files2list\compare_files2list.cpp(11): error C2039: 'filesystem': 'std'의 멤버가 아닙니다.
-  c:\program files (x86)\microsoft visual studio\2017\wdexpress\vc\tools\msvc\14.16.27023\include\experimental\filesystem(30): note: 'std' 선언을 참조하십시오.
-c:\users\phil4\source\repos\compare_files2list\compare_files2list\compare_files2list.cpp(11): error C2878: 'filesystem': 같은 이름을 가진 네임스페이스 또는 클래스가 없습니다.

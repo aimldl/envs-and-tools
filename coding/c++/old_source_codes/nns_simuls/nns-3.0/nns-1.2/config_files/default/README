@@ -1,8 +1,0 @@
-README
-
-Default config file for different tasks
-
-default_mcsrn_wt_idr_2x2.cfg
-  Use MCSRN with Input Dimentsion Reduction on a 2x2 setting.
-  Both black and white learn in this supervised learning settings.
-  Logged on Mar. 21, 2011 (Mon)

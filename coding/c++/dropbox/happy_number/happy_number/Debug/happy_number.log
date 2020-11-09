@@ -1,3 +1,0 @@
-﻿  happy_number.cpp
-c:\users\phil4\source\repos\happy_number\happy_number\happy_number.cpp(67): warning C4307: '-': 정수 계열 상수 오버플로입니다.
-  happy_number.vcxproj -> C:\Users\phil4\source\repos\happy_number\Debug\happy_number.exe

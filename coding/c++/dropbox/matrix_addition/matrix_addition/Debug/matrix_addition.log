@@ -1,6 +1,0 @@
-﻿  matrix_addition.cpp
-c:\users\phil4\source\repos\matrix_addition\matrix_addition\matrix_addition.cpp(14): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\phil4\source\repos\matrix_addition\matrix_addition\matrix_addition.cpp(16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\phil4\source\repos\matrix_addition\matrix_addition\matrix_addition.cpp(36): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\phil4\source\repos\matrix_addition\matrix_addition\matrix_addition.cpp(40): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  matrix_addition.vcxproj -> C:\Users\phil4\source\repos\matrix_addition\Debug\matrix_addition.exe
