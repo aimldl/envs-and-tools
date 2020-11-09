@@ -1,16 +1,21 @@
 * Draft: 2020-06-19 (Fri)
 
-# Technical Skills
-
-
-
+# Skills
+Two types of skills are required:
 ```text
-non_technical_skills
-├── business_acumen
-├── effective_business_communication
-├── intellectual_curiosity
-└── teamwork&collaboration
+Skills
+├── Technical skills
+└── Non-technical skills
 ```
+While a part of non-technical skills are listed below,
+```text
+Non-technical skills
+├── Business acumen
+├── Effective business communication
+├── Intellectual curiosity
+└── Teamwork & collaboration
+```
+this repository is about technical skills.
 
 ## Purpose of https://github.com/aimldl
 
