@@ -2,6 +2,16 @@
 
 # Technical Skills
 
+
+
+```text
+non_technical_skills
+├── business_acumen
+├── effective_business_communication
+├── intellectual_curiosity
+└── teamwork&collaboration
+```
+
 ## Purpose of https://github.com/aimldl
 
 https://github.com/aimldl is created to collect and organize a small fraction of skills & knowledge in my career journey from 2018-ish. The repositories under https://github.com/aimldl is reorganized with purpose to develop and organize necessary skills, knowledge, and whatsoever for a data scientist.
