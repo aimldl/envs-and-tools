@@ -21,7 +21,7 @@ See 'snap info jupyter' for additional versions.
 (new_virtual_environment) $
 ```
 
-## Hink
+## Hint
 
 Google search: anaconda create a new virtual environment with all packages including jupyter notebook
 
@@ -42,3 +42,5 @@ $
 ```
 
 [Installing Jupyter Notebook](https://test-jupyter.readthedocs.io/en/latest/install.html)
+
+<img src='images/jupyter_notebook-new-ipykernel-korean_news_extraction.png'>
