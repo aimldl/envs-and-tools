@@ -17,7 +17,7 @@ C:\WINDOWS\system32>
 비쥬얼 베이직 스크립트를 쓰는 두 번째 방법이 성공.
 
 아래 내용을 텍스트 파일로 저장한 후 실행하면 윈도우즈 제품번호가 보입니다.
-파일명: productkey.vbs
+* 파일명: [productkey.vbs](../scripts/productkey.vbs)
 ```
 Set WshShell = CreateObject("WScript.Shell")
 MsgBox ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId"))
