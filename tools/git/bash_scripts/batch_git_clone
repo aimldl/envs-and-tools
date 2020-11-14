@@ -1,38 +1,57 @@
 #!/bin/bash
 # batch_git_clone
-#   This script git-clones all the repositories in https://github.com/aimldl
-#   A private repository requires authentication.
+#   This script run `git clones` for all sub-directories of the target repositories.
 #
-# * Rev.15: 2020-11-05 (Thu)
-# * Rev.14: 2020-10-14 (Wed)
-# * Rev.13: 2020-10-03 (Sat)
-# * Rev.12: 2020-09-06 (Sun)
-# * Rev.11: 2020-08-23 (Sun)
-# * Rev.10: 2020-07-28 (Tue)
-# * Rev.9: 2020-07-14 (Tue)
-# * Rev.8: 2020-06-19 (Fri)
-# * Rev.7: 2020-05-28 (Thu)
-# * Rev.6: 2020-03-01 (Sun)
-# * Rev.5: 2020-02-25 (Tue)
-# * Rev.4: 2020-02-06 (Thu) 
-# * Rev.3: 2020-02-06 (Thu) 
-# * Rev.2: 2019-11-19 (Tue)
-# * Rev.1: 2019-11-15 (Fri)
+# * TODO: Review my English.
+# * Rev.3: 2020-11-14 (Sat)
+# * Rev.2: 2020-10-03 (Sat)
 # * Draft: 2019-11-11 (Mon)
+#
+# Prerequisites
+#   * Understanding of the basic git commands (clone, pull, and push).
 #
 # Usage
 #   $ chmod +x batch_git_clone
 #   $ ./batch_git_clone
+#
+# Doing it manually
+#   You have a Github user ID 'your_id' and 
+#       want to clone everything in your repository "my_repository".
+#   Run
+#     $ cd ~/github/
+#     $ cd my_repository/
+#     $ git clone https://github.com/your_id/my_repository.git
+#
+#   for all target repositories.
+#
+# How to customize this script for yourself
+#   Step 1. Change github_user_id to your_id.
+#     github_user_id='your_id'
+#   Step 2. Change the list of target_repositories to YOUR target repositories.
+#     Say your target repositories are:
+#       https://github.com/your_id/my_repository_1
+#       https://github.com/your_id/my_repository_2
+#         ...
+#       https://github.com/your_id/my_repository_n
+#     Change the list to:
+#       target_repositories="my_repository_1 my_repository_2 ... my_repository_n"
+#     Note each value is delimited by a white space.
 
-run() {
+# You may change this part
+github_user_id='aimldl'
+target_repositories="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch kubeflow private"
+# You may change this part
+
+# Don't change this part
+print_and_run() {
   COMMAND=$1
   echo $COMMAND
   eval $COMMAND
 }
 
-repos="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
-for repo in ${repos}; do
-  run "git clone https://github.com/aimldl/${repo}.git"
+for repository in ${target_repositories}; do
+  print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"
 done
+# Don't change this part
 
 # EOF
