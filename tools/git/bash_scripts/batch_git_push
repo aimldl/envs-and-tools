@@ -1,27 +1,48 @@
 #!/bin/bash
 # batch_git_push
-#   This script runs git push in all sub-directories for all the repositories in https://github.com/aimldl.
+#   This script runs `git push` in all sub-directories for all target repositories.
 #
 # * Rev.3: 2020-11-14 (Sat)
 # * Rev.2: 2020-10-03 (Sat)
 # * Draft: 2019-11-11 (Mon)
 #
-# Syntax
+# Prerequisites
+#   * Basic understanding of the git operations.
+#   * The target repositories must be cloned first with the 'git clone' command.
+#
+# Usage
+#   $ chmod +x batch_git_push
 #   $ ./batch_git_push
-#     adds the default message specified in MSG.
-#   $ ./batch_git_push "Pass this message to git commit -m"
-#     saves the input argument to MSG. Don't forget to use parenthesis.
 #
 # Doing it manually
-#   Assuming you will push everything in directory "computing_environments".
-#   $ cd aimldl/
-#   $ cd computing_environments/
-#   $ git add .
-#   $ git commit -m "Add a new file"
-#   $ git push
-#   $ cd ..
+#   Assuming you will push everything in directory "my_repository".
+#     $ cd ~/github/
+#     $ cd my_repository/
+#     $ git add .
+#     $ git commit -m "Add a new stuff manually"
+#     $ git push
 #
-# TODO: this script should work, but has not been tested upon Rev.10
+# How to customize this script for yourself
+#   Assume you want to change this script for your own repositories. Say
+#     https://github.com/your_id/my_repository_1
+#     https://github.com/your_id/my_repository_2
+#       ...
+#     https://github.com/your_id/my_repository_n
+# 
+#   Step 1. Clone your repositories with the `git clone` command.
+#     $ cd && mkdir github
+#     $ cd github
+#     $ git clone https://github.com/your_id/my_repository_1
+#     $ git clone https://github.com/your_id/my_repository_2
+#       ...
+#     $ git clone https://github.com/your_id/my_repository_n
+#   
+#   Step 2. Change the values in variable `target_repositories`.
+#     While this script has a list of MY target repositories, 
+#       target_repositories="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
+#     you may change the list for YOUR target repositories.
+#       target_repositories="my_repository_1 my_repository_2 ... my_repository_n"
+#     Note each value is delimited by a white space.
 
 run() {
   COMMAND=$1
@@ -31,9 +52,9 @@ run() {
 
 dir_root=${PWD}
 MSG=${1:-"Add new stuff by batch_git_push"}
-repos="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
-for repo in ${repos}; do
-  run "cd ${dir_root}/${repo}"
+target_repositories="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
+for repository in ${target_repositories}; do
+  run "cd ${dir_root}/${repository}"
   run "git add . && git commit -m '${MSG}' && git push"
 done
 
