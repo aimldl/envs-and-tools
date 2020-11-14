@@ -1,14 +1,47 @@
 #!/bin/bash
 # batch_git_pull
-#   This script runs git pull in all sub-directories for all the repositories in https://github.com/aimldl.
+#   This script runs `git pull` in all sub-directories for all target repositories.
 #
+# * TODO: Review my English.
 # * Rev.3: 2020-11-14 (Sat)
 # * Rev.2: 2020-10-03 (Sat)
 # * Draft: 2019-11-11 (Mon)
 #
+# Prerequisites
+#   * Basic understanding of the git operations.
+#   * The target repositories must be cloned first with the 'git clone' command.
+#
 # Usage
 #   $ chmod +x batch_git_pull
 #   $ ./batch_git_pull
+#
+# Doing it manually
+#   Assuming you will push everything in directory "my_repository".
+#     $ cd ~/github/
+#     $ cd my_repository/
+#     $ git pull
+#
+# How to customize this script for yourself
+#   Assume you want to change this script for your own repositories. Say
+#     https://github.com/your_id/my_repository_1
+#     https://github.com/your_id/my_repository_2
+#       ...
+#     https://github.com/your_id/my_repository_n
+# 
+#   Step 1. Clone your repositories with the `git clone` command.
+#     $ cd && mkdir github
+#     $ cd github
+#     $ git clone https://github.com/your_id/my_repository_1
+#     $ git clone https://github.com/your_id/my_repository_2
+#       ...
+#     $ git clone https://github.com/your_id/my_repository_n
+#   
+#   Step 2. Change the values in variable `target_repositories`.
+#     While this script has a list of MY target repositories, 
+#       target_repositories="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
+#     you may change the list for YOUR target repositories.
+#       target_repositories="my_repository_1 my_repository_2 ... my_repository_n"
+#     Note each value is delimited by a white space.
 
 run() {
   COMMAND=$1
@@ -17,10 +50,10 @@ run() {
 }
 
 dir_root=${PWD}
-repos="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
-for repo in ${repos}; do
-  run "cd ${dir_root}/${repo}"  # cd to the repo's directory
-  run "git pull"                # pull from the specified repo
+target_repositories="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch kubeflow private"
+for repository in ${target_repositories}; do
+  run "cd ${dir_root}/${repository}"  # cd to the repo's directory
+  run "git pull"                      # pull from the specified repo
 done
 
 # EOF
