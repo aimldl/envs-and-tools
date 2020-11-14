@@ -1,10 +1,9 @@
-##### aimldl > computing_environments > os-ubuntu_linux > README.md
+* Rev.1: 2020-11-14 (Sat)
+* Draft: 2020-
 
+# 우분투 리눅스 (Ubuntu Linux)
 This is a repository about Docker image for Ubuntu Linux.
 It includes Dockerfile, .bashrc, commands, and occasionally Bash scripts.
-
-# To-dos
-- Run Keras and do the lab
 
 # Dockerfile     Dockerfile for the Ubuntu base image
 
