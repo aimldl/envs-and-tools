@@ -2,6 +2,7 @@
 # batch_git_push
 #   This script runs `git push` in all sub-directories for all target repositories.
 #
+# * TODO: Review my English.
 # * Rev.3: 2020-11-14 (Sat)
 # * Rev.2: 2020-10-03 (Sat)
 # * Draft: 2019-11-11 (Mon)
