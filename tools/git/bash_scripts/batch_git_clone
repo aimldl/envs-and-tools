@@ -39,7 +39,7 @@
 
 # You may change this part
 github_user_id='aimldl'
-target_repositories="aimldl.github.io topics_in non_technical_skills technical_skills kaggle tensorflow pytorch kubeflow private"
+target_repositories="aimldl.github.io coding environments pytorch tensorflow topics_in projects"
 # You may change this part
 
 # Don't change this part
@@ -53,5 +53,3 @@ for repository in ${target_repositories}; do
   print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"
 done
 # Don't change this part
-
-# EOF
