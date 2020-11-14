@@ -1,10 +1,10 @@
 * Draft: 2020-11-12 (Thu)
-# How to Find My Windows 10 Product Key
-
-## Google search
-how to check my license key on windows 10
-
+# 윈도우 10 제품키 찾는 방법 (How to Find My Windows 10 Product Key)
+## 개요 (Overview)
+### Google search
+* keyword: how to check my license key on windows 10
 * [How to Find Your Windows 10 Product Key Using the Command Prompt](https://www.howtogeek.com/660517/how-to-find-your-windows-10-product-key-using-the-command-prompt/), howtogeek
+
 커맨드 프롬프트를 이용하는 첫 번째 방법은 실패
 ```windows
 C:\WINDOWS\system32>wmic path SoftwareLicensingService get OA3xOriginalProductKey
@@ -14,10 +14,12 @@ OA3xOriginalProductKey
 
 C:\WINDOWS\system32>
 ```
-비쥬얼 베이직 스크립트를 쓰는 두 번째 방법이 성공.
+비주얼 베이직 스크립트를 쓰는 두 번째 방법이 성공.
 
-아래 내용을 텍스트 파일로 저장한 후 실행하면 윈도우즈 제품번호가 보입니다.
-* 파일명: [productkey.vbs](../scripts/productkey.vbs)
+## 비주얼 베이직 스크립트를 써서 제품키 찾기
+### Step 1. 이 파일의 [productkey.vbs](../scripts/productkey.vbs) 내용을 복사해서 윈도우 10의 메모장에 붙입니다.
+파일의 내용은 아래와 같습니다.
+
 ```
 Set WshShell = CreateObject("WScript.Shell")
 MsgBox ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId"))
@@ -46,3 +48,8 @@ Loop While i >= 0
 ConvertToKey = KeyOutput
 End Function
 ```
+### Step 2. 파일명을 `productkey.vbs`으로 파일을 저장합니다.
+### Step 3. 파일을 실행하면 윈도우즈 제품번호가 보입니다.
+탐색기 (Explorer)에서 `productkey.vbs`를 더블 클릭하면 파일이 실행되며, 팝업창에 제품번호가 보입니다.
+### Step 4. Ctrl+C로 내용을 복사해서 제품번호를 저장해놓습니다.
+이미지로 화면캡쳐를 하지 않고, 키보드로 `Ctrl+C`키를 누르면 내용이 복사됩니다.
