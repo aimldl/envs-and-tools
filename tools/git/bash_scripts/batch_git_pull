@@ -1,6 +1,6 @@
 #!/bin/bash
 # batch_git_pull
-#   This script runs `git pull` in all sub-directories for all target repositories.
+#   This script runs `git pull` for all sub-directories of the target repositories.
 #
 # * TODO: Review my English.
 # * Rev.3: 2020-11-14 (Sat)
