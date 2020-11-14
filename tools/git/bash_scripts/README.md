@@ -51,7 +51,7 @@ Note each value in the list is delimited by a white space.
 
 ## How to use the `batch_git_command` scripts
 ### Important
-To use [batch_git_pull](batch_git_pull) and [batch_git_push](batch_git_push), the target repositories must be cloned first with the 'git clone' command.
+To use [batch_git_pull](batch_git_pull) and [batch_git_push](batch_git_push), the target repositories must be cloned first with the `git clone` command.
 
 You may 
 * run YOUR version of [batch_git_clone](batch_git_clone) or
