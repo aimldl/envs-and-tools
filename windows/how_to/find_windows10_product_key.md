@@ -1,5 +1,5 @@
 * Draft: 2020-11-12 (Thu)
-# 윈도우 10 제품키 찾는 방법 (How to Find My Windows 10 Product Key)
+# 윈도우 10 제품키 찾는 방법 (Find My Windows 10 Product Key)
 ## 개요 (Overview)
 ### Google search
 * keyword: how to check my license key on windows 10
