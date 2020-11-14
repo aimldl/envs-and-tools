@@ -16,7 +16,7 @@
 #   $ ./batch_git_pull
 #
 # Doing it manually
-#   Assuming you will push everything in directory "my_repository".
+#   Assuming you will pull everything in directory "my_repository".
 #     $ cd ~/github/
 #     $ cd my_repository/
 #     $ git pull
