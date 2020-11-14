@@ -1,6 +1,6 @@
 #!/bin/bash
 # batch_git_push
-#   This script runs `git push` in all sub-directories for all target repositories.
+#   This script runs `git push` for all sub-directories of the target repositories.
 #
 # * TODO: Review my English.
 # * Rev.3: 2020-11-14 (Sat)
