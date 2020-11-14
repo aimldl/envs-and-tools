@@ -58,7 +58,6 @@ You may
 * run the `git clone` command for all target repositories manually.
 Either way works. The following steps are the option to use [batch_git_clone](batch_git_clone).
 
-# TODO
 ### Step 1. Create directory `github` under the user home directory.
 ```bash
 $ cd
@@ -66,7 +65,7 @@ $ mkdir github
 $ cd github/
 ```
 
-### Step 2. The target repositories must be cloned first with the 'git clone' command.
+### Step 2. Run The target repositories must be cloned first with the 'git clone' command.
 #
 Usage
   $ chmod +x batch_git_push
@@ -82,7 +81,7 @@ Doing it manually
     $ git push
 #
 
-
+# TODO
 
 Copy & paste `batch_git_clone`
 ```bash
