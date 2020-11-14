@@ -10,16 +10,19 @@
 * IoT를 위한 우분투 (Ubuntu for IoT)
 * 기타 우분투 종류들 (Ubuntu flavours)
 
-<img src='images/ubuntu-download_ubuntu_desktop.png'>
+<img src='images/ubuntu-different_options_for_installation.png'>
 
 이 중 일반 데스크탑 혹은 랩탑 사용자를 위한 "우분투 데스크탑"을 선택합니다.
 
-[우분투 데스크탑 다운로드 페이지][https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
+[우분투 데스크탑 다운로드 페이지][https://ubuntu.com/download/desktop)
 
-그리고 다운로드 버튼을 누르면 설치파일이 담긴 ISO파일이 다운로드 됩니다.
+다운로드 (Download) 버튼을 누르면
 
 <img src='images/ubuntu-download_ubuntu_desktop.png'>
 
+설치용 ISO파일의 다운로드가 시작됩니다. 다운로드가 완료되면 웹브라우저의 다온로드 폴더에 아래와 같은 파일이 보입니다.
+
+<img src='images/ubuntu-ubuntu_20_04_1_desktop_amd64_iso.png'>
 
 
 ## Install some basic packages for Ubuntu
