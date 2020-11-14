@@ -49,7 +49,7 @@ print_and_run() {
 dir_root=${PWD}
 MSG=${1:-"Add new stuff by batch_git_push"}
 for repository in ${target_repositories}; do
-  run "cd ${dir_root}/${repository}"
-  run "git add . && git commit -m '${MSG}' && git push"
+  print_and_run "cd ${dir_root}/${repository}"
+  print_and_run "git add . && git commit -m '${MSG}' && git push"
 done
 # Don't change this part
