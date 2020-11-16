@@ -1,6 +1,7 @@
 * Draft: 2020-11-16 (Mon)
 
-# 우분투 리눅스에서 윈도우 10 설치 USB 만들기 (How to Create a Bootable USB for Windows 10 in Ubuntu Linux)
+# 우분투 리눅스에서 윈도우 10 설치 USB 만들기
+# (How to Create a Bootable USB for Windows 10 in Ubuntu Linux)
 * 참고: [How to Create a Bootable Windows 10 USB in Linux](https://itsfoss.com/bootable-windows-usb-linux/), It's FOSS
 
 ## 개략적인 절차
