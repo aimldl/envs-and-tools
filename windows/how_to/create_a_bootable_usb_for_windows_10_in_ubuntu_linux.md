@@ -26,6 +26,10 @@ Ubuntu Linux에서 Disk tool을 사용합니다. 이 때 윈도우/리눅스 모
 ### Step 4. 윈도우10 설치파일이 복사된 USB 메모리를 사용합니다.
 복사가 끝나면 윈도우 10 설치 USB가 준비되었습니다.
 
+
+## Disk Image Writer로 ISO파일을 USB 메모리에 쓰기
+ISO파일을 우클릭해서 `Open with Other Application`을 선택한 후, 아래 화면처럼 진행하면 됩니다.
+
 <img src='images/ubuntu_linux-disk_image_writer.png'>
 
 <img src='images/ubuntu_linux-disk_image_writer-restore_disk_image.png'>
