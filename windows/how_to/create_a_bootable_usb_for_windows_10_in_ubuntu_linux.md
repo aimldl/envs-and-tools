@@ -16,4 +16,10 @@ Ubuntu Linux에서 Disks tool을 사용합니다. 이 때 윈도우/리눅스 �
 
 <img src='images/ubuntu_linux-win10_iso_mounted.png'>
 
-### Step 4. 복사된 USB
+마운트된 디렉토리를 더블클릭한 후,
+<img src='images/ubuntu_linux-win10_iso-directories_and_files.png'>
+
+디렉토리와 파일을 모두 선택 (Ctrl+A)해서 USB 메모리로 복사 (Ctrl+C & Ctrl+v)합니다.
+
+### Step 4. 윈도우10 설치파일이 복사된 USB 메모리를 사용합니다.
+복사가 끝나면 윈도우 10 설치 USB가 준비되었습니다.
