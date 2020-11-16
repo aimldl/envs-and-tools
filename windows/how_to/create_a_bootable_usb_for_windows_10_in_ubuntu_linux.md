@@ -18,6 +18,7 @@ Ubuntu Linux에서 Disks tool을 사용합니다. 이 때 윈도우/리눅스 �
 <img src='images/ubuntu_linux-win10_iso_mounted.png'>
 
 마운트된 디렉토리를 더블클릭한 후,
+
 <img src='images/ubuntu_linux-win10_iso-directories_and_files.png'>
 
 디렉토리와 파일을 모두 선택 (Ctrl+A)해서 USB 메모리로 복사 (Ctrl+C & Ctrl+v)합니다.
