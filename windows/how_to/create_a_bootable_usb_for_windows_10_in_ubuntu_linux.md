@@ -1,18 +1,48 @@
 * Draft: 2020-11-16 (Mon)
 
-# 우분투 리눅스에서 윈도우 10 설치 USB 만들기
-# (How to Create a Bootable USB for Windows 10 in Ubuntu Linux)
+# 우분투 리눅스에서 윈도우 10 설치 USB 만들기 (How to Create a Bootable USB for Windows 10 in Ubuntu Linux)
 * 참고: [How to Create a Bootable Windows 10 USB in Linux](https://itsfoss.com/bootable-windows-usb-linux/), It's FOSS
 
-## 개략적인 절차
-### Step 1. 윈도우 10 ISO파일을 다운로드 받습니다.
+## 개요 (Overview)
+윈도우 10 설치 USB를 만드는 첫 번째 절차는 윈도우 10 ISO파일을 다운로드 받는 것입니다. USB 메모리를 포맷하고, ISO파일의 내용을 USB 메모리로 옮기면 설치 USB가 완성됩니다.
+
+### 개략적인 절차
+#### Step 1. 윈도우 10 ISO파일을 다운로드 받습니다.
 * https://www.microsoft.com/en-in/software-download/windows10ISO
 * 파일명: Win10_20H2_Korean_x64.iso
+#### Step 2. USB 메모리를 포맷합니다.
+#### Step 3. ISO파일에 있는 내용을 USB 메모리로 복사합니다.
 
-### Step 2. USB 메모리를 포맷합니다.
+### 
 Ubuntu Linux에서 Disk tool을 사용합니다. 이 때 윈도우/리눅스 모두 사용할 수 있도록 선택합니다.
 
-### Step 3. ISO파일에 있는 내용을 USB 메모리로 복사합니다.
+
+
+
+* https://www.microsoft.com/en-in/software-download/windows10ISO
+* 파일명: Win10_20H2_Korean_x64.iso
+위 링크에서 파일을 다운로드 받으면 ISO파일이 준비됩니다.
+
+다음 단계는 
+
+### Rufus
+Rufus를 쓰면 부팅 USB 디스크를 간단히 만들 수 있지만 .exe파일이므로 우분투에서 사용할 수 없습니다.
+* [RUFUS를 이용한 부팅 USB 제작 방법 (윈도우, WINPE, 리눅스 등)](http://korean-daeddo.blogspot.com/2016/01/rufus-usb-winpe.html)
+
+### Disk Image Writer로 ISO파일을 USB 메모리에 쓰기
+이 방법은 
+
+
+네이버 검색: 우분투에서 윈도우10 usb 부팅디스크
+
+https://blog.naver.com/kyy0810/221515930219
+
+https://blog.naver.com/sinjoker/221242863908
+
+https://jimnong.tistory.com/676
+
+
+
 우선 ISO파일을 마운트합니다. ISO 우클릭하고 `Open With Disk Image Mounter`를 선택한 후 마운트를 하면, Desktop화면에 마운트됩니다.
 
 <img src='images/ubuntu_linux-win10_iso_mounted.png'>
