@@ -12,6 +12,7 @@
 Ubuntu Linux에서 Disks tool을 사용합니다. 이 때 윈도우/리눅스 모두 사용할 수 있도록 선택합니다.
 
 ### Step 3. ISO파일에 있는 내용을 USB 메모리로 복사합니다.
-우선 ISO파일을 마운트합니다. ISO 우클릭하고 `Open With Disk Image Mounter`를 선택한 후 마운트를 하면, Desktop화면에 마운트
+우선 ISO파일을 마운트합니다. ISO 우클릭하고 `Open With Disk Image Mounter`를 선택한 후 마운트를 하면, Desktop화면에 마운트됩니다.
+
 
 ### Step 4. 복사된 USB
