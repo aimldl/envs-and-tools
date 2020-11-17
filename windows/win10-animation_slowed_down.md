@@ -40,6 +40,7 @@ Why is Windows 10 so Slow? There may be the following reasons:
 ## Solution
 The animation was on.
 
+Control Panel > System > Display
 <img src="images/win10-config-show_display_on-slow_system.png">
 
 When I turned it off, windows started to function way faster.
