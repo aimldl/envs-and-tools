@@ -18,7 +18,7 @@ https://www.google.com/drive/download/로 갑니다.
 
 아래 링크가 나오면 다운로드가 자동으로 시작됩니다. 아니라면 이 페이지의 링크를 클릭해서 수동으로 다운로드 받습니다.
 
-<img src='images/google_drive-drive_for_mac_pc-download.png'>
+<img src='images/google_drive-drive_for_mac_pc-thanks_for_downloading.png'>
 
 ## 설치하기
 다운로드 받은 `installbackupandsync.exe` 파일을 실행합니다.
