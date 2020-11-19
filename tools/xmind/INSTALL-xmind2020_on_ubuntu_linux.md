@@ -14,13 +14,14 @@ XMind 2020와 XMind 8 모두 무료 버전이 있습니다만 XMind 2020를 선�
   * CJK폰트 지원으로 한국어를 쓰는게 편리해졌습니다.
   * 모바일에서도 지원합니다.
 * 설치가 보다 간편합니다.
-  * XMind 8은 리눅스에 설치할 때 몇 가지 에러가 발생해서 수동으로 설정해줘야하는 번거로움이 있었습니다.
+  * XMind 8은 리눅스에 설치할 때 JVM 버전 등의 이슈로 수동으로 에러를 수정하여 설정을 변경해야 하는 번거로움이 있었습니다.
+    * [XMind 8 suddenly stopped working on Ubuntu 18.04 LTS after .ini fix](https://askubuntu.com/questions/1138225/xmind-8-suddenly-stopped-working-on-ubuntu-18-04-lts-after-ini-fix)
+    * [Error unable to start XMind in Linux](https://www.danieblog.com/technology/software/error-unable-to-start-xmind-in-linux-67.html)
   * XMind 2020는 설치 명령어 한 줄로 깔끔하게 설치가 가능합니다.
 
 XMind 8의 설치에 관해서는 아래 링크를 참고하세요.
 
 * https://www.xmind.net/download/xmind8
-
 * [How to install XMind 8 on generic Linux](https://www.xmind.net/m/PuDC/)
 
 ## 설치 파일 다운로드 하기
@@ -114,18 +115,6 @@ $
 
 프로그램 설치 및 시작하기가 완료되었습니다.
 
-## 기본 사용법 안내-단축키 정리
-
-탭, 엔터, 스페이스 키를 쓰면 마인드맵을 만들 때 편리합니다. 그래서 기본 사용법 안내에 있는 단축키 내용을 캡쳐해서 정리해봤습니다.
-
-<img src='images/xmind2020-first_launch-7.png'>
-
-<img src='images/xmind2020-shortcut-tab_enter_space.png'>
-
-아래와 같은 마인드맵이 만들어집니다.
-
-<img src='images/xmind2020-shortcut-tab_enter_space-example.png'>
-
 ## 라이센스 구입하기
 
 기본 적인 기능은 XMind 2020의 무료 버전으로 지원됩니다. 필요 시 라이센스 구입은 아래 페이지에서 가능합니다. 
@@ -134,3 +123,6 @@ $
 
 저는 생산성을 위해 라이센스를 구매했습니다. 학생 및 교육자 할인이 있으므로 참고하세요.
 
+## 다음
+
+* [기본 단축키 사용법 (XMind2020)](use_the_basic_shortcuts_on_xmind2020.md)
