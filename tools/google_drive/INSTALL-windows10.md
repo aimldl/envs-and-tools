@@ -36,8 +36,11 @@ https://www.google.com/drive/download/로 갑니다.
 <img src='images/google_drive-backup_and_synch-6.png'>
 
 ## 사용하기
-
+설치가 완료되면 트레이에 구글 드라이브 아이콘이 보입니다.
 <img src='images/google_drive-tray.png'>
+
+탐색기에도 `Google 드라이브`가 자동으로 마운트 되어 있습니다.
 
 <img src='images/google_drive-explore_with_google_drive.png'>
 
+동기화가 이미 진행되고 있습니다. 파일의 총 용량이 클 경우 동기화되는데 시간이 꽤 소요될 수 있습니다.
