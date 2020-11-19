@@ -12,17 +12,32 @@ https://www.google.com/drive/download/로 갑니다.
 
 <img src='images/google_drive-drive_for_mac_pc.png'>
 
+<img src='images/google_drive-drive_for_mac_pc-download.png'>
+
 <img src='images/google_drive-drive_for_mac_pc-agree_and_download.png'>
+
+아래 링크가 나오면 다운로드가 자동으로 시작됩니다. 아니라면 이 페이지의 링크를 클릭해서 수동으로 다운로드 받습니다.
 
 <img src='images/google_drive-drive_for_mac_pc-download.png'>
 
-
-
 ## 설치하기
+다운로드 받은 `installbackupandsync.exe` 파일을 실행합니다.
 
+<img src='images/google_drive-backup_and_synch-1.png'>
 
-<img src='images/aaa.png'>
+<img src='images/google_drive-backup_and_synch-2.png'>
 
-<img src='images/aaa.png'>
-<img src='images/aaa.png'>
-<img src='images/aaa.png'>
+<img src='images/google_drive-backup_and_synch-3.png'>
+
+<img src='images/google_drive-backup_and_synch-4.png'>
+
+<img src='images/google_drive-backup_and_synch-5.png'>
+
+<img src='images/google_drive-backup_and_synch-6.png'>
+
+## 사용하기
+
+<img src='images/google_drive-tray.png'>
+
+<img src='images/google_drive-explore_with_google_drive.png'>
+
