@@ -125,4 +125,4 @@ $
 
 ## 다음
 
-* [기본 단축키 사용법 (XMind2020)](use_the_basic_shortcuts_on_xmind2020.md)
+* [기본 단축키 사용법 (XMind2020)](how_to/use_the_basic_shortcuts_on_xmind2020.md)
