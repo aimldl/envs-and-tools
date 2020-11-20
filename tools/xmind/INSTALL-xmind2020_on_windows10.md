@@ -42,20 +42,13 @@ XMind 2020와 XMind 8 모두 무료 버전이 있습니다만 XMind 2020를 선�
 
 `다운로드` 폴더에 설치파일이 다운로드 될 경우, 해당 폴더로 이동해서 설치파일을 더블 클릭해서 실행합니다.
 
-
-설치는 아주 빨리 진행되었습니다.
+<img src='images/xmind-installation-win10.png'>
 
 ## 설치 확인 및 프로그램 실행 하기
 
-`프로그램 표시`를 클릭한 후
+윈도우키를 누른 후 `최신에 추가한 앱`에서 `XMind`를 보실 수 있습니다. `XMind` 아이콘을 클릭하면 프로그램이 실행됩니다.
 
-<img src='images/ubuntu-activities-kr.png'>
-
- 검색 창에 `xmind`를 입력하면 아이콘 및 관련 내용을 볼 수 있습니다.
-
-<img src='images/ubuntu-activities-kr-search_xmind.png'>
-
-`XMind` 아이콘을 클릭하면 프로그램이 실행됩니다.
+<img src='images/xmind-installation-win10-launching_the_program.png'>
 
 ## XMind 2020 프로그램 시작하기
 
