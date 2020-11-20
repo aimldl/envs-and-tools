@@ -7,4 +7,4 @@ XMind는 마인드 맵을 프로그램에서 그릴 수 있는 매핑 도구 중
 ## 다음
 
 * [XMind 2020를 우분투 리눅스에 설치하기](INSTALL-xmind2020_on_ubuntu_linux.md)
-
+* [XMind 2020를 윈도우10에 설치하기](INSTALL-xmind2020_on_windows10.md)
