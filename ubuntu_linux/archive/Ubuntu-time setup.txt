@@ -1,0 +1,80 @@
+Ubuntu-time setup.txt
+Google Search: ubuntu how to set time properly
+            -> How do I change the time in Ubuntu terminal?
+
+
+$ timedatectl
+                      Local time: 수 2019-04-17 10:08:36 KST
+                  Universal time: 수 2019-04-17 01:08:36 UTC
+                        RTC time: 수 2019-04-17 01:08:36
+                       Time zone: Asia/Seoul (KST, +0900)
+       System clock synchronized: yes
+systemd-timesyncd.service active: yes
+                 RTC in local TZ: no
+ubuntu@ubuntu-PowerEdge-R730:~/lid_server$ ls -al /etc/localtime
+lrwxrwxrwx 1 root root 30  4월  2 16:04 /etc/localtime -> /usr/share/zoneinfo/Asia/Seoul
+
+$ timedatectl list-timezones
+Africa/Abidjan
+Africa/Accra
+...
+Pacific/Wake
+Pacific/Wallis
+UTC
+$ timedatectl list-timezones | grep -i seoul
+Asia/Seoul
+
+How to Change the Timezone on your Ubuntu System, https://vitux.com/how-to-change-the-timezone-on-your-ubuntu-system/
+
+## 시스템 시간은 맞지만, 컨테이너 안의 시간은 틀림
+ubuntu@ubuntu-PowerEdge-R730
+$ timedatectl 
+                      Local time: 수 2019-04-17 10:15:37 KST
+                  Universal time: 수 2019-04-17 01:15:37 UTC
+                        RTC time: 수 2019-04-17 01:15:37
+                       Time zone: Asia/Seoul (KST, +0900)
+       System clock synchronized: yes
+systemd-timesyncd.service active: yes
+                 RTC in local TZ: no
+$ docker attach lid
+Hello, world
+183.98.154.45 - - [17/Apr/2019 01:16:10] "GET /test_hello HTTP/1.1" 200 -
+
+$ docker exec -it lid /bin/bash
+# timedatectl
+Failed to create bus connection: No such file or directory
+# date
+Wed Apr 17 01:19:25 UTC 2019
+
+### UTC로 설정되어 있어서 임. -> Asia/Seoul로 변경
+현황
+# ls -l /etc/localtime
+lrwxrwxrwx 1 root root 27 Jul 26  2018 /etc/localtime -> /usr/share/zoneinfo/Etc/UTC
+
+목표
+$ ls -al /etc/localtime
+lrwxrwxrwx 1 root root 30  4월  2 16:04 /etc/localtime -> /usr/share/zoneinfo/Asia/Seoul
+
+현재 UTC로 되어 있으므로
+# ls -l /etc/localtime
+lrwxrwxrwx 1 root root 27 Jul 26  2018 /etc/localtime -> /usr/share/zoneinfo/Etc/UTC
+
+심볼릭 링크를 없앤다.
+# unlink /etc/localtime
+# ls -l /etc/localtime
+ls: cannot access '/etc/localtime': No such file or directory
+
+그리고 time zone을 Asia/Seoul로 변경
+# ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+# ls -l /etc/localtime
+lrwxrwxrwx 1 root root 30 Apr 17 01:23 /etc/localtime -> /usr/share/zoneinfo/Asia/Seoul
+
+확인하면...
+# date
+Wed Apr 17 01:24:12 UTC 2019
+
+LID서버를 내리는 것을 별로 안 좋아하므로...
+Google search: docker how to change time zone without killing the container
+
+
+

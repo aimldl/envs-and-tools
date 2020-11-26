@@ -1,0 +1,24 @@
+#!/bin/bash
+# connect_aws-oregon
+#
+# Last updated: 2018-01-11 (Thu)
+# First written: 2017-10-??
+#
+# Written by Tae-Hyung "T" Kim, Ph.D. 
+#
+# Step 1. Sign in to the AWS Management Console
+#          at https://aws.amazon.com/console/
+# Step 2. Select the region on the top right corner of the console.
+# Step 3. Go to EC2/Instances and see IP address "IPv4 Public IP" under "Description"
+
+KEY="${HOME}/aws-keys/key_for_mrtonnet_in_oregon.pem"
+IP="34.215.177.166"
+PUBLIC_DNS=""
+ID='ubuntu'
+OPTION='-L 8888:localhost:8888'
+
+CMD="ssh -i ${KEY} ${OPTION} ${ID}@${IP}"
+
+echo $CMD
+eval $CMD
+

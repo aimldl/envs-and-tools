@@ -1,0 +1,25 @@
+Ubuntu Linux에서 ADB 설치
+
+구글 서치: ubuntu linux adb
+참고 문서: How to Install ADB on Windows, macOS, and Linux, https://www.xda-developers.com/install-adb-windows-macos-linux/
+Some Linux users should be aware that there can be an easier way to install ADB on their computer.
+Debian-based Linux users can type the following command to install ADB: 
+  sudo apt-get install adb
+
+
+$ adb
+
+Command 'adb' not found, but can be installed with:
+
+sudo apt install adb
+
+$ sudo apt install -y adb
+[sudo] user의 암호: 
+패키지 목록을 읽는 중입니다... 완료
+[...]
+adb (1:7.0.0+r33-2) 설정하는 중입니다 ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+$ adb version
+Android Debug Bridge version 1.0.36
+Revision 1:7.0.0+r33-2
+

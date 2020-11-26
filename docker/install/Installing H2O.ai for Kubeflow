@@ -1,0 +1,269 @@
+# Installing H2O.ai for Kubeflow
+
+## References
+How To Install Java on Ubuntu 18.04
+https://www.hostinger.com/tutorials/install-java-ubuntu
+
+Creating a Docker Image with Ubuntu and Java
+https://dzone.com/articles/creating-a-docker-image-with-ubuntu-and-java
+
+Installing Oracle Java is difficult because the terms and agreements must be agreed manually.
+The `debconf-set-selections` command can automate this.
+But I failed to find the correct options and arguments.
+While the `debconf-show` command shows the related variables, it didn't work.
+
+Instead of Oracle Java, let's try out the default Java. If H2O works with it, it's great!
+It works just fine!
+
+$ docker run -it -p 8080:8080 aimldl/baseimage_python3.7.6_conda_4.8.3_ubuntu18.04.4 bash
+$ sudo apt-get update -y
+$ sudo apt-get install -y default-jre
+$ sudo apt-get install -y default-jdk
+
+$ java --version
+openjdk 11.0.7 2020-04-14
+OpenJDK Runtime Environment (build 11.0.7+10-post-Ubuntu-2ubuntu218.04)
+OpenJDK 64-Bit Server VM (build 11.0.7+10-post-Ubuntu-2ubuntu218.04, mixed mode, sharing)
+$ javac -version
+
+
+## Install H2O server
+$ wget http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/3/h2o-3.30.0.3.zip
+$ unzip h2o-3.30.0.3.zip
+$ cd h2o-3.30.0.3
+$ java -jar h2o.jar
+
+
+Step 1. Chanage the Docker file
+Step 2. Build a Docker image from the Docker file.
+```bash
+$ export DOCKERFILE=Dockerfile
+$ export IMAGE_NAME=aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04
+$ docker build -t $IMAGE_NAME - < $DOCKERFILE
+```
+Step 3. Check if the target image is created.
+```bash
+$ docker images
+REPOSITORY                                                              TAG     IMAGE ID      CREATED         SIZE
+aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04  latest  54f6fb673fba  56 minutes ago  3.78GB
+  ...
+$
+```
+
+Step 4. Run the created image to test if it works well.
+```bash
+$ docker run -it -p 8080:8080 aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04 bash
+root@c8026785690c:~# tree
+.
+├── h2o -> /home/jovyan/h2o-3.30.0.3
+└── h2o-3.30.0.3
+    ├── R
+    │   └── h2o_3.30.0.3.tar.gz
+    ├── bindings
+    │   └── java
+    │       └── h2o-bindings-3.30.0.zip
+    ├── h2o.jar
+    └── python
+        ├── README.txt
+        ├── h2o-3.30.0.3-py2.py3-none-any.whl
+        └── h2o_client-3.30.0.3-py2.py3-none-any.whl
+
+6 directories, 6 files
+root@c8026785690c:~# ps
+  PID TTY          TIME CMD
+    1 pts/0    00:00:00 bash
+    8 pts/0    00:00:00 ps
+root@c8026785690c:~# 
+```
+
+Step 5. Add `.bashrc` to start the H2O server automatically
+Use a text editor, say `nano`,
+```bash
+root@c8026785690c:~# nano .bashrc
+```
+to add the following command.
+```bash
+java -jar /home/jovyan/h2o/h2o.jar &
+```
+The H2O server will be launched when this image starts.
+> To open the H2O server in general, open a web browser & enter `http://localhost:54321`
+
+Step 6. (Optionally) Add `.custom_bashrc_docker` to `.bashrc`
+Open a text editor and create [.custom_bashrc_docker](https://github.com/aimldl/computing_environments/blob/master/bash/custom_bashrcs/custom_bashrc_docker).
+In `.bashrc`, source this file.
+```bash
+source .custom_bashrc_docker
+```
+
+The final `.bashrc` looks like:
+
+```bash
+# .bashrc
+#   * Draft: 2020-05-29 (Fri)
+
+source .custom_bashrc_docker
+
+echo "Starting H2O server..."
+java -jar /home/jovyan/h2o/h2o.jar &
+
+# https://stackoverflow.com/questions/21620406/how-do-i-pause-my-shell-script-for-a-second-before-continuing
+sleep 6s
+
+# Simulate the 'Enter' key
+# https://stackoverflow.com/questions/6264596/simulating-enter-keypress-in-bash-script
+echo -ne '\n'
+
+# Welcome Message
+linux_distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+python_version=`python --version`
+h2o_version=`python -c "import h2o; print(h2o.__version__)"`
+echo "Welcome to $linux_distribution, $python_version, h2o $h2o_version"
+# Welcome to debian10, Python 3.8.2, h2o 3.30.0.3
+```
+The above .bashrc failed. So a new one is below.
+```bash
+# .bashrc
+#   * Draft: 2020-05-29 (Fri)
+
+source .custom_bashrc_docker
+
+# Welcome Message
+linux_distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+python_version=`python --version`
+h2o_version=`python -c "import h2o; print(h2o.__version__)"`
+echo "Welcome to $linux_distribution, $python_version, h2o $h2o_version"
+# Welcome to debian10, Python 3.8.2, h2o 3.30.0.3
+
+
+
+Escape from the container
+
+Welcome to debian10, Python 3.8.2, h2o 3.30.0.3
+root@c8026785690c:~# read escape sequence
+$ docker ps
+CONTAINER ID        IMAGE                                                                    COMMAND             CREATED             STATUS              PORTS                              NAMES
+c8026785690c        aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04   "bash"              About an hour ago   Up 37 minutes       0.0.0.0:8080->8080/tcp, 8888/tcp   nostalgic_pasteur
+
+And commit an image from the container.
+
+$ docker commit nostalgic_pasteur aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3.8.2_debian10
+sha256:9fee2e22edef9f615c1df3b36fc65d409112ee5b72efcf25faa59296e2c1ac58
+$
+
+Double-check
+$ docker images
+REPOSITORY                                                               TAG     IMAGE ID      CREATED         SIZE
+aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3.8.2_debian10  latest  9fee2e22edef  19 seconds ago  3.78GB
+  ...
+$
+
+
+Log into Docker Hub and upload the created image.
+$ docker login
+$ docker push aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3.8.2_debian10
+
+
+Verify https://hub.docker.com/
+
+
+
+Run Kubeflow Dashboard
+$ kfui
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+
+
+In a web browser, enter http://localhost:8080/
+
+Select `anonymous` and `NEW SERVER`
+
+Check Custom Image and enter
+aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3.8.2_debian10
+
+
+and click `LAUNCH`.
+
+This image fails.
+
+aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3.8.2_debian10
+
+
+Appendix. Docker file의 comments
+# Dockerfile-baseimage_kubeflow_h2o_ai_openml     Dockerfile for open-source H2O.ai on Kubeflow's Base Image
+#   * Rev.1: 2020-05-29 (Fri)
+#   * Draft: 2020-04-27 (Mon)
+#
+# Base Dockerfile: Dockerfile-baseimage_kubeflow_jupyter_lab_python_3
+#   This Dockerfile installs OpenML and open-source H2O.ai on top of the programs installed by base dockerfile.
+#
+# Commands
+#   For details, refer to "docker build" at https://docs.docker.com/engine/reference/commandline/build/
+#
+# Step 1. Change the file name to Dockerfile
+#     $ mv Dockerfile-baseimage_kubeflow_h2o_ai_openml Dockerfile
+#
+# Step 2. Build a Docker image from Dockerfile.
+#     $ docker build -t aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04 - < Dockerfile
+#
+#     Options
+#       --tag, -t  Name and optionally a tag in the ‘name:tag’ format
+#------------------------------------------------------------------------------------------------------------
+# Appendix.
+#   If you want to skip step 1 and don't want to change the file name, run:
+#     $ docker build -t aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04 -f Dockerfile-baseimage_kubeflow_h2o_ai_openml
+#
+#     Options
+#       --file, -f Name of the Dockerfile (Default is ‘PATH/Dockerfile’)
+#
+#   without the tag, REPOSITORY and TAG will be <none>.
+#     $ docker images
+#     REPOSITORY  TAG     IMAGE ID      CREATED         SIZE
+#     <none>      <none>  24aa5a9ca7e3  10 minutes ago  1.51GB
+#     $
+#   You can rename the built image later.
+#     $ docker tag 24aa5a9ca7e3 aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04:latest
+#     $ docker images
+#     REPOSITORY                                                                           TAG     IMAGE ID      CREATED         SIZE
+#     aimldl/baseimage-kubeflow-h203.30.0.3_openml0.10.2_python3_ubuntu18.04  latest  24aa5a9ca7e3  33 minutes ago  1.51GB
+#     $
+#   But I'd rather add the tag when the image is built. So use the -t option.
+
+#####################################
+#   Dockerfile-ubuntu_base_image    #
+#####################################
+# Use two ampersands to merge two commands, e.g. "command 1 && command 2" 
+# Install basic packages for Linux
+# -q, --quiet
+
+# Quiet. Produces output suitable for logging, omitting progress indicators. More q's will produce more quiet up to a maximum of two. 
+# You can also use -q=# to set the quiet level, overriding the # configuration file. Note that quiet level 2 implies -y, 
+# you should never use -qq without a no-action modifier such as -d, --print-uris or -s as APT may decided to do something you did not expect.
+
+# It's fine to put all of them together.
+# But I prefer to grouping related commands.
+# It's a matter of style.
+
+
+############
+#  H2O.ai  #
+############
+
+# Install Java on Ubuntu via Oracle JDK for H2O
+# https://www.hostinger.com/tutorials/install-java-ubuntu
+#RUN apt-get update -y
+#RUN apt-get install -y software-properties-common && \
+#    add-apt-repository -y ppa:webupd8team/java
+# Automatically agree the terms and conditions with debconf-set-selections
+# https://newfivefour.com/docker-java8-auto-install.html
+#https://dzone.com/articles/creating-a-docker-image-with-ubuntu-and-java
+#RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+#RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
+#RUN echo debconf shared/present-oracle-license-v1-2 select true | debconf-set-selections
+#RUN echo debconf shared/accepted-oracle-license-v1-2 seen true | debconf-set-selections
+#RUN apt-get update -y && \
+#    apt-get install oracle-java13-installer
+
+# How To Install Java on Ubuntu 18.04
+# https://www.hostinger.com/tutorials/install-java-ubuntu
+
+

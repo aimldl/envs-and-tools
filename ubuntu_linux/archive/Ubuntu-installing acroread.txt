@@ -1,0 +1,29 @@
+Ubuntu-installing acroread.txt
+
+구글 검색: ubuntu acrobat reader
+참고 문서: How to Install Adobe Acrobat Reader on Ubuntu 18.04 Bionic Beaver Linux, https://linuxconfig.org/how-to-install-adobe-acrobat-reader-on-ubuntu-18-04-bionic-beaver-linux
+
+$ sudo apt install -y gdebi-core libxml2 libcanberra-gtk-module gtk2-engines-murrine libatk-adaptor
+$ wget ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/AdbeRdr9.5.5-1_i386linux_enu.deb
+
+$ sudo gdebi AdbeRdr9.5.5-1_i386linux_enu.deb
+$ acroread
+
+$ sudo gdebi AdbeRdr9.5.5-1_i386linux_enu.deb
+Reading package lists... Done
+Building dependency tree        
+Reading state information... Done
+This package is uninstallable
+Wrong architecture 'i386' -- Run dpkg --add-architecture to add it and update afterwards
+$
+
+TODO: 설치하기...
+임시로...
+
+$ sudo gdebi AdbeRdr9.5.5-1_i386linux_enu.deb
+Reading package lists... Done
+Building dependency tree        
+Reading state information... Done
+This package is uninstallable
+Wrong architecture 'i386' -- Run dpkg --add-architecture to add it and update afterwards
+
