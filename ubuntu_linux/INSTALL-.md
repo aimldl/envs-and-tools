@@ -41,7 +41,8 @@ NVIDIA GPU카드가 탑재된 컴퓨터는 `Display Driver`를 별도로 설치�
 명령어를 실행 후 그래픽카드의 인식 여부를 확인합니다. 인식이 안 됐을 경우엔 에러메세지가 발생합니다. 자세한 내용은 [Install NVIDIA Graphics Card Driver on Ubuntu Automatically](../technical_skills/computing_environments/gpgpu/how_to/install_nvidia_graphics_card_driver_automatically.md)를 참고하세요.
 
 ## 부록.
-### 기본 패키지의 명령어 모음 [bash_scripts/install_ubuntu_basic_packages](./bash_scripts/install_ubuntu_basic_packages)
+### 기본 패키지의 명령어 모음
+[bash_scripts/install_ubuntu_basic_packages](./bash_scripts/install_ubuntu_basic_packages)에서 실행하는 명령어는 다음과 같습니다. Bash Script를 열지 않고 어떤 일을 수행하는지 참고하시라고 넣어놨습니다만, 업데이트가 늦을 수도 있습니다. 가장 최근의 내용은 Script를 직접 확인하세요. 
 ```bash
 sudo apt update && sudo apt-get upgrade -y
 sudo apt-get install -y software-properties-common
