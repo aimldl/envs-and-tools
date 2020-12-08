@@ -14,6 +14,13 @@ $ sudo vi /etc/ssh/sshd_config
 ```
 
 ## Enable sshd (SSH Daemon)
+
+```bash
+$ service ssh start
+```
+Input the password to the popup window.
+
+## Enable sshd (SSH Daemon)
 ```bash
 $ sudo  systemctl enable sshd
 $ sudo  systemctl restart sshd
