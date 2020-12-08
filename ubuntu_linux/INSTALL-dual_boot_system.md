@@ -21,15 +21,13 @@ Step 4. Ubuntu 20.04 설치용 USB 메모리를 생성합니다.
 
 Step 5. 윈도우10 위에 Ubuntu 20.04를 설치합니다.
 
-Step 6. 듀얼 부트 시스템을 확인합니다.
+## 듀얼 부트 시스템 설치 확인하기
 
-이제 컴퓨터를 시작하면 `GRUB 부트로더`가 나와서 두 개의 OS 중 하나를 설정할 수 있게 됩니다.
+Step 6. `GRUB 부트로더`에 듀얼 부트 시스템으로 설치되었는지 확인합니다.
 
-## 듀얼 부트 시스템 사용하기
-
-`GNU GRUB`는 검정색 바탕에 흰색 글씨로 표현됩니다. 여기에서 원하는 운영체계를 선택해서 사용하세요.
-
-Ubuntu를 사용할 때는 기본으로 나오는 `Ubuntu`를 선택하면 됩니다.
+* 듀얼 부트로 설치가 완료되면, 컴퓨터를 시작했을 때 `GRUB 부트로더`의 OS 선택 화면이 나옵니다. 
+* 부트로더의 리스트에 설치한 OS인 Ubuntu와 Windows가 보이는지 확인합니다.
+* 리스트의 예입니다. 
 
 ```bash
 *Ubuntu
@@ -38,9 +36,24 @@ Ubuntu를 사용할 때는 기본으로 나오는 `Ubuntu`를 선택하면 됩�
  UEFI Firmware Settings
 ```
 
-그냥 기다리면 7초 후에 우분투 리눅스로 자동 부팅됩니다.
+Step 7. 기본 설정인 Ubuntu로 부팅해봅니다.
 
-Windows를 사용할 때는 방향키를 눌러서 Windows Boot Manager를 선택해주셔야 합니다.
+Step 8. Ubuntu에서 재부팅해서, `GRUB 부트로더`가 나오면 키보드의 방향키를 아래로 눌러서  `Windows Boot Manager`를 선택하고, 엔터키를 눌러서 Windows로 부팅해봅니다.
+
+(필요 시) 기본 설정을 Windows로 변경할 수 있습니다.
+
+## 듀얼 부트 시스템 사용하기
+
+`GNU GRUB`의 OS 선택화면은 검정색 바탕에 흰색 글씨로 표현됩니다. 여기에서 방향키와 엔터키를 눌러서 원하는 운영체계를 선택할 수 있습니다.
+
+```bash
+*Ubuntu
+ Ubunty용 고급 설정
+ Windows Boot Manager (/dev/sda1에 있는)
+ UEFI Firmware Settings
+```
+
+7초를 기다리면 기본 설정인 우분투 리눅스로 자동 부팅됩니다. Windows를 사용할 때는 방향키를 눌러서 `Windows Boot Manager`를 선택해야합니다.
 
 ```bash
  Ubuntu
