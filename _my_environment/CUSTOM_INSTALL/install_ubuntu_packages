@@ -1,0 +1,54 @@
+#!/bin/bash
+#  install_ubuntu_packages
+#
+#  * Rev.6: 2020-12-10 (Thu)
+#  * Rev.5: 2020-08-11 (Tue)
+#  * Rev.4: 2020-07-28 (Tue)
+#  * Rev.3: 2020-07-27 (Mon)
+#  * Rev.2: 2020-07-24 (Fri)
+#  * Rev.1: 2020-07-21 (Tue)
+#  * Draft: 2020-07-20 (Mon)
+#
+#  To run this script,
+#    $ chmod +x install_ubuntu_packages
+#    $ ./install_ubuntu_packages
+#    
+#  To edit this file,
+#    $ vi install_ubuntu_packages
+#      or
+#    $ nano install_ubuntu_packages
+#
+#  Dependencies
+#    ./bash_scripts/install_ubuntu_essential_packages
+#    ./bash_scripts/install_ubuntu_convenience_packages
+#    ./bash_scripts/install_ubuntu_productivity_packages
+
+# Directory Structure
+HOME_DIR="/home/$USER"
+PROJECT_DIR="$HOME_DIR/CUSTOM_INSTALL"
+DIR_BASH_SCRIPTS="$PROJECT_DIR/bash_scripts"
+
+# Function definition
+run() {
+  COMMAND=$1
+
+  echo "$COMMAND"
+  eval $COMMAND
+}
+
+# Main
+run "cd $DIR_BASH_SCRIPTS"
+
+# You should install these packages
+run "chmod +x ./install_ubuntu_essential_packages"
+run "./install_ubuntu_essential_packages"
+
+# I recommend to install these packages for your convenience
+run "chmod +x ./install_ubuntu_convenience_packages"
+run "./install_ubuntu_convenience_packages"
+
+# These packages are optional. I use them to boost productivity.
+run "chmod +x ./install_ubuntu_productivity_packages"
+run "./install_ubuntu_productivity_packages"
+
+# EOF
