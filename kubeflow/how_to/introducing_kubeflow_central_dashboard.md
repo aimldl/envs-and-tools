@@ -19,7 +19,7 @@ Kubeflow는 (1) 표준, (2) DEX 두가지 인증모드가 있습니다. 먼저 �
 표준 설정일 경우 아래 명령어를 실행해서 로컬로 포트 포워딩을 합니다.
 
 ```bash
-$ kubectl port-forward -n istio-system svc/istio-ingressgateway  8080:80
+$ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 Handling connection for 8080

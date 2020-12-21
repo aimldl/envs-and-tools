@@ -5,25 +5,24 @@
 * Rev.1: 2020-04-09 (Thu)
 * Draft: 2020-04-08 (Wed)
 
-# AWS에 Kubeflow 설치하기
+# AWS에 쿠브플로 설치하기
 
-본 문서는 Kubeflow 공식 홈페이지의 설치 문서을 바탕으로 작성되었습니다.
+## 개요
 
-* 공식 설치 문서: [Install Kubeflow: Instructions for deploying Kubeflow on AWS with the shell](https://www.kubeflow.org/docs/aws/deploy/install-kubeflow/)
-  * 문서를 그대로 따라갔을 때 에러가 발생합니다.
-  * 문서가 클리어하게 쓰이지는 않아서 애로사항이 있었습니다.
-* Kubeflow를 AWS에 설치하는 방법에 관한 내용입니다.
-* Ubuntu 18.04에서 테스트 되었습니다.
+* 쿠브플로를 AWS에 설치하는 방법에 관한 내용입니다.
+* Ubuntu Linux 18.04에서 테스트 되었습니다.
+* 쿠브플로 공식 홈페이지의 설치 문서을 바탕으로 설치과정에 발생한 에러 등의 문제를 해결하며 작성되었습니다.
+  * 공식 설치 문서: [Install Kubeflow: Instructions for deploying Kubeflow on AWS with the shell](https://www.kubeflow.org/docs/aws/deploy/install-kubeflow/)
+    * 문서를 그대로 따라갔을 때 에러가 발생합니다.
+    * 문서가 명확하게 쓰이지는 않아서 애로사항이 있었습니다.
 * 내용이 길어서 문서를 2개로 나누었습니다. 
 * 먼저 아래 문서를 참고로 필요한 것을 설치한 후에 다음으로 진행하세요.
   * [AWS를 이용해서 Kubernetes 설치하기](../kubernetes/INSTALL-Amazon_EKS.md)
 
 
-
-
 ## 설치 과정 요약
 
-아래에 나올 Kubeflow의 설치과정을 요약하면 다음과 같습니다. 
+아래에 나올 쿠브플로의 설치과정을 요약하면 다음과 같습니다. 
 
 * 설치 파일인 `kfctl`를 다운로드 받습니다.
 * (설치 상의 편의를 위해) 환경 변수를 지정합니다.
@@ -46,7 +45,7 @@ $
 그리고 각각에 `aws_config`와 `kustomize` 디렉토리가 생성됩니다. 
 
 ```bash
-$ $ tree -d -L 3 kubeflow
+$ tree -d -L 3 kubeflow
 kubeflow
 ├── attractive-outfit-1587018718
 │   ├── aws_config
@@ -892,8 +891,7 @@ kustomize/
 $
 ```
 
-다음: 
-
-* [쿠브플로우 대쉬보드 소개](how_to/introducing_kubeflow_central_dashboard.md)
+## 다음
 
 * [k9s 설치하기](INSTALL k9s.md)
+

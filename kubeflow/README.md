@@ -1,21 +1,22 @@
+* Rev.1: 2020-12-17 (Thu)
 
-# Kubeflow
+# 쿠브플로 (Kubeflow)
+
 > Kubeflow = Kubernetes + Machine Learning Flow
 
-## Kubeflow에 접속하기
-설치 완료 후
-```bash
-$ kfui
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
-```
+## 큰 그림
 
-<img src="how_to/images/kubeflow-dashboard-kfui.png">
+머신러닝 업무 단계의 자동화를 연구하는 AutoML (Automatic Machine Learning)이라는 분야가 있습니다. 머신러닝 모델 개발을 자동화하는 대표적인 오픈소스 Python 라이브러리로 h2o, auto-sklearn, TPOT 등이 있습니다. 이런 라이브러리는 (2) 모델 개발을 자동화하지만 (3) 배포/운용는 지원하지 않습니다. 즉, 이런 라이브러리로 모델개발은 가능하지만, 서비스 출시까지의 업무흐름(Workflow)에서 처음부터 끝까지, 즉 엔드투엔드(End-To-End)로 업무흐름을 지원하지 않습니다. 이런 약점을 보완하기 위해서 엔드투엔드 워크플로우(End-To-End Workflow)를 지원하는 서비스가 출시되고 있습니다.
 
-결과 메세지는 8080포트를 80포트로 포워딩 했다는 것을 의미합니다.
+몇 가지 예를 들면,
 
-웹브라우저 주소창에
-> http://localhost:8080/
+* Amazon SageMaker의 ML기능 업데이트 (Amazon Re:Invent 2020에서 발표)
+* 쿠브플로(Kubeflow)
+* TFX (TensorFlow Extended)
+* MLFlow
+  * [Run an MLflow Project on Kubernetes (experimental)](https://mlflow.org/docs/latest/projects.html#run-an-mlflow-project-on-kubernetes-experimental)
+
+등이 있습니다. 
 
 ## 소개하기
 Kubeflow는 쿠버네티스 (Kubernetes)를 위한 머신러닝 툴킷 (Machine Learning toolkit)으로 머신러닝 업무에 필요한  개발 - 빌드 - 훈련 - 배포의 머신러닝 파이프라인 (Machine Learning Pipeline)을 위한 플랫폼 (Platform) 입니다. 쿠버네티스는 컨테이너 오케스트레이션 (Container Orchestration)을 위한 오픈소스 시스템으로, 주로 시스템 관리자의 관심영역이였습니다. 머신러닝 개발자나 데이터 과학자는 시스템 관리자가 설치해놓은 시스템을 이용하는 사용자의 입장에 그쳤습니다. Kubeflow의 등장으로 쿠버네티스에 클러스터를 설치하고 머신러닝의 개발, 학습, 배포하는 머신러닝 워크플로우 (Machine Learning Workflow)에 변화가 생겼습니다.
@@ -24,9 +25,7 @@ Kubeflow는 쿠버네티스 (Kubernetes)를 위한 머신러닝 툴킷 (Machine 
 
 <img src="images/kubeflow-installation-core_critical_user_journey.png">
 
-기존에는 개별적으로 진행해야 했던 작업들을 묶어서 할 수 있으므로, 사용자 입장에서 머신러닝을 위한 CI/CD (Continuous Integration/Continuous Deployment) 도구로 이해될 수 있습니다. 일반적으로 상용제품 레벨의 머신러닝 제품을 개발하는데 있어, 역할은 크게 (1) 데이터 개발, (2) 모델 개발, (3) 배포/운용의 3단계로 나뉩니다. Kubeflow는 (1) 데이터 개발을 제외한 나머지 부분을 자동으로 수행할 수 있게 도와줍니다. AWS에 비유하자면 SageMaker의 워크플로우와 유사합니다.
-
-이러한 머신러닝 업무 단계의 자동화를 연구하는 AutoML (Automatic Machine Learning)이라는 분야가 있습니다. 대표적인 오픈소스 Python 라이브러리로 h2o, auto-sklearn, TPOT 등이 있습니다. 이런 라이브러리는 (2) 모델 개발을 자동화하지만 (3) 배포/운용는 지원하지 않습니다.
+기존에는 개별적으로 진행해야 했던 작업들을 묶어서 할 수 있으므로, 사용자 입장에서 머신러닝을 위한 CI/CD (Continuous Integration/Continuous Deployment) 도구로 이해될 수 있습니다. 일반적으로 상용제품 레벨의 머신러닝 제품을 개발하는데 있어, 역할은 크게 (1) 데이터 개발, (2) 모델 개발, (3) 배포/운용의 3단계로 나뉩니다. Kubeflow는 (1) 데이터 개발을 제외한 나머지 부분을 자동으로 수행할 수 있게 도와줍니다. AWS에 비유하자면 SageMaker의 엔드투엔드 워크플로우(End-To-End Workflow)와 유사합니다.
 
 Kubeflow에 관한 상세한 내용은 [공식 홈페이지](https://www.kubeflow.org/) (https://www.kubeflow.org/)를 참고하세요.
 
@@ -52,16 +51,6 @@ Kubeflow에 관한 상세한 내용은 [공식 홈페이지](https://www.kubeflo
 
 <img src="images/kubeflow101-portability-kubeflow_and_k8s.png">
 
-<img src="images/">
-
-[TODO] 이런 역할을 해주는 다양한 프로그램이 있는데, 비교를 하는게 좋을 듯...
-
-예: MLFlow
-
-[Run an MLflow Project on Kubernetes (experimental)](https://mlflow.org/docs/latest/projects.html#run-an-mlflow-project-on-kubernetes-experimental)
-
-AutoML의 논문도 넣고... 
-
 ## [Kubeflow Versioning Policies](https://www.kubeflow.org/docs/reference/version-policy/) (in Kubeflow v1.0.2)
 
 For the full information on the status and application version refer to [Kubeflow application](https://www.kubeflow.org/docs/reference/version-policy/#kubeflow-application-matrix)  and [Kubeflow SDKs and CLIs](https://www.kubeflow.org/docs/reference/version-policy/#kubeflow-sdks-and-clis).
@@ -85,20 +74,6 @@ For the full information on the status and application version refer to [Kubeflo
 | [kfctl](https://www.kubeflow.org/docs/other-guides/kustomize/) ([GitHub](https://github.com/kubeflow/kfctl) ) | Stable | 1.0.0    |
 | [Kubeflow Pipelines SDK](https://www.kubeflow.org/docs/pipelines/sdk/sdk-overview/) ([GitHub](https://github.com/kubeflow/pipelines)) | Beta   | 0.2.0    |
 
-## Install / 설치하기
+## 다음
 
-Kubeflow의 설치 과정은 아직까지 상당히 힘듭니다. AWS에 설치하는 경우 아직 버그가 리포팅 되고 있어서 난관을 넘어야 합니다. 
-
-* [Installing Kubeflow](https://www.kubeflow.org/docs/started/getting-started/)
-* The official installation manual "[Instructions for deploying Kubeflow on AWS with the shell](https://www.kubeflow.org/docs/aws/deploy/install-kubeflow/)"has a couple of defects. Check [troubleshoot/MissingRegion could not find region configuration.md](troubleshoot/MissingRegion could not find region configuration.md) if you encounter MissingRegion error after running:
-```bash
-$ kfctl apply -V -f ${CONFIG_FILE}
-```
-
------------------
-
-다음: [AWS에 Kubeflow 설치하기](INSTALL-AWS.md)
-
-p.s. My opinion.
-
-In my case, I installed Kubeflow on AWS and this path was a bumpy road. I had to fix many things to make the my-first-notebook work. I had to write a Bash script automating the installation process because I had to try this and that over and over for weeks. The official installation documentation is confusing at first. Some parts are inaccurate and outdated. To make the installation itself successfully, well, I had to collect the correct information piece-by-piece and move forward little by little.
+[쿠브플로 설치하기 (Installing Kubeflow)](INSTALL.md)
