@@ -213,8 +213,144 @@ $
 
 #### Step 5. Access the cluster from your computer.
 
+##### Install kubectl. kubectl은 Linux, Windows, macOS 모두 지원합니다. 상세한 내용은 [kubectl 설치 (AWS 공식 문서}](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-kubectl.html), [Install and Set Up kubectl (kubernetes 공식 문서)](https://kubernetes.io/docs/tasks/tools/install-kubectl/)를 참고하세요.
+
+```bash
+$ sudo apt-get update && sudo apt-get install -y apt-transport-https
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+$ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+$ sudo apt-get update
+$ sudo apt-get install -y kubectl
 ```
 
+##### 설치 확인하기
+
+```
+$ kubectl version --short --client
+Client Version: v1.18.0
+$
+```
+
+##### 주의사항
+
+* Amazon EKS 클러스터 제어 플레인과 마이너 버전이 하나 정도 다른 `kubectl` 버전을 사용
+* 예: 1.12 `kubectl` 클라이언트는 Kubernetes 1.11, 1.12 및 1.13 클러스터로 작업해야 합니다.
+
+Download the credentials from `/etc/rancher/k3s/k3s.yaml` into your machine.
+
+```bash
+$ scp https://192.168.0.118:/etc/rancher/k3s/k3s.yaml ~/.kube/config
+ssh: Could not resolve hostname https: Temporary failure in name resolution
+$ scp http://192.168.0.118:/etc/rancher/k3s/k3s.yaml ~/.kube/config
+ssh: Could not resolve hostname http: Temporary failure in name resolution
+$ scp 192.168.0.118:/etc/rancher/k3s/k3s.yaml ~/.kube/config
+ssh: connect to host 192.168.0.118 port 22: Connection refused
+$
+```
+
+Copy `/etc/rancher/k3s/k3s.yaml` in the server to `~/.kube/config` in an agent.
+
+```bash
+$ cp Downloads/k3s.yaml ~
+$ ls -al k3s.yaml 
+-rw-rw-r-- 1 aimldl aimldl 2961 12월 28 18:23 k3s.yaml
+$ mkdir .kube
+$ mv k3s.yaml ~/.kube/config
+```
+
+Edit the IP address
+
+```yaml
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data:
+  ...
+    server: https://127.0.0.1:6443
+  ...
+```
+
+Change it to
+
+```yaml
+  ...
+    server: https://192.168.0.118:6443
+  ...
+```
+
+
+
+```bash
+$ kubectl get nodes
+NAME                            STATUS     ROLES    AGE     VERSION
+pi                              NotReady   <none>   178m    v1.19.5+k3s2
+k3sserver-alienware-aurora-r7   Ready      master   3h27m   v1.19.5+k3s2
+[1]+  완료                  gedit ~/.kube/config
+$
+```
+
+
+
+```bash
+$ kubectl cluster-info
+Kubernetes control plane is running at https://192.168.0.118:6443
+CoreDNS is running at https://192.168.0.118:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://192.168.0.118:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$
+```
+
+
+
+##### 설정 확인하기
+
+```
+$ kubectl cluster-info
+Kubernetes master is running at https://A532D49D10EE3EC476416F5A8C7C7C97.yl4.ap-northeast-2.eks.amazonaws.com
+CoreDNS is running at https://A123B45C67DE8FG901234H5I6J7K8L90.ab1.ap-northeast-2.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$ 
+```
+
+만약 아래와 같은 메세지가 나온다면 앞부분의 설치/설정이 잘못 되었습니다.
+
+```
+$ kubectl cluster-info
+error: Missing or incomplete configuration info.  Please point to an existing, complete config file:
+
+    1. Via the command-line flag --kubeconfig
+    2. Via the KUBECONFIG environment variable
+    3. In your home directory as ~/.kube/config
+
+To view or setup config directly use the 'config' command.
+$
+```
+
+```
+$ kubectl cluster-info
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+Unable to connect to the server: dial tcp: lookup A532D49D10EE3EC476416F5A8C7C7C97.yl4.ap-northeast-2.eks.amazonaws.com on 127.0.0.53:53: no such host
+$
+```
+
+
+
+```
+$ kubectl cluster-info
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+The connection to the server 127.0.0.1:6443 was refused - did you specify the right host or port?
+$
+```
+
+
+
+```
+$ kubectl get nodes
+The connection to the server 127.0.0.1:6443 was refused - did you specify the right host or port?
+$
 ```
 
 
