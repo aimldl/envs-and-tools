@@ -100,3 +100,46 @@ Make k3s as close as vanilla k8s by deploying your own ingress controller and lo
 $ curl -sfL https://get.k3s.io | sh - --no-deploy traefik --no-deploy servicelb
 ```
 
+#### Step 2. Install k3s on the agent(s).
+
+Replace `myserver` 
+
+```bash
+$ curl -sfL https://get.k3s.io | \
+  K3S_URL=https://myserver:6443 \
+  K3S_TOKEN=mynodetoken \
+  sh -
+```
+
+
+
+
+
+## Appendix.
+
+When I have installed k3s on an existing k8s master node, the following error message occurs.
+
+```bash
+k8smaster@desktop-1:~$ curl -sfL https://get.k3s.io | sh -
+[sudo] k8smaster의 암호: 
+[INFO]  Finding release for channel stable
+[INFO]  Using v1.19.5+k3s2 as release
+[INFO]  Downloading hash https://github.com/rancher/k3s/releases/download/v1.19.5+k3s2/sha256sum-amd64.txt
+[INFO]  Downloading binary https://github.com/rancher/k3s/releases/download/v1.19.5+k3s2/k3s
+[INFO]  Verifying binary download
+[INFO]  Installing k3s to /usr/local/bin/k3s
+[INFO]  Skipping /usr/local/bin/kubectl symlink to k3s, command exists in PATH at /usr/bin/kubectl
+[INFO]  Skipping /usr/local/bin/crictl symlink to k3s, command exists in PATH at /usr/bin/crictl
+[INFO]  Skipping /usr/local/bin/ctr symlink to k3s, command exists in PATH at /usr/bin/ctr
+[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh
+[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh
+[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env
+[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service
+[INFO]  systemd: Enabling k3s unit
+Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.
+[INFO]  systemd: Starting k3s
+Job for k3s.service failed because the control process exited with error code.
+See "systemctl status k3s.service" and "journalctl -xe" for details.
+k8smaster@desktop-1:~$
+```
+
