@@ -1,4 +1,3 @@
-##### aimldl > computing_environments > ubuntu_linux > commands > hostname.md
 * Rev.1: 2020-0316 (Mon)
 * Draft: 2019-1211 (Wed)
 # hostname
