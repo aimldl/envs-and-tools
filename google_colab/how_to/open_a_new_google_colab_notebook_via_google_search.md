@@ -1,6 +1,6 @@
 * Draft: 2020-11-03 (Tue)
 
-# Google Colab 쓰는 방법
+# 구글 검색을 통해 새 코랩 노트북 만드는 방법
 
 Step 1. 구글 검색창에 `colab empty`를 입력합니다.
 
@@ -45,3 +45,4 @@ Step 4. 파일로 저장하기
 주의: `File` > `Save`를 클릭하거나, `Ctrl+S`를 입력할 경우, 아래의 에러가 발생합니다.
 
 <img src='images/google_colab-menu--File-Save-Cannot_save_changes.png'>
+
