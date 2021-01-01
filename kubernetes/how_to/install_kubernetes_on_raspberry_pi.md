@@ -2,11 +2,11 @@
 
 # How to Install Kubernetes on Raspberry Pi
 
-## Overview
+## Introduction
 
 [Kubernetes](https://kubernetes.io/) is an open source system for automating deployment, scaling, and management for containerized applications. If a production-grade back-end system with ease of management must be developed, consider [Kubernetes](https://kubernetes.io/) as an option. 
 
-One of the hurdles to build such a system is the learning curve.  The purpose of this article is to alleviate the pain in the process of building such a system. One of the pain (in my experience) is web articles which do not help toward the working system. I will find the promising web articles, do the hands-on by myself, and provide the summary in the course of making a working system in order for you to save some time.
+The purpose of this article is to alleviate the pain in the process of learning Kubernetes. From my experience, one of the pain in doing hands-on is the web articles which do not help toward the working system. I will find the promising web articles, do the hands-on by myself, and provide the summary in the course of making a working system in order for you to save some time.
 
 As the first step, a toy system with Raspberry Pi will be built to gain some experience in Kubernetes. The gained experience can be easily extensible to NVIDIA Jetson Nano, another lightweight edge device with GPU support.
 
@@ -27,13 +27,13 @@ Google search: How to install k3s on Raspberry Pi
 
 ## Compatibility of Kubernetes on Raspberry Pi
 
-After deciding to install Kubernetes on Raspberry Pi, the question raised in my mind is "Is it possible to install Kubernetes on Raspberry Pi 4?". Raspberry Pi is a low cost, low performance computer. Kubernetes has the minimum requirements. The answer is "Yes." The follow-up question is "What about the older version of Raspberry Pi I have?". The answer is "Raspberry Pi2 and above." According to [1], Raspberry Pi 2 and above with memory size of 8GB+ is the bare minimum to install Kubernetes on Raspberry Pi.
+Kubernetes has the minimum requirements. Raspberry Pi is a low cost, low performance computer. After deciding to install Kubernetes on Raspberry Pi, the question raised in my mind is "Is it possible to install Kubernetes on Raspberry Pi 4?". The answer is "Yes." The follow-up question is "What about the older version of Raspberry Pi I have?". The answer is "Raspberry Pi2 and above." According to [1], Raspberry Pi 2 and above with memory size of 8GB+ is the bare minimum to install Kubernetes on Raspberry Pi.
 
 ### Minimum requirements of Kubernetes
 
-Ubuntu 16.04+, 2GB+ RAM, 2+ CPUs, network connectivity, unique hostname, MAC address, and product_uuid, certain ports are open, and swap disabled.
+2+ CPUs, 2GB+ RAM, swap disabled, network connectivity, unique hostname, MAC address, and product_uuid, certain ports are open.
 
-For details, refer to [Installing kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+Ubuntu 16.04+; for other Linux flavors,  refer to [Installing kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 
 ### Raspberry Pi
 
@@ -47,7 +47,7 @@ For details, refer to [Installing kubeadm](https://kubernetes.io/docs/setup/prod
 
 ## Choice of Kubernetes flavor
 
-Flavors of Kubernetes are available for Raspberry Pi.
+Flavors of Kubernetes are available.
 
 * The vanilla Kubernetes (denoted as k8s)
 * [k3s](https://k3s.io/): lightweight Kubernetes for resource-constrained edge devices
@@ -82,7 +82,7 @@ Source: https://k3s.io/
 
 ## Installing k3s
 
-There are two ways to install k3s: manual installation vs. installation with Ansible. k3s will be installed manually in this article because the purpose is to gain some experience with k8s. 
+There are two ways to install k3s: manual installation and installation with Ansible. k3s will be installed manually in this article because the purpose is to gain some experience with k8s. 
 
 For more information, refer to "[k3s](https://k3s.io/) > [Docs](https://rancher.com/docs/k3s/latest/en/) > [Quick-Start Guide](https://rancher.com/docs/k3s/latest/en/quick-start/)" to learn about the installation commands. For more details on installation, refer to "[k3s](https://k3s.io/) > [Docs](https://rancher.com/docs/k3s/latest/en/) > [Installation](https://rancher.com/docs/k3s/latest/en/installation/)". 
 
@@ -106,13 +106,13 @@ Power up a computer to use as the server. The computer must not have k8s install
 $ curl -sfL https://get.k3s.io | sh -
 ```
 
+The full message from the above command is in appendix.
+
 > - The K3s service will be configured to automatically restart after node reboots or if the process crashes or is killed
 > - Additional utilities will be installed, including `kubectl`, `crictl`, `ctr`, `k3s-killall.sh`, and `k3s-uninstall.sh`
 > - A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file will be written to `/etc/rancher/k3s/k3s.yaml` and the kubectl installed by K3s will automatically use it
 >
 > Source:  [k3s](https://k3s.io/) > [Docs](https://rancher.com/docs/k3s/latest/en/) > [Quick-Start Guide](https://rancher.com/docs/k3s/latest/en/quick-start/)
-
-The full message from the above command is in appendix.
 
 Note: **To uninstall, run the `k3s-uninstall.sh` script** generated at the time of installation at `/usr/local/bin/k3s-uninstall.sh`.
 
@@ -123,19 +123,9 @@ k3s  k3s-killall.sh  k3s-uninstall.sh
 $
 ```
 
-Make k3s as close as vanilla k8s by deploying your own ingress controller and load balancer.
+#### Step 2. Find the IP address and node token for the server necessary in the next step.
 
-```bash
-$ curl -sfL https://get.k3s.io | sh - --no-deploy traefik --no-deploy servicelb
-```
-
-#### Step 2. Fetch some server information needed by agents.
-
-In the next step, two pieces of information is necessary by agents.
-
-1. `k3s_server_location `
-
-IP address or hostname of the k3s server
+The IP address of the k3s server will be used as `k3s_server_location `.
 
 ```bash
 # Get the IP address
@@ -145,27 +135,18 @@ $ ifconfig | grep 'inet '
 $
 ```
 
-```bash
-# Get the hostname
-$ hostname
-k3sserver-Alienware-Aurora-R7
-$
-```
-
-2. `k3s_server_node_token`
-
-`node-token` of the k3s server
+`node-token` of the k3s server will be used as `k3s_server_node_token`.
 
 ```bash
 $ sudo cat /var/lib/rancher/k3s/server/node-token
-[sudo] k3sserver의 암호: 
+[sudo] password for k3sserver: 
 K1085d9b7fe6396fc4c1426cc44317c31b4692c102247ee645d6c47a400ab6ad29b::server:809170c0a067f84398bbfc473ab5a2d2
 $
 ```
 
 #### Step 3. Install k3s on the agent(s).
 
-Power up the computer to use as an agent. In this case, a Raspberry Pi is the computer. `k3s_server_location ` and `k3s_server_node_token` in the 
+Turn on the computer to use as an agent. In this case, a Raspberry Pi is the computer. To run the following command,  
 
 ```bash
 $ curl -sfL https://get.k3s.io | \
@@ -174,7 +155,7 @@ $ curl -sfL https://get.k3s.io | \
   sh -
 ```
 
-Given the k3s server information in the previous step, an example command is:
+replace `k3s_server_location` and `k3s_server_node_token` as ones obtained in the previous step. For example,
 
 ```bash
 $ curl -sfL https://get.k3s.io | \
@@ -196,22 +177,30 @@ $
 
 #### Step 4. Verify the k3s cluster is up and running.
 
-When a k3s server and a k3s agent are installed, a k3s cluster is launched with default options.
+When k3s is installed on a server and an agent, a k3s cluster with default options is launched. 
 
-On the k3s server side, run k3s server and verify if the cluster is up and running.
+On the k3s server side, run k3s server 
 
 ```bash
 $ sudo k3s server &
-[1] 72766
+```
+
+and verify if the cluster is up and running.
+
+```bash
 $ sudo k3s kubectl get node
-[sudo] k3sserver의 암호: 
-NAME                            STATUS   ROLES    AGE   VERSION
-k3sserver-alienware-aurora-r7   Ready    master   71m   v1.19.5+k3s2
-pi                              Ready    <none>   42m   v1.19.5+k3s2
+[sudo] password for k3sserver: 
+NAME        STATUS   ROLES    AGE   VERSION
+k3sserver   Ready    master   71m   v1.19.5+k3s2
+pi          Ready    <none>   42m   v1.19.5+k3s2
 $
 ```
 
+Notice there are two computers in the k3s cluster: `k3sserver` and `pi`.
+
 #### Step 5. Access the cluster from your computer.
+
+To access the cluster,  from the third computer`kubectl` is a command to control kubernetes. 
 
 ##### Install kubectl. kubectl은 Linux, Windows, macOS 모두 지원합니다. 상세한 내용은 [kubectl 설치 (AWS 공식 문서}](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-kubectl.html), [Install and Set Up kubectl (kubernetes 공식 문서)](https://kubernetes.io/docs/tasks/tools/install-kubectl/)를 참고하세요.
 
@@ -298,6 +287,28 @@ CoreDNS is running at https://192.168.0.118:6443/api/v1/namespaces/kube-system/s
 Metrics-server is running at https://192.168.0.118:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
 
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$
+```
+
+When the nodes are brought outside my WiFi with MAC authentication, the k3s server can't be reached.
+
+```bash
+$ kubectl get nodes
+^C
+$ kubectl cluster-info
+^C
+$ 
+```
+
+
+
+```bash
+$ ping 192.168.0.118
+PING 192.168.0.118 (192.168.0.118) 56(84) bytes of data.
+^C
+--- 192.168.0.118 ping statistics ---
+9 packets transmitted, 0 received, 100% packet loss, time 8172ms
+
 $
 ```
 
