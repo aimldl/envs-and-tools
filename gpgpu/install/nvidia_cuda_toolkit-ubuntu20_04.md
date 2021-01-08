@@ -8,6 +8,8 @@
 
 ## Summary
 
+You may download and run a Bash script [install_nvidia_cuda_libraries-ubuntu20_04](https://github.com/aimldl/coding/blob/main/bash_scripting/bash_scripts/install_nvidia_cuda_libraries-ubuntu20_04) or manually enter the following commands.
+
 Step 1. Pre-installation actions
 
 ```bash
@@ -83,43 +85,7 @@ $ echo $PATH
 $
 ```
 
-## Bash script: `install_nvidia_cuda_libraries-ubuntu20_04`
-
-```basic
-#!/bin/bash
-# install_nvidia_cuda_libraries-ubuntu20_04
-
-# Update, upgrade the system and install dependencies
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install -y build-essential
-sudo apt-get install -y python-dev python3-dev python-pip python3-pip
-
-# Clean the existing NVIDIA driver.
-# TODO: include -y to remove automatically
-sudo apt-get purge nvidia*
-sudo apt-get autoremove
-sudo apt-get autoclean
-sudo rm -rf /usr/local/cuda*
-
-# Install the latest NVIDIA CUDA
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
-sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
-sudo apt-get update -y
-sudo apt-get -y install cuda
-
-# Reboot the system
-read -p 'Reboot? (y/n): ') REPLY
-if [ $REPLY == "[Yy]" ]; then
-  echo "Rebooting..."
-  reboot
-fi
-
-echo "Exiting..."
-exit 0
-```
+The above commands are explained more in detail below.
 
 ## Pre-installation actions
 
