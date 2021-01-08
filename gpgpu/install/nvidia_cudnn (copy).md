@@ -1,6 +1,6 @@
 * Draft: 2020-06-29 (Mon)
 
-# Install NVIDIA cuDNN
+# Install NVIDIA cuDNN for Ubuntu 20.04
 
 ## Overview
 
@@ -14,11 +14,17 @@ NVIDIA cuDNN (CUDA Deep Neural Network) library is a GPU-accelerated library of 
 ## Summary
 
 1. Download `cuDNN Library for Linux (x86)` (`cudnn-x.x-linux-x64-v8.x.x.x.tgz`) from https://developer.nvidia.com/cudnn
+
+See below to see the detailed explanation regarding which files to download.
+
 2. Install cuDNN from the downloaded tar file
 
 ```bash
 $ tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+$ sudo cp cuda/include/cudnn*.h /usr/local/cuda/includlinux-x64-v8.x.x.x.tgz
 $ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+$ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*e
 $ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 ```
@@ -28,7 +34,7 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn
    ```bash
    $ cp -r /usr/src/cudnn_samples_v8/ $HOME
    $ cd  $HOME/cudnn_samples_v8/mnistCUDNN
-   $ make clean && make
+   $ make clean && makebash
    $ ./mnistCUDNN
    ```
 
@@ -40,7 +46,7 @@ For details, refer to the [Installation Guide](https://docs.nvidia.com/deeplearn
 
 <img src="images/developer_nvidia_com-nvidia_cudnn.png">
 
-#### Step 2. Click the `Download cuDNN` button and the following page is open.
+#### For detailsFor detailsStep 2. Click the `Download cuDNN` button and the following page is open.
 
 <img src="images/developer_nvidia_com-nvidia_cudnn-nvidia_developer_program_membership_required.png">
 
@@ -58,7 +64,7 @@ The `cuDNN Download` page will open.
 
 And links for the recent cuDNN versions for CUDA versions are open as follows.
 
-<img src="images/developer_nvidia_com-cudnn_download-box_checked-drop_down_menu.png">
+<img src="images/developer_nvidia_com-cudnn_download-box_checked-drop_down_menu-2021-01.png">
 
 Refer to the [Installation Guide ](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html) to learn about the detailed installation process.
 
@@ -66,7 +72,10 @@ Refer to the [Installation Guide ](https://docs.nvidia.com/deeplearning/sdk/cudn
 
 In my case, the most recent CUDA version of 11.0 is used. So `Download cuDNN v8.0.1 RC2 (June 26th, 2020), for CUDA 11.0` is clicked. New menus are shown under `Download cuDNN v8.0.1 RC2 (June 26th, 2020), for CUDA 11.0`: 
 
-* Library for Windows and Linux, Ubuntu(x86_64 architecture)
+* Library for Windows and Linux, Ubuntu(xlinux-x64-v8.x.x.x.tgz
+  $ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+  $ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+  $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*86_64 architecture)
 * Library for Red Hat (x86_64 & Power architecture)
 * Library for Linux and Ubuntu (Power architecture)
 
@@ -82,11 +91,41 @@ I clicked `cuDNN Library for Linux (x86)`. I took an hour to download the instal
 
 Instead, I may choose to download three files separately.
 
-* cuDNN Runtime Library for Ubuntu18.04 (Deb)
-* cuDNN Developer Library for Ubuntu18.04 (Deb)
-* cuDNN Code Samples and User Guide for Ubuntu18.04 (Deb)
+* [cuDNN Runtime Library for Ubuntu20.04 x86_64 (Deb)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/11.1_20201106/Ubuntu20_04-x64/libcudnn8_8.0.5.39-1+cuda11.1_amd64.deb)
+
+  [cuDNN Developer Library for Ubuntu20.04 x86_64 (Deb)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/11.1_20201106/Ubuntu20_04-x64/libcudnn8-dev_8.0.5.39-1+cuda11.1_amd64.deb)
+
+  [cuDNN Code Samples and User Guide for Ubuntu20.04 x86_64 (Deb)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/11.1_20201106/Ubuntu20_04-x64/libcudnn8-samples_8.0.5.39-1+cuda11.1_amd64.deb)
 
 ## 2. Install cuDNN from the downloaded tar file
+
+The commands to install cuDNN are summarized below.
+
+Notice the file names of downloaded files are changed compared to Ubuntu 18.04. See [nvidia_graphics_card_driver_automatically-ubuntu18_04.md](nvidia_graphics_card_driver_automatically-ubuntu18_04.md) for comparison.
+
+```bash
+$ tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+$ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+$ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+```
+
+Say the download file names are as follows:
+
+```bash
+$ ls
+libcudnn8-dev_8.0.5.39-1+cuda11.1_amd64.deb      libcudnn8_8.0.5.39-1+cuda11.1_amd64.deb
+libcudnn8-samples_8.0.5.39-1+cuda11.1_amd64.deb
+$
+```
+
+```bash
+$ sudo dpkg -i libcudnn8_8.0.5.39-1+cuda11.1_amd64.deb 
+$ sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.1_amd64.deb
+$
+```
+
+
 
 #### Step 1. Uncompress the cuDNN package
 
@@ -134,10 +173,35 @@ cuda/lib64/libcudnn_static.a
 $
 ```
 
+The order matters.
+
+```
+$ sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.1_amd64.deb
+[sudo] k3sserver의 암호: 
+Selecting previously unselected package libcudnn8-dev.
+(데이터베이스 읽는중 ...현재 249018개의 파일과 디렉터리가 설치되어 있습니다.)
+Preparing to unpack libcudnn8-dev_8.0.5.39-1+cuda11.1_amd64.deb ...
+Unpacking libcudnn8-dev (8.0.5.39-1+cuda11.1) ...
+dpkg: dependency problems prevent configuration of libcudnn8-dev:
+ libcudnn8-dev 패키지는 다음 패키지에 의존: libcudnn8 (= 8.0.5.39-1+cuda11.1): 하지만:
+  libcudnn8 패키지는 설치하지 않았습니다.
+
+dpkg: error processing package libcudnn8-dev (--install):
+ 의존성 문제 - 설정하지 않고 남겨둠
+처리하는데 오류가 발생했습니다:
+ libcudnn8-dev
+
+```
+
+
+
 #### Step 2. Copy files in the uncompressed directory into the CUDA toolkit directory.
 
 ```bash
-$ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+$ cp -r /usr/src/cudnn_samples_v8/ $HOME
+$ cd  $HOME/cudnn_samples_v8/mnistCUDNN
+$ make clean && make
+$ ./mnistCUDNN$ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
 $ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 ```
 
@@ -148,6 +212,15 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn
 ```
 
 ## 3. Verify the cuDNN installation
+
+The commands to verify the cuDNN installation are summarized below.
+
+```bash
+$ cp -r /usr/src/cudnn_samples_v8/ $HOME
+$ cd  $HOME/cudnn_samples_v8/mnistCUDNN
+$ make clean && make
+$ ./mnistCUDNN
+```
 
 If the cuDNN is installed from `cuDNN Library for Linux (x86)`, verify the installation as described in [Installation Guide](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html). 
 
@@ -239,7 +312,9 @@ Test passed!
 Testing half precision (math in single precision)
 Loading binary file data/conv1.bin
 Loading binary file data/conv1.bias.bin
-Loading binary file data/conv2.bin
+Loading binary file data/conv2.bincuDNN Developer Library for Ubuntu18.04 (Deb)
+
+
 Loading binary file data/conv2.bias.bin
 Loading binary file data/ip1.bin
 Loading binary file data/ip1.bias.bin
@@ -290,3 +365,4 @@ HTTP request sent, awaiting response... 403 Forbidden
 2020-06-29 15:41:35 ERROR 403: Forbidden.
 $
 ```
+

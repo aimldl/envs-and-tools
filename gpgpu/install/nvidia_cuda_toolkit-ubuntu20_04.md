@@ -204,31 +204,53 @@ $ reboot
 
 ### Mandatory Actions
 
-Step 1. Double-check the directory name
+### Summary
 
 ```bash
-$ ls /usr/local/ | grep "cuda-"
-cuda-11.0
-# or
+# TODO: make it a bash script
+# Fetch the directory name for the CUDA version
+export CUDA_VERSION=`ls /usr/local/ | grep "cuda-..\.."
+
+# Add the `PATH` & `LD_LIBRARY_PATH` variable at the end of `.bashrc`
+echo "export PATH=/usr/local/$CUDA_VERSION/bin${PATH:+:${PATH}}" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=/usr/local/$CUDA_VERSION/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}" >> ~/.bashrc
+
+# Reload the bash
+source ~/.bashrc
+
+# Verify the CUDA toolkits are installed
+nvidia-smi
+```
+
+Notice the first three commands look slightly different from ones in step 1 and step 2. The ones above automatically extract the CUDA version. This change allows to automatically update `.bashrc`.
+
+### Detailed Explanation
+
+Step 1. Fetch the directory name for the CUDA version
+
+```bash
+$ ls /usr/local/ | grep "cuda-..\.."
+cuda-11.2
+# Or to see it in full
 $ ls /usr/local/
-bin  cuda-11.0  etc  games  include  lib  man  sbin  share  src
+bin  cuda  cuda-11  cuda-11.2  etc  games  include  lib  man  sbin  share  src
 $
 ```
 
-Step 2. Add the PATH variable at the end of `.bashrc`
+Step 2. Add the `PATH` & `LD_LIBRARY_PATH` variable at the end of `.bashrc`
 
-Either run
+Automatically
 
 ```bash
-$ echo 'export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
-$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+$ echo 'export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}' >> ~/.bashrc
+$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
 ```
 
-or add the following two variables to `.bashrc` with a text editor.
+Manually in `.bashrc` with a text editor.
 
 ```bash
-export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 
 Step 3. Reload the bash
@@ -237,13 +259,48 @@ Step 3. Reload the bash
 $ source ~/.bashrc
 ```
 
-Step 4. Check 
+Step 4. Verify the CUDA toolkits are installed. 
+
+`nvidia-smi` is one of the important CUDA toolkits. 
+
+```bash
+$ nvidia-smi
+Fri Jan  8 18:09:09 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.27.04    Driver Version: 460.27.04    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1080    On   | 00000000:01:00.0  On |                  N/A |
+| 28%   41C    P8    10W / 180W |    132MiB /  8118MiB |      2%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 1080    On   | 00000000:02:00.0 Off |                  N/A |
+| 27%   32C    P8     5W / 180W |      6MiB /  8119MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1073      G   /usr/lib/xorg/Xorg                 45MiB |
+|    0   N/A  N/A      1302      G   /usr/bin/gnome-shell               83MiB |
+|    1   N/A  N/A      1073      G   /usr/lib/xorg/Xorg                  4MiB |
++-----------------------------------------------------------------------------+
+$
+```
+
+You may check other commands, too.
 
 ```bash
 $ sudo ldconfig
-$ nvidia-smi
+[sudo] userid의 암호: 
 $ echo $PATH
-/usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+/usr/local/cuda-11.2/bin:/home/k3sserver/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $
 ```
 
@@ -254,36 +311,4 @@ $
 ## References
 
 * [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract)
-
-```bash
-$ nvidia-smi
-Mon Jun 29 13:46:18 2020       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.36.06    Driver Version: 450.36.06    CUDA Version: 11.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  GeForce GTX 1080    On   | 00000000:01:00.0  On |                  N/A |
-| 28%   34C    P8     8W / 180W |    336MiB /  8118MiB |      2%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   1  GeForce GTX 1080    On   | 00000000:02:00.0 Off |                  N/A |
-| 27%   30C    P8     5W / 180W |      2MiB /  8119MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      1146      G   /usr/lib/xorg/Xorg                171MiB |
-|    0   N/A  N/A      1259      G   /usr/bin/gnome-shell               88MiB |
-|    0   N/A  N/A      1755      G   /proc/self/exe                     34MiB |
-|    0   N/A  N/A      2150      G   ...AAAAAAAAA= --shared-files       36MiB |
-+-----------------------------------------------------------------------------+
-$
-```
 
