@@ -7,6 +7,13 @@
 #   * Rev.2: 2019-10-23 (Wed)
 #   * Rev.1: 2018-09-12 (Wed)
 #   * Draft: 2017-11-03 (Fri)
+#
+# Add a . to the file name and then
+# add the following lines to .bashrc
+#    if [ -f ~/.bash_custom ]; then
+#        . ~/.bash_custom
+#    fi
+# this file will be sourced by .bashrc.
 
 ##################
 #  Shell Output  #
