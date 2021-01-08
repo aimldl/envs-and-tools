@@ -1,14 +1,22 @@
 
 
+* Rev.2: 2021-01-08 (Thu)
 * Rev.1: 2020-06-25 (Thu)
-
 * Draft: 2019-07-23 (Tue)
 
-# Install NVIDIA CUDA Toolkit
+# Install NVIDIA CUDA Toolkit for Ubuntu 20.04
 
 ## Summary
 
-Step 1. Update, upgrade the system and install dependencies
+Step 1. Pre-installation actions
+
+```bash
+$ lspci | grep -i nvidia
+$ uname -m && cat /etc/*release
+$ gcc --version
+```
+
+Step 2. Update/upgrade the system and install dependencies
 
 ```bash
 $ sudo apt-get update && sudo apt-get upgrade -y
@@ -17,37 +25,101 @@ $ sudo apt-get install -y python-dev python3-dev python-pip python3-pip
 #$ sudo apt-get install linux-headers-$(uname -r)
 ```
 
-Step 2. Clean the existing NVIDIA driver.
+Step 3. Clean the existing NVIDIA driver.
 
 ```bash
+# TODO: include -y to remove automatically
 $ sudo apt-get purge nvidia*
 $ sudo apt-get autoremove
 $ sudo apt-get autoclean
 $ sudo rm -rf /usr/local/cuda*
 ```
 
-Step 3. Install the latest NVIDIA CUDA
+Step 4. Install the latest NVIDIA CUDA
 
-cuda 11.0 is the latest version. You may change the version name in the following command. These commands are from ***Installation instructions: deb (network)*** below. 
+* cuda 11.2 is the latest version (as of 2021-01-08). 
+* You may change the version name in the following command.
+* These commands are from ***Installation instructions: deb (network)*** below. 
 
 ```bash
-$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-$ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-$ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-$ sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
-$ sudo apt-get update
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+$ sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+$ wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+$ sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+$ sudo apt-get update -y
 $ sudo apt-get -y install cuda
 ```
 
-Step 4. Reboot the system
+Step 5. Reboot the system
 
 ```bash
 $ reboot
 ```
 
-
-
 For the full detail of this document, refer to [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract). A more general guideline is available at [NVIDIA CUDA GETTING STARTED GUIDE FOR LINUX](http://developer.download.nvidia.com/compute/cuda/7_0/Prod/doc/CUDA_Getting_Started_Linux.pdf). [Verify CUDA Installation](https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html)
+
+Step 6. Post-installation actions
+
+TODO: check the command & update the output at the bottom.
+
+```bash
+# Double-check the directory name
+$ ls /usr/local/ | grep "cuda-"
+$ ls /usr/local/
+
+# Add the PATH variable at the end of `.bashrc`
+$ echo 'export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
+$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+
+# Reload the bash
+$ source ~/.bashrc
+
+# Check 
+$ sudo ldconfig
+$ nvidia-smi
+$ echo $PATH
+/usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$
+```
+
+## Bash script: `install_nvidia_cuda_libraries-ubuntu20_04`
+
+```basic
+#!/bin/bash
+# install_nvidia_cuda_libraries-ubuntu20_04
+
+# Update, upgrade the system and install dependencies
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt install -y build-essential
+sudo apt-get install -y python-dev python3-dev python-pip python3-pip
+
+# Clean the existing NVIDIA driver.
+# TODO: include -y to remove automatically
+sudo apt-get purge nvidia*
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo rm -rf /usr/local/cuda*
+
+# Install the latest NVIDIA CUDA
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+sudo apt-get update -y
+sudo apt-get -y install cuda
+
+# Reboot the system
+read -p 'Reboot? (y/n): ') REPLY
+if [ $REPLY == "[Yy]" ]; then
+  echo "Rebooting..."
+  reboot
+fi
+
+echo "Exiting..."
+exit 0
+```
 
 ## Pre-installation actions
 
@@ -60,33 +132,33 @@ $ lspci | grep -i nvidia
 $ uname -m && cat /etc/*release
 x86_64
 DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=18.04
-DISTRIB_CODENAME=bionic
-DISTRIB_DESCRIPTION="Ubuntu 18.04.4 LTS"
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.1 LTS"
 NAME="Ubuntu"
-VERSION="18.04.4 LTS (Bionic Beaver)"
+VERSION="20.04.1 LTS (Focal Fossa)"
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="Ubuntu 18.04.4 LTS"
-VERSION_ID="18.04"
+PRETTY_NAME="Ubuntu 20.04.1 LTS"
+VERSION_ID="20.04"
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-VERSION_CODENAME=bionic
-UBUNTU_CODENAME=bionic
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
 $ gcc --version
-gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
-Copyright (C) 2017 Free Software Foundation, Inc.
+gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 $ uname -r
-4.15.0-106-generic
+5.4.0-58-generic
 $
 ```
 
-The above output is for Dell Alienware Aurora R7 with two NVIDIA GPU cards (GeForce GTX 1080) with the recent Ubuntu 18.04.
+The above output is for Dell Alienware Aurora R7 with two NVIDIA GPU cards (GeForce GTX 1080) with the recent Ubuntu 20.04.
 
 ## Download the NVIDIA CUDA Toolkit
 
@@ -94,15 +166,15 @@ The above output is for Dell Alienware Aurora R7 with two NVIDIA GPU cards (GeFo
 
 Go to http://developer.nvidia.com/cuda-downloads.
 
-<img src="images/nvidia-cuda_toolkit_11_0_rc_download-select_target_platform.png">
+<img src="images/nvidia-cuda_toolkit_11_2_rc_download-select_target_platform.png">
 
-And select the options for the target platform. For Ubuntu 18.04, the selections are presented below. 
+And select the options for the target platform. For Ubuntu 20.04, the selections are presented below. 
 
-<img src="images/nvidia-cuda_toolkit_11_0_rc_download-select_target_platform-selected.png">
+<img src="images/nvidia-cuda_toolkit_11_2_rc_download-select_target_platform-selected.png">
 
 The `Installer Type` can be any of the three options while my preference is `deb(local)` in this example. When the selections are made, the installation instructions and some useful links are presented.
 
-<img src="images/nvidia-cuda_toolkit_11_0_rc_download-download_installer_for_linux_ubuntu_18_04_x86_64.png">
+<img src="images/nvidia-cuda_toolkit_11_2_rc_download-download_installer_for_linux_ubuntu_20_04_x86_64.png">
 
 ### Some useful links presented in this part
 
@@ -128,9 +200,9 @@ The `Installer Type` can be any of the three options while my preference is `deb
 
 [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)
 
-### Download Installer for Linux Ubuntu 18.04 x86_64
+### Download Installer for Linux Ubuntu 20.04 x86_64
 
-Recall three options exits for `Installer Type` in `CUDA Toolkit 11.0 RC Download > Select Target Platform`. 
+Recall three options exits for `Installer Type` in `CUDA Toolkit 11.2 RC Download > Select Target Platform`. 
 
 * runfile (local)
 * deb (local): this is the option for this example.
@@ -144,77 +216,15 @@ The CUDA Toolkit will be downloaded and installed which contains
 * tools needed to create, build and run a CUDA application
 * libraries, header files, CUDA samples source code, and other resources.
 
-#### Installation instructions: runfile (local)
-
-```bash
-$ wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda_11.0.1_450.36.06_linux.run
-$ sudo sh cuda_11.0.1_450.36.06_linux.run
-```
-
-For details, refer to [4. Runfile Installation](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile).
-
 #### Installation instructions: deb (local)
 
 ```bash
-$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-$ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-$ wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
-$ sudo dpkg -i cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
-$ sudo apt-key add /var/cuda-repo-ubuntu1804-11-0-local/7fa2af80.pub
-$ sudo apt-get update
-$ sudo apt-get -y install cuda
-```
-
-#### Installation instructions: deb (network)
-
-All the lines, but the 3rd & 4th commands are identical to those of `deb (local)`.
-
-```bash
-$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-$ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-$ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-$ sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
-$ sudo apt-get update
-$ sudo apt-get -y install cuda
-```
-
-The above is the official commands and the following is a tweak to the official commands from [Setup ubuntu for deeplearning](https://lepoeme20.github.io/archive/Set-up-ubuntu-for-deeplearning). The main difference is the last command using several options to force overwrite.
-
-```bash
-$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-$ echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
-$ sudo apt-get update
-$ sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda-10-0 cuda-drivers
-```
-
-## Download and install CUDA with deb (local)
-
-`deb (local)` is the option for this example. The commands presented in the `Installation Instructions` are executed in this part.
-
-### Download
-
-```bash
-$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-$ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-$ wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
-```
-
-The file download takes 4~5 hours no matter how fast the network is. So take this slow download time into consideration.
-
-### Install
-
-Before installing CUDA, any previously installations that could conflict should be uninstalled. For details, refer to [2.7. Handle Conflicting Installation Methods](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#handle-uninstallation).
-
-```bash
-# Install repository metadata
-# sudo dpkg -i cuda-repo-<distro>_<version>_<architecture>.deb
-$ sudo dpkg -i cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
-# Install the CUDA public GPG key
-# sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
-$ sudo apt-key add /var/cuda-repo-ubuntu1804-11-0-local/7fa2af80.pub
-# Update the Apt repository cache
-$ sudo apt-get update
-# Install CUDA
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+$ sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+$ wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+$ sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+$ sudo apt-get update -y
 $ sudo apt-get -y install cuda
 ```
 
