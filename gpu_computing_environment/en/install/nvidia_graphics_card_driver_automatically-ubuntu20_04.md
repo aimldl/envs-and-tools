@@ -36,7 +36,7 @@ $ reboot
 
 Step 5. Verify the installation in `Settings > Details > About`
 
-Additionally, check the status with:
+Step 6. Additionally, check the status with:
 
 ```bash
 $ nvidia-smi
