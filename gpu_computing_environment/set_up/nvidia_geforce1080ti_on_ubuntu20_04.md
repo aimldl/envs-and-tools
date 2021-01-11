@@ -1,6 +1,6 @@
 * Draft: 2021-01-10 (Sun)
 
-# How to Set up NVIDIA GeForce 1080 Ti on Ubuntu 20.04
+# NVIDIA GeForce 1080Ti를 우분투 20.04에서 설정하는 방법 (How to Set up NVIDIA GeForce 1080 Ti on Ubuntu 20.04)
 
 In English, refer to
 
