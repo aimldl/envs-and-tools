@@ -324,5 +324,37 @@ $
 
 The above commands are explained more in detail below.
 
+자동으로 문제를 바로 잡을 수 없다고 합니다. 
 
+## 힌트
+
+```bash
+다음 패키지의 의존성이 맞지 않습니다:
+ linux-modules-nvidia-460-generic-hwe-20.04-edge : 의존: nvidia-kernel-common-460 (>= 460.32.03) 하지만 460.27.04-0ubuntu1 패키지를 설치할 것입니다
+ nvidia-driver-460 : 의존: libnvidia-compute-460 (= 460.27.04-0ubuntu1) 하지만 460.32.03-0ubuntu0.20.04.1 패키지를 설치할 것입니다
+                     의존: libnvidia-decode-460 (= 460.27.04-0ubuntu1) 하지만 %s 패키지를 설치하지 않을 것입니다
+                     의존: libnvidia-encode-460 (= 460.27.04-0ubuntu1) 하지만 %s 패키지를 설치하지 않을 것입니다
+                     추천: nvidia-settings 하지만 %s 패키지를 설치하지 않을 것입니다
+                     추천: nvidia-prime (>= 0.8) 하지만 %s 패키지를 설치하지 않을 것입니다
+                     추천: libnvidia-compute-460:i386 (= 460.27.04-0ubuntu1)
+                     추천: libnvidia-decode-460:i386 (= 460.27.04-0ubuntu1)
+                     추천: libnvidia-encode-460:i386 (= 460.27.04-0ubuntu1)
+                     추천: libnvidia-ifr1-460:i386 (= 460.27.04-0ubuntu1)
+                     추천: libnvidia-fbc1-460:i386 (= 460.27.04-0ubuntu1)
+                     추천: libnvidia-gl-460:i386 (= 460.27.04-0ubuntu1)
+E: 문제를 바로잡을 수 없습니다. 망가진 고정 패키지가 있습니다.
+$
+```
+
+그래서 수동으로 의존하는 각 패키지를 설치하려고 했지만
+
+```bash
+$ sudo apt install nvidia-kernel-common-460 libnvidia-compute-460 ...
+```
+
+ 실패했습니다.
+
+## 해결
+
+가장 확실한 방법으로 우분투를 재설치했습니다. 
 

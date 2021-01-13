@@ -15,7 +15,6 @@ In English, refer to
 GPGPU를 사용을 위한 GPU카드 설정에서 3가지를 해야합니다.
 
 1. NVIDIA 그래픽 카드 드라이버 설치하기
-2. CUDA toolkit 설치하기
 3. model    : GP104 [GeForce GTX 1080]cuDNN 설치하기
 
 ## 요약
@@ -68,32 +67,7 @@ $ nvidia-smi
   * 텐서플로는 오래된 `CUDA 버전`인 `10.1`을 지원합니다.
   * 이 문서가 작성된 시점에서 `CUDA 버전`은 `11.2`입니다. 
 
-### 2. CUDA toolkit 설치하기
-
-* 자동 설치: Bash 스크립트 [install_nvidia_cuda_libraries-ubuntu20_04](https://github.com/aimldl/coding/blob/main/bash_scripting/bash_scripts/install_nvidia_cuda_libraries-ubuntu20_04)를 실행하면 자동으로 설치할 수 있습니다.
-* 수동 설치: 혹은 아래의 상세 내용에 있는 명령어를 수동으로 입력하세요.
-
-스크립트의 내용을 로컬 컴퓨터의 텍스트 파일에 복사한 후
-
-```bash
-$ nano install_nvidia_cuda_libraries-ubuntu20_04
-```
-
-위의 명령어는 `nano`텍스트 에디터를 `install_nvidia_cuda_libraries-ubuntu20_04`라는 파일명으로 오픈하는 것입니다. 스크립트의 내용을 복사 & 붙여넣기 한 후에, 파일을 저장하고 (Ctrl+o), 에디터를 나가시면 (Ctrl+x)됩니다.
-
-그리고 스크립트를 실행하세요.
-
-```bash
-$ bash install_nvidia_cuda_libraries-ubuntu20_04
-  ...
-[sudo] aimldl의 암호:
-  ...
-Reboot? (y/n): 
-```
-
-재부팅을 원하면 y를 아니면 n를 입력합니다.
-
-스크립트 실행 내용은 아래의 상세 내용에 있습니다.
+### 
 
 
 
@@ -190,165 +164,180 @@ $
   * 텐서플로는 오래된 `CUDA 버전`인 `10.1`을 지원합니다.
   * 이 문서가 작성된 시점에서 `CUDA 버전`은 `11.2`입니다. 
 
-### 2. CUDA toolkit 설치하기
-
-* 자동 설치: Bash 스크립트 [install_nvidia_cuda_libraries-ubuntu20_04](https://github.com/aimldl/coding/blob/main/bash_scripting/bash_scripts/install_nvidia_cuda_libraries-ubuntu20_04)를 실행하면 자동으로 설치할 수 있습니다.
-
-스크립트의 내용을 로컬 컴퓨터의 텍스트 파일에 복사한 후
-
 ```bash
-$ nano install_nvidia_cuda_libraries-ubuntu20_04
-```
-
-위의 명령어는 `nano`텍스트 에디터를 `install_nvidia_cuda_libraries-ubuntu20_04`라는 파일명으로 오픈하는 것입니다. 스크립트의 내용을 복사 & 붙여넣기 한 후에, 파일을 저장하고 (Ctrl+o), 에디터를 나가시면 (Ctrl+x)됩니다.
-
-그리고 스크립트를 실행하세요.
-
-```bash
-$ bash install_nvidia_cuda_libraries-ubuntu20_04
-  ...
-[sudo] aimldl의 암호:
-  ...
-```
-
-만약 메세지에 다음 처럼 메세지가 나오더라도 
-
-```bash
-  ...
-다음 패키지가 자동으로 설치되었지만 더 이상 필요하지 않습니다:
-  libatomic1:i386 libbsd0:i386 libdrm-amdgpu1:i386 libdrm-intel1:i386 libdrm-nouveau2:i386 
-  ...
-  screen-resolution-extra xserver-xorg-video-nvidia-460
-'sudo apt autoremove'를 이용하여 제거하십시오.
-```
-
- `sudo apt autoremove`를 실행하지 않아도 괜찮습니다. 왜냐하면 스크립트의 다음 명령어가  `sudo apt autoremove`이기 때문에 자동으로 실행됩니다.
-
-```bash
-다음 패키지를 지울 것입니다:
-  linux-modules-nvidia-460-generic-hwe-20.04-edge* nvidia-compute-utils-460* nvidia-driver-460* nvidia-kernel-common-460* nvidia-kernel-source-460* nvidia-prime* nvidia-settings*
-  nvidia-utils-460*
-  ...
-```
-
-이미 자동으로 설치된 패키지의 일부를 지워서 그런지 아래처럼 패키지 의존성 이슈가 발생합니다.
-
-```bash
-다음 패키지의 의존성이 맞지 않습니다:
- cuda : 의존: cuda-11-2 (>= 11.2.0) 하지만 %s 패키지를 설치하지 않을 것입니다
-E: 문제를 바로잡을 수 없습니다. 망가진 고정 패키지가 있습니다.
-```
-
-재부팅 전에 NVIDIA 그래픽 카드가 설치되어 있었지만, 재부팅 후에 `설정 > 정보`에서 확인하면 `NV134`로 돌아가 있습니다.
-
-<img src='images/ubuntu20-04-settings-about-aimldl_desktop-vn134.png'>
-
-뭔가 잘못 된 것이 확실하네요.
-
-
-
-설치 후에 취해야 하는 액션을 안내하는 문구가 출력됩니다. 이 부분을 별도의 텍스트 파일에 잘 저장하시길 권장드립니다. 컴퓨터 재부팅 후에 실행할 명령어를 요약한 것이기 때문입니다.
-
-```bash
-  ...
-Take the following post-installation actions.
-Take a note of the following part.
-$ ls /usr/local/ | grep cuda-
-$ ls /usr/local/
-Add the PATH variable at the end of `.bashrc`
-$ echo 'export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
-$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
-# Reload the bash
-$ source ~/.bashrc
-# Check 
-$ sudo ldconfig
-$ nvidia-smi
-$ echo $PATH
-
-Reboot? (y/n): 
-```
-
-여기까지 오면 스크립트는 끝까지 실행된 것입니다. 재부팅을 원하면 y를 아니면 n를 입력합니다.
-
-컴퓨터 재부팅 후에 실행할 명령어를 요약한 것이기 때문입니다.
-
-
-
-* 수동 설치: 혹은 아래의 상세 내용에 있는 명령어를 수동으로 입력하세요.
-
-Step 1. Pre-installation actions
-
-```bash
-$ lspci | grep -i nvidia
-$ uname -m && cat /etc/*release
-$ gcc --version
-```
-
-Step 2. Update/upgrade the system and install dependencies
-
-```bash
-$ sudo apt-get update && sudo apt-get upgrade -y
-$ sudo apt install -y build-essential
-$ sudo apt-get install -y python-dev python3-dev python-pip python3-pip
-#$ sudo apt-get install linux-headers-$(uname -r)
-```
-
-Step 3. Clean the existing NVIDIA driver.
-
-```bash
-# TODO: include -y to remove automatically
-$ sudo apt-get purge nvidia*
-$ sudo apt-get autoremove
-$ sudo apt-get autoclean
-$ sudo rm -rf /usr/local/cuda*
-```
-
-Step 4. Install the latest NVIDIA CUDA
-
-* cuda 11.2 is the latest version (as of 2021-01-08). 
-* You may change the version name in the following command.
-* These commands are from ***Installation instructions: deb (network)*** below. 
-
-```bash
-$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-$ sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-$ wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
-$ sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
-$ sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
-$ sudo apt-get update -y
-$ sudo apt-get -y install cuda
-```
-
-Step 5. Reboot the system
-
-```bash
-$ reboot
-```
-
-For the full detail of this document, refer to [NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#abstract). A more general guideline is available at [NVIDIA CUDA GETTING STARTED GUIDE FOR LINUX](http://developer.download.nvidia.com/compute/cuda/7_0/Prod/doc/CUDA_Getting_Started_Linux.pdf). [Verify CUDA Installation](https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html)
-
-Step 6. Post-installation actions
-
-TODO: check the command & update the output at the bottom.
-
-```bash
-# Double-check the directory name
-$ ls /usr/local/ | grep "cuda-"
-$ ls /usr/local/
-
-# Add the PATH variable at the end of `.bashrc`
-$ echo 'export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
-$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
-
-# Reload the bash
-$ source ~/.bashrc
-
-# Check 
-$ sudo ldconfig
-$ nvidia-smi
-$ echo $PATH
-/usr/local/cuda-11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$ python3 -c 'import tensorflow as tf'
+2021-01-11 17:28:01.246385: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-01-11 17:28:01.246512: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 $
 ```
 
-The above commands are explained more in detail below.
+### 문제
+
+```bash
+Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+```
+
+### 힌트
+
+> Google search: Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+
+* #### [Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory #38578](https://github.com/tensorflow/tensorflow/issues/38578)
+
+> **[gadagashwini](https://github.com/gadagashwini)** commented [on 17 Apr 2020](https://github.com/tensorflow/tensorflow/issues/38578#issuecomment-615184395)
+>
+> [@domindominik](https://github.com/domindominik), To use CUDA 10.2 with Tensorflow 2.2. Please build the Tensorflow from source. Follow the instructions mentioned [here](https://www.tensorflow.org/install/source). And also take a look at this [comment.](https://github.com/tensorflow/tensorflow/issues/38194#issuecomment-609922803)Thanks
+
+CUDA 10.2으로 업그레이드 하려고 해도 소스를 컴파일해야 하므로 상당히 번거롭습니다. CUDA 10.1을 쓰는게 낫겠습니다.
+
+> **[ozett](https://github.com/ozett)** commented [on 4 Jul 2020](https://github.com/tensorflow/tensorflow/issues/38578#issuecomment-653752758)
+>
+> [#38578 (comment)](https://github.com/tensorflow/tensorflow/issues/38578#issuecomment-636414914) > `sudo apt-get install cuda-cudart-10-1`install ing "cuda-cudart-10-1" seems not sufficient.. libcublas.so.10 still missing in my ub18. install. i will try intstall complete "cuda-10-1" to solve this issue..
+
+```bash
+$ sudo apt install libcudart10.1
+패키지 목록을 읽는 중입니다... 완료
+의존성 트리를 만드는 중입니다       
+상태 정보를 읽는 중입니다... 완료
+패키지 libcudart10.1는 이미 최신 버전입니다 (10.1.243-3).
+libcudart10.1 패키지는 수동설치로 지정합니다.
+0개 업그레이드, 0개 새로 설치, 0개 제거 및 0개 업그레이드 안 함.
+$
+```
+
+충분하지 않다고 하는데, 위에서 확인해보면 이미 최신 버전이라고 합니다.
+
+> **[ozett](https://github.com/ozett)** commented [on 23 Jul 2020](https://github.com/tensorflow/tensorflow/issues/38578#issuecomment-662920141)
+>
+> try to look if you have cuda* in your repo `apt search --names-only 'cuda'`and lookup the packages (...10-1/10-2...) like:
+
+명령어를 실행해서 `cuda`라는 이름을 가진 경우를 검색해보면
+
+```bash
+$ sudo apt search --names-only 'cuda'
+정렬중... 완료
+전체 텍스트 검색... 완료
+boinc-client-nvidia-cuda/focal 7.16.6+dfsg-1 amd64
+  metapackage for CUDA-savvy BOINC client and manager
+
+libcuda1-331/focal 340.108-0ubuntu2 amd64
+  Transitional package for libcuda1-340
+
+libcuda1-331-updates/focal 340.108-0ubuntu2 amd64
+  Transitional package for libcuda1-340
+
+libcuda1-340/focal 340.108-0ubuntu2 amd64
+  NVIDIA CUDA runtime library
+
+libcuda1-340-updates/focal 340.108-0ubuntu2 amd64
+  Transitional package for libcuda1-340
+
+libcuda1-384/focal-updates 390.141-0ubuntu0.20.04.1 amd64
+  Transitional package for nvidia-headless-390
+
+libcudart10.1/focal,now 10.1.243-3 amd64 [설치됨,자동]
+  NVIDIA CUDA Runtime Library
+
+nvidia-cuda-dev/focal,now 10.1.243-3 amd64 [설치됨,자동]
+  NVIDIA CUDA development files
+
+nvidia-cuda-doc/focal,focal,now 10.1.243-3 all [설치됨,자동]
+  NVIDIA CUDA and OpenCL documentation
+
+nvidia-cuda-gdb/focal,now 10.1.243-3 amd64 [설치됨,자동]
+  NVIDIA CUDA Debugger (GDB)
+
+nvidia-cuda-toolkit/focal,now 10.1.243-3 amd64 [설치됨]
+  NVIDIA CUDA development toolkit
+
+nvidia-cuda-toolkit-gcc/focal 10.1.243-3 amd64
+  NVIDIA CUDA development toolkit (GCC compatibility)
+
+python-pycuda-doc/focal,focal 2018.1.1-4build2 all
+  module to access Nvidia‘s CUDA computation API (documentation)
+
+python3-pycuda/focal 2018.1.1-4build2 amd64
+  Python 3 module to access Nvidia‘s CUDA parallel computation API
+
+python3-pycuda-dbg/focal 2018.1.1-4build2 amd64
+  Python 3 module to access Nvidia‘s CUDA API (debug extensions)
+
+$
+```
+
+`libcudart10.1/focal,now 10.1.243-3 amd64 [설치됨,자동]`으로 이미 설치된 것으로 나옵니다.
+
+그런데 왜 문제가 생기는 걸까요?
+
+* [tensorflow-gpu: Could not load dynamic library 'libcudart.so.10.1' #39132](https://github.com/tensorflow/tensorflow/issues/39132)
+
+> ### **[gillouche](https://github.com/gillouche)** commented [on 4 May 2020](https://github.com/tensorflow/tensorflow/issues/39132#issue-611500123)
+>
+> System information
+>
+> * Have I written custom code (as opposed to using a stock example script provided in TensorFlow)
+>
+> ```bash
+> import tensorflow as tf
+> print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+> ```
+>
+> - **OS Platform and Distribution (e.g., Linux Ubuntu 16.04)**: ArchLinux 64bits
+> - **TensorFlow installed from (source or binary)**: binary
+> - **TensorFlow version (use command below)**: tensorflow-gpu 2.2.0rc4
+> - **Python version**: 3.8.2
+> - **CUDA/cuDNN version**: 10.2.89-5 (from Archlinux repo)
+>
+> Here is the CUDA lib I have installed:
+>
+> ```bash
+> /opt/cuda/doc/man/man7/libcudart.7
+> /opt/cuda/doc/man/man7/libcudart.so.7
+> /opt/cuda/targets/x86_64-linux/lib/libcudart.so
+> /opt/cuda/targets/x86_64-linux/lib/libcudart.so.10
+> /opt/cuda/targets/x86_64-linux/lib/libcudart.so.10.2
+> /opt/cuda/targets/x86_64-linux/lib/libcudart.so.10.2.89
+> /opt/cuda/targets/x86_64-linux/lib/libcudart_static.a
+> ```
+>
+> **Describe the problem**
+>
+> TensorFlow doesn't use my GPU because there is a bug while trying to load "libcudart.so.10.1". My system has libcudart.so.10.2 installed
+> All the other libraries load fine since they look for libcu***.so.10 and not 10.1
+>
+> **Source code / logs**
+>
+> ```bash
+> Python 3.8.2 (default, Apr  8 2020, 14:31:25) 
+> [GCC 9.3.0] on linux
+> Type "help", "copyright", "credits" or "license" for more information.
+> >>> import tensorflow as tf
+> >>> print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+> 2020-05-03 22:17:42.422067: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+> 2020-05-03 22:17:42.471297: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+> 2020-05-03 22:17:42.472040: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+> pciBusID: 0000:09:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+> coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 10.91GiB deviceMemoryBandwidth: 451.17GiB/s
+> 2020-05-03 22:17:42.472169: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
+> 2020-05-03 22:17:42.473728: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+> 2020-05-03 22:17:42.475267: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+> 2020-05-03 22:17:42.475499: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+> 2020-05-03 22:17:42.477078: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+> 2020-05-03 22:17:42.478053: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+> 2020-05-03 22:17:42.481446: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+> 2020-05-03 22:17:42.481478: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1598] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+> Skipping registering GPU devices...
+> Num GPUs Available:  0
+> ```
+>
+> 
+
+
+
+
+
+
+
+```bash
+
+```
+
