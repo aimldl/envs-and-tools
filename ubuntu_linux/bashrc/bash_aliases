@@ -1,5 +1,5 @@
 # .bash_aliases
-#   * Rev.7: 2021-01-09 (Fri)
+#   * Rev.7: 2021-01-14 (Thu)
 #   * Rev.6: 2020-05-29 (Fri)
 #   * Rev.5: 2020-03-24 (Tue)
 #   * Rev.4: 2019-12-18 (Wed)
@@ -20,7 +20,7 @@
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#alias a=''
+alias a='alias'
 #alias b=''
 alias c='conda activate'
 alias ca='conda activate'
@@ -47,7 +47,7 @@ alias n='nano'
 #alias o=''
 alias p='pwd'
 #alias q=''
-#alias r=''
+alias r='remove'
 alias s="find . -name '*.py'|xargs egrep -i -n "
 alias search="find . -name '*.py'|xargs egrep -i -n "
 alias t='tree'
