@@ -1,0 +1,55 @@
+#!/bin/bash
+# install_ubuntu_packages
+#
+#  * Rev.2: 2020-12-28 (Mon)
+#  * Rev.4: 2020-12-17 (Thu)
+#  * Rev.3: 2020-12-02 (Wed)
+#  * Rev.2: 2020-07-14 (Tue)
+#  * Rev.1: 2020-06-27 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+# To run this script,
+#   $ chmod +x install_ubuntu_packages
+#   $ ./install_ubuntu_packages
+#    
+# To edit this file,
+#   $ nano install_ubuntu_packages
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+# Fetch the user's intention with this script.
+echo "What would you like to install?"
+echo "  1. Essential packages"
+echo "  2. Convenience packages"
+echo "  3. Productivity packages"
+echo "  4. All"
+read OPTION
+#echo $OPTION
+
+if [ $OPTION == 1 ]; then
+  SCRIPT="install_ubuntu_essential_packages"
+elif [ $OPTION == 2 ]; then
+  SCRIPT="install_ubuntu_convenience_packages"
+elif [ $OPTION == 3 ]; then
+  SCRIPT="install_ubuntu_productivity_packages"
+elif [ $OPTION == 4 ]; then
+  # All scripts are delimited by space.
+  SCRIPT="install_ubuntu_essential_packages install_ubuntu_convenience_packages install_ubuntu_productivity_packages"
+  SUB_DIRECTORY=$DIR_KUBEFLOW
+else
+  echo "INCORRECT INPUT ERROR: $OPTION is not within the correct input range."
+  exit 1
+fi
+
+for FILE in $SCRIPT; do
+  echo ""
+  run "chmod +x ./$FILE"
+  run "./$FILE"
+done
+
+# EOF

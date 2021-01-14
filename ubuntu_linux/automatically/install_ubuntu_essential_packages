@@ -1,0 +1,47 @@
+#!/bin/bash
+#  install_ubuntu_essential_packages
+#    Run this script after installing Ubuntu Linux and install the basic packages
+#    For Ubuntu 18.04 LTS
+#
+#  * Rev.4: 2020-12-10 (Thu)
+#  * Rev.3: 2020-12-02 (Wed)
+#  * Rev.2: 2020-07-14 (Tue)
+#  * Rev.1: 2020-06-27 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+#  Usage:
+#    To run this script, 
+#      $ chmod +x install_ubuntu_essential_packages 
+#      $ ./install_ubuntu_essential_packages 
+#
+#    To edit this file, use a text editor.
+#      $ nano install_ubuntu_essential_packages
+#    nano is my choice of text editor, but you may use other text editor such as vi, vim, or emacs.
+
+sudo apt update && sudo apt-get upgrade -y
+sudo apt-get install -y software-properties-common
+
+# Install Dependencies
+sudo apt install -y build-essential
+sudo apt install -y cmake
+sudo apt install -y git
+sudo apt-get install -y python-dev python3-dev python-pip python3-pip
+
+# Install some convenient packages
+sudo apt install -y tree
+sudo apt install -y vim
+sudo apt install -y curl
+sudo apt install -y screen
+sudo apt install -y net-tools
+sudo apt install -y pkg-config
+
+# Some old Ubuntu versions don't have the following packages.
+# In that case, uncomment the following commands and run.
+# sudo apt install -y zip
+# sudo apt install -y unzip
+# sudo apt install -y nano
+# sudo apt install -y wget
+# sudo apt install -y iproute2
+# sudo apt install -y strace
+# sudo apt install -y diffstat
+# sudo apt install -y tcpdump

@@ -1,0 +1,58 @@
+#!/bin/bash
+# batch_git_clone
+#   This script run `git clones` for all sub-directories of the target repositories.
+#
+# * Rev.6: 2021-01-11 (Mon)
+# * Rev.5: 2020-12-15 (Tue)
+# * Rev.4: 2020-12-09 (Wed)
+# * Rev.3: 2020-11-14 (Sat)
+# * Rev.2: 2020-03-01 (Sun)
+# * Draft: 2019-11-11 (Mon)
+#
+# Prerequisites
+#   * Understanding of the basic git commands (clone, pull, and push).
+#
+# Usage
+#   $ chmod +x batch_git_clone
+#   $ ./batch_git_clone
+#
+# Doing it manually
+#   You have a Github user ID 'your_id' and 
+#       want to clone everything in your repository "my_repository".
+#   Run
+#     $ cd ~/github/
+#     $ cd my_repository/
+#     $ git clone https://github.com/your_id/my_repository.git
+#
+#   for all target repositories.
+#
+# How to customize this script for yourself
+#   Step 1. Change github_user_id to your_id.
+#     github_user_id='your_id'
+#   Step 2. Change the list of target_repositories to YOUR target repositories.
+#     Say your target repositories are:
+#       https://github.com/your_id/my_repository_1
+#       https://github.com/your_id/my_repository_2
+#         ...
+#       https://github.com/your_id/my_repository_n
+#     Change the list to:
+#       target_repositories="my_repository_1 my_repository_2 ... my_repository_n"
+#     Note each value is delimited by a white space.
+
+# You may change this part
+github_user_id='aimldl'
+target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in tests projects"
+# You may change this part
+
+# Don't change this part
+print_and_run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+for repository in ${target_repositories}; do
+  #print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"  # https
+  print_and_run "git clone git@github.com:${github_user_id}/${repository}.git"  # ssh
+done
+# Don't change this part
