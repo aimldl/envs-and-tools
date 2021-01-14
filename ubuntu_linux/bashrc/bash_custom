@@ -1,6 +1,5 @@
 # .bash_custom
-#   * Rev.8: 2021-01-10 (Sun)
-#   * Rev.7: 2021-01-09 (Fri)
+#   * Rev.7: 2021-01-14 (Thu)
 #   * Rev.6: 2020-05-29 (Fri)
 #   * Rev.5: 2020-03-24 (Tue)
 #   * Rev.4: 2019-12-18 (Wed)
@@ -19,7 +18,7 @@ echo `date +%F" ("%a") "%H:%M" ("%U"th week)"`  # Display time information
 #####################
 #  Welcome Message  #
 #####################
-# Welcome to ubuntu18.04, Python 3.7.6, conda 4.8.2
+# Welcome to ubuntu18.04, conda 4.8.2, Python 3.7.6
 linux_distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 python_version=`python3 --version`
 anaconda_version=`conda -V`
@@ -47,10 +46,10 @@ HISTSIZE=10000                                  # Default size: 1000
 HISTFILESIZE=20000                              # Default size: 2000
 
 #############################
-#  A Safe "delete" Command  #
+#  A Safe "remove" Command  #
 #############################
-# Disable the rm command and define a safe "delete" command.
-# The delete command forcefully moves all specified files to directory .trash.
+# Disable the rm command and define a safe "remove" command.
+# The remove command forcefully moves all specified files to directory .trash.
 # Directory .trash works exactly same as Ubuntu GUI's "Trash" and Windows "Trash".
 #
 # Caution: Empty the .trash directory every now and then.
@@ -63,10 +62,11 @@ HISTFILESIZE=20000                              # Default size: 2000
 # Create a rm function that does nothing.
 # This should help users keep out of mischief.
 rm () {
-  echo "Please use the delete command."
+  echo "Please use the remove command."
 }
 
-delete () {
+remove () {
+  # Function name is changed from delete to remove for alias.
   # Create directory ~/.trash if it doesn't exist.
   if [ ! -d ~/.trash ]; then
     mkdir ~/.trash
