@@ -1,11 +1,12 @@
+* Rev.1: 2021-01-15 (Fri)
 * Draft: 2020-11-16 (Mon)
-# 우분투 리눅스에서 부팅 USB 만들기
+# 우분투 리눅스에서 부팅 USB 만들기 (우분투 18.10용)
 
 ## 개요
 
 우분투 리눅스에서 
 
-* 우분투 리눅스 20.04 설치용 부팅USB를 만드는 방법을 설명합니다.
+* 우분투 리눅스 18.10 설치용 부팅USB를 만드는 방법을 설명합니다.
 * 윈도우10과 MacOS용은 아래 내용을 참고하세요.
 
 ### 관련 검색 & 문서
@@ -21,12 +22,12 @@ Google search: make a bootable usb for ubuntu
 
 * MacOS: [Create a bootable USB stick on macOS | Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos) (영어)
 
-## Ubuntu 20.04 시동 디스크를 만들기
+## Ubuntu 18.04 시동 디스크를 만들기
 
 1. USB 메모리를 준비합니다. 용량은 4GB 이상이 필요합니다.
 2. 우분투 ISO파일을 다운로드 받습니다.
-   * [Download Ubuntu Desktop](https://ubuntu.com/download/desktop)
-
+   
+* [Download Ubuntu Desktop](https://ubuntu.com/download/desktop)
 3. `시동 디스크 만들기` 프로그램을 시작합니다.
 
    프로그램 표시`에 들어가서 `시동 디스크 만들기`라는 검색어를 입력합니다.
