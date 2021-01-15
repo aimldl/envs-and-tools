@@ -3,6 +3,7 @@
 #    Run this script after installing Ubuntu Linux and install the productivity packages
 #    For Ubuntu 18.04 LTS
 #
+#  * Rev.4: 2021-01-15 (Fri)
 #  * Rev.3: 2020-12-02 (Wed)
 #  * Rev.2: 2020-07-14 (Tue)
 #  * Rev.1: 2020-06-27 (Mon)
@@ -45,6 +46,18 @@ sudo apt-get install -y audacity
 sudo add-apt-repository -y ppa:nomacs/stable
 sudo apt update
 sudo apt install -y nomacs
+
+# XMind 2020
+#   If the following link in LINK2XMIND fails,
+#     go to https://www.xmind.net/download/ and
+#     fetch the new working URL to the .deb file.
+#   For details, refer to
+#     https://github.com/aimldl/tools/blob/main/xmind/INSTALL-xmind2020_on_ubuntu_linux.md
+
+FILE_NAME='XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb'
+LINK2XMIND="https://www.xmind.net/xmind/downloads/$FILE_NAME"
+wget $LINK2XMIND
+sudo dpkg -i $FILE_NAME 
 
 # Korean Language Packs
 #sudo apt install -y language-pack-ko
