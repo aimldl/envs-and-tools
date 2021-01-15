@@ -42,11 +42,16 @@
 
 ## CUDA 버전 호환성
 
-다운로드 홈페이지에 들어간 다음 `Resources`의 `Archive of Previous CUDA Releases`를 클릭해서 `이전 CUDA 릴리스 보관소`로 이동합니다.
+[다운로드 홈페이지](https://developer.nvidia.com/cuda-downloads)에 들어간 다음 `Resources`의 `Archive of Previous CUDA Releases`를 클릭해서 [이전 CUDA 릴리스 보관소](https://developer.nvidia.com/cuda-toolkit-archive)로 이동합니다.
 
 <img src='images/nvidia-cuda_toolkit_11_2_downloads.png'>
 
 이 중 목적으로 하는 10.1버전의 페이지를 클릭해서 이동합니다.
+* [CUDA Toolkit 10.1 update2 (Aug 2019)](https://developer.nvidia.com/cuda-10.1-download-archive-update2), Versioned Online Documentation
+* [CUDA Toolkit 10.1 update1 (May 2019)](https://developer.nvidia.com/cuda-10.1-download-archive-update1), Versioned Online Documentation
+* [CUDA Toolkit 10.1 (Feb 2019)](https://developer.nvidia.com/cuda-10.1-download-archive-base), Online Documentation
+
+ 3개 버전이 있는데 가장 최근인 update2가 좋을 듯 합니다. 
 
 <img src='images/nvidia-cuda_toolkit_archive-2021-01-14.png'>
 
