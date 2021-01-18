@@ -36,5 +36,9 @@ GPU 연산 환경은 예산에 맞게 다양하게 구축할 수 있습니다.
 
 #### [텐서플로를 위한 GPU 연산 환경 설정하기 (Setting up the GPU Computing Environments for TensorFlow)](set_up/gpu_computing_environments_for_tensorflow.md)
 
-* [set_up/nvidia_geforce1080ti_on_ubuntu20_04.md](set_up/nvidia_geforce1080ti_on_ubuntu20_04.md)
+* 예기치 않는 에러를 피하려면 우분투 20.04대신 한 버전 오래된 18.04를 선택하세요.
+* 이유는 텐스플로 2.x가 CUDA 10.1를 지원하고, CUDA10.1이 우분투 18.10과 18.04까지 지원하기 때문입니다.
+  * 우분투 홈페이지의 메인 다운로드 페이지에는 18.04를 다운로드 받을 수 있지만 18.10는 받을 수 없습니다.
 
+* [우분투 18.04에 NVIDIA GeForce 1080를 설정하는 방법](set_up/nvidia_geforce1080_on_ubuntu18_04.md)
+* [우분투 20.04에 NVIDIA GeForce 1080Ti를  설정하는 방법 ](set_up/nvidia_geforce1080ti_on_ubuntu20_04.md)

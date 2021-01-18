@@ -1,5 +1,5 @@
 * Draft: 2020-11-16 (Mon)
-# 우분투 리눅스에서 부팅 USB 만들기
+# 우분투 리눅스에서 부팅 USB 만들기 (우분투 20.04용)
 
 ## 개요
 
@@ -27,7 +27,7 @@ Google search: make a bootable usb for ubuntu
 2. 우분투 ISO파일을 다운로드 받습니다.
    
 * [Download Ubuntu Desktop](https://ubuntu.com/download/desktop)
-   
+  
 3. `시동 디스크 만들기` 프로그램을 시작합니다.
 
    프로그램 표시`에 들어가서 `시동 디스크 만들기`라는 검색어를 입력합니다.

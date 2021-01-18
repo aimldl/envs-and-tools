@@ -1,12 +1,12 @@
 * Rev.1: 2021-01-15 (Fri)
 * Draft: 2020-11-16 (Mon)
-# 우분투 리눅스에서 부팅 USB 만들기 (우분투 18.10용)
+# 우분투 리눅스에서 부팅 USB 만들기 (우분투 18.04용)
 
 ## 개요
 
 우분투 리눅스에서 
 
-* 우분투 리눅스 18.10 설치용 부팅USB를 만드는 방법을 설명합니다.
+* 우분투 리눅스 18.04 설치용 부팅USB를 만드는 방법을 설명합니다.
 * 윈도우10과 MacOS용은 아래 내용을 참고하세요.
 
 ### 관련 검색 & 문서
@@ -57,7 +57,5 @@ Google search: make a bootable usb for ubuntu
 <img src='images/ubuntu_linux_18_04-startup_disk_creator-completed-korean.png'>
 
 내용물을 확인합니다.
-
-<img src='images/ubuntu_linux_18_04-files-ubuntu20_04_startup_usb.png'>
 
 
