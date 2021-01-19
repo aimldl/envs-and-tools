@@ -1,5 +1,8 @@
 
 
+[Installation](https://docs.anaconda.com/anaconda/install/) > [Installing on Windows](https://docs.anaconda.com/anaconda/install/windows/)
+
+[Download the Anaconda installer](https://docs.anaconda.com/anaconda/install/windows/)
 
 ```powershell
 C:\Users\aimldl>conda create -n keras python=3 anaconda
