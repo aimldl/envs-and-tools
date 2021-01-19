@@ -15,6 +15,7 @@ $
 ```
 시간을 확인하기 위해서는
 
+## test_script
 ```bash
 #!/bin/bash
 
@@ -27,4 +28,15 @@ echo "Started at $START_TIME" > $FILE_NAME
 
 END_TIME=`date +"%Y-%m-%d %H:%M:%S"`
 echo "Finished at $END_TIME" >> $FILE_NAME
+```
+
+```bash
+$ chmod +x test_script
+$ ./test_script
+$ ls
+test_script   test_run-2021-01-19_1619.log
+$ cat test_run-2021-01-19_1619.log 
+Started at 2021-01-19 16:19:43
+Finished at 2021-01-19 16:19:43
+$
 ```
