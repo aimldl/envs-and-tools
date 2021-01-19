@@ -1,3 +1,4 @@
+* Rev.2: 2021-01-18 (Tue)
 * Rev.1: 2021-01-15 (Fri)
 * Draft: 2020-11-16 (Mon)
 # 우분투 리눅스에서 부팅 USB 만들기 (우분투 18.04용)
@@ -29,6 +30,7 @@ Google search: make a bootable usb for ubuntu
    
 * [Ubuntu 18.04.5 LTS (Bionic Beaver)](https://releases.ubuntu.com/18.04/)
   * [64-bit PC (AMD64) desktop image](https://releases.ubuntu.com/18.04/ubuntu-18.04.5-desktop-amd64.iso)
+
 3. `시동 디스크 만들기` 프로그램을 시작합니다.
 
    프로그램 표시`에 들어가서 `시동 디스크 만들기`라는 검색어를 입력합니다.
@@ -41,7 +43,7 @@ Google search: make a bootable usb for ubuntu
 
 ​	USB메모리를 삽입하면 `사용할 디스크`에 자동으로 인식됩니다. 
 
-<img src='images/ubuntu_linux_18_04-startup_disk_creator-with_usb-korean.png'>
+<img src='images/ubuntu_linux_20_04-startup_disk_creator-with_usb-korean.png'>
 
 `시동 디스크 만들기` 버튼을 클릭한 후 `Yes`를 누르면 인증을 위해 비밀번호를 입력을 받습니다.
 
@@ -59,4 +61,4 @@ Google search: make a bootable usb for ubuntu
 
 내용물을 확인합니다.
 
-
+<img src='images/ubuntu_linux_20_04-files-ubuntu18_04_startup_usb.png'>
