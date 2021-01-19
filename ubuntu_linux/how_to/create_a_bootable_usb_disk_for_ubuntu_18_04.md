@@ -27,7 +27,8 @@ Google search: make a bootable usb for ubuntu
 1. USB 메모리를 준비합니다. 용량은 4GB 이상이 필요합니다.
 2. 우분투 ISO파일을 다운로드 받습니다.
    
-* [Download Ubuntu Desktop](https://ubuntu.com/download/desktop)
+* [Ubuntu 18.04.5 LTS (Bionic Beaver)](https://releases.ubuntu.com/18.04/)
+  * [64-bit PC (AMD64) desktop image](https://releases.ubuntu.com/18.04/ubuntu-18.04.5-desktop-amd64.iso)
 3. `시동 디스크 만들기` 프로그램을 시작합니다.
 
    프로그램 표시`에 들어가서 `시동 디스크 만들기`라는 검색어를 입력합니다.
