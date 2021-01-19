@@ -13,6 +13,61 @@ GPGPU를 사용을 위한 GPU카드 설정에서
 
 예를 들어 `import tensorflow as tf`를 실행 시 `Could not load dynamic library 'libcudart.so.11.0'`에러가 발생합니다. 이런 에러를 하나씩 제거하고 동작하게 할 수는 있지만, 예기치 못한 타이밍에 문제가 발생하는 것을 원치 않습니다.
 
+## 텐서플로 2.x가 우분투 20.04를 지원하지 않습니다.
+
+### 1804 -> 2004
+텐서플로 설치페이지에 있는 18.04용 명령어를 수동으로 20.04를 위해 설정을 해봤습니다.
+
+```bash
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-repo-ubuntu2004_10.1.243-1_amd64.deb
+  ...
+HTTP request sent, awaiting response... 404 Not Found
+2021-01-19 09:52:32 ERROR 404: Not Found.
+
+$
+```
+에러가 발생합니다. 
+
+링크를 확인하기 위해서 NVIDIA의 링크에서 CUDA 10.01 관련된 파일이 있는지 확인해봅니다.
+https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/
+
+웹브라우저의 찾기 기능을 써보니 없다는 것을 알 수 있었습니다.
+
+<img src='images/nvidia-download-compute_cuda_repos_ubuntu2004_x86_64-no_cuda10_01_support.png'>
+
+```bash
+#!/bin.bash
+# install_cuda_with_apt
+#   https://www.tensorflow.org/install/gpu?hl=ko
+# 1804 -> 2004
+
+# Add NVIDIA package repositories
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-repo-ubuntu2004_10.1.243-1_amd64.deb
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+sudo dpkg -i cuda-repo-ubuntu2004_10.1.243-1_amd64.deb
+sudo apt-get update
+wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/nvidia-machine-learning-repo-ubuntu2004_1.0.0-1_amd64.deb
+sudo apt install -y ./nvidia-machine-learning-repo-ubuntu2004_1.0.0-1_amd64.deb
+sudo apt-get update
+
+# Install NVIDIA driver
+sudo apt-get install --no-install-recommends nvidia-driver-450
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
+
+# Install development and runtime libraries (~4GB)
+sudo apt-get install --no-install-recommends \
+    cuda-10-1 \
+    libcudnn7=7.6.5.32-1+cuda10.1  \
+    libcudnn7-dev=7.6.5.32-1+cuda10.1
+
+
+# Install TensorRT. Requires that libcudnn7 is installed above.
+sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 \
+    libnvinfer-dev=6.0.1-1+cuda10.1 \
+    libnvinfer-plugin6=6.0.1-1+cuda10.1
+```
+
+
 ## 1. NVIDIA 그래픽 카드 드라이버 설치하기 전에
 
 (1) 그래픽 카드에 대한 정보 알아내기
