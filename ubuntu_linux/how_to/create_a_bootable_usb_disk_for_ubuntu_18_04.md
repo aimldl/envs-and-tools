@@ -37,13 +37,14 @@ Google search: make a bootable usb for ubuntu
 
 <img src='images/ubuntu_linux_18_04-show_applications-startup_disk_creator-korean.png'>
 
-​		`시동 디스크 만들기`의 화면입니다.
-
-<img src='images/ubuntu_linux_18_04-startup_disk_creator-korean.png'>
+​		`시동 디스크 만들기`의 화면은 사용할 USB 메모리와 우분투 ISO파일 여부에 따라 달라집니다.
 
 ​	USB메모리를 삽입하면 `사용할 디스크`에 자동으로 인식됩니다. 
 
 <img src='images/ubuntu_linux_20_04-startup_disk_creator-with_usb-korean.png'>
+
+* 만약 우분투 ISO파일이 있어도 인식되지 않는다면, 다운로드가 완료되었는지 확인해보세요.
+* 다운로드가 완료된 상태에서 `시동 디스크 만들기` 프로그램이 실행되면 위의 경우처럼 자동으로 인식됩니다.
 
 `시동 디스크 만들기` 버튼을 클릭한 후 `Yes`를 누르면 인증을 위해 비밀번호를 입력을 받습니다.
 
