@@ -1,0 +1,60 @@
+#!/bin/bash
+#  install
+#    simply runs the right  installation script in the sub-directories.
+#  * Rev.2: 2020-12-28 (Mon)
+#  * Rev.2: 2020-12-09 (Wed)
+#  * Rev.1: 2020-08-11 (Tue)
+#  * Draft: 2020-07-20 (Mon)
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+# Directory & file structure
+#  DIR_PROJECT
+#  ├── README.md
+#  ├── install
+#  ├── ubuntu_packages
+#  ├── kubernetes
+#  └── kubeflow
+DIR_PROJECT=`pwd`
+DIR_UBUNTU_PACKAGES="$DIR_PROJECT/ubuntu_packages"
+DIR_KUBERNETES="$DIR_PROJECT/kubernetes"
+DIR_KUBEFLOW="$DIR_PROJECT/kubeflow"
+
+# Fetch the user's intention with this script.
+echo "What would you like to install?"
+echo "  1. Ubuntu packages"
+echo "  2. Kubernetes"
+echo "  3. Kubeflow"
+echo "  4. All"
+read OPTION
+#echo $OPTION
+
+if [ $OPTION == 1 ]; then
+  SCRIPT="install_ubuntu_packages"
+  SUB_DIRECTORY=$DIR_UBUNTU_PACKAGES
+elif [ $OPTION == 2 ]; then
+  SCRIPT="install_kubernetes"
+  SUB_DIRECTORY=$DIR_KUBERNETES
+elif [ $OPTION == 3 ]; then
+  SCRIPT="install_kubeflow"
+  SUB_DIRECTORY=$DIR_KUBEFLOW
+elif [ $OPTION == 4 ]; then
+  SCRIPT="install_kubeflow"
+  SUB_DIRECTORY=$DIR_KUBEFLOW
+else
+  echo "INCORRECT INPUT ERROR: $OPTION is not within the correct input range."
+  exit 1
+fi
+#echo "$SUB_DIRECTORY/$SCRIPT"
+
+echo ""
+run "cd $SUB_DIRECTORY"
+run "chmod +x ./$SCRIPT"
+run "./$SCRIPT"
+
+# EOF

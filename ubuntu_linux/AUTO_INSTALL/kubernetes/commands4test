@@ -1,0 +1,15 @@
+#!/bin/bash
+#  commands4test
+#    is sourced by install_kubernetes
+
+#install_common_parts
+#setup_master
+#get_nodes
+
+#extract_command2join_worker_nodes
+#append_command2this_file
+#remove_temp_files
+
+#deploy_k8s_dashboard
+
+# EOF

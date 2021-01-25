@@ -1,0 +1,35 @@
+#!/bin/bash
+#  install_ubuntu_convenience_packages
+#    Run this script after installing Ubuntu Linux and install the basic packages
+#    For Ubuntu 18.04 LTS
+#
+#  * Rev.5: 2021-01-20 (Wed)
+#  * Rev.4: 2020-12-10 (Thu)
+#  * Rev.3: 2020-12-02 (Wed)
+#  * Rev.2: 2020-07-14 (Tue)
+#  * Rev.1: 2020-06-27 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+#  Usage:
+#    To run this script, 
+#      $ chmod +x install_ubuntu_convenience_packages 
+#      $ ./install_ubuntu_convenience_packages 
+#
+#    To edit this file, use a text editor.
+#      $ nano install_ubuntu_convenience_packages
+#    nano is my choice of text editor, but you may use other text editor such as vi, vim, or emacs.
+
+# Google Chrome
+#   https://github.com/aimldl/technical_skills/blob/master/computing_environments/linux_ubuntu/how_to_install/google-chrome.md
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+# gnome-tweak-tool
+sudo add-apt-repository universe
+sudo apt install -y gnome-tweak-tool
+
+# Zoom
+wget https://zoom.us/client/latest/zoom_amd64.deb
+sudo apt install -y ./zoom_amd64.deb
+#sudo apt --fix-broken install ./zoom_amd64.deb
+# $ zoom

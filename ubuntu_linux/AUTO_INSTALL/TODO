@@ -1,0 +1,71 @@
+TODO
+
+2020-12-17 (Thu), 2021-01-15 (Fri)
+* ubuntu_packages
+[x] Writing scripts in directory ubuntu_packages are done.
+[x] Test these scripts to actually install with those scripts. 2020-12-28 (Mon)
+[x] Update README.md 2021-01-15 (Fri)
+
+* kubernetes
+[x] Scripts in directory kubernetes should work.
+[ ] Test these scripts to actually install with those scripts.
+[] Update README.md
+
+* kubeflow
+[ ] Find the installation script written several months ago
+[ ] Run the script and see if it works.
+[ ] Change the script appropriately
+[ ] Test the script for
+  [ ] AWS
+  [ ] On-premise (local computers)
+[] Update README.md
+
+2020-12-10 (Thu)
+[x] Copy the installation files for ubuntu_packages. 2020-12-17 (Thu)
+[x] Update README.xmind accordingly. 2020-12-17 (Thu)
+[ ] kubernetes is more or like done. Test it by installing k8s on home-desktop
+[ ] Update README.md
+
+------------------------------------------------------------------------------------
+Rewrite this part in README.md
+
+## Installing Kubernetes 
+### Copy the files to home
+Step 1. Plug the USB memory into a USB port.
+Step 2. Copy the `AUTO_INSTALL` directory in the USB memory
+          to the home directory on the computer you wish to install Kubernetes.
+Step 3. Open the file explorer, right-click the USB memory, and select "Eject" in the menu.
+Step 4. Unplug the USB memory from the USB port.
+
+### Run `install`
+The steps in this part install the essential things both for a master and a worker node.
+Step 5. Make sure to have the Internet connection. If not, set it up first.
+Step 6. Open a Gnome terminal (Ctrl+Alt+t)
+Step 7. cd to `bash-copy_this_to_home`
+Step 8. Open `README`
+  $ gedit README &
+Step 9. Run `install`
+  $ chmod +x install
+  $ ./install
+
+
+### Time laps
+* It took:
+  * less than 5 minutes to install Ubuntu 18.04.
+  * less than 50 minutes to install Kubernetes both on a master and a worker node.
+
+### End result
+#### Master or Control-Plane Node
+Run `kubectl get nodes` on the master.
+
+```bash
+$ kubectl get nodes
+NAME                            STATUS   ROLES    AGE     VERSION
+k8smaster-alienware-aurora-r6   Ready    master   20m     v1.18.6
+k8snode-alienware-aurora-r7     Ready    <none>   5m26s   v1.18.6
+$
+```
+Note `STATUS` is NotReady soon after the installation because it takes sometime to have all components up and running.
+
+#### Worker node
+

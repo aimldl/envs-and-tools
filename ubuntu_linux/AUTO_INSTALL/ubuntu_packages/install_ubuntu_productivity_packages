@@ -1,0 +1,70 @@
+#!/bin/bash
+#  install_ubuntu_productivity_packages
+#    Run this script after installing Ubuntu Linux and install the productivity packages
+#    For Ubuntu 18.04 LTS
+#
+#  * Rev.5: 2021-01-20 (Wed)
+#  * Rev.4: 2021-01-15 (Fri)
+#  * Rev.3: 2020-12-02 (Wed)
+#  * Rev.2: 2020-07-14 (Tue)
+#  * Rev.1: 2020-06-27 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+#  Usage:
+#    To run this script, 
+#      $ chmod +x install_ubuntu_productivity_packages 
+#      $ ./install_ubuntu_basic_packages 
+#      [sudo] password for k8smaster:
+#
+#    To edit this file, use a text editor.
+#      $ nano install_ubuntu_productivity_packages
+#    nano is my choice of text editor, but you may use other text editor such as vi, vim, or emacs.
+
+# meld
+sudo apt update -y
+sudo apt install -y meld
+# $ meld
+
+# typora
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt update
+sudo apt install -y typora
+
+# gimp
+sudo add-apt-repository -y ppa:otto-kesselgulasch/gimp
+sudo apt update
+sudo apt install -y gimp
+
+# Install Dropbox
+#   https://github.com/aimldl/tools/blob/main/dropbox/INSTALL.md
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+#~/.dropbox-dist/dropboxd
+
+# audacity
+#sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+#sudo apt update
+sudo apt install -y audacity
+
+# Nomacs
+#   https://blog.naver.com/aimldl/221595457917
+#   https://launchpad.net/~nomacs/+archive/ubuntu/stable
+sudo add-apt-repository -y ppa:nomacs/stable
+sudo apt update
+sudo apt install -y nomacs
+
+# XMind 2020
+#   If the following link in LINK2XMIND fails,
+#     go to https://www.xmind.net/download/ and
+#     fetch the new working URL to the .deb file.
+#   For details, refer to
+#     https://github.com/aimldl/tools/blob/main/xmind/INSTALL-xmind2020_on_ubuntu_linux.md
+
+FILE_NAME='XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb'
+LINK2XMIND="https://www.xmind.net/xmind/downloads/$FILE_NAME"
+wget $LINK2XMIND
+sudo dpkg -i $FILE_NAME 
+
+# Korean Language Packs
+#sudo apt install -y language-pack-ko
+#sudo apt install -y korean*

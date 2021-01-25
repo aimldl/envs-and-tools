@@ -1,0 +1,64 @@
+#!/bin/bash
+# configure_after_reboot
+#   * Draft: 2021-01-25 (Mon)
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+THIS_DIR=`pwd`
+DIR_UBUNTU_SETUP="$THIS_DIR/ubuntu_setup"
+
+echo '--------------------------------------------------------------------'
+echo 'After the reboot,'
+echo '--------------------------------------------------------------------'
+
+run "cd $DIR_UBUNTU_SETUP"
+run 'chmod +x install_cuda_packages-part2'
+#run './install_cuda_packages-part2'
+
+echo '--------------------------------------------------------------------'
+echo 'Checking the NVIDIA GPU card(s) ...'
+echo '--------------------------------------------------------------------'
+
+run 'nvidia-smi'
+
+echo '--------------------------------------------------------------------'
+echo 'Installing TensorFlow 2.x ...'
+echo '--------------------------------------------------------------------'
+
+VIRTUAL_ENVIRONMENT_NAME='tf2'
+PYTHON_VERSION='3.5'
+
+echo '--------------------------------------------------------------------'
+echo "  Creating a virtual environment $VIRTUAL_ENVIRONMENT_NAME ..."
+echo '--------------------------------------------------------------------'
+
+run "conda create -n $VIRTUAL_ENVIRONMENT_NAME python=$PYTHON_VERSION -y"
+run "conda activate $VIRTUAL_ENVIRONMENT_NAME"
+
+echo '--------------------------------------------------------------------'
+echo "  Updating pip3 ..."
+echo '--------------------------------------------------------------------'
+run 'pip3 install --upgrade pip'
+
+echo '--------------------------------------------------------------------'
+echo "  Finally, installing TensorFlow 2.x ..."
+echo '--------------------------------------------------------------------'
+
+run 'pip3 install tensorflow'
+
+echo '--------------------------------------------------------------------'
+echo "  Checking the installation of TensorFlow 2.x ..."
+echo '--------------------------------------------------------------------'
+
+run "python3 -c 'import tensorflow as tf; print(tf.__version__); '"
+# is_gpu_available () is deprecated. Use `tf.config.list_physical_devices('GPU')` instead.
+#run "python3 -c 'import tensorflow as tf; tf.test.is_gpu_available()'"
+run "python3 -c \"import tensorflow as tf;tf.config.list_physical_devices('GPU')\""
+
+
+

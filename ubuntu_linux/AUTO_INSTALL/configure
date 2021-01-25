@@ -1,0 +1,108 @@
+#!/bin/bash
+# configure
+#   * Draft: 2021-01-25 (Mon)
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+show_suggestions_after_reboot() {
+  echo 'Reboot and run the other script to finish this task:'
+  echo '  $ chmod +x configure_after_reboot'
+  echo '  $ ./configure_after_reboot'
+}
+
+ask_to_reboot() {
+  while true; do
+    show_suggestions_after_reboot
+    read -p "Reboot now? (y/n)" REPLY
+    case $REPLY in
+      [Yy]* ) run 'reboot'; ;;
+      [Nn]* ) echo "Exiting..."; exit 1; ;;
+      * ) echo "Enter either yes or no." ;;
+    esac
+  done
+}
+
+ask_git_user_info() {
+  while true; do
+    read -p "Enter user.email for git:" GIT_USER_EMAIL
+    read -p "Enter user.name for git:" GIT_USER_NAME
+
+    echo 'The following commands will be run later:'
+    echo "  $ git config --global user.email $GIT_USER_EMAIL"
+    echo "  $ git config --global user.name $GIT_USER_NAME"
+
+    read -p 'Are these information correct? (y/n)' REPLY
+    case $REPLY in
+      [Yy]* ) ;;
+      [Nn]* ) echo "Enter the correct information again. To exit, enter Ctrl+c"; ;;
+      * ) echo "Enter either yes or no." ;;
+    esac
+  done
+}
+
+# --------------------------------------------------------------------
+# Configuration
+
+THIS_DIR=`pwd`
+DIR_UBUNTU_SETUP="$THIS_DIR/ubuntu_setup"
+DIR_BASHRC="$THIS_DIR/ubuntu_setup/bash_run_commands"
+DIR_GITHUB="$THIS_DIR/ubuntu_setup/github"
+
+ask_git_user_info
+
+# --------------------------------------------------------------------
+
+echo '--------------------------------------------------------------------'
+echo "Configuring Ubuntu..."
+echo '--------------------------------------------------------------------'
+
+echo 'Copying .bash_aliases & .bash_custom to the user home or ~'
+run "cp $DIR_BASHRC/bash_aliases ~/.bash_aliases"
+run "cp $DIR_BASHRC/bash_custom ~/.bash_custom"
+echo ''
+
+echo 'Overwriting .bashrc to accomodate .bash_aliases & .bash_custom'
+NOW=`date +"%Y-%m-%d_%H%M%S"`
+run "cp ~/.bashrc ~/.bashrc.old.$NOW"
+run "cp $DIR_BASHRC/bashrc ~/.bashrc"
+echo ''
+
+echo '--------------------------------------------------------------------'
+echo 'Setting up for github...'
+echo '--------------------------------------------------------------------'
+
+run "cd && mkdir github"
+run "cp $DIR_GITHUB/* ~/github"
+run "cd ~/github"
+echo ''
+
+# Ensure the git command is installed. Otherwise, the following error occurs.
+#   ./configure: 줄 9: git: 명령어를 찾을 수 없음
+run 'sudo apt install -y git'
+run "git config --global user.email $GIT_USER_EMAIL"
+run "git config --global user.name $GIT_USER_NAME"
+echo ''
+
+echo '--------------------------------------------------------------------'
+echo 'Installing Anaconda ...'
+echo '--------------------------------------------------------------------'
+run "cd $DIR_UBUNTU_SETUP"
+run 'chmod +x install_anaconda'
+run './install_anaconda'
+
+echo '--------------------------------------------------------------------'
+echo 'Setting up the NVIDIA GPU card(s)...'
+echo '--------------------------------------------------------------------'
+
+run "cd $DIR_UBUNTU_SETUP"
+run 'chmod +x install_cuda_packages-part1'
+run './install_cuda_packages-part1'
+
+echo '--------------------------------------------------------------------'
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
+ask_to_reboot

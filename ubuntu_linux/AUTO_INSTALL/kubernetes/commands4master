@@ -1,0 +1,23 @@
+#!/bin/bash
+#  commands4master
+#    is sourced by install_kubernetes
+
+install_common_parts $INSTALL_OPTION
+setup_master
+get_nodes
+
+# Prepare for worker node
+TEMP_INPUT_FILE='../logs/sudo_kubeadm_init.log'
+TEMP_OUTPUT_FILE='../logs/command2join_worker_nodes.txt'
+
+#read -p '(Press Enter to extract commands to join worker nodes)'
+extract_command2join_worker_nodes $TEMP_INPUT_FILE $TEMP_OUTPUT_FILE
+generate_commands4worker $TEMP_OUTPUT_FILE
+
+# Install the monitoring tools
+#   1. Kubernetes dashboard (for graphics user interface)
+#   2. k9s (for command line interface)
+deploy_k8s_dashboard
+bash install_k9s  # run install_k9s
+
+# EOF

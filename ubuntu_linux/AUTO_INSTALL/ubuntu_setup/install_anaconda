@@ -1,0 +1,34 @@
+#!/bin/bash
+# install_anaconda
+#   * Draft: 2021-01-25 (Mon)
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+#echo '--------------------------------------------------------------------'
+#echo "Installing Anaconda..."
+#echo '--------------------------------------------------------------------'
+
+# Check if the installation file does not exist, download it.
+#   Anaconda Installers > Linux > Python3.8 > 64-Bit (x86) Installer (529 MB)
+#     https://www.anaconda.com/products/individual
+
+FILE='Anaconda3-2020.11-Linux-x86_64.sh'
+FILE_DOWNLOAD_LINK="https://repo.anaconda.com/archive/$FILE"
+if [ ! -f "$FILE" ]; then
+    echo "$FILE does not exist. Downloading it ..."
+    run "wget $FILE_DOWNLOAD_LINK"
+else
+    echo "$FILE does exist. Skip downloading it ..."
+fi
+run "bash $FILE"
+
+echo "Switching from '$' to '(base) ... ~$' ..."
+run 'bash'
+
+# Assume the prompt is in an Anaconda virtual environment to update the environment.
+run 'conda update --all --yes'

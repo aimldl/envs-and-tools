@@ -1,0 +1,8 @@
+#!/bin/bash
+# get_token4kubernetes_dashboard
+#
+# * Draft: 2020-08-03 (Mon)
+
+COMMAND="kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep ^token | sed -e 's/^token:[ ]*//'"
+echo $COMMAND
+eval $COMMAND

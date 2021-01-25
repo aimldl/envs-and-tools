@@ -1,0 +1,60 @@
+#!/bin/bash
+#  install_k9s
+#  
+#  *  Draft: 2020-07-28 (Tue)
+#
+#  Prerequisite: Kubernetes is up & running.
+#
+#  Run the commands on a master.
+#    $ chmod +x install_k9s
+#    $ ./install_k9s
+#    
+#  To edit this file,
+#    $ nano install_k9s
+#
+#  Reference:
+#    https://snapcraft.io/install/k9s/ubuntu
+#    https://github.com/aimldl/technical_skills/blob/19850a9d49df9ba366d261078ce7d369649b557d/computing_environments/kubeflow/kr/how_to_install/INSTALL%20k9s.md
+
+run() {
+  COMMAND=$1
+  #echo ''
+  echo $COMMAND
+  eval $COMMAND
+}
+
+safe_cd() {
+  DIRECTORY=$1
+  if [ ! -d $DIRECTORY ]; then
+    mkdir $DIRECTORY
+  fi
+  run "cd $DIRECTORY"
+}
+
+deploy_k9s() {
+  printf '\n'
+  printf 'deploy_k8s_dashboard ... \n'
+
+  # For the list of all OSs & architectures, check:
+  #   https://github.com/derailed/k9s/releases
+  URL_K9S_V0_19_1='https://github.com/derailed/k9s/releases/download/v0.19.1'
+  FILE_K9S_LINUX_X86_64='k9s_Linux_x86_64.tar.gz'
+  DOWNLOAD_URL_K9S="$URL_K9S_V0_19_1/$FILE_K9S_LINUX_X86_64"
+
+  DIR_CURRENT=`pwd`
+  DIR_DOWNLOAD='../download'
+
+  run "safe_cd $DIR_DOWNLOAD"
+
+  run "wget $DOWNLOAD_URL_K9S"
+  run "tar zxvf $FILE_K9S_LINUX_X86_64"
+  run 'sudo cp k9s /usr/bin'
+
+  run "cd $DIR_CURRENT"
+}
+
+# Main
+deploy_k9s
+
+# EOF
+

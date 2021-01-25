@@ -1,0 +1,66 @@
+#!/bin/bash
+# install_cuda_packages-part1
+#   * Draft: 2021-01-25 (Mon)
+
+# Define function(s)
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+#echo '--------------------------------------------------------------------'
+#echo 'Installing NVIDIA CUDA packages ...'
+#echo '--------------------------------------------------------------------'
+
+#   https://www.tensorflow.org/install/gpu#install_cuda_with_apt
+#   https://github.com/aimldl/tensorflow/blob/master/INSTALL.md
+
+# The commands in this part is from:
+#   TensorFlow > Install TensorFlow > GPU support > Ubuntu 18.04 (CUDA 11.0)
+#     https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_110
+#   which is a part of
+#     TensorFlow > Install TensorFlow > GPU support
+#       https://www.tensorflow.org/install/gpu
+#
+# When the commands in the above link are updated, do update the commands in
+#   this script and another script.
+#     run 'command_1'
+#     run 'command_2'
+#       ...
+#     run 'command_n'
+
+# These commands have two parts before and after the reboot.
+#   The first part before rebooting the system is in this script.
+#   The second part after the reboot is in another script.
+# IMPORTANT: Run the other script to finish this task!
+
+# Add NVIDIA package repositories
+run 'wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin'
+run 'sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600'
+run 'sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub'
+run 'sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"'
+run 'sudo apt-get update -y'
+
+# Check if the installation file does not exist, download it
+FILE="nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb"
+FILE_DOWNLOAD_LINK="http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/$FILE"
+if [ ! -f "$FILE" ]; then
+    echo "$FILE does not exist. Downloading it ..."
+    run "wget $FILE_DOWNLOAD_LINK"
+else
+    echo "$FILE does exist. Skip downloading it ..."
+fi
+
+#run 'sudo apt install -y ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb'
+run "sudo apt install -y ./$FILE"
+run 'sudo apt-get update -y'
+
+# Install NVIDIA driver
+run 'sudo apt-get install -y --no-install-recommends nvidia-driver-450'
+
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
+
+# IMPORTANT: Run the other script to finish this task!
+#            For details, see 'show_suggestions_after_reboot' on top of this script 
+ask_to_reboot

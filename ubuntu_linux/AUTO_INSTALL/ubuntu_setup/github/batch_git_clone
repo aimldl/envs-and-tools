@@ -2,6 +2,7 @@
 # batch_git_clone
 #   This script run `git clones` for all sub-directories of the target repositories.
 #
+# * Rev.7: 2021-01-25 (Mon)
 # * Rev.6: 2021-01-11 (Mon)
 # * Rev.5: 2020-12-15 (Tue)
 # * Rev.4: 2020-12-09 (Wed)
@@ -41,7 +42,7 @@
 
 # You may change this part
 github_user_id='aimldl'
-target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in tests projects"
+target_repositories="aimldl.github.io coding environments pytorch tensorflow keras tools topics_in courses tests projects"
 # You may change this part
 
 # Don't change this part
@@ -52,7 +53,7 @@ print_and_run() {
 }
 
 for repository in ${target_repositories}; do
-  #print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"  # https
-  print_and_run "git clone git@github.com:${github_user_id}/${repository}.git"  # ssh
+  print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"  # https
+  #print_and_run "git clone git@github.com:${github_user_id}/${repository}.git"  # ssh
 done
 # Don't change this part
