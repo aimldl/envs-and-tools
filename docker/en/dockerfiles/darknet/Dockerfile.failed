@@ -1,0 +1,157 @@
+# Dockerfile-darknet_base_image
+#   * Rev.1: 2021-01-28 (Thu)
+#   * Draft: 2018-09-10 (Mon)
+# Use two ampersands to merge two commands, e.g. "command 1 && command 2" 
+
+#####################################
+#   Dockerfile-ubuntu_base_image    #
+#####################################
+
+FROM ubuntu:18.04
+MAINTAINER "Tae-Hyung Kim, Ph.D."
+
+# To disable the following warning message,
+#   debconf: delaying package configuration, since apt-utils is not installed
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y apt-utils
+
+RUN apt update
+RUN apt upgrade -y
+
+# Setup the home environment as follows:
+#
+# $ docker run -it mrtonnet/ubuntu_base_image
+# To run a command as administrator (user "root"), use "sudo <command>".
+# See "man sudo_root" for details.
+#
+# user@c53b2329952e:~$ ls
+# bin  downloads  lib  uploads
+
+# sudo is enabled and the password is not required.
+# Note the ID is "user".
+RUN apt-get -y install sudo
+RUN useradd -m user && echo "user:user" | chpasswd && adduser user sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Create some sub-directories and configure the paths.
+RUN mkdir -p /home/user/bin /home/user/lib /home/user/downloads /home/user/uploads
+RUN mkdir -p /home/user/python3
+ENV PATH /home/user/bin:$PATH
+ENV LD_LIBRARY_PATH /home/user/lib
+
+# We need to create an empty file, otherwise the volume will belong to root.
+# This is probably a Docker bug.
+RUN mkdir /var/shared/
+RUN touch /var/shared/placeholder
+RUN chown -R user:user /var/shared
+VOLUME /var/shared
+
+WORKDIR /home/user
+ENV HOME /home/user
+#ADD vimrc /home/user/.vimrc
+#ADD vim /home/user/.vim
+#ADD bash_profile /home/user/.bash_profile
+#ADD gitconfig /home/user/.gitconfig
+
+# Link in shared parts of the home directory
+#RUN ln -s /var/shared/.ssh
+#RUN ln -s /var/shared/.bash_history
+#RUN ln -s /var/shared/.maintainercfg
+
+RUN chown -R user: /home/user
+USER user
+CMD /bin/bash
+
+#####################################
+#   Dockerfile-ubuntu_base_image    #
+#####################################
+
+# Basic packages
+RUN apt-get update -y
+RUN apt-get install -y tree
+RUN apt-get install -y nano
+RUN apt-get install -y vim
+RUN apt-get install -y curl
+RUN apt-get install -y wget
+
+RUN apt-get install -y screen
+RUN apt-get install -y net-tools
+RUN apt-get install -y iproute2
+RUN apt-get install -y strace
+RUN apt-get install -y diffstat
+RUN apt-get install -y tcpdump
+
+# Extended packages
+RUN apt-get install -y git
+
+#####################################
+#   Dockerfile-python3_base_image   #
+#####################################
+# Install packages for Python3
+RUN apt-get install -y python3
+RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-dev
+RUN apt-get install -y python3-setuptools
+
+RUN pip3 install --upgrade pip
+RUN pip3 install ipython jupyter
+RUN pip3 install numpy scipy matplotlib sympy pandas
+RUN pip3 install scikit-learn
+RUN pip3 install h5py
+RUN pip3 install pillow pydotplus
+RUN pip3 install pyyaml
+
+#RUN pip3 install seaboarn
+#ERROR: Could not find a version that satisfies the requirement seaboarn
+#ERROR: No matching distribution found for seaboarn
+
+# port for Jupyter
+EXPOSE 8888
+
+#####################################
+#       OpenCV dependencies         #
+#####################################
+
+# Compilers
+RUN apt-get install -y build-essential
+RUN apt-get install -y cmake
+RUN apt-get install -y unzip
+RUN apt-get install -y pkg-config
+
+# Image I/O packages
+RUN apt -y install libjpeg-dev libpng-dev libtiff-dev
+# E: Unable to locate package libjasper-dev
+#RUN apt install -y  libjasper-dev
+#RUN apt-get install -y  libjasper-dev
+
+RUN git clone https://github.com/jasperproject/jasper-client.git jasper \
+    && chmod +x jasper/jasper.py \
+    && pip install --upgrade setuptools \
+    && pip install -r jasper/client/requirements.txt
+
+RUN add-apt-repository “deb http://security.ubuntu.com/ubuntu xenial-security main”
+RUN apt update
+RUN apt install -y libjasper1 libjasper-dev
+
+
+# Video I/O Packages
+RUN apt install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev v4l-utils libxvidcore-dev libx264-dev
+
+# GStreamer for video streaming
+RUN apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev 
+
+# For GUI operations
+RUN apt install -y libgtk-3-dev
+
+# sudo apt install -y libgtk-3-dev libqt4-dev libqt5-dev
+
+# OpenGL support
+RUN apt install -y mesa-utils libgl1-mesa-dri libgtkgl2.0-dev libgtkglext1-dev
+
+# OpenCV
+RUN apt install -y python3-opencv
+
+# Optimization of OpenCV 
+RUN apt install -y libatlas-base-dev gfortran libeigen3-dev
+
+

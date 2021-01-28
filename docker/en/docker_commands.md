@@ -1,4 +1,3 @@
-##### aimldl > computing_environments > docker > docker_commands.md
 * Rev.2: 2020-0312 (Thu)
 * Rev.1: 2020-0311 (Wed)
 * Draft: 2019-1115 (Fri)
@@ -9,9 +8,9 @@ This page selectively summarizes Docker commands.
 ## Parent Command
 "docker" itself is referred to as the base command for Docker CLI (Command Line Interface) or parent command. The docker command, base command, or parent command takes in child commands such as version and info resulting in commands like "docker version" and "docker info". A combination of the parent command and a child command is referred to as a Docker command or simply command.
 
-| Command                                                      | Description                          |
-| ------------------------------------------------------------ | ------------------------------------ |
-| [docker](https://docs.docker.com/engine/reference/commandline/docker) | The base command for the Docker CLI. |
+| Command                                                      | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [docker](https://docs.docker.com/engine/reference/commandline/docker) | The base command for the Docker CLI.nvcr.io/nvidia/cuda:11.2.0-runtime-ubuntu18.04 |
 
 For the full list of Docker commands, refer to ***[The base command for the Docker CLI](https://docs.docker.com/engine/reference/commandline/docker/)***.
 

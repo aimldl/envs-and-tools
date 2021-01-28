@@ -2,7 +2,10 @@
 * Rev.1: 2020-08-11 (Tue)
 * Draft: 2020-03-24 (Tue)
 
-# Summary
+# How to Install Docker on Ubuntu
+
+## Summary
+
 ```bash
 # Install
 sudo apt-get update
@@ -23,7 +26,17 @@ Just closing the terminal and re-opening it doesn't work.
 On a virtual machine, restart the virtual machine for changes to take effect.\n")
 ```
 
-# Install docker on Ubuntu
+After logging back in, ensure Docker can run without sudo. 
+
+```bash
+$ sudo usermod -aG docker ${USER}
+$ su - ${USER}
+$ id -nG
+```
+
+For details, refer to [How to install Docker and Nvidia-Docker 2.0 on Ubuntu 18.04](https://medium.com/@linhlinhle997/how-to-install-docker-and-nvidia-docker-2-0-on-ubuntu-18-04-da3eac6ec494) > Optional — Ensure Docker can run without sudo. 
+
+## Install docker on Ubuntu
 
 Install docker for CPU and nvidia-docker for GPU. If the computer has an NVIDIA GPU card for a General Purpose GPU, do install nvidia-docker. Two types of Docker exist: Docker CE (Community Edition) and  Docker EE (Enterprise Edition). Docker CE is the free version.
 

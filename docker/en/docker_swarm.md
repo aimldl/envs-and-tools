@@ -13,4 +13,3 @@ docker docs > Run your app in production > Orchestration > [Deploy to Swarm](htt
 ## References
 
 * [Docker Swarm 을 이용한 Container Orchestration 환경 만들기](https://tech.osci.kr/2019/02/13/59736201/)
-* 
