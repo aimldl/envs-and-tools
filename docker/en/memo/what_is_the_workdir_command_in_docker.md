@@ -1,8 +1,6 @@
 * Draft: 2021-01-28 (Thu)
 
-
-
-[What is the WORKDIR command in Docker?](https://www.educative.io/edpresso/what-is-the-workdir-command-in-docker)
+# [What is the WORKDIR command in Docker?](https://www.educative.io/edpresso/what-is-the-workdir-command-in-docker)
 
 > The WORKDIR command is used to define the working directory of a Docker container at any given time.
 >
