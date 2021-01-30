@@ -1,6 +1,10 @@
+* Rev.2: 2021-01-30 (Sat)
+* Rev.1: 2020-03-12 (Thu)
+* Draft: 2019-11-15 (Fri)
+
 # docker info
 
-```
+```bash
 $ docker info
 Client:
  Debug Mode: false

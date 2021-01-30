@@ -1,4 +1,3 @@
-##### aimldl/computing_environments/docker/commands/docker login.md
 * Rev.1: 2020-0324 (Tue)
 * Draft: 2020-0317 (Tue)
 

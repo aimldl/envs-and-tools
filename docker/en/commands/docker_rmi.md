@@ -1,14 +1,14 @@
+#
+
 # docker rmi
 
-* "docker rmi" removes images while "docker rm" removes containers.
+* `docker rmi` removes images while `docker rm` removes containers.
 
-## Example to clean up unnecessary Docker images
-
-### Remove All the Older Versions
+## Example: remove all the old versions
 
 The size of an image is large. So it's a good practice to clean up unused images on the regular basis. I've encountered situations that the disk space became full because I didn't clean up unused images.
 
-```
+```bash
 $ docker images
 REPOSITORY                    TAG     IMAGE ID      CREATED        SIZE
 hello-world                   latest  fce289e99eb9  14 months ago  1.84kB
@@ -23,7 +23,7 @@ $
 
 I see multiple images of "aimldl/python3_base_image" exists. The list is quite long and hard to understand. So let's filter out other images and see only "aimldl/python3_base_image".
 
-```
+```bash
 $ docker images | grep "python3_base_image"
 REPOSITORY                    TAG     IMAGE ID      CREATED        SIZE
 aimldl/python3_base_image     ver0.2  2f569417310b  11 months ago  1.11GB
@@ -42,7 +42,7 @@ Can we remove the older images other than the lastest one right away? I think it
 
 #### Check What's Inside ver0.1
 
-```
+```bash
 $ docker run -it aimldl/python3_base_image:ver0.1 bash 
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
@@ -68,7 +68,7 @@ There is nothing other than directories in ver0.1. So it's fine to delete it.
 
 #### Remove ver0.1
 
-```
+```bash
 $ docker images |grep python3_base_image
 aimldl/python3_base_image     ver0.2  2f569417310b  11 months ago  1.11GB
 aimldl/python3_base_image     latest  588f6d18f46e  18 months ago  1.09GB
@@ -87,7 +87,7 @@ ver0.1 is removed successfully.
 
 #### Check What's Inside ver0.2
 
-```
+```bash
 $ docker run -it aimldl/python3_base_image:ver0.2 bash
 user@19968a9c5e3d:~$ pwd
 /home/user
@@ -110,7 +110,7 @@ There's no data in it. So it's fine to delete ver0.2 as well.
 
 Unlike ver0.1, removing ver0.2 fails because a container is using the image.
 
-```
+```bash
 $ docker rmi aimldl/python3_base_image:ver0.2
 Error response from daemon: conflict: unable to remove repository reference "aimldl/python3_base_image:ver0.2" (must force) - container 19968a9c5e3d is using its referenced image 2f569417310b
 $
@@ -118,14 +118,14 @@ $
 
 Now let's list up containers. "docker ps" lists up active containers, but there's no result.
 
-```
+```bash
 $ docker ps | grep python3_base_image
 $
 ```
 
 Let's use "docker ps -a" which shows all containers. I do see the first container with ID 19968a9c5e3d is used by ver0.2.
 
-```
+```bash
 $ docker ps -a
 CONTAINER ID  IMAGE                             ...  NAMES
 19968a9c5e3d  aimldl/python3_base_image:ver0.2  ...  recursing_black
@@ -143,7 +143,7 @@ $
 
 Note the list may be long. In that case, the grep command is helpful filtering out only relevant lines.
 
-```
+```bash
 # Use any keyword like the image name
 $ docker ps -a | grep python3_base_image
 19968a9c5e3d  aimldl/python3_base_image:ver0.2  ...  recursing_black
@@ -158,7 +158,7 @@ $
 
 Let's check if there's any valuable information in this container. First, activate the container with "docker start". Next, check if the container has been started with "docker ps". Lastly, execute the container with "docker exec".
 
-```
+```bash
 $ docker start 19968a9c5e3d
 $ docker ps
 CONTAINER ID  IMAGE                             ...  NAMES
@@ -183,7 +183,7 @@ Inside the container, no valuable information exists. So it's fine to get rid of
 
 To remove the image, the associated container must be removed. 
 
-[TODO]
+## TODO
 
 $ docker start 19968a9c5e3d
 19968a9c5e3d

@@ -1,15 +1,20 @@
+* Rev.2: 2021-01-30 (Sat)
+* Rev.1: 2020-03-12 (Thu)
+* Draft: 2019-11-15 (Fri)
+
 # docker ps
 
 When no container has been started,
 
-```
+```bash
 $ docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+CONTAINER ID  IMAGE        COMMAND  CREATED      STATUS                 PORTS  NAMES
+$
 ```
 
 When there is a container,
 
-```
+```bash
 $ docker ps
 CONTAINER ID  IMAGE        COMMAND  CREATED      STATUS                 PORTS  NAMES
 ceadff6f1295  ubuntu       "bash"   2 hours ago  Up About an hour              vibrant_jones
@@ -18,7 +23,7 @@ $
 
 The -a option shows all containers in the local machine.
 
-```
+```bash
 $ docker ps -a
 CONTAINER ID  IMAGE        COMMAND  CREATED      STATUS                 PORTS  NAMES
 ceadff6f1295  ubuntu       "bash"   2 hours ago  Up About an hour              vibrant_jones
@@ -33,7 +38,5 @@ aimldl/python3_base_image     ver0.2  2f569417310b  11 months ago  1.11GB
 aimldl/tensorflow_base_image  latest  255f88e7c71f  18 months ago  1.55GB
   ...
 $
-
 ```
 
-## 

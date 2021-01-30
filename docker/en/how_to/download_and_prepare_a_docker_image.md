@@ -1,4 +1,6 @@
-# Download and prepare a Docker image
+
+
+# How to Download and Prepare a Docker Image
 
 ```
 # Let's use a command line command to log into Docker Hub.
@@ -83,4 +85,4 @@ Removing login credentials for https://index.docker.io/v1/
 $
 ```
 
-#### 
+
