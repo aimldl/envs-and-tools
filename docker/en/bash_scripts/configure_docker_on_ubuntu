@@ -1,0 +1,24 @@
+#!/bin/bash
+##### Rev.2: 2021-01-29 (Fri)
+##### Rev.1: 2020-08-12 (Wed)
+##### Draft: 2020-03-24 (Tue)
+
+# configure_docker_on_ubuntu
+## 4. Verify
+#### Verify the installation
+docker --version
+sudo docker run hello-world
+
+#### Verify the configuration
+##### Now you should be able to run the `docker` command without the `sudo` command.
+docker run hello-world
+
+printf "====================================================================== \n\n"
+printf "You must see 'Hello from Docker!' twice.\n"
+printf "Check if docker exists in the list by running: \n \
+  $ su - \${USER} \n \
+  $ id -nG \n"
+
+printf "You may see if the docker status is 'active (running)' by executing: \n \
+  $ systemctl status docker \n \
+    Press q to quit 'systemctl status'.\n"

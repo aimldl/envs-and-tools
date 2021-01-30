@@ -1,0 +1,27 @@
+#!/bin/bash
+##### Rev.2: 2021-01-29 (Fri)
+##### Rev.1: 2020-08-12 (Wed)
+##### Draft: 2020-03-24 (Tue)
+
+# How to Uninstall Docker from Ubuntu
+
+## 1. Uninstall
+##### Identify the installed packages and remove the installed packages
+dpkg -l | grep -i docker
+sudo apt-get purge -y docker-engine docker docker.io docker-ce
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+
+## 2. Remove the remnants
+##### Remove all images, containers, and volumes on your host
+sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+
+## 3. Verify
+##### Check if the `docker` command is purged
+docker
+
+printf "Check if docker does not exist in the list by running: \n \
+  $ su - \${USER} \n \
+  $ id -nG \n"

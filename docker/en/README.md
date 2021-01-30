@@ -43,9 +43,17 @@ The above figure depicts the comprehensive list of commands to use a Docker cont
 
 [commands/README.md](commands/README.md) summarizes some Docker commands serving as a cheat sheet.
 
+## Docker runs on top of various OSs (Operating Systems)
 
+Docker supports various OSs. Once Docker is installed and a Docker container is up and running, the base OS does not really matter. Say the environment inside the Docker container is Ubuntu Linux. Then you can use Ubuntu Linux running on top of your base OS no matter what that is. Windows, MacOS, Ubuntu Linux, RedHat Linux or whatsoever. Docker provides the identical environment and the interface or CLI (Command Line Interface) to the user.
 
-## Ubuntu Linux on Windows 10 over Docker Desktop
+### Docker on Linux
+
+### Docker on MacOS
+
+### Docker on Windows
+
+#### Ubuntu Linux on Windows 10 over Docker Desktop
 
 There are several options to run Linux on Windows. Using Docker Desktop is a wonderful choice because a Docker container provides more or like a native Linux computing environment on Windows! To set up this computing environment, [install Docker Desktop on Windows](INSTALL_Docker_Desktop_on_Windows.md) and then run a Docker container like below.
 
@@ -71,10 +79,15 @@ PS C:\Users\aimldl>
 
 ## Hello, World for Docker
 
-Docker has to be installed in order to run the following command.
+To verify if Docker is installed properly, the hello-world for Docker is to run the following command
 
-```
+```bash
 $ docker run hello-world
+```
+
+and the following message will be shown.
+
+```bash
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 1b930d010525: Pull complete 
@@ -102,5 +115,11 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 $
+```
+
+A Docker image is downloaded or pulled from Docker Hub, the official Docker repository, the image is containerized, and the container is ran. The final and expected result is to print `Hello from Docker!`. The second time to run the `docker run hello-world` command looks slightly different. The download step is omitted resulting in the slightly different output.
+
+```bash
+$ docker run hello-world
 ```
 

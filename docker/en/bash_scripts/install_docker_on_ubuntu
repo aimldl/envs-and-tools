@@ -1,0 +1,30 @@
+#!/bin/bash
+##### Rev.2: 2021-01-29 (Fri)
+##### Rev.1: 2020-08-12 (Wed)
+##### Draft: 2020-03-24 (Tue)
+
+# install_docker_on_ubuntu
+
+## 1. Install
+#### Install Docker from the `apt` Repository
+sudo apt update
+sudo apt remove docker docker-engine docker.io
+sudo apt install -y docker.io
+
+## 2. Configure
+#### Configure to use Docker when the system starts.
+sudo systemctl enable docker     # Start Docker on Boot
+
+#### Configure to use Docker without the `sudo` command
+##### This step is optional, but recommended for convenience.
+##### Be aware of the risk that the docker group grants privileges equivalent to the root user.
+##### See Docker Daemon Attack Surface at https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface.
+sudo groupadd docker             # Create the `docker` group
+sudo usermod -aG docker ${USER}  # Add your user to the `docker` group
+
+## 3. Log out and log back in
+printf "Log out and log back in. Your group membership must be re-evaluated. \n \
+Closing this terminal and re-opening another terminal will not work. \n \
+On a virtual machine, restart the virtual machine for changes to take effect.\n\n \
+Run configure_docker_on_ubuntu to continue. \n"
+

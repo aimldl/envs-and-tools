@@ -1,0 +1,55 @@
+#!/bin/bash
+##### Rev.2: 2021-01-29 (Fri)
+##### Rev.1: 2020-08-12 (Wed)
+##### Draft: 2020-03-24 (Tue)
+
+# install_nvidia_docker_on_ubuntu
+
+## 1. Uninstall the old version of Docker
+sudo apt remove -y docker docker-engine docker.io containerd runc
+sudo rm -rf /var/lib/docker
+sudo apt autoclean
+sudo apt update
+
+## 2. Install and configure Docker CE (Community Edition)
+##### How can I check if a program exists from a Bash script?
+#####   https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
+COMMAND='docker'
+if ! command -v ${COMMAND} &> /dev/null
+then
+    echo "${COMMAND} could not be found. Installing ..."
+    install_docker_on_ubuntu
+    # log out and log back in
+    configure_docker_on_ubuntu
+else
+    echo "${COMMAND} exists. Skipping to install and configure it ..."
+fi
+
+## 3. Install NVIDIA Docker
+##### `curl` is a Linux command necessary in the next step. Install this prerequisite package.
+sudo apt install -y curl
+
+##### Add a repository for `nvidia-docker2`
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt update
+
+##### Install `nvidia-docker2`
+sudo apt install -y nvidia-docker2
+
+##### Reload the Docker configurations
+sudo pkill -SIGHUP dockerd
+
+## 4. Verify
+##### Check if`nvidia-docker`works
+sudo nvidia-docker ps
+
+##### Check if `nvidia-docker`works without `sudo`
+nvidia-docker ps
+
+##### Check to see `docker` works instead of `nvidia-docker`
+
+##### Run `nvidia-smi` in the nvidia-docker environment
+sudo docker run --runtime=nvidia --rm nvidia/cuda:11.0-base nvidia-smi
+#sudo docker run --runtime=nvidia --rm nvidia/cuda:10.1-base nvidia-smi
