@@ -252,6 +252,6 @@ Notice the prompt is changed from `#` to `$`.
 
 * [How to Install Docker On Ubuntu 18.04 Bionic Beaver](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
   * The instructions in [Get Docker Engine - Community for Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/) > Install Docker Engine - Community failed with errors.
-
 * [Post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-nonroot-user)
 * [How to install Docker and Nvidia-Docker 2.0 on Ubuntu 18.04](https://medium.com/@linhlinhle997/how-to-install-docker-and-nvidia-docker-2-0-on-ubuntu-18-04-da3eac6ec494) > Optional — Ensure Docker can run without sudo
+* docker docs > [Docker Engine](https://docs.docker.com/engine/) > Installation per distro > [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)

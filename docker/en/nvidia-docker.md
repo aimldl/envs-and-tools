@@ -7,7 +7,7 @@
 ### About the NVIDIA Container Runtime for Docker
 The NVIDIA Container Runtime for Docker is an improved mechanism for allowing the Docker Engine to support NVIDIA GPUs used by GPU-accelerated containers. This new runtime replaces the Docker Engine Utility for NVIDIA GPUs.
 
-The Docker Engine Utility for NVIDIA GPUs is implemented with the installation of the nvidia-docker package. To upgrade your DGX system environment to use the NVIDIA Container Runtime for Docker, you must install the nvidia-docker2 package.
+The Docker Engine Utility for NVIDIA GPUs is implemented with the installation of the `nvidia-docker` package. To upgrade your system's environment to use the NVIDIA Container Runtime for Docker, you must install the `nvidia-docker2` package.
 
 ```bash
 $ sudo apt install nvidia-docker2
