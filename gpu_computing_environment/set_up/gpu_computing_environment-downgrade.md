@@ -113,13 +113,21 @@ $
 
 https://developer.nvidia.com/rdp/cudnn-archive
 
-너무 많은 것이 있습니다. 웹브라우저의 찾기 기능으로 `7.4.2`을 찾습니다.
+너무 많은 것이 있습니다. 
+
+<img src='images/nvidia-homepage-cudnn_download-cudnn_archive-2021-02-10.png'>
+
+웹브라우저의 찾기 기능으로 `7.4.2`을 찾습니다.
+
+<img src='images/nvidia-homepage-cudnn_download-cudnn_archive-7_4_2.png'>
+
+`CUDA 10.0`을 선택합니다. `Download cuDNN v7.4.2 (Dec 14, 2018), for CUDA 10.0`
+
+<img src='images/nvidia-homepage-cudnn_download-cudnn_archive-7_4_2-library_for_windows_mac_linux_ubuntu_and_redhat_centos.png'>
 
 
 
-Download cuDNN v7.4.2 (Dec 14, 2018), for CUDA 10.0
-
-
+이 중 `Ubuntu18.04`를 위한 파일 3개를 클릭해서 다운로드 받습니다.
 
 [cuDNN Runtime Library for Ubuntu18.04 (Deb)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.4.2/prod/10.0_20181213/Ubuntu18_04-x64/libcudnn7_7.4.2.24-1%2Bcuda10.0_amd64.deb)
 
@@ -127,9 +135,7 @@ Download cuDNN v7.4.2 (Dec 14, 2018), for CUDA 10.0
 
 [cuDNN Code Samples and User Guide for Ubuntu18.04 (Deb)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.4.2/prod/10.0_20181213/Ubuntu18_04-x64/libcudnn7-doc_7.4.2.24-1%2Bcuda10.0_amd64.deb)
 
-
-
-
+<img src='images/nvidia-homepage-cudnn_download-cudnn_archive-7_4_2-ubuntu18_04-downloading.png'>
 
 ```bash
 $ tar -xzvf cudnn-10.0-linux-x64-v7.4.2.24.tgz
@@ -138,7 +144,7 @@ $ sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-10.0/lib64/
 $ sudo chmod a+r /usr/local/cuda-10.0/lib64/libcudnn*
 ```
 
-
+<img src='images/'>
 
 테스트 하기
 
