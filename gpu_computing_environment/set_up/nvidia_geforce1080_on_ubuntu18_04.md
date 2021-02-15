@@ -2,6 +2,9 @@
 
 # 우분투 18.04에서 NVIDIA GeForce 1080을 설정하는 방법
 
+* 테스트 환경
+  * (base) k8smaster@k8smaster-Alienware-Aurora-R7
+
 ## 개요
 
 GPGPU를 사용을 위한 GPU카드 설정에서 

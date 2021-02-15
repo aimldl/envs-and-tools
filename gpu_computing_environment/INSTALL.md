@@ -42,3 +42,7 @@ GPU 연산 환경은 예산에 맞게 다양하게 구축할 수 있습니다.
 
 * [우분투 18.04에 NVIDIA GeForce 1080를 설정하는 방법](set_up/nvidia_geforce1080_on_ubuntu18_04.md)
 * [우분투 20.04에 NVIDIA GeForce 1080Ti를  설정하는 방법 ](set_up/nvidia_geforce1080ti_on_ubuntu20_04.md)
+
+### 버전 다운그레이드해서 성공적으로 GPU 환경을 설치한 경우
+
+[GPU 환경 설정하기](set_up/gpu_computing_environment-downgrade-sucess.md)를 참고하세요.

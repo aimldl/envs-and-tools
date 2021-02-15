@@ -1,16 +1,40 @@
 * Draft: 2021-02-09 (Tue)
 
-# [docker export](https://docs.docker.com/engine/reference/commandline/export/)
+# [docker save](https://docs.docker.com/engine/reference/commandline/save/)
 
 컨테이너를 파일로 저장하는데 쓰입니다.
 
 > ## Examples
 >
-> Each of these commands has the same result.
+> **Create a backup that can then be used with `docker load`.**
 >
 > ```bash
-> $ docker export red_panda > latest.tar
-> $ docker export --output="latest.tar" red_panda
+> $ docker save busybox > busybox.tar
+> $ ls -sh busybox.tar
+> 2.7M busybox.tar
+> 
+> $ docker save --output busybox.tar busybox
+> $ ls -sh busybox.tar
+> 2.7M busybox.tar
+> 
+> $ docker save -o fedora-all.tar fedora
+> $ docker save -o fedora-latest.tar fedora:latest
+> ```
+>
+> **Save an image to a tar.gz file using gzip**
+>
+> You can use gzip to save the image file and make the backup smaller.
+>
+> ```bash
+> docker save myimage:latest | gzip > myimage_latest.tar.gz
+> ```
+>
+> ### Cherry-pick particular tags
+>
+> You can even cherry-pick particular tags of an image repository.
+>
+> ```bash
+> $ docker save -o ubuntu.tar ubuntu:lucid ubuntu:saucy
 > ```
 
 

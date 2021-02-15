@@ -45,8 +45,6 @@ $ sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
 $ sudo apt install -y cuda-10.0
 ```
 
-
-
 환경 변수 설정하기
 
 > ```bash
@@ -66,8 +64,6 @@ $ echo 'export PATH=/usr/local/cuda-10.0/bin:$PATH' >> ~/.bash_custom
 $ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH' >> ~/.bash_custom
 $ reboot
 ```
-
-
 
 내용을 확인합니다.
 
