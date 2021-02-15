@@ -3,6 +3,12 @@
 ## Summary
 
 ```bash
+$ sudo apt install -y x11-xserver-utils
+```
+
+
+
+```bash
 $ xhost +local:docker
 non-network local connections being added to access control list
 $
