@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# enable_x11_to_use_gui
+
+
+
+
+
+sudo apt install -y x11-apps
+sudo apt install -y xorg openbox
