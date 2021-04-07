@@ -23,24 +23,24 @@ The same topic in Korean is available at:
 
   ###### Python 3.8
 
-  [64-Bit (x86) Installer (550 MB)](https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh)
+  [64-Bit (x86) Installer (550 MB)](https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh)
 
   [64-Bit (Power8 and Power9) Installer (290 MB)](https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-ppc64le.sh)
 
   
 
-  Step 1. Copy the installation file `Anaconda3-2020.07-Linux-x86_64.sh` to the user home
+  Step 1. Copy the installation file `Anaconda3-2020.11-Linux-x86_64.sh` to the user home
 
   Step 2. Open terminal and star the installation process by running the installation file:
 
   ```bash
-  $ bash Anaconda3-2020.07-Linux-x86_64.sh
+  $ bash Anaconda3-2020.11-Linux-x86_64.sh
   ```
 
   Follow the instructions to install Anaconda.~/github/projects/text_summarization_in_korean/project-extraction_of_korean_news
 
   ```bash
-  $ bash Anaconda3-2020.07-Linux-x86_64.sh
+  $ bash Anaconda3-2020.11-Linux-x86_64.sh
   
   Welcome to Anaconda3 2020.07
   
