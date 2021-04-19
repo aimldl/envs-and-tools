@@ -48,7 +48,7 @@ then
     install_docker_on_ubuntu
     configure_docker_on_ubuntu
 else
-    echo "${COMMAND} exists. Skipping to install and configure it ..."
+    echo "${COMMAN D} exists. Skipping to install and configure it ..."
 fi
 
 ## 3. Install NVIDIA Docker
