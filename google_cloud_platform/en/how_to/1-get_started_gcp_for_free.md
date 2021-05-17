@@ -76,7 +76,7 @@ At last, the welcome message confirms the process to obtain $300 free credit suc
 * I am also excited to play with GCP with this free credit.
 * I hope you enjoy playing with GCP, too.
 
-## GCP Dashboard
+## The Dashboard for Google Cloud Console
 
 ### Verify the free credit
 

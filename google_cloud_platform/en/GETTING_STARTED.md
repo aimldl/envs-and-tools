@@ -7,7 +7,7 @@
 * The homepage is at https://cloud.google.com/. 
 * Probably the most import information for the new comer is the free credit.
   * Clicking `See offer details` on the the yellow bar is the first step to get your free credit of 300USD.
-  * Refer to [How to Get Started GCP for Free](how_to/get_started_gcp_for_free.md) for the step-by-step guide to get the free credit.
+  * Refer to [How to Get Started GCP for Free](how_to/1-get_started_gcp_for_free.md) for the step-by-step guide to get the free credit.
 
 <img src='images/cloud_google_com-main-1.png'>
 
