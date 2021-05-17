@@ -61,7 +61,18 @@ $
 
 ```bash
 $ tar -xvf google-cloud-sdk-340.0.0-linux-x86_64.tar.gz
+```
 
+The files are extracted to the `google-cloud-sdk` directory.
+
+```bash
+$ cd ~/google-cloud-sdk
+$ ls
+LICENSE  README  RELEASE_NOTES  VERSION  bin  completion.bash.inc  completion.zsh.inc  data  deb  install.bat  install.sh  lib  path.bash.inc  path.fish.inc  path.zsh.inc  platform  properties  rpm
+$ tree
+  ...
+3016 directories, 14516 files
+$
 ```
 
 #### Step 5. Install `google-cloud-sdk` with the `install.sh` script.
