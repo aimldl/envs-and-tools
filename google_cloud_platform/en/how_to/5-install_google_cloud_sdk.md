@@ -38,6 +38,8 @@ $ ./google-cloud-sdk/bin/gcloud init
 > * Run gcloud init
 >   * The installer starts a terminal window and runs the gcloud init command.
 
+<img src='images/google_cloud_sdk-install_on_win10-terminal.png'>
+
 ### [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install) on Linux
 The installation manual explains the process in details.
 
