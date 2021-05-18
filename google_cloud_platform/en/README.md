@@ -13,5 +13,3 @@
     * Business challenge: AI & machine learning
 * [Links to Tutorials](TUTORIALS.md) [TUTORIALS.md](TUTORIALS.md)
 * [Installation](INSTALL.md) [INSTALL.md](INSTALL.md)
-
-<img src="images/">
