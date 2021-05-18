@@ -20,8 +20,25 @@ $ ./google-cloud-sdk/bin/gcloud init
 
 <img src="images/gcp-cloud_sdk-homepage.png">
 
-### [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+### [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install) on Windows
 
+> * Step 1. Download the Cloud SDK installer.
+> * Step 2. Launch the installer and follow the prompts.
+> <img src='images/screen-reader-mode.png'>
+
+> * Step 3. Cloud SDK requires Python; supported versions are Python 3 (preferred, 3.5 to 3.8) and Python 2 (2.7.9 or higher).
+> The installer will install all necessary dependencies, including the needed Python version. While Cloud SDK currently uses Python 3 by default, you can use an existing Python installation if necessary by unchecking the option to Install Bundled Python.
+
+> Step 4. After installation has completed, the installer presents several options:
+
+> <img src='images/windows-installer-prompt.png'>
+
+> Make sure that the following are selected:
+> * Start Google Cloud SDK Shell
+> * Run gcloud init
+>   * The installer starts a terminal window and runs the gcloud init command.
+
+### [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install) on Linux
 The installation manual explains the process in details.
 
 #### Step 1. Check the Python version.
