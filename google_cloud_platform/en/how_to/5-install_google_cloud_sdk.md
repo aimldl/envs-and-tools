@@ -156,15 +156,16 @@ Click `Allow` .
 
 <img src="images/sign_in_with_google-google_cloud_sdk_wants_to_access_your_google_account.png">
 
-When the authentication is a success, the following message is shown at https://cloud.google.com/sdk/auth_success.
+Success!
+
+On your web browser, the following message is shown (https://cloud.google.com/sdk/auth_success).
 
 <img src="images/cloud_sdk-you_are_now_authenticaed_with_the_google_cloud_sdk.png">
-
-#### Step 7. Start using the Cloud SDK.
 
 In the terminal, you will see something like this.
 
 <img src="images/cloud_sdk-terminal-you_are_logged_in_as.png">
 
+#### Step 7. Start using the Cloud SDK.
 
-
+The Cloud SDK is installed and authenticated. Now you're ready to use it.
