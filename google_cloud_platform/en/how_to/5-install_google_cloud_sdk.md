@@ -43,7 +43,7 @@ For Linux,
 
 #### Step 3. Download the installation package.
 
-For Linux 64-bit (x86_64), the download command is as follows. If your platform is different, choose the right one and change the package file name accordingly.
+For Linux 64-bit (x86_64), the download command is as follows.
 
 ```bash
 $ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-340.0.0-linux-x86_64.tar.gz
@@ -56,6 +56,8 @@ $ ls
 google-cloud-sdk-340.0.0-linux-x86_64.tar.gz
 $
 ```
+
+If your platform is different, choose the right one and change the package file name accordingly.
 
 #### Step 4. Extract the compressed file.
 
@@ -81,25 +83,17 @@ $
 $ ./google-cloud-sdk/install.sh
 ```
 
-Given the following inquiry, 
+This script expects three interactions.
 
 ```bash
   ...
 Do you want to help improve the Google Cloud SDK (y/N)? 
 ```
 
-enter either `y` or `n`.
+Enter `y` or `n`.
 
 ```bash
   ...
-To install or remove components at your current SDK version [340.0.0], run:
-  $ gcloud components install COMPONENT_ID
-  $ gcloud components remove COMPONENT_ID
-
-To update your SDK installation to the latest version [340.0.0], run:
-  $ gcloud components update
-
-
 Modify profile to update your $PATH and enable shell command 
 completion?
 
@@ -113,15 +107,12 @@ Enter a path to an rc file to update, or leave blank to use
 [/home/aimldl/.bashrc]: 
 ```
 
-And hit the `Enter` key.
+Finally, hit the `Enter` key.
 
 ```bash
   ...
-==> Start a new shell for the changes to take effect.
-
-
 For more information on how to get started, please visit:
-  https://cloud.google.com/sdk/docs/quickstarts
+ https://cloud.google.com/sdk/docs/quickstarts
 $
 ```
 
@@ -131,40 +122,39 @@ Run the `gcloud init` command to initialize the SDK.
 
 ```bash
 $ ./google-cloud-sdk/bin/gcloud init
-
 ```
 
-The full message is below.
+The initial interaction occurs at the terminal.
 
 ```bash
-Welcome! This command will take you through the configuration of gcloud.
-
-Your current configuration has been set to: [default]
-
-You can skip diagnostics next time by using the following flag:
-  gcloud init --skip-diagnostics
-
-Network diagnostic detects and fixes local network connection issues.
-Checking network connection...done.                                            
-Reachability Check passed.
-Network diagnostic passed (1/1 checks passed).
-
 You must log in to continue. Would you like to log in (Y/n)?
 ```
 
-Enter `y` and a web browser will pop up. Click the Google account you wish to use.
+Enter `y` and a web browser will pop up. The rest of interactions happen on the web browser and your phone.
+
+Click the Google account you wish to connect with GCP.
 
 <img src="images/sign_in_with_google-choose_an_account.png">
 
-If you click `Use another account`, you must enter your gmail account to sign in.
+If you click `Use another account`, enter your Gmail account to sign in and click `Next`.
 
 <img src="images/sign_in_with_google.png">
 
-Click `Allow` to grant the access privilege.
+The verification process is necessary. I guess your preferred method will be used. In my case, I have to use my phone. At this time, a verification code is sent. Previously, I had to open Gmail for your reference.
+
+If you have already verified the computer you're using, the verification step will be skipped. When I've verified my Gmail account on a new machine and installed the Cloud SDK, no verification step was necessary.
+
+Click `Send`.
+
+<img src='images/sign_in_with_google-verify_its_you.png'>
+
+Check your phone and enter the verification code.
+
+<img src='images/sign_in_with_google-verify_its_you-enter_the_code.png'>
+
+Click `Allow` .
 
 <img src="images/sign_in_with_google-google_cloud_sdk_wants_to_access_your_google_account.png">
-
-Verify the account. If you have already verified the computer you're using, the verification step won't be necessary.
 
 When the authentication is a success, the following message is shown at https://cloud.google.com/sdk/auth_success.
 
