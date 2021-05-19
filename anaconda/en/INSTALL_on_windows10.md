@@ -27,3 +27,7 @@ Proceed ([y]/n)? y
   ...
 (recomm) C:\Users\aimldl>
 ```
+
+```powershell
+(base) PS C:\Users\phil4> conda create -n tf2 python=3 anaconda
+```
