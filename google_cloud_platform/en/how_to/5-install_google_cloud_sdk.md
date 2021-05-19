@@ -33,6 +33,10 @@ $ ./google-cloud-sdk/bin/gcloud init
 
 > <img src='images/windows-installer-prompt.png'>
 
+If you check the App menu, you'll be able to find `Cloud Tools for PowerShell` and `Google Cloud SDK Shell`.
+
+<img src='images/win10-recently_added-google_cloud_sdk_shell_cloud_tools_for_powershell.png'>
+
 > Make sure that the following are selected:
 > * Start Google Cloud SDK Shell
 > * Run gcloud init
