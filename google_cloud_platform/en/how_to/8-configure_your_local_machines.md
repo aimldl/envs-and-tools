@@ -2,10 +2,13 @@
 
 # How to Configure Your Local Machines
 
+## Problem statement
 Without TensorFlow on your machine, you will see `ModuleNotFoundError` as follows.
 <img src='images/tensorflow_2_0-modulenotfounderror_no_module_named_tensorflow.png'>
 
-Let's fix it by installing TensorFlow.
+Let's fix it by installing TensorFlow. Then you'll see the TensorFlow version in the same Jupyter Notebook.
+
+<img src='images/tensorflow_2_0-tf___version__2_5_0.png'>
 
 ## Windows machine
 Step 1. Install Anaconda
