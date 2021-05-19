@@ -29,5 +29,9 @@ Proceed ([y]/n)? y
 ```
 
 ```powershell
-(base) PS C:\Users\phil4> conda create -n tf2 python=3 anaconda
+(base) C:\Users\aimldl> conda create -n tf2 python=3 anaconda
+  ...
+Proceed ([y]/n)?
+  ...
+(base) C:\Users\aimldl> 
 ```
