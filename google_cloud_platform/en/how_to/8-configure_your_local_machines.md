@@ -2,7 +2,48 @@
 
 # How to Configure Your Local Machines
 
-## Problem statement
+## Summary
+
+* Install Anaconda and create a new virtual environment, e.g. `tf2`.
+
+```bash
+(base) conda create -n tf2 python=3 anaconda
+#
+# To activate this environment, use
+#
+#     $ conda activate tf2
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+(base) conda activate tf2
+(tf2) 
+```
+
+* After activating the new Conda virtual environment, e.g. `tf2`, upgrade `pip` and install `tensorflow`. TensorFlow 2.x will be installed if your situation allows.
+
+```bash
+(tf2) pip install --upgrade pip --user
+(tf2) pip install tensorflow
+(tf2) 
+```
+
+* Check the installed TensorFlow version.
+
+```bash
+(tf2) python -c 'import tensorflow as tf; print(tf.__version__)'
+2.5.0
+(tf2) 
+```
+
+* Run `jupyter notebook` if you'd like to use it.
+
+```bash
+(tf2) jupyter notebook
+```
+
+## Problem
+
 Without TensorFlow on your machine, you will see `ModuleNotFoundError` as follows.
 <img src='images/tensorflow_2_0-modulenotfounderror_no_module_named_tensorflow.png'>
 
@@ -10,7 +51,12 @@ Let's fix it by installing TensorFlow. Then you'll see the TensorFlow version in
 
 <img src='images/tensorflow_2_0-tf___version__2_5_0.png'>
 
-## Windows machine
+## Solution
+
+### On Windows machine
+
+The following part is tested on Windows 10.
+
 Step 1. Install Anaconda
 
 Step 2. Verify the installed programs.
@@ -46,7 +92,7 @@ Step 5. Activate the created environment.
 (base) PS C:\Users\aimldl> conda activate tf2
 (tf2) PS C:\Users\aimldl>
 ```
-From now on `(tf2) > ` will be used instead of (tf2) PS C:\Users\aimldl> for simplicity.
+From now on `(tf(tf2) $ jupyter notebook2) > ` will be used instead of (tf2) PS C:\Users\aimldl> for simplicity.
 ```powershell
 (tf2) > pip install --upgrade pip --user
 ```
@@ -99,7 +145,7 @@ Step 7. Install TensorFlow
 ```powershell
  (tf2) > pip install tensorflow
    ...
-Installing collected packages: pyasn1, rsa, pyasn1-modules, oauthlib, cachetools, requests-oauthlib, google-auth, tensorboard-plugin-wit, tensorboard-data-server, protobuf, numpy, markdown, grpcio, google-auth-oauthlib, absl-py, termcolor, tensorflow-estimator, tensorboard, opt-einsum, keras-preprocessing, keras-nightly, h5py, google-pasta, gast, flatbuffers, astunparse, tensorflow                                          Attempting uninstall: numpy                                                                                                                                                                                           Found existing installation: numpy 1.20.1                                                                                                                                                                           Uninstalling numpy-1.20.1:                                                                                                                                                                                            Successfully uninstalled numpy-1.20.1                                                                                                                                                                           Attempting uninstall: h5py                                                                                                                                                                                            Found existing installation: h5py 2.10.0                                                                                                                                                                            Uninstalling h5py-2.10.0:                                                                                                                                                                                             Successfully uninstalled h5py-2.10.0                                                                                                                                                                          Successfully installed absl-py-0.12.0 astunparse-1.6.3 cachetools-4.2.2 flatbuffers-1.12 gast-0.4.0 google-auth-1.30.0 google-auth-oauthlib-0.4.4 google-pasta-0.2.0 grpcio-1.34.1 h5py-3.1.0 keras-nightly-2.5.0.dev2021032900 keras-preprocessing-1.1.2 markdown-3.3.4 numpy-1.19.5 oauthlib-3.1.0 opt-einsum-3.3.0 protobuf-3.17.0 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-oauthlib-1.3.0 rsa-4.7.2 tensorboard-2.5.0 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.0 tensorflow-2.5.0 tensorflow-estimator-2.5.0 termcolor-1.1.0
+Installing collected packages: pyasn1, rsa, pyasn1-modules, oauthlib, cachetools, requests-oauthlib, google-auth, tensorboard-plugin-wit, tensorboard-data-server, protobuf, numpy, markdown, grpcio, google-auth-oauthlib, absl-py, termcolor, tensorflow-estimator, tensorboard, opt-einsum, keras-preprocessing, keras-nightly, h5py, google-pasta, gast, flatbuffers, astunparse, tensorflow                                          Attempting uninstall: numpy                                                                                                                                                                                           Found existing installation: numpy 1.20.1                                                                                                                                                                           Uninstalling numpy-1.20.1:                                                                                                                                                                                            Successfully uninstalled numpy-1.20.1                                                                                                                                                                           Attempting uninstall: h5py                                                                                                                                                                                            Found existing installation: h5py 2.10.0                                                                                                                                                                            Uninstalling h5py-2.10.0:                                                                                                                                                                                             Successfully uninstalled h5py-2.10.0                                                                                                                                                                          Successfully installed absl-py-0.12.0 astunparse-1.6.3 cachetools-4.2.2 flatbuffe(tf2) > rs-1.12 gast-0.4.0 google-auth-1.30.0 google-auth-oauthlib-0.4.4 google-pasta-0.2.0 grpcio-1.34.1 h5py-3.1.0 keras-nightly-2.5.0.dev2021032900 keras-preprocessing-1.1.2 markdown-3.3.4 numpy-1.19.5 oauthlib-3.1.0 opt-einsum-3.3.0 protobuf-3.17.0 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-oauthlib-1.3.0 rsa-4.7.2 tensorboard-2.5.0 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.0 tensorflow-2.5.0 tensorflow-estimator-2.5.0 termcolor-1.1.0
 (tf2) > 
 ```
 Step 8. Start using TensorFlow, Jupyter Notebook, and other programs in the Conda virtual environment.
@@ -108,6 +154,10 @@ Step 8. Start using TensorFlow, Jupyter Notebook, and other programs in the Cond
   1. Open `Anaconda PowerShell Prompt`
   2. Run `jupyter notebook` in the prompt
 
+```powershell
+(tf2) > jupyter notebook
+```
+
 <img src='images/anaconda_powershell_prompt-jupyter_notebook.png'>
 
 and a web browser launches with Jupyter Notebook.
@@ -115,3 +165,45 @@ and a web browser launches with Jupyter Notebook.
 <img src='images/win10-jupyter_notebook-initial_launch.png'>
 
 Now start using Jupyter Notebook.
+
+### On Ubuntu Linux (18.04)
+
+* Install Anaconda and create a new virtual environment, e.g. `tf2`.
+
+```bash
+(base) $ conda create -n tf2 python=3 anaconda
+#
+# To activate this environment, use
+#
+#     $ conda activate tf2
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+(base) $ conda activate tf2
+(tf2) $
+```
+
+* After activating the new Conda virtual environment, e.g. `tf2`, upgrade `pip` and install `tensorflow`. TensorFlow 2.x will be installed if your situation allows.
+
+```bash
+(tf2) $ pip install --upgrade pip --user
+(tf2) $ pip install tensorflow
+(tf2) $
+```
+
+* Check the installed TensorFlow version.
+
+```bash
+(tf2) $ python -c 'import tensorflow as tf; print(tf.__version__)'
+2.5.0
+(tf2) $
+```
+
+* Run `jupyter notebook` if you'd like to use it.
+
+```bash
+(tf2) $ jupyter notebook
+```
+
+## 
