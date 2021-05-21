@@ -53,7 +53,7 @@ Open a web browser, go to Google Cloud Platform, and sign in.
 
 Click `Console`.
 
-In the navigation menu (on the left), click `Metadata` under `Settings`.
+In the navigation menu (on the left), click `Compute Engine`. Inside the `Compute Engine`'s menu, click `Metadata` under `Settings`.
 
 <img src='images/gcp-console-navigation_menu-settings-metadata-1.png'>
 
