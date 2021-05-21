@@ -137,18 +137,6 @@ A pop-up window shows up as well.
 
 <img src='images/win10-gcp-ssh_terminal.png'>
 
-<img src='images/'>
-
-<img src='images/'>
-
-<img src='images/'>
-
-<img src='images/'>
-
-<img src='images/'>
-
-
-
 ```powershell
 ~$ gedit temp.txt &
 [1] 5217
