@@ -4,6 +4,16 @@
 
 ## Summary
 
+conda create -n tf2 python=3 anaconda -y
+
+conda activate tf2
+
+pip install --upgrade pip --user
+
+pip install tensorflow
+
+python -c 'import tensorflow as tf; print(tf.__version__)'
+
 * Install Anaconda and create a new virtual environment, e.g. `tf2`.
 
 ```bash
