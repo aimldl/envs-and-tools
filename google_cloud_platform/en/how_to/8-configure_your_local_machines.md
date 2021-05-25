@@ -7,7 +7,7 @@
 * Install Anaconda and create a new virtual environment, e.g. `tf2`.
 
 ```bash
-(base) conda create -n tf2 python=3 anaconda
+(base) conda create -n tf2 python=3 anaconda -y
 #
 # To activate this environment, use
 #
