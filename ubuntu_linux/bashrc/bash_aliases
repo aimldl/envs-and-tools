@@ -1,5 +1,10 @@
 # .bash_aliases
-#   * Rev.7: 2021-01-14 (Thu)
+#   Alias definitions.
+#     You may want to add your own alias in this file instead of .bashrc directly.
+#     See /usr/share/doc/bash-doc/examples in the bash-doc package.
+#
+#   * Rev.7: 2021-05-31 (Mon)
+#   * Rev.7: 2021-01-09 (Fri)
 #   * Rev.6: 2020-05-29 (Fri)
 #   * Rev.5: 2020-03-24 (Tue)
 #   * Rev.4: 2019-12-18 (Wed)
@@ -8,36 +13,63 @@
 #   * Rev.1: 2018-09-12 (Wed)
 #   * Draft: 2017-11-03 (Fri)
 #
-# Add a . to the file name and then
-# this file will be sourced by .bashrc.
-#
-# In .bashrc of Ubuntu 20.04, the following lines exist.
-#    if [ -f ~/.bash_aliases ]; then
-#        . ~/.bash_aliases
-#    fi
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# If the file name is bash_aliases,
+#   add a . to the file name and this file will be sourced by .bashrc
+#   because the following lines exist in .bashrc
+#     if [ -f ~/.bash_aliases ]; then
+#         . ~/.bash_aliases
+#     fi
+# In .bashrc of Ubuntu 20.04, the above if statement exist.
+# If your .bashrc doesn't have the if statement, you can add it manually.
 
-alias a='alias'
-#alias b=''
-alias c='conda activate'
+# Caution: add \ before $; don't forget ''; surround the awk command with ""
+alias a="awk '{ print \$0;}'"   # Usage: $ a filename.txt
+alias ao="awk 'FNR%2' <"      # o, not 0 (zero); remove every other line
+alias a1="awk '{ print \$1;}'"
+alias a2="awk '{ print \$2;}'"
+alias a3="awk '{ print \$3;}'"
+# You may add more if you like.
+
+alias b='bash'
+alias c='chmod +x'
+alias c4='chmod 400'
+
 alias ca='conda activate'
-alias cdd='conda deactivate'  # cd is dangeous! Don't use it!
+ENVIRONMENT0='activate tensorflow2_latest_p37'
+alias ca0="conda ${ENVIRONMENT0}"
+alias cdd='conda deactivate'
 alias ce='conda info -e'
 alias ci='conda install'
+
+# Aliasing cd is dangeous. Don't do it!
+#alias cd=''
+DIRECTORY0='~/github/tensorflow/tutorials/1-beginner/1-machine_learning_basics_with_keras'
+DIRECTORY9='~/github/tensorflow/tutorials-keras'
+alias cd0="cd ${DIRECTORY0}"
+alias cd9="cd ${DIRECTORY9}"
+
 alias d='~/.dropbox-dist/dropboxd'
-alias dropbox='~/.dropbox-dist/dropboxd'
-alias e='egrep -n'
+alias dr='docker run -it'
+alias dp='docker ps'
+alias da='docker attach'
+alias ds='docker stop'
+alias dc='docker commit'
+alias dl='docker login'
+#alias dpush='docker push'
+#alias dpull='docker pull'
+
+alias e='exit'
 alias f='find . -name'
-alias g='cd ~/github/ && ./batch_git_pull && ./batch_git_push'
-alias ggit='cd ~/github/ && ./batch_git_pull && ./batch_git_push'  # git is dangeous! Don't use it!
+alias g='egrep -n'  # grep, but I use egrep by default. The -n option shows the line number.
+
+# Alising git is dangeous! Don't do it!
+alias gb='cd ~/github/ && ./batch_git_pull && ./batch_git_push'  # git batch
 alias gpull='cd ~/github/ && ./batch_git_pull'
 alias gpush='cd ~/github/ && ./batch_git_push'
 alias h='history'
 #alias i=''
-alias j='jupyter notebook'
+alias jn='jupyter notebook'
+alias jl='jupyter lab'
 #alias k=''
 alias l='ls -CF'    # .bashrc Default
 alias la='ls -A'    # .bashrc Default
@@ -46,27 +78,28 @@ alias m='more'
 alias n='nano'
 #alias o=''
 alias p='pwd'
+alias pp='python'
 #alias q=''
-alias r='remove'
-alias s="find . -name '*.py'|xargs egrep -i -n "
-alias search="find . -name '*.py'|xargs egrep -i -n "
+#alias r=''
+alias s="find . -name '*'|xargs egrep -i -n "  # Search all files
+alias sb="source ~/.bashrc"
+alias spy="find . -name '*.py'|xargs egrep -i -n "  # search .py files
+
+alias sau='sudo apt update'
+alias sr='sudo reboot'
+alias sai='sudo apt install -y'
+
+alias ss0="ssh-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge-aimldl-office-2021-ec2_seoul"
+alias ss1="ssh-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge-aimldl-office-2021-ec2_seoul"
+alias sf0="sftp-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge-aimldl-office-2021-ec2_seoul"
+alias sf1="sftp-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge-aimldl-office-2021-ec2_seoul"
 alias t='tree'
 alias td='tree -d'
 alias tdl='tree -d -L'
 #alias u=''
 #alias v=''
 #alias w=''
+alias wn='watch -n 1 nvidia-smi'
 #alias x=''
 #alias y=''
 #alias z=''
-
-#################
-# Alias: Docker #
-#################
-#alias dr='docker run -it'
-#alias dp='docker ps'
-#alias da='docker attach'
-#alias ds='docker stop'
-#alias dc='docker commit'
-#alias dl='docker login'
-#alias dpu='docker push'
