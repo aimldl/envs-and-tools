@@ -61,6 +61,7 @@ alias dl='docker login'
 alias e='exit'
 alias f='find . -name'
 alias g='egrep -n'  # grep, but I use egrep by default. The -n option shows the line number.
+alias gg='gedit'
 
 # Alising git is dangeous! Don't do it!
 alias gb='cd ~/github/ && ./batch_git_pull && ./batch_git_push'  # git batch
