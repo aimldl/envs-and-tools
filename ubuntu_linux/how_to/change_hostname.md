@@ -1,10 +1,12 @@
+* Rev.1: 2021-06-09 (Wed)
 * Draft: 2021-04-06 (Tue)
 
 # How to Change `hostname` on Ubuntu
 
 Google search: ubuntu how to change hostname
 
-[How To Change Hostname On Ubuntu 20.04](https://phoenixnap.com/kb/ubuntu-20-04-change-hostname)
+* [Ubuntu 18.04 LTS change hostname permanently](https://www.cyberciti.biz/faq/ubuntu-18-04-lts-change-hostname-permanently/)
+* [How To Change Hostname On Ubuntu 20.04](https://phoenixnap.com/kb/ubuntu-20-04-change-hostname)
 
 * How to Check Current Hostname on Ubuntu 20.04
 
@@ -21,7 +23,13 @@ $ sudo hostname new-hostname
 
 * Permanently change the hostname (Reboot required)
 
-Open the following files and edit the old host name to a new one.
+```bash
+$ sudo hostnamectl set-hostname <new_hostname>
+$ sudo nano /etc/hosts
+$ sudo reboot
+```
+
+To do it manually, open the following files and edit the old host name to a new one.
 
 ```bash
 /etc/hostname
