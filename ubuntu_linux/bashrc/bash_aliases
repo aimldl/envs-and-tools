@@ -90,10 +90,11 @@ alias sau='sudo apt update'
 alias sr='sudo reboot'
 alias sai='sudo apt install -y'
 
-alias ss0="ssh-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge-aimldl-office-2021-ec2_seoul"
-alias ss1="ssh-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge-aimldl-office-2021-ec2_seoul"
-alias sf0="sftp-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge-aimldl-office-2021-ec2_seoul"
-alias sf1="sftp-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge-aimldl-office-2021-ec2_seoul"
+alias ss0="ssh-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge"
+alias ss1="ssh-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge"
+alias sf0="sftp-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge"
+alias sf1="sftp-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge"
+
 alias t='tree'
 alias td='tree -d'
 alias tdl='tree -d -L'
