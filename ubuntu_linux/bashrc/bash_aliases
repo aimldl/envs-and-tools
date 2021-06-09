@@ -94,8 +94,14 @@ alias sai='sudo apt install -y'
 
 alias ss0="ssh-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge"
 alias ss1="ssh-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge"
+alias ss2="ssh-t-deep_learning_ami_ver44_0-8gpus-0-p3_16xlarge"
+alias ss3="ssh-t-deep_learning_ami_ver44_0-8gpus-1-p3_16xlarge"
+
 alias sf0="sftp-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge"
 alias sf1="sftp-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge"
+alias sf2="sftp-t-deep_learning_ami_ver44_0-8gpus-0-p3_16xlarge"
+alias sf3="sftp-t-deep_learning_ami_ver44_0-8gpus-1-p3_16xlarge"
+
 alias t='tree'
 alias td='tree -d'
 alias tdl='tree -d -L'
