@@ -35,31 +35,31 @@ alias c='chmod +x'
 alias c4='chmod 400'
 
 alias ca='conda activate'
-ENVIRONMENT0='activate tensorflow2_latest_p37'
-alias ca0="conda ${ENVIRONMENT0}"
+alias ca0="conda activate tensorflow2_latest_p37"
 alias cdd='conda deactivate'
 alias ce='conda info -e'
 alias ci='conda install'
 
 # Aliasing cd is dangeous. Don't do it!
 #alias cd=''
-DIRECTORY0='~/github/tensorflow/tutorials/1-beginner/1-machine_learning_basics_with_keras'
-DIRECTORY9='~/github/tensorflow/tutorials-keras'
+DIRECTORY0='~/github/tensorflow/tutorials-keras/py_files'
+DIRECTORY9='~/github/tensorflow/tutorials/1-beginner/1-machine_learning_basics_with_keras'
 alias cd0="cd ${DIRECTORY0}"
 alias cd9="cd ${DIRECTORY9}"
 
-alias d='~/.dropbox-dist/dropboxd'
+alias dd='~/.dropbox-dist/dropboxd'
 alias dr='docker run -it'
 alias dp='docker ps'
 alias da='docker attach'
 alias ds='docker stop'
 alias dc='docker commit'
 alias dl='docker login'
-#alias dpush='docker push'
-#alias dpull='docker pull'
+alias dpush='docker push'
+alias dpull='docker pull'
 
 alias e='exit'
 alias f='find . -name'
+
 alias g='egrep -n'  # grep, but I use egrep by default. The -n option shows the line number.
 alias gg='gedit'
 
@@ -77,12 +77,14 @@ alias la='ls -A'    # .bashrc Default
 alias ll='ls -alF'  # .bashrc default
 alias m='more'
 alias n='nano'
+alias nn='nvidia-smi'
 #alias o=''
 alias p='pwd'
 alias pp='python'
 #alias q=''
 #alias r=''
-alias s="find . -name '*'|xargs egrep -i -n "  # Search all files
+
+alias search="find . -name '*'|xargs egrep -i -n "  # Search all files
 alias sb="source ~/.bashrc"
 alias spy="find . -name '*.py'|xargs egrep -i -n "  # search .py files
 
@@ -94,7 +96,6 @@ alias ss0="ssh-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge"
 alias ss1="ssh-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge"
 alias sf0="sftp-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge"
 alias sf1="sftp-t-deep_learning_ami_ver42_1-4gpus-1-p3_8xlarge"
-
 alias t='tree'
 alias td='tree -d'
 alias tdl='tree -d -L'
