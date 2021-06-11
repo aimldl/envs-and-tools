@@ -1,4 +1,3 @@
-##### ec2/how_to_change_disk_space.md
 * Rev.1: 2020-0324 (Tue)
 * Draft: 2020-0108 (Wed)
 
@@ -16,7 +15,7 @@ Step 5. Extend the file system in the terminal.
 
 ### 1. Example
 #### 1.1. Problem
-On the terminal, the "No space left on device" error has occured.
+On the terminal, the "No space left on device" error has occurred.
 ```bash
 (pytorch) ubuntu@ec2-seoul-aimldl:~/wav2vec$ ls
 dataset  downloads  notebooks  src
