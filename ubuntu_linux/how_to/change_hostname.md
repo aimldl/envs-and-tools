@@ -3,6 +3,15 @@
 
 # How to Change `hostname` on Ubuntu
 
+## Summary
+
+```bash
+$ sudo hostnamectl set-hostname <hostname>
+$ sudo reboot
+```
+
+## Contents
+
 Google search: ubuntu how to change hostname
 
 * [Ubuntu 18.04 LTS change hostname permanently](https://www.cyberciti.biz/faq/ubuntu-18-04-lts-change-hostname-permanently/)
