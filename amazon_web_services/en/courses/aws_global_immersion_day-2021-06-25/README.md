@@ -2,6 +2,9 @@
 
 # Agenda
 
+## Hands-on Lab 
+https://kr-id-general.workshop.aws/ko/preparation-guide.html
+
 Global Infra
 
 Network
