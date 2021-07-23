@@ -23,6 +23,6 @@ Installation of Cloud SDK is necessary if you choose to use a terminal.
 
 ## How to install
 
-* Refer to [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install). 
+* To install Cloud Shell, refer to [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install). 
 * My version of the above document is summarized at [How to Install Google Cloud SDK](how_to/5-install_google_cloud_sdk.md).
 
