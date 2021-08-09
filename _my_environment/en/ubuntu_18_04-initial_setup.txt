@@ -1,0 +1,81 @@
+
+## Network Settings
+
+### Wired vs. Wireless
+Wired network is better because the dataset can be large.
+
+### Get the MAC address
+
+```bash
+$ cat /sys/class/net/*/address
+b0:7b:25:17:65:4e
+b0:7b:25:17:64:8b
+00:00:00:00:00:00
+$
+```
+
+### Fetch the GitHub repositories
+```bash
+$ sudo apt update
+$ sudo apt install -y git
+```
+
+$ mkdir github
+$ cd github/
+$ nano batch_git_clone
+# Copy & paste the content 
+#   at https://github.com/aimldl/tools/blob/main/git/bash_scripts/batch_git_clone
+$ chmod +x batch_git_clone
+$ ./batch_git_clone
+```
+
+## Auto-install packages
+
+### Copy the files
+```bash
+$ cp -r ~/github/environments/ubuntu_linux/AUTO_INSTALL ~
+```
+Directory AUTO_INSTALL is made under ~.
+
+### Install packages
+```bash
+$ cd AUTO_INSTALL/
+$ chmod +x install
+$ ./install
+```
+
+The messages to select the options are below.
+```bash
+$ ./install 
+What would you like to install?
+  1. Ubuntu packages
+  2. Kubernetes
+  3. Kubeflow
+  4. All
+1
+
+cd /home/aimldl/AUTO_INSTALL/ubuntu_packages
+chmod +x ./install_ubuntu_packages
+./install_ubuntu_packages
+What would you like to install?
+  1. Essential packages
+  2. Convenience packages
+  3. Productivity packages
+  4. All
+4
+
+chmod +x ./install_ubuntu_essential_packages
+./install_ubuntu_essential_packages
+[sudo] password for aimldl: 
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]  
+Hit:2 http://kr.archive.ubuntu.com/ubuntu bionic InRelease                   
+  ...
+$
+```
+
+```bash
+ More info: https://launchpad.net/~gnome-terminator/+archive/ubuntu/ppa
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+```
+
+

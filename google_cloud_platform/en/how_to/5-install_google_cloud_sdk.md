@@ -4,7 +4,9 @@
 
 ## Summary
 
-For Linux 64-bit (x86_64), run:
+To install on Ubuntu Linux (18.04), run [bash_script/install_google_cloud_sdk](bash_script/install_google_cloud_sdk). 
+
+Equivalently, you may run the following commands manually.
 
 ```bash
 $ python --version
