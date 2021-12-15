@@ -31,11 +31,11 @@ Enter the root password.
   ...
 ==> Checking for `sudo` access (which may request your password)...
 Password: 
-==> This script will install:
-  ...
 ```
 Enter the root password again.
 ```
+==> This script will install:
+  ...
 ==> /usr/bin/sudo /bin/rm -f /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 Password: 
 ```
