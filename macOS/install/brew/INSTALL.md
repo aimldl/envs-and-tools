@@ -110,3 +110,10 @@ $
 
 ### Error
 Both Bash & Ruby commands failed.
+
+###
+```bash
+$ which brew
+/usr/local/bin/brew
+$
+```
