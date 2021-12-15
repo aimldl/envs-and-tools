@@ -1,8 +1,15 @@
 * Draft: 2021-12-15 (Wed)
 
 # How to Install Homebrew on macOS
-Google search: mac how to install brew
-* [Installing Homebrew on a Mac](https://treehouse.github.io/installation-guides/mac/homebrew) > Installation Steps
+## Summary
+```bash
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ which brew
+$ brew help
+$
+```
+
+## Google search: mac how to install brew
 
 ### Install `brew` with Bash
 ```bash
@@ -77,7 +84,7 @@ Further help:
 $
 ```
 
-## Ruby
+### The Ruby command is deprecated.
 I don't recommend to use the following ruby command because
 1. it took several tens of minutes on my newest macOS Pro and
 2. installing Homebrew with Ruby is deprecated as follows:
@@ -89,6 +96,7 @@ Bash. Please migrate to the following command:
 ```
 
 ### Command to install `brew` with Ruby
+[Installing Homebrew on a Mac](https://treehouse.github.io/installation-guides/mac/homebrew) > Installation Steps
 
 ```bash
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
