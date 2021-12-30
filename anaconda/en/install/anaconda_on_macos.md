@@ -60,7 +60,7 @@ Enter `yes`
 ```bash
   ...
 Do you accept the license terms? [yes|no]
->>> 
+[no] >>> 
 ```
 Press ENTER
 ```bash
@@ -74,34 +74,4 @@ Anaconda3 will now be installed into this location:
 [/Users/thekim/anaconda3] >>> 
 ```
 
-```bash
-Santa
-
-This application has been blocked from executing
-because its trustworthiness cannot be determined.
-
-Path:       /Users/thekim/anaconda3/conda.exe
-Identifier: 8d9538da8e406dcea76ef2a1b3e2eb63c04c1f3c979bf6153ec4a6b02e522b37
-Parent:     bash (89240)
-
-More info:
-https://upvote.googleplex.com/blockables/8d9538da8e406dcea76ef2a1b3e2eb63c04c1f3c979bf6153ec4a6b02e522b37
-
-/Users/thekim/Downloads/Anaconda3-2021.11-MacOSX-x86_64.sh: line 406: 89518 Exit 141                { dd if="$THIS_PATH" bs=1 skip=15687381 count=8491 2> /dev/null; dd if="$THIS_PATH" bs=16384 skip=958 count=31578 2> /dev/null; dd if="$THIS_PATH" bs=1 skip=533069824 count=4623 2> /dev/null; }
-     89519 Killed: 9               | "$CONDA_EXEC" constructor --extract-tar --prefix "$PREFIX"
-/Users/thekim/Downloads/Anaconda3-2021.11-MacOSX-x86_64.sh: line 408: 89525 Killed: 9               "$CONDA_EXEC" constructor --prefix "$PREFIX" --extract-conda-pkgs
-
-Santa
-
-This application has been blocked from executing
-because its trustworthiness cannot be determined.
-
-Path:       /Users/thekim/anaconda3/conda.exe
-Identifier: 8d9538da8e406dcea76ef2a1b3e2eb63c04c1f3c979bf6153ec4a6b02e522b37
-Parent:     bash (89240)
-
-More info:
-https://upvote.googleplex.com/blockables/8d9538da8e406dcea76ef2a1b3e2eb63c04c1f3c979bf6153ec4a6b02e522b37
-
-$ 
-```
+Santa blocks the execution.
