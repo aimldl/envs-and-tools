@@ -74,7 +74,12 @@ Anaconda3 will now be installed into this location:
 [/Users/thekim/anaconda3] >>> 
 ```
 
-## Error: 
+## Dealing with the error by Santa
+This part applies only to
+
+`python3.9`.
+
+Clicking the `Ignore` button doesn't remove the error. Click "Upvote" button
 Santa blocks the execution. Reinstalling with the same command fails with the following error.
 ```bash
   ...
@@ -111,4 +116,6 @@ You are now able to run this application!
 You may need to wait up to 10 minutes for your machine to sync.
 Alternatively, (...)
 `
+1 more vote needed to approve this application.
 
+To get the necessary votes, you can...
