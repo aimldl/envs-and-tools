@@ -7,7 +7,7 @@
 $ xcode-select --install
 $ brew install python
 ```
-Source: [Installing Python](https://cloud.google.com/python/docs/setup#installing_python)
+Source: Google Cloud > Python > Documentation > Guides > Setting up a Python development environment > [Installing Python](https://cloud.google.com/python/docs/setup#installing_python)
 
 ## Python2 is the default Python version on MacOS 
 ```bash
