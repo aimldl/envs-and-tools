@@ -74,4 +74,41 @@ Anaconda3 will now be installed into this location:
 [/Users/thekim/anaconda3] >>> 
 ```
 
-Santa blocks the execution.
+## Error: 
+Santa blocks the execution. Reinstalling with the same command fails with the following error.
+```bash
+  ...
+[/Users/thekim/anaconda3] >>> 
+ERROR: File or directory already exists: '/Users/thekim/anaconda3'
+If you want to update an existing installation, use the -u option.
+$
+```
+
+I've deleted the directory '/Users/thekim/anaconda3' and ran the installation command.
+
+```bash
+Santa
+
+This application has been blocked from executing
+because its trustworthiness cannot be determined.
+
+Path:       /Users/thekim/anaconda3/conda.exe
+Identifier: 8d9538da8e406dcea76ef2a1b3e2eb63c04c1f3c979bf6153ec4a6b02e522b37
+Parent:     bash (90385)
+
+More info:
+https://upvote. (...)
+
+/Users/thekim/Downloads/Anaconda3-2021.11-MacOSX-x86_64.sh: line 406: 90551 Exit 141                { dd if="$THIS_PATH" bs=1 skip=15687381 count=8491 2> /dev/null; dd if="$THIS_PATH" bs=16384 skip=958 count=31578 2> /dev/null; dd if="$THIS_PATH" bs=1 skip=533069824 count=4623 2> /dev/null; }
+     90552 Killed: 9               | "$CONDA_EXEC" constructor --extract-tar --prefix "$PREFIX"
+/Users/thekim/Downloads/Anaconda3-2021.11-MacOSX-x86_64.sh: line 408: 90559 Killed: 9               "$CONDA_EXEC" constructor --prefix "$PREFIX" --extract-conda-pkgs
+$
+```
+Go to the URL under `More info:`, that is `https://upvote. (...)` and click the `VOTED TO APPROVE` button.
+
+`What happens next?
+You are now able to run this application!
+You may need to wait up to 10 minutes for your machine to sync.
+Alternatively, (...)
+`
+
