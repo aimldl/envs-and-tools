@@ -8,7 +8,7 @@ $ python --version
 Python 2.7.18
 $
 ```
-## `brew` is prerequisite
+## `brew` is prerequisites
 A package manager `brew` is not pre-built on macOs. So install `brew` if you haven't installed it yet. 
 
 To double-check the installation, run the following command. If you have `brew` on your machine, you'll see a message like this.
@@ -190,3 +190,4 @@ $
 
 ## Reference
 * [The right and wrong way to set Python 3 as default on a Mac](https://opensource.com/article/19/5/python-3-default-mac), 2020-12-01, Matthew Broberg (Red Hat), Feed Moshe Zadka (Correspondent), opensource.com
+* [Installing Python 3 on Mac OS X](https://docs.python-guide.org/starting/install3/osx/), The Hitchhiker's Guide to Python
