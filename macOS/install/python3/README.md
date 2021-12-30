@@ -1,6 +1,13 @@
 * 2021-12-30 (Thu)
 
 # How to Install Python3 on MacOS
+## Summary
+
+```bash
+$ xcode-select --install
+$ brew install python
+```
+Source: [Installing Python](https://cloud.google.com/python/docs/setup#installing_python)
 
 ## Python2 is the default Python version on MacOS 
 ```bash
@@ -185,7 +192,59 @@ Type "help", "copyright", "credits" or "license" for more information.
 $
 ```
 
+## One more time
 
+```bash
+$ brew install python
+Warning: python@3.9 3.9.9 is already installed, it's just not linked.
+To link this version, run:
+  brew link python@3.9
+$
+```
+
+```bash
+$ brew link python@3.9
+Linking /usr/local/Cellar/python@3.9/3.9.9... 
+Error: Could not symlink bin/2to3
+Target /usr/local/bin/2to3
+already exists. You may want to remove it:
+  rm '/usr/local/bin/2to3'
+
+To force the link and overwrite all conflicting files:
+  brew link --overwrite python@3.9
+
+To list all files that would be deleted:
+  brew link --overwrite --dry-run python@3.9
+$
+```
+Before deling the files, check the list first.
+
+```bash
+$ brew link --overwrite --dry-run python@3.9
+Would remove:
+/usr/local/bin/2to3 -> /Library/Frameworks/Python.framework/Versions/3.7/bin/2to3
+/usr/local/bin/idle3 -> /Library/Frameworks/Python.framework/Versions/3.7/bin/idle3
+/usr/local/bin/pydoc3 -> /Library/Frameworks/Python.framework/Versions/3.7/bin/pydoc3
+/usr/local/bin/python3 -> /Library/Frameworks/Python.framework/Versions/3.7/bin/python3
+/usr/local/bin/python3-config -> /Library/Frameworks/Python.framework/Versions/3.7/bin/python3-config
+$
+```
+It looks safe to overwrite everything.
+
+```bash
+$ brew link --overwrite python@3.9
+Linking /usr/local/Cellar/python@3.9/3.9.9... 24 symlinks created.
+$
+```
+
+To make sure, 
+```bash
+$ brew install python
+Warning: python@3.9 3.9.9 is already installed and up-to-date.
+To reinstall 3.9.9, run:
+  brew reinstall python@3.9
+$
+```
 
 
 ## Reference
