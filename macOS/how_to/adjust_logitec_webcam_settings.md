@@ -8,6 +8,4 @@ Google search: macos logitech webcam settings
 
 <img src='images/c925e-feature-2-v2.webp' width=319 height=108>
 
-width=1594 height=539
-
 * [Webcam C925e Downloads](https://prosupport.logi.com/hc/en-us/articles/360039579114-Download-Stub-C925e-Webcam)
