@@ -3,6 +3,7 @@
 #    Run this script after installing Ubuntu Linux and install the basic packages
 #    For Ubuntu 18.04 LTS
 #
+#  * Rev.6: 2022-04-04 (Mon)
 #  * Rev.5: 2021-01-20 (Wed)
 #  * Rev.4: 2020-12-10 (Thu)
 #  * Rev.3: 2020-12-02 (Wed)
@@ -35,6 +36,7 @@ sudo apt install -y curl
 sudo apt install -y screen
 sudo apt install -y net-tools
 sudo apt install -y pkg-config
+sudo apt install -y wget
 
 # Some old Ubuntu versions don't have the following packages.
 # In that case, uncomment the following commands and run.
