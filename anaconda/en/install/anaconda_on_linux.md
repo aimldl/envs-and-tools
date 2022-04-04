@@ -1,3 +1,4 @@
+* Rev.3: 2022-04-04 (Mon)
 * Rev.2: 2020-11-09 (Mon)
 * Rev.1: 2020-03-16 (Mon)
 * Draft: 2019-12-18 (Wed)
@@ -100,6 +101,7 @@ The same topic in Korean is available at:
   Step 5. Update to the most recent version
 
   ```bash
+  (base) $ conda update -n base -c defaults conda
   (base) $ conda update --all --yes
   
   ```
