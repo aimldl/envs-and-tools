@@ -3,6 +3,7 @@
 #     You may want to add your own alias in this file instead of .bashrc directly.
 #     See /usr/share/doc/bash-doc/examples in the bash-doc package.
 #
+#   * Rev.8: 2022-11-27 (Sun)
 #   * Rev.7: 2021-05-31 (Mon)
 #   * Rev.7: 2021-01-09 (Fri)
 #   * Rev.6: 2020-05-29 (Fri)
@@ -65,8 +66,10 @@ alias gg='gedit'
 
 # Alising git is dangeous! Don't do it!
 alias gb='cd ~/github/ && ./batch_git_pull && ./batch_git_push'  # git batch
+alias gtoken='cat ~/github/token'
 alias gpull='cd ~/github/ && ./batch_git_pull'
 alias gpush='cd ~/github/ && ./batch_git_push'
+
 alias h='history'
 #alias i=''
 alias jn='jupyter notebook'
