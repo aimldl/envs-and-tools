@@ -7,7 +7,7 @@ In Files, there are directories that I never use:
 - Videos
 I'm hoping to remove them from the left menu.
 
-<img src='images/ubuntu_linux-files-pictures.png'>
+<img src='images/ubuntu_18_04-files_default_folders-pictures.png'>
 
 ## References
 
