@@ -3,7 +3,7 @@
 * Updated: 2023-01-24 (Mon)
 
 ## Purpose
-In Files, I'm hoping to remove directories that I never use from the shortcuts in the left.
+In Files, I'll remove directories that I never use from the shortcuts in the left.
 - Documents
 - Music
 - Videos
