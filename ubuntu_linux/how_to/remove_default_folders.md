@@ -71,7 +71,8 @@ PICTURES=Pictures
 ```
 ## Delete unneccessary folders in Files
 Right-click on an unneccessary folder.
-<img src='images/ubuntu_18_04-etc_xdg_user_dirs_defaults.png'>
+
+<img src='images/ubuntu_18_04-files-edits_the_shortcuts.png'>
 
 Remove all unneccessary folders. I got what I want.
 
