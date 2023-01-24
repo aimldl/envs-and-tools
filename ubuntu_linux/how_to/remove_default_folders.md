@@ -1,6 +1,6 @@
 # How to Remove Default Folders
-Created: 2023-01-24 (Mon)
-Updated: 2023-01-24 (Mon)
+* Created: 2023-01-24 (Mon)
+* Updated: 2023-01-24 (Mon)
 
 ## Purpose
 In Files, I'm hoping to remove directories that I never use from the shortcuts in the left.
