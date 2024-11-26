@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Configuration
+DIR='~/AWS/ec2/seoul'
+KEY='keypair-aimldl_office_2021.pem'
+OPTION='-L 8888:localhost:8888 -X'
+ID='ubuntu'
+
+## Function definitions
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+ssh2() {
+  PUBLIC_IPV4_ADDRESS=$1
+  run "ssh -i ${DIR}/${KEY} ${OPTION} ${ID}@${PUBLIC_IPV4_ADDRESS}"
+}
+
+sftp2() {
+  PUBLIC_IPV4_ADDRESS=$1
+  run "sftp -i ${DIR}/${KEY} ${ID}@${PUBLIC_IPV4_ADDRESS}"
+}

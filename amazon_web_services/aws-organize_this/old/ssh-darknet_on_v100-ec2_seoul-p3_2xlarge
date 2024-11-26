@@ -1,0 +1,23 @@
+#!/bin/bash
+##### Rev.1: 2021-02-18 (Thu)
+##### Draft: 2019-11-28 (Thu)
+
+# ssh-darknet_on_v100-ec2_seoul-p3_2xlarge
+
+## Configuration
+KEY='keypair-aimldl.pem'
+OPTION='-L 8888:localhost:8888 -X'
+#OPTION='-L 8888:localhost:8888'
+ID='ubuntu'
+PUBLIC_IPV4_DNS="ec2-52-79-105-9.ap-northeast-2.compute.amazonaws.com"
+PUBLIC_IPV4_ADDRESS='52.79.105.9'  # To make the IP address static, use Elastic IP.
+
+## Function definition
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+## Main
+run "ssh -i ${KEY} ${OPTION} ${ID}@${PUBLIC_IPV4_DNS}"

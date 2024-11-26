@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source settings
+sftp2 '52.79.105.9'

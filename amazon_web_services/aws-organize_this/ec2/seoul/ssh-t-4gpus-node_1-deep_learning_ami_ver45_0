@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source settings
+ssh2 52.79.164.25

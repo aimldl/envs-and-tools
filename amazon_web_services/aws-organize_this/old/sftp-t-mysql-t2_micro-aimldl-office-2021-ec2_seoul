@@ -1,0 +1,21 @@
+#!/bin/bash
+##### Rev.1: 2021-02-18 (Thu)
+##### Draft: 2019-11-28 (Thu)
+
+# sftp-aws_ec2_seoul-aimldl-office-2021
+
+## Configuration
+KEY='keypair-aimldl_office_2021.pem'
+ID='ubuntu'
+PUBLIC_IPV4_DNS="ec2-3-35-16-92.ap-northeast-2.compute.amazonaws.com"
+PUBLIC_IPV4_ADDRESS='3.35.16.92'  # To make the IP address static, use Elastic IP.
+
+## Function definition
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+## Main
+run "sftp -i ${KEY} ${ID}@${PUBLIC_IPV4_DNS}"

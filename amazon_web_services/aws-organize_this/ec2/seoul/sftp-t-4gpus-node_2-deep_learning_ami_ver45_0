@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source settings
+sftp2 3.36.144.8

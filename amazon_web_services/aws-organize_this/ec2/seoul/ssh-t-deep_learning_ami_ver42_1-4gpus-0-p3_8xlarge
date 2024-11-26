@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source settings
+ssh2 3.36.146.88

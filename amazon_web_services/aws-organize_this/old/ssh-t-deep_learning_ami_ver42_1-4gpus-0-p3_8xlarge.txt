@@ -1,0 +1,22 @@
+#!/bin/bash
+# ssh-t-deep_learning_ami_ver42_1-4gpus-0-p3_8xlarge
+#   * Rev.2: 2021-04-06 (Tue)
+#   * Rev.1: 2021-02-18 (Thu)
+#   * Draft: 2019-11-28 (Thu)
+
+## Configuration
+KEY='keypair-aimldl_office_2021.pem'
+OPTION='-L 8888:localhost:8888 -X'
+#OPTION='-L 8888:localhost:8888'
+ID='ubuntu'
+PUBLIC_IPV4_ADDRESS='3.36.146.88'  # To make the IP address static, use Elastic IP.
+
+## Function definition
+run() {
+  COMMAND=$1
+  echo ${COMMAND}
+  eval ${COMMAND}
+}
+
+## Main
+run "ssh -i ${KEY} ${OPTION} ${ID}@{PUBLIC_IPV4_ADDRESS}"

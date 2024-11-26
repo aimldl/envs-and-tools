@@ -1,0 +1,24 @@
+#!/bin/bash
+##### Rev.2: 2021-04-06 (Tue)
+##### Rev.1: 2021-02-18 (Thu)
+##### Draft: 2019-11-28 (Thu)
+
+# ssh-t-sqlite-python-numpy-t3a_2xlarge-aimldl-office-2021-ec2_seoul
+
+## Configuration
+KEY='keypair-aimldl_office_2021.pem'
+OPTION='-L 8888:localhost:8888 -X'
+#OPTION='-L 8888:localhost:8888'
+ID='ubuntu'
+PUBLIC_IPV4_DNS='ec2-54-180-156-221.ap-northeast-2.compute.amazonaws.com'
+PUBLIC_IPV4_ADDRESS='54.180.156.221'  # To make the IP address static, use Elastic IP.
+
+## Function definition
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+## Main
+run "ssh -i ${KEY} ${OPTION} ${ID}@${PUBLIC_IPV4_DNS}"

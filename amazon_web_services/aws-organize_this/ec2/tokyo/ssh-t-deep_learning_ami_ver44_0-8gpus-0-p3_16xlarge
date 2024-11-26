@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source settings-tokyo
+ssh2 '54.250.22.89'

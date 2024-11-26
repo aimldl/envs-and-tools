@@ -1,0 +1,33 @@
+#!/bin/bash
+# batch_chmod
+##### Draft: 2021-02-18 (Thu)
+
+## Configuration
+### You may add a new file in the list.
+
+BASH_SCRIPT_LIST=(
+  ssh-darknet_on_v100-ec2_seoul-p3_2xlarge
+  sftp-darknet_on_v100-ec2_seoul-p3_2xlarge
+)
+
+KEY_PAIR_LIST=(
+  keypair-aimldl.pem
+)
+
+## Function Definition
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+## Main
+for FILE_NAME in "${BASH_SCRIPT_LIST[@]}"; do
+  #echo $FILE_NAME
+  run "chmod +x $FILE_NAME"
+done 
+
+for FILE_NAME in "${KEY_PAIR_LIST[@]}"; do
+  #echo $FILE_NAME
+  run "chmod 400 $FILE_NAME"
+done 

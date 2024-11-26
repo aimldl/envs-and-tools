@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source settings-tokyo
+ssh2 '176.34.40.140'  # Elastic IP
