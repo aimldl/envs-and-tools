@@ -1,0 +1,18 @@
+* Rev.1: 2020-07-02 (Thu)
+* Draft: 2020
+
+# grep
+
+$ grep "^{.*}$" 'mobile cross platform framework.md' 
+
+
+## OR 조건문
+```bash
+$ cd /var/run
+$ ls | egrep "docker|containerd"
+containerd
+docker
+docker.pid
+docker.sock
+$
+```
