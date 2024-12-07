@@ -1,0 +1,53 @@
+#!/bin/bash
+#  install_ubuntu_basic_packages
+#
+#  * Rev.6: 2020-07-27 (Mon)
+#  * Rev.5: 2020-07-24 (Fri)
+#  * Rev.4: 2020-07-21 (Tue)
+#  * Rev.3: 2020-07-14 (Tue)
+#  * Rev.2: 2020-06-27 (Mon)
+#  * Rev.1: 2020-06-22 (Mon)
+#  * Draft: 2018-09-10 (Mon)
+#
+#  Run the commands after installing Ubuntu Linux.
+#    $ chmod +x install_ubuntu_basic_packages 
+#    $ ./install_ubuntu_basic_packages 
+#
+#  To edit this file,
+#    $ nano install_kubernetes
+
+FILE_ENDGING_MESSAGE="../logs/ending_message.txt"
+
+run() {
+  COMMAND=$1
+  echo ''
+  echo $COMMAND
+  eval $COMMAND
+}
+
+run 'sudo apt update && sudo apt upgrade -y'
+
+# Install Dependencies
+run 'sudo apt install -y build-essential'
+run 'sudo apt install -y cmake'
+run 'sudo apt install -y python-dev python3-dev python-pip python3-pip'
+
+# Install some convenient packages
+run 'sudo apt install -y tree'
+run 'sudo apt install -y curl'
+run 'sudo apt install -y screen'
+run 'sudo apt install -y net-tools'
+run 'sudo apt install -y pkg-config'
+
+# gnome-tweak-tool
+run 'sudo add-apt-repository universe'
+run 'sudo apt install -y gnome-tweak-tool'
+
+# ssh server
+#   https://medium.com/better-programming/how-to-ssh-into-a-kubernetes-pod-from-outside-the-cluster-354b4056c42b
+run 'sudo apt install -y openssh-server'
+
+printf 'If the ssh server is not up, start the service manually: \n' > $FILE_ENDGING_MESSAGE
+printf '$ service ssh start \n' >> $FILE_ENDGING_MESSAGE
+
+# EOF

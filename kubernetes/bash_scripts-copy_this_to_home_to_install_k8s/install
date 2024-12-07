@@ -1,0 +1,40 @@
+#!/bin/bash
+# install
+#   Ubuntu, Kubernetes, and Kubeflow automatically
+#
+# * Rev.3: 2020-07-27 (Mon)
+# * Rev.2: 2020-07-24 (Fri)
+# * Rev.1: 2020-07-21 (Tue)
+# * Draft: 2020-07-20 (Mon)
+
+run() {
+  COMMAND=$1
+  DIRECTORY=$2
+
+  cd $DIRECTORY
+  chmod +x $COMMAND
+  echo "$COMMAND ..."
+  eval $COMMAND
+}
+
+HOME_DIR="/home/$USER"
+DIR_BASH_SCRIPTS="$HOME_DIR/bash-copy_this_to_home/bash_scripts"
+
+CMD='./install_ubuntu_basic_packages'
+printf 'Running '  # No new line here. The next command prints the rest of the line
+run $CMD $DIR_BASH_SCRIPTS
+
+CMD='./install_kubernetes'
+printf '\n'
+printf 'Running '
+run $CMD $DIR_BASH_SCRIPTS
+
+# Print saved messages at the end for convenience.
+FILE_FINAL_MESSAGE='logs/final_message_on_the_bottom.txt'
+if test -f $FILE_FINAL_MESSAGE; then  # exists
+  cat $FILE_FINAL_MESSAGE
+else                                  # doesn't exist
+  echo ''
+fi
+
+# EOF

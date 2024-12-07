@@ -1,0 +1,14 @@
+#!/bin/bash
+# install_more_on_ubuntu
+#
+# * Rev.1: 2020-07-21 (Tue)
+# * Draft: 2020-07-20 (Mon)
+
+# Install some basic & productivity programs
+cd bash_scripts
+chmod +x install_ubuntu_productivity_packages
+./install_ubuntu_productivity_packages
+
+# Set up the Ubuntu
+chmod +x setup_ubuntu
+./setup_ubuntu

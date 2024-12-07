@@ -1,0 +1,15 @@
+TODO
+
+2020-07-27 (Mon)
+Fix the errors.
+
+### Error 1
+sudo rm -rf /var/lib/docker /etc/docker
+rm: '/var/lib/docker/containers/a3663ccce977e55134123958a28594a0bf980ca3df0f4719623876f8d15a4ddc/mounts/shm'를 지울 수 없음: 장치나 자원이 동작 중
+rm: '/var/lib/docker/containers/bb7c700aaa3708a74b1fc95a1cbd45b4082086c5bad5c523b5074d8f8b072828/mounts/shm'를 지울 수 없음: 장치나 자원이 동작 중
+rm: '/var/lib/docker/containers/bf9b803a84c0a40f5887214ad61c9d4da93fa959d3957e60b955ede3c9e5b0f5/mounts/shm'를 지울 수 없음: 장치나 자원이 동작 중
+rm: '/var/lib/docker/containers/4769c0cdab7c827deee135541b61d82b824859b8669f923be8354a7d2b1d719b/mounts/shm'를 지울 수 없음: 장치나 자원이 동작 중
+sudo rm /etc/apparmor.d/docker
+rm: '/etc/apparmor.d/docker'를 지울 수 없음: 그런 파일이나 디렉터리가 없습니다
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock

@@ -1,0 +1,2 @@
+If the ssh server is not up, start the service manually: 
+$ service ssh start 

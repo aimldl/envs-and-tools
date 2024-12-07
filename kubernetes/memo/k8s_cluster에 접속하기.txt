@@ -1,0 +1,37 @@
+$ ssh k8smaster@192.168.0.109
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:GTum/ojZKhjAPZaTKwm5VQs+vGbjk94RxcFVE7+p4jE.
+Please contact your system administrator.
+Add correct host key in /home/aimldl/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/aimldl/.ssh/known_hosts:5
+  remove with:
+  ssh-keygen -f "/home/aimldl/.ssh/known_hosts" -R "192.168.0.109"
+ECDSA host key for 192.168.0.109 has changed and you have requested strict checking.
+Host key verification failed.
+$
+
+$ sudo apt update
+[sudo] password for aimldl: 
+$ sudo apt update
+  ...
+$ sudo apt-get install -y kubectl
+  ...
+$ sudo apt-mark hold kubectl
+kubectl set on hold.
+$
+
+설치 확인하기
+$ kubectl version --client
+Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.0", GitCommit:"9e991415386e4cf155a24b1da15becaa390438d8", GitTreeState:"clean", BuildDate:"2020-03-25T14:58:59Z", GoVersion:"go1.13.8", Compiler:"gc", Platform:"linux/amd64"}
+$
+
+
+$ kubectl config view | grep "current-context"
+current-context: aimldl@wonderful-painting-1587560462.us-west-2.eksctl.io
+$

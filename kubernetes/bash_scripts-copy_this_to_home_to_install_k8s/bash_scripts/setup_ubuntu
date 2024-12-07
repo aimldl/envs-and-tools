@@ -1,0 +1,21 @@
+#!/bin/bash
+# setup_ubuntu
+#   Run this after install_ubuntu
+#
+# Draft: 2020-07-20 (Mon)
+
+google-chrome &
+
+# Prerequisite: git must be installed.
+# ./batch_git_clone: line 27: git: command not found
+mkdir github
+mv batch_git_clone github/
+cd github/
+chmod +x batch_git_clone
+./batch_git_clone
+cp technical_skills/tools/git/bash_scripts/batch_git_pull .
+cp technical_skills/tools/git/bash_scripts/batch_git_push .
+ls
+printf "\n Run the following commands to set your account's default identity.\n
+  git config --global user.email \"you@example.com\"\n
+  git config --global user.name \"Your Name\"\n"
