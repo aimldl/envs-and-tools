@@ -1,0 +1,32 @@
+#!/bin/bash
+# install_typora_on_ubuntu_linux
+#   Download and run this script on your user home or /home/user_id.
+#   typora will be installed automatically.
+#  
+#
+# This script runs the following commands.
+# $ wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+# $ sudo add-apt-repository 'deb https://typora.io/linux ./'
+# $ sudo apt-get update -y
+# $ sudo apt-get install -y typora
+
+# Commands are displayed on terminal BEFORE running the command
+
+# Download the key
+CMD="wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -"
+echo $CMD
+eval $CMD
+
+# Add Typora's repository
+CMD="sudo add-apt-repository 'deb https://typora.io/linux ./'"
+echo $CMD
+eval $CMD
+
+CMD="sudo apt-get update -y"
+echo $CMD
+eval $CMD
+
+# install typora
+CMD="sudo apt-get install -y typora"
+echo $CMD
+eval $CMD
