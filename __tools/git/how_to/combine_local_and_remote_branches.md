@@ -31,6 +31,7 @@ This message tells that my local branch and the remote branch have diverged.
 Specify how to combine the changes in both branches.
 
 ## Gemini Advanced
+TODO: Read the following part and run commands to merge them.
 ```
 Understanding the Options
 
