@@ -31,3 +31,6 @@ $ conda activate <virtual_environment_name>
 $ conda deactivate
 ```
 
+```bash
+$ conda update --all
+```
