@@ -23,7 +23,9 @@ $ conda info -e
 $ conda activate <virtual_environment_name>
 ```
 
-
+```bash
+$ conda update -n base -c defaults -y conda
+```
 
 
 
