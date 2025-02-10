@@ -170,7 +170,7 @@ git config pull.rebase true # rebase
 git config pull.ff only # fast-forward only
 ```
 and the answer is:
-```
+
 Let's break down these `git config` commands related to how `git pull` updates your local branch with changes from a remote branch.  They control the behavior when your local branch has diverged from the remote.
 
 *   **`git config pull.rebase false` (Merge):** This is the default behavior. When you run `git pull`, and your local branch has diverged from the remote, Git will create a *merge commit*.  This commit has two parents: the tip of your local branch before the pull, and the tip of the remote branch you're pulling from.  This explicitly shows the point where the branches diverged and were rejoined.  It preserves the history of both branches in a more visually distinct way, but can lead to a more complex history with many merge commits.
@@ -188,5 +188,3 @@ Let's break down these `git config` commands related to how `git pull` updates y
 | `git config pull.ff only`   | Fast-forward only                                                       | Ensures a linear history, prevents accidental non-fast-forward merges. | Pull fails if a fast-forward is not possible.                                     |
 
 Choosing the right option depends on your workflow and team conventions.  Rebasing is often preferred for personal branches before merging into a shared branch, while merging or fast-forward only are safer for shared branches to avoid rewriting history that others might have based their work on.
-```
-
