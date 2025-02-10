@@ -1,15 +1,44 @@
 # How to Combine Local and Remote Branches
 - Created: 2024-12-11 (Wed)
-- Updated: 2024-12-11 (Wed)
+- Updated: 2025-02-10 (Mon)
 
 ## Problem
-On my local machine, I try to `git pull` the remote branch.
+On my local machine, `git push` and `git pull` failed due to divergent branches.
+
+### `git push`
 ```bash
-$ cd /home/thekim/github/genai
+$ git push
+```
+```bash
+Username for 'https://github.com': aimldl
+Password for 'https://aimldl@github.com': 
+To https://github.com/aimldl/vertex-ai.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/aimldl/vertex-ai.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+$
+```
+
+As the message says
+```bash
+ ! [rejected]        main -> main (fetch first)
+```
+fetch first
+```bash
 $ git pull
 ```
-(output)
 ```bash
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 1.90 KiB | 647.00 KiB/s, done.
+From https://github.com/aimldl/vertex-ai
+   8cc81fe..58ccdcf  main       -> origin/main
 hint: You have divergent branches and need to specify how to reconcile them.
 hint: You can do so by running one of the following commands sometime before
 hint: your next pull:
@@ -25,7 +54,28 @@ hint: invocation.
 fatal: Need to specify how to reconcile divergent branches.
 $
 ```
-This message tells that my local branch and the remote branch have diverged.
+
+You have divergent branches and need to specify how to reconcile them.
+You can do so by running one of the following commands sometime before your next pull:
+
+```bash
+  git config pull.rebase false  # merge
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+```
+
+```bash
+
+```
+```bash
+
+```
+```bash
+
+```
+```bash
+
+```
 
 ## Hint
 Specify how to combine the changes in both branches.
