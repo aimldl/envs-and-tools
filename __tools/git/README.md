@@ -1,7 +1,7 @@
-* Rev.2: 2021-01-09 (Sat)
-* Rev.1: 2019-11-10 (Sun)
-* Draft: 2019-05-26 (Sun)
 # Git
+* Created: 2019-05-26 (Sun)
+* Updated: 2025-02-10 (Mon)
+
 Git is a distributed version-control system for tracking changes in source code during software development. Refer to [INSTALL.md](INSTALL.md) for installing and configuring the git command.
 
 ### How to Use github with a Web Browser
@@ -35,5 +35,5 @@ For more information, refer to a discussion in [How to upload an entire folder?]
 * Ref.docs: https://help.github.com/en/articles/moving-a-file-to-a-new-location
 * Summary: In the filename field, use backspace and / to reorganize directories.
 
+## References
 [github에 디렉토리 파일 올리기](https://aimldl.blog.me/221544858468)
-(EOF)
