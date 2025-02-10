@@ -66,9 +66,11 @@ Specify how to combine the changes in both branches.
 
 ### Check the existing branches
 Use the web browser and go to the repository. And click `main` to see the following pull down menu.
+
 <img src="images/git-divergent-branches-click_main-click_view_all_branches.png">
 
 Click `View all branches`.
+
 <img src="images/git-divergent-branches-view_all_branches.png">
 
 Note the two branches are `gh-pages` under `Your branches` and `Active branches`. These branches are automatically created by Jupyter Book and a branch can be created again as long as the source codes in the `main` branch exist.
@@ -76,9 +78,11 @@ Note the two branches are `gh-pages` under `Your branches` and `Active branches`
 ## Solution
 ### Delete the the two branches.
 Click the delete button and delete the two branches.
+
 <img src="images/git-divergent-branches-view_all_branches-delete.png">
 
 `main` is the only branch left.
+
 <img src="images/git-divergent-branches-view_all_branches-main_only-two_branches_are_deleted.png">
 
 ### Note: Deleting them won't fix the problem
