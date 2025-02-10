@@ -10,9 +10,7 @@ On my local machine, `git push` and `git pull` failed due to divergent branches.
 $ git push
 ```
 ```bash
-Username for 'https://github.com': aimldl
-Password for 'https://aimldl@github.com': 
-To https://github.com/aimldl/vertex-ai.git
+   ...
  ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/aimldl/vertex-ai.git'
 hint: Updates were rejected because the remote contains work that you do
