@@ -50,6 +50,7 @@ To double-check, run
 base                 * /home/thekim/anaconda3
   ...
 (base) $
+```
 
 ### Install PyTorch
 When Cuda 10.0 is used, run:
