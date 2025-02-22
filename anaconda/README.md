@@ -11,7 +11,7 @@
 An example command to create a new virtual environment "pytorch" is below. Make sure to update Anaconda before creating a new virtual environment.
 ```bash
 $ conda update -n base -c defaults -y conda
-$ conda create -n pytorch python=3 anaconda
+$ conda create -n pytorch -y python=3 anaconda
 ```
 For details, refer to [Create virtual environments for python with conda](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/).
 ### Install PyTorch
