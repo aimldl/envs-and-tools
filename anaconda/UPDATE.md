@@ -4,7 +4,7 @@
 
 ## Update all
 ```bash
-(base) $ conda update --all
+(base) $ conda update --all -y
 ```
 
 ## With the -y option,
