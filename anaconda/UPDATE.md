@@ -1,8 +1,11 @@
-* Rev.2: 2020-05-22 (Fri)
-* Rev.1: 2020-03-16 (Mon)
-* Draft: 2019-12-18 (Wed)
-
 # Update conda
+* Created: 2019-12-18 (Wed)
+* Updated: 2025-02-22 (Sat)
+
+## Update all
+```bash
+(base) $ conda update --all
+```
 
 ## With the -y option,
 ```bash
