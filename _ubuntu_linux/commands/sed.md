@@ -255,6 +255,43 @@ you_should_wake_me_up_at_seven_amRussell.wav
 you_should_wake_me_up_at_seven_amSalli.wav
 
 #### Example 2
-$ echo "Attention Correctness in Neural Image Captioning" | sed 's/ /_/g'
-Attention_Correctness_in_Neural_Image_Captioning
+
+Rename the existing directories in benchmark_results. For example, klue-ynat is changed to klue_ynat. Apply this change to all sub-directory names the benchmark_results directory. 
+
+```bash
+cd benchmark_results && for dir in klue-*; do if [ -d "$dir" ]; then new_name=$(echo "$dir" | sed 's/klue-/klue_/g'); echo "Renaming $dir to $new_name"; mv "$dir" "$new_name"; fi; done
+```
+
+Before
+```bash
+$ tree -d benchmark_results/
+benchmark_results/
+├── klue-dp
+├── klue-mrc
+├── klue-ner
+├── klue-nli
+├── klue-re
+├── klue-sts
+├── klue-wos
+└── klue-ynat
+
+9 directories
 $
+```
+
+After
+```bash
+$ tree -d benchmark_results/
+benchmark_results/
+├── klue_dp
+├── klue_mrc
+├── klue_ner
+├── klue_nli
+├── klue_re
+├── klue_sts
+├── klue_wos
+└── klue_ynat
+
+9 directories
+$
+```
