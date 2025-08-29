@@ -8,7 +8,7 @@
 - one or more files.
 
 ```bash
-command | tee file_name
+$ command | tee file_name
 ```
 The output of command is sent to tee, which then simultaneously 
 - displays it on the screen (standard output) and
