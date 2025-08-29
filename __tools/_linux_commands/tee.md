@@ -3,8 +3,7 @@
 - The name comes from its function, which is similar to a T-splitter in plumbing, splitting the flow into two directions.
 
 ## Syntax
-### `tee`
-splits the flow into two directions:
+`tee` splits the flow into two directions:
 - standard output and
 - one or more files.
 
@@ -15,8 +14,7 @@ The output of command is sent to tee, which then simultaneously
 - displays it on the screen (standard output) and
 - writes it to the specified file.
 
-### `tee -a`
-appends the new output to the end of the existing content.
+`tee -a` appends the new output to the end of the existing content.
 
 - By default, tee overwrites the file if it already exists.
 - The -a option appends instead of overwriting the file.
