@@ -1,0 +1,9 @@
+#!/bin/bash
+# config
+
+chmod +x batch_git_*
+git config --global user.email "aimldl.tkim@gmail.com"
+git config --global user.name `cat github_user_id.cfg`
+
+sleep 10
+./batch_git_push
